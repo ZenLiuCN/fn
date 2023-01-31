@@ -175,7 +175,7 @@ func genPanicsFn() {
 	}
 }
 func TestGenerate(t *testing.T) {
-	generate("panics.go", genPanics)
+	//generate("panics.go", genPanics)
 	//generate("recovers.go", genRecovers)
 	//generate("drops.go", genDrops)
 	//generate("closures.go", genClosures)
