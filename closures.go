@@ -2,7 +2,87 @@ package fn
 
 //generated file should not edit
 
-// Closure201 with func( 2 in)(0 out) fix first 1 argument
+// Closure101 with func( 1 in)(0 out) closure first 1 argument
+func Closure101[A any](a A, fn func(A)) func() {
+	return func() {
+		fn(a)
+		return
+	}
+}
+
+// Closure111 with func( 1 in)(1 out) closure first 1 argument
+func Closure111[A, B any](a A, fn func(A) B) func() B {
+	return func() (b B) {
+		b = fn(a)
+		return
+	}
+}
+
+// Closure121 with func( 1 in)(2 out) closure first 1 argument
+func Closure121[A, B, C any](a A, fn func(A) (B, C)) func() (B, C) {
+	return func() (b B, c C) {
+		b, c = fn(a)
+		return
+	}
+}
+
+// Closure131 with func( 1 in)(3 out) closure first 1 argument
+func Closure131[A, B, C, D any](a A, fn func(A) (B, C, D)) func() (B, C, D) {
+	return func() (b B, c C, d D) {
+		b, c, d = fn(a)
+		return
+	}
+}
+
+// Closure141 with func( 1 in)(4 out) closure first 1 argument
+func Closure141[A, B, C, D, E any](a A, fn func(A) (B, C, D, E)) func() (B, C, D, E) {
+	return func() (b B, c C, d D, e E) {
+		b, c, d, e = fn(a)
+		return
+	}
+}
+
+// Closure151 with func( 1 in)(5 out) closure first 1 argument
+func Closure151[A, B, C, D, E, F any](a A, fn func(A) (B, C, D, E, F)) func() (B, C, D, E, F) {
+	return func() (b B, c C, d D, e E, f F) {
+		b, c, d, e, f = fn(a)
+		return
+	}
+}
+
+// Closure161 with func( 1 in)(6 out) closure first 1 argument
+func Closure161[A, B, C, D, E, F, G any](a A, fn func(A) (B, C, D, E, F, G)) func() (B, C, D, E, F, G) {
+	return func() (b B, c C, d D, e E, f F, g G) {
+		b, c, d, e, f, g = fn(a)
+		return
+	}
+}
+
+// Closure171 with func( 1 in)(7 out) closure first 1 argument
+func Closure171[A, B, C, D, E, F, G, H any](a A, fn func(A) (B, C, D, E, F, G, H)) func() (B, C, D, E, F, G, H) {
+	return func() (b B, c C, d D, e E, f F, g G, h H) {
+		b, c, d, e, f, g, h = fn(a)
+		return
+	}
+}
+
+// Closure181 with func( 1 in)(8 out) closure first 1 argument
+func Closure181[A, B, C, D, E, F, G, H, I any](a A, fn func(A) (B, C, D, E, F, G, H, I)) func() (B, C, D, E, F, G, H, I) {
+	return func() (b B, c C, d D, e E, f F, g G, h H, i I) {
+		b, c, d, e, f, g, h, i = fn(a)
+		return
+	}
+}
+
+// Closure191 with func( 1 in)(9 out) closure first 1 argument
+func Closure191[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A) (B, C, D, E, F, G, H, I, J)) func() (B, C, D, E, F, G, H, I, J) {
+	return func() (b B, c C, d D, e E, f F, g G, h H, i I, j J) {
+		b, c, d, e, f, g, h, i, j = fn(a)
+		return
+	}
+}
+
+// Closure201 with func( 2 in)(0 out) closure first 1 argument
 func Closure201[A, B any](a A, fn func(A, B)) func(B) {
 	return func(b B) {
 		fn(a, b)
@@ -18,7 +98,15 @@ func ClosureLast201[A, B any](b B, fn func(A, B)) func(A) {
 	}
 }
 
-// Closure211 with func( 2 in)(1 out) fix first 1 argument
+// Closure202 with func( 2 in)(0 out) closure first 2 argument
+func Closure202[A, B any](a A, b B, fn func(A, B)) func() {
+	return func() {
+		fn(a, b)
+		return
+	}
+}
+
+// Closure211 with func( 2 in)(1 out) closure first 1 argument
 func Closure211[A, B, C any](a A, fn func(A, B) C) func(B) C {
 	return func(b B) (c C) {
 		c = fn(a, b)
@@ -34,7 +122,15 @@ func ClosureLast211[A, B, C any](b B, fn func(A, B) C) func(A) C {
 	}
 }
 
-// Closure221 with func( 2 in)(2 out) fix first 1 argument
+// Closure212 with func( 2 in)(1 out) closure first 2 argument
+func Closure212[A, B, C any](a A, b B, fn func(A, B) C) func() C {
+	return func() (c C) {
+		c = fn(a, b)
+		return
+	}
+}
+
+// Closure221 with func( 2 in)(2 out) closure first 1 argument
 func Closure221[A, B, C, D any](a A, fn func(A, B) (C, D)) func(B) (C, D) {
 	return func(b B) (c C, d D) {
 		c, d = fn(a, b)
@@ -50,7 +146,15 @@ func ClosureLast221[A, B, C, D any](b B, fn func(A, B) (C, D)) func(A) (C, D) {
 	}
 }
 
-// Closure231 with func( 2 in)(3 out) fix first 1 argument
+// Closure222 with func( 2 in)(2 out) closure first 2 argument
+func Closure222[A, B, C, D any](a A, b B, fn func(A, B) (C, D)) func() (C, D) {
+	return func() (c C, d D) {
+		c, d = fn(a, b)
+		return
+	}
+}
+
+// Closure231 with func( 2 in)(3 out) closure first 1 argument
 func Closure231[A, B, C, D, E any](a A, fn func(A, B) (C, D, E)) func(B) (C, D, E) {
 	return func(b B) (c C, d D, e E) {
 		c, d, e = fn(a, b)
@@ -66,7 +170,15 @@ func ClosureLast231[A, B, C, D, E any](b B, fn func(A, B) (C, D, E)) func(A) (C,
 	}
 }
 
-// Closure241 with func( 2 in)(4 out) fix first 1 argument
+// Closure232 with func( 2 in)(3 out) closure first 2 argument
+func Closure232[A, B, C, D, E any](a A, b B, fn func(A, B) (C, D, E)) func() (C, D, E) {
+	return func() (c C, d D, e E) {
+		c, d, e = fn(a, b)
+		return
+	}
+}
+
+// Closure241 with func( 2 in)(4 out) closure first 1 argument
 func Closure241[A, B, C, D, E, F any](a A, fn func(A, B) (C, D, E, F)) func(B) (C, D, E, F) {
 	return func(b B) (c C, d D, e E, f F) {
 		c, d, e, f = fn(a, b)
@@ -82,7 +194,15 @@ func ClosureLast241[A, B, C, D, E, F any](b B, fn func(A, B) (C, D, E, F)) func(
 	}
 }
 
-// Closure251 with func( 2 in)(5 out) fix first 1 argument
+// Closure242 with func( 2 in)(4 out) closure first 2 argument
+func Closure242[A, B, C, D, E, F any](a A, b B, fn func(A, B) (C, D, E, F)) func() (C, D, E, F) {
+	return func() (c C, d D, e E, f F) {
+		c, d, e, f = fn(a, b)
+		return
+	}
+}
+
+// Closure251 with func( 2 in)(5 out) closure first 1 argument
 func Closure251[A, B, C, D, E, F, G any](a A, fn func(A, B) (C, D, E, F, G)) func(B) (C, D, E, F, G) {
 	return func(b B) (c C, d D, e E, f F, g G) {
 		c, d, e, f, g = fn(a, b)
@@ -98,7 +218,15 @@ func ClosureLast251[A, B, C, D, E, F, G any](b B, fn func(A, B) (C, D, E, F, G))
 	}
 }
 
-// Closure261 with func( 2 in)(6 out) fix first 1 argument
+// Closure252 with func( 2 in)(5 out) closure first 2 argument
+func Closure252[A, B, C, D, E, F, G any](a A, b B, fn func(A, B) (C, D, E, F, G)) func() (C, D, E, F, G) {
+	return func() (c C, d D, e E, f F, g G) {
+		c, d, e, f, g = fn(a, b)
+		return
+	}
+}
+
+// Closure261 with func( 2 in)(6 out) closure first 1 argument
 func Closure261[A, B, C, D, E, F, G, H any](a A, fn func(A, B) (C, D, E, F, G, H)) func(B) (C, D, E, F, G, H) {
 	return func(b B) (c C, d D, e E, f F, g G, h H) {
 		c, d, e, f, g, h = fn(a, b)
@@ -114,7 +242,15 @@ func ClosureLast261[A, B, C, D, E, F, G, H any](b B, fn func(A, B) (C, D, E, F, 
 	}
 }
 
-// Closure271 with func( 2 in)(7 out) fix first 1 argument
+// Closure262 with func( 2 in)(6 out) closure first 2 argument
+func Closure262[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B) (C, D, E, F, G, H)) func() (C, D, E, F, G, H) {
+	return func() (c C, d D, e E, f F, g G, h H) {
+		c, d, e, f, g, h = fn(a, b)
+		return
+	}
+}
+
+// Closure271 with func( 2 in)(7 out) closure first 1 argument
 func Closure271[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B) (C, D, E, F, G, H, I)) func(B) (C, D, E, F, G, H, I) {
 	return func(b B) (c C, d D, e E, f F, g G, h H, i I) {
 		c, d, e, f, g, h, i = fn(a, b)
@@ -130,7 +266,15 @@ func ClosureLast271[A, B, C, D, E, F, G, H, I any](b B, fn func(A, B) (C, D, E, 
 	}
 }
 
-// Closure281 with func( 2 in)(8 out) fix first 1 argument
+// Closure272 with func( 2 in)(7 out) closure first 2 argument
+func Closure272[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B) (C, D, E, F, G, H, I)) func() (C, D, E, F, G, H, I) {
+	return func() (c C, d D, e E, f F, g G, h H, i I) {
+		c, d, e, f, g, h, i = fn(a, b)
+		return
+	}
+}
+
+// Closure281 with func( 2 in)(8 out) closure first 1 argument
 func Closure281[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B) (C, D, E, F, G, H, I, J)) func(B) (C, D, E, F, G, H, I, J) {
 	return func(b B) (c C, d D, e E, f F, g G, h H, i I, j J) {
 		c, d, e, f, g, h, i, j = fn(a, b)
@@ -146,7 +290,15 @@ func ClosureLast281[A, B, C, D, E, F, G, H, I, J any](b B, fn func(A, B) (C, D, 
 	}
 }
 
-// Closure291 with func( 2 in)(9 out) fix first 1 argument
+// Closure282 with func( 2 in)(8 out) closure first 2 argument
+func Closure282[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B) (C, D, E, F, G, H, I, J)) func() (C, D, E, F, G, H, I, J) {
+	return func() (c C, d D, e E, f F, g G, h H, i I, j J) {
+		c, d, e, f, g, h, i, j = fn(a, b)
+		return
+	}
+}
+
+// Closure291 with func( 2 in)(9 out) closure first 1 argument
 func Closure291[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(B) (C, D, E, F, G, H, I, J, K) {
 	return func(b B) (c C, d D, e E, f F, g G, h H, i I, j J, k K) {
 		c, d, e, f, g, h, i, j, k = fn(a, b)
@@ -162,9 +314,17 @@ func ClosureLast291[A, B, C, D, E, F, G, H, I, J, K any](b B, fn func(A, B) (C, 
 	}
 }
 
-// Closure301 with func( 3 in)(0 out) fix first 1 argument
-func Closure301[A, B, C any](a A, b B, fn func(A, B, C)) func(C) {
-	return func(c C) {
+// Closure292 with func( 2 in)(9 out) closure first 2 argument
+func Closure292[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B) (C, D, E, F, G, H, I, J, K)) func() (C, D, E, F, G, H, I, J, K) {
+	return func() (c C, d D, e E, f F, g G, h H, i I, j J, k K) {
+		c, d, e, f, g, h, i, j, k = fn(a, b)
+		return
+	}
+}
+
+// Closure301 with func( 3 in)(0 out) closure first 1 argument
+func Closure301[A, B, C any](a A, fn func(A, B, C)) func(B, C) {
+	return func(b B, c C) {
 		fn(a, b, c)
 		return
 	}
@@ -178,9 +338,9 @@ func ClosureLast301[A, B, C any](c C, fn func(A, B, C)) func(A, B) {
 	}
 }
 
-// Closure302 with func( 3 in)(0 out) fix first 2 argument
-func Closure302[A, B, C any](a A, fn func(A, B, C)) func(B, C) {
-	return func(b B, c C) {
+// Closure302 with func( 3 in)(0 out) closure first 2 argument
+func Closure302[A, B, C any](a A, b B, fn func(A, B, C)) func(C) {
+	return func(c C) {
 		fn(a, b, c)
 		return
 	}
@@ -194,9 +354,17 @@ func ClosureLast302[A, B, C any](b B, c C, fn func(A, B, C)) func(A) {
 	}
 }
 
-// Closure311 with func( 3 in)(1 out) fix first 1 argument
-func Closure311[A, B, C, D any](a A, b B, fn func(A, B, C) D) func(C) D {
-	return func(c C) (d D) {
+// Closure303 with func( 3 in)(0 out) closure first 3 argument
+func Closure303[A, B, C any](a A, b B, c C, fn func(A, B, C)) func() {
+	return func() {
+		fn(a, b, c)
+		return
+	}
+}
+
+// Closure311 with func( 3 in)(1 out) closure first 1 argument
+func Closure311[A, B, C, D any](a A, fn func(A, B, C) D) func(B, C) D {
+	return func(b B, c C) (d D) {
 		d = fn(a, b, c)
 		return
 	}
@@ -210,9 +378,9 @@ func ClosureLast311[A, B, C, D any](c C, fn func(A, B, C) D) func(A, B) D {
 	}
 }
 
-// Closure312 with func( 3 in)(1 out) fix first 2 argument
-func Closure312[A, B, C, D any](a A, fn func(A, B, C) D) func(B, C) D {
-	return func(b B, c C) (d D) {
+// Closure312 with func( 3 in)(1 out) closure first 2 argument
+func Closure312[A, B, C, D any](a A, b B, fn func(A, B, C) D) func(C) D {
+	return func(c C) (d D) {
 		d = fn(a, b, c)
 		return
 	}
@@ -226,9 +394,17 @@ func ClosureLast312[A, B, C, D any](b B, c C, fn func(A, B, C) D) func(A) D {
 	}
 }
 
-// Closure321 with func( 3 in)(2 out) fix first 1 argument
-func Closure321[A, B, C, D, E any](a A, b B, fn func(A, B, C) (D, E)) func(C) (D, E) {
-	return func(c C) (d D, e E) {
+// Closure313 with func( 3 in)(1 out) closure first 3 argument
+func Closure313[A, B, C, D any](a A, b B, c C, fn func(A, B, C) D) func() D {
+	return func() (d D) {
+		d = fn(a, b, c)
+		return
+	}
+}
+
+// Closure321 with func( 3 in)(2 out) closure first 1 argument
+func Closure321[A, B, C, D, E any](a A, fn func(A, B, C) (D, E)) func(B, C) (D, E) {
+	return func(b B, c C) (d D, e E) {
 		d, e = fn(a, b, c)
 		return
 	}
@@ -242,9 +418,9 @@ func ClosureLast321[A, B, C, D, E any](c C, fn func(A, B, C) (D, E)) func(A, B) 
 	}
 }
 
-// Closure322 with func( 3 in)(2 out) fix first 2 argument
-func Closure322[A, B, C, D, E any](a A, fn func(A, B, C) (D, E)) func(B, C) (D, E) {
-	return func(b B, c C) (d D, e E) {
+// Closure322 with func( 3 in)(2 out) closure first 2 argument
+func Closure322[A, B, C, D, E any](a A, b B, fn func(A, B, C) (D, E)) func(C) (D, E) {
+	return func(c C) (d D, e E) {
 		d, e = fn(a, b, c)
 		return
 	}
@@ -258,9 +434,17 @@ func ClosureLast322[A, B, C, D, E any](b B, c C, fn func(A, B, C) (D, E)) func(A
 	}
 }
 
-// Closure331 with func( 3 in)(3 out) fix first 1 argument
-func Closure331[A, B, C, D, E, F any](a A, b B, fn func(A, B, C) (D, E, F)) func(C) (D, E, F) {
-	return func(c C) (d D, e E, f F) {
+// Closure323 with func( 3 in)(2 out) closure first 3 argument
+func Closure323[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C) (D, E)) func() (D, E) {
+	return func() (d D, e E) {
+		d, e = fn(a, b, c)
+		return
+	}
+}
+
+// Closure331 with func( 3 in)(3 out) closure first 1 argument
+func Closure331[A, B, C, D, E, F any](a A, fn func(A, B, C) (D, E, F)) func(B, C) (D, E, F) {
+	return func(b B, c C) (d D, e E, f F) {
 		d, e, f = fn(a, b, c)
 		return
 	}
@@ -274,9 +458,9 @@ func ClosureLast331[A, B, C, D, E, F any](c C, fn func(A, B, C) (D, E, F)) func(
 	}
 }
 
-// Closure332 with func( 3 in)(3 out) fix first 2 argument
-func Closure332[A, B, C, D, E, F any](a A, fn func(A, B, C) (D, E, F)) func(B, C) (D, E, F) {
-	return func(b B, c C) (d D, e E, f F) {
+// Closure332 with func( 3 in)(3 out) closure first 2 argument
+func Closure332[A, B, C, D, E, F any](a A, b B, fn func(A, B, C) (D, E, F)) func(C) (D, E, F) {
+	return func(c C) (d D, e E, f F) {
 		d, e, f = fn(a, b, c)
 		return
 	}
@@ -290,9 +474,17 @@ func ClosureLast332[A, B, C, D, E, F any](b B, c C, fn func(A, B, C) (D, E, F)) 
 	}
 }
 
-// Closure341 with func( 3 in)(4 out) fix first 1 argument
-func Closure341[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C) (D, E, F, G)) func(C) (D, E, F, G) {
-	return func(c C) (d D, e E, f F, g G) {
+// Closure333 with func( 3 in)(3 out) closure first 3 argument
+func Closure333[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C) (D, E, F)) func() (D, E, F) {
+	return func() (d D, e E, f F) {
+		d, e, f = fn(a, b, c)
+		return
+	}
+}
+
+// Closure341 with func( 3 in)(4 out) closure first 1 argument
+func Closure341[A, B, C, D, E, F, G any](a A, fn func(A, B, C) (D, E, F, G)) func(B, C) (D, E, F, G) {
+	return func(b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g = fn(a, b, c)
 		return
 	}
@@ -306,9 +498,9 @@ func ClosureLast341[A, B, C, D, E, F, G any](c C, fn func(A, B, C) (D, E, F, G))
 	}
 }
 
-// Closure342 with func( 3 in)(4 out) fix first 2 argument
-func Closure342[A, B, C, D, E, F, G any](a A, fn func(A, B, C) (D, E, F, G)) func(B, C) (D, E, F, G) {
-	return func(b B, c C) (d D, e E, f F, g G) {
+// Closure342 with func( 3 in)(4 out) closure first 2 argument
+func Closure342[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C) (D, E, F, G)) func(C) (D, E, F, G) {
+	return func(c C) (d D, e E, f F, g G) {
 		d, e, f, g = fn(a, b, c)
 		return
 	}
@@ -322,9 +514,17 @@ func ClosureLast342[A, B, C, D, E, F, G any](b B, c C, fn func(A, B, C) (D, E, F
 	}
 }
 
-// Closure351 with func( 3 in)(5 out) fix first 1 argument
-func Closure351[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C) (D, E, F, G, H)) func(C) (D, E, F, G, H) {
-	return func(c C) (d D, e E, f F, g G, h H) {
+// Closure343 with func( 3 in)(4 out) closure first 3 argument
+func Closure343[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C) (D, E, F, G)) func() (D, E, F, G) {
+	return func() (d D, e E, f F, g G) {
+		d, e, f, g = fn(a, b, c)
+		return
+	}
+}
+
+// Closure351 with func( 3 in)(5 out) closure first 1 argument
+func Closure351[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C) (D, E, F, G, H)) func(B, C) (D, E, F, G, H) {
+	return func(b B, c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h = fn(a, b, c)
 		return
 	}
@@ -338,9 +538,9 @@ func ClosureLast351[A, B, C, D, E, F, G, H any](c C, fn func(A, B, C) (D, E, F, 
 	}
 }
 
-// Closure352 with func( 3 in)(5 out) fix first 2 argument
-func Closure352[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C) (D, E, F, G, H)) func(B, C) (D, E, F, G, H) {
-	return func(b B, c C) (d D, e E, f F, g G, h H) {
+// Closure352 with func( 3 in)(5 out) closure first 2 argument
+func Closure352[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C) (D, E, F, G, H)) func(C) (D, E, F, G, H) {
+	return func(c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h = fn(a, b, c)
 		return
 	}
@@ -354,9 +554,17 @@ func ClosureLast352[A, B, C, D, E, F, G, H any](b B, c C, fn func(A, B, C) (D, E
 	}
 }
 
-// Closure361 with func( 3 in)(6 out) fix first 1 argument
-func Closure361[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I)) func(C) (D, E, F, G, H, I) {
-	return func(c C) (d D, e E, f F, g G, h H, i I) {
+// Closure353 with func( 3 in)(5 out) closure first 3 argument
+func Closure353[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C) (D, E, F, G, H)) func() (D, E, F, G, H) {
+	return func() (d D, e E, f F, g G, h H) {
+		d, e, f, g, h = fn(a, b, c)
+		return
+	}
+}
+
+// Closure361 with func( 3 in)(6 out) closure first 1 argument
+func Closure361[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C) (D, E, F, G, H, I)) func(B, C) (D, E, F, G, H, I) {
+	return func(b B, c C) (d D, e E, f F, g G, h H, i I) {
 		d, e, f, g, h, i = fn(a, b, c)
 		return
 	}
@@ -370,9 +578,9 @@ func ClosureLast361[A, B, C, D, E, F, G, H, I any](c C, fn func(A, B, C) (D, E, 
 	}
 }
 
-// Closure362 with func( 3 in)(6 out) fix first 2 argument
-func Closure362[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C) (D, E, F, G, H, I)) func(B, C) (D, E, F, G, H, I) {
-	return func(b B, c C) (d D, e E, f F, g G, h H, i I) {
+// Closure362 with func( 3 in)(6 out) closure first 2 argument
+func Closure362[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I)) func(C) (D, E, F, G, H, I) {
+	return func(c C) (d D, e E, f F, g G, h H, i I) {
 		d, e, f, g, h, i = fn(a, b, c)
 		return
 	}
@@ -386,9 +594,17 @@ func ClosureLast362[A, B, C, D, E, F, G, H, I any](b B, c C, fn func(A, B, C) (D
 	}
 }
 
-// Closure371 with func( 3 in)(7 out) fix first 1 argument
-func Closure371[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J)) func(C) (D, E, F, G, H, I, J) {
-	return func(c C) (d D, e E, f F, g G, h H, i I, j J) {
+// Closure363 with func( 3 in)(6 out) closure first 3 argument
+func Closure363[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C) (D, E, F, G, H, I)) func() (D, E, F, G, H, I) {
+	return func() (d D, e E, f F, g G, h H, i I) {
+		d, e, f, g, h, i = fn(a, b, c)
+		return
+	}
+}
+
+// Closure371 with func( 3 in)(7 out) closure first 1 argument
+func Closure371[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C) (D, E, F, G, H, I, J)) func(B, C) (D, E, F, G, H, I, J) {
+	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J) {
 		d, e, f, g, h, i, j = fn(a, b, c)
 		return
 	}
@@ -402,9 +618,9 @@ func ClosureLast371[A, B, C, D, E, F, G, H, I, J any](c C, fn func(A, B, C) (D, 
 	}
 }
 
-// Closure372 with func( 3 in)(7 out) fix first 2 argument
-func Closure372[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C) (D, E, F, G, H, I, J)) func(B, C) (D, E, F, G, H, I, J) {
-	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J) {
+// Closure372 with func( 3 in)(7 out) closure first 2 argument
+func Closure372[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J)) func(C) (D, E, F, G, H, I, J) {
+	return func(c C) (d D, e E, f F, g G, h H, i I, j J) {
 		d, e, f, g, h, i, j = fn(a, b, c)
 		return
 	}
@@ -418,9 +634,17 @@ func ClosureLast372[A, B, C, D, E, F, G, H, I, J any](b B, c C, fn func(A, B, C)
 	}
 }
 
-// Closure381 with func( 3 in)(8 out) fix first 1 argument
-func Closure381[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(C) (D, E, F, G, H, I, J, K) {
-	return func(c C) (d D, e E, f F, g G, h H, i I, j J, k K) {
+// Closure373 with func( 3 in)(7 out) closure first 3 argument
+func Closure373[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C) (D, E, F, G, H, I, J)) func() (D, E, F, G, H, I, J) {
+	return func() (d D, e E, f F, g G, h H, i I, j J) {
+		d, e, f, g, h, i, j = fn(a, b, c)
+		return
+	}
+}
+
+// Closure381 with func( 3 in)(8 out) closure first 1 argument
+func Closure381[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(B, C) (D, E, F, G, H, I, J, K) {
+	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K) {
 		d, e, f, g, h, i, j, k = fn(a, b, c)
 		return
 	}
@@ -434,9 +658,9 @@ func ClosureLast381[A, B, C, D, E, F, G, H, I, J, K any](c C, fn func(A, B, C) (
 	}
 }
 
-// Closure382 with func( 3 in)(8 out) fix first 2 argument
-func Closure382[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(B, C) (D, E, F, G, H, I, J, K) {
-	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K) {
+// Closure382 with func( 3 in)(8 out) closure first 2 argument
+func Closure382[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(C) (D, E, F, G, H, I, J, K) {
+	return func(c C) (d D, e E, f F, g G, h H, i I, j J, k K) {
 		d, e, f, g, h, i, j, k = fn(a, b, c)
 		return
 	}
@@ -450,9 +674,17 @@ func ClosureLast382[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, fn func(A, B,
 	}
 }
 
-// Closure391 with func( 3 in)(9 out) fix first 1 argument
-func Closure391[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(C) (D, E, F, G, H, I, J, K, L) {
-	return func(c C) (d D, e E, f F, g G, h H, i I, j J, k K, l L) {
+// Closure383 with func( 3 in)(8 out) closure first 3 argument
+func Closure383[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C) (D, E, F, G, H, I, J, K)) func() (D, E, F, G, H, I, J, K) {
+	return func() (d D, e E, f F, g G, h H, i I, j J, k K) {
+		d, e, f, g, h, i, j, k = fn(a, b, c)
+		return
+	}
+}
+
+// Closure391 with func( 3 in)(9 out) closure first 1 argument
+func Closure391[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(B, C) (D, E, F, G, H, I, J, K, L) {
+	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K, l L) {
 		d, e, f, g, h, i, j, k, l = fn(a, b, c)
 		return
 	}
@@ -466,9 +698,9 @@ func ClosureLast391[A, B, C, D, E, F, G, H, I, J, K, L any](c C, fn func(A, B, C
 	}
 }
 
-// Closure392 with func( 3 in)(9 out) fix first 2 argument
-func Closure392[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(B, C) (D, E, F, G, H, I, J, K, L) {
-	return func(b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K, l L) {
+// Closure392 with func( 3 in)(9 out) closure first 2 argument
+func Closure392[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(C) (D, E, F, G, H, I, J, K, L) {
+	return func(c C) (d D, e E, f F, g G, h H, i I, j J, k K, l L) {
 		d, e, f, g, h, i, j, k, l = fn(a, b, c)
 		return
 	}
@@ -482,9 +714,17 @@ func ClosureLast392[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, fn func(A,
 	}
 }
 
-// Closure401 with func( 4 in)(0 out) fix first 1 argument
-func Closure401[A, B, C, D any](a A, b B, c C, fn func(A, B, C, D)) func(D) {
-	return func(d D) {
+// Closure393 with func( 3 in)(9 out) closure first 3 argument
+func Closure393[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func() (D, E, F, G, H, I, J, K, L) {
+	return func() (d D, e E, f F, g G, h H, i I, j J, k K, l L) {
+		d, e, f, g, h, i, j, k, l = fn(a, b, c)
+		return
+	}
+}
+
+// Closure401 with func( 4 in)(0 out) closure first 1 argument
+func Closure401[A, B, C, D any](a A, fn func(A, B, C, D)) func(B, C, D) {
+	return func(b B, c C, d D) {
 		fn(a, b, c, d)
 		return
 	}
@@ -498,7 +738,7 @@ func ClosureLast401[A, B, C, D any](d D, fn func(A, B, C, D)) func(A, B, C) {
 	}
 }
 
-// Closure402 with func( 4 in)(0 out) fix first 2 argument
+// Closure402 with func( 4 in)(0 out) closure first 2 argument
 func Closure402[A, B, C, D any](a A, b B, fn func(A, B, C, D)) func(C, D) {
 	return func(c C, d D) {
 		fn(a, b, c, d)
@@ -514,9 +754,9 @@ func ClosureLast402[A, B, C, D any](c C, d D, fn func(A, B, C, D)) func(A, B) {
 	}
 }
 
-// Closure403 with func( 4 in)(0 out) fix first 3 argument
-func Closure403[A, B, C, D any](a A, fn func(A, B, C, D)) func(B, C, D) {
-	return func(b B, c C, d D) {
+// Closure403 with func( 4 in)(0 out) closure first 3 argument
+func Closure403[A, B, C, D any](a A, b B, c C, fn func(A, B, C, D)) func(D) {
+	return func(d D) {
 		fn(a, b, c, d)
 		return
 	}
@@ -530,9 +770,17 @@ func ClosureLast403[A, B, C, D any](b B, c C, d D, fn func(A, B, C, D)) func(A) 
 	}
 }
 
-// Closure411 with func( 4 in)(1 out) fix first 1 argument
-func Closure411[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C, D) E) func(D) E {
-	return func(d D) (e E) {
+// Closure404 with func( 4 in)(0 out) closure first 4 argument
+func Closure404[A, B, C, D any](a A, b B, c C, d D, fn func(A, B, C, D)) func() {
+	return func() {
+		fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure411 with func( 4 in)(1 out) closure first 1 argument
+func Closure411[A, B, C, D, E any](a A, fn func(A, B, C, D) E) func(B, C, D) E {
+	return func(b B, c C, d D) (e E) {
 		e = fn(a, b, c, d)
 		return
 	}
@@ -546,7 +794,7 @@ func ClosureLast411[A, B, C, D, E any](d D, fn func(A, B, C, D) E) func(A, B, C)
 	}
 }
 
-// Closure412 with func( 4 in)(1 out) fix first 2 argument
+// Closure412 with func( 4 in)(1 out) closure first 2 argument
 func Closure412[A, B, C, D, E any](a A, b B, fn func(A, B, C, D) E) func(C, D) E {
 	return func(c C, d D) (e E) {
 		e = fn(a, b, c, d)
@@ -562,9 +810,9 @@ func ClosureLast412[A, B, C, D, E any](c C, d D, fn func(A, B, C, D) E) func(A, 
 	}
 }
 
-// Closure413 with func( 4 in)(1 out) fix first 3 argument
-func Closure413[A, B, C, D, E any](a A, fn func(A, B, C, D) E) func(B, C, D) E {
-	return func(b B, c C, d D) (e E) {
+// Closure413 with func( 4 in)(1 out) closure first 3 argument
+func Closure413[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C, D) E) func(D) E {
+	return func(d D) (e E) {
 		e = fn(a, b, c, d)
 		return
 	}
@@ -578,9 +826,17 @@ func ClosureLast413[A, B, C, D, E any](b B, c C, d D, fn func(A, B, C, D) E) fun
 	}
 }
 
-// Closure421 with func( 4 in)(2 out) fix first 1 argument
-func Closure421[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C, D) (E, F)) func(D) (E, F) {
-	return func(d D) (e E, f F) {
+// Closure414 with func( 4 in)(1 out) closure first 4 argument
+func Closure414[A, B, C, D, E any](a A, b B, c C, d D, fn func(A, B, C, D) E) func() E {
+	return func() (e E) {
+		e = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure421 with func( 4 in)(2 out) closure first 1 argument
+func Closure421[A, B, C, D, E, F any](a A, fn func(A, B, C, D) (E, F)) func(B, C, D) (E, F) {
+	return func(b B, c C, d D) (e E, f F) {
 		e, f = fn(a, b, c, d)
 		return
 	}
@@ -594,7 +850,7 @@ func ClosureLast421[A, B, C, D, E, F any](d D, fn func(A, B, C, D) (E, F)) func(
 	}
 }
 
-// Closure422 with func( 4 in)(2 out) fix first 2 argument
+// Closure422 with func( 4 in)(2 out) closure first 2 argument
 func Closure422[A, B, C, D, E, F any](a A, b B, fn func(A, B, C, D) (E, F)) func(C, D) (E, F) {
 	return func(c C, d D) (e E, f F) {
 		e, f = fn(a, b, c, d)
@@ -610,9 +866,9 @@ func ClosureLast422[A, B, C, D, E, F any](c C, d D, fn func(A, B, C, D) (E, F)) 
 	}
 }
 
-// Closure423 with func( 4 in)(2 out) fix first 3 argument
-func Closure423[A, B, C, D, E, F any](a A, fn func(A, B, C, D) (E, F)) func(B, C, D) (E, F) {
-	return func(b B, c C, d D) (e E, f F) {
+// Closure423 with func( 4 in)(2 out) closure first 3 argument
+func Closure423[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C, D) (E, F)) func(D) (E, F) {
+	return func(d D) (e E, f F) {
 		e, f = fn(a, b, c, d)
 		return
 	}
@@ -626,9 +882,17 @@ func ClosureLast423[A, B, C, D, E, F any](b B, c C, d D, fn func(A, B, C, D) (E,
 	}
 }
 
-// Closure431 with func( 4 in)(3 out) fix first 1 argument
-func Closure431[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D) (E, F, G)) func(D) (E, F, G) {
-	return func(d D) (e E, f F, g G) {
+// Closure424 with func( 4 in)(2 out) closure first 4 argument
+func Closure424[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F)) func() (E, F) {
+	return func() (e E, f F) {
+		e, f = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure431 with func( 4 in)(3 out) closure first 1 argument
+func Closure431[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D) (E, F, G)) func(B, C, D) (E, F, G) {
+	return func(b B, c C, d D) (e E, f F, g G) {
 		e, f, g = fn(a, b, c, d)
 		return
 	}
@@ -642,7 +906,7 @@ func ClosureLast431[A, B, C, D, E, F, G any](d D, fn func(A, B, C, D) (E, F, G))
 	}
 }
 
-// Closure432 with func( 4 in)(3 out) fix first 2 argument
+// Closure432 with func( 4 in)(3 out) closure first 2 argument
 func Closure432[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D) (E, F, G)) func(C, D) (E, F, G) {
 	return func(c C, d D) (e E, f F, g G) {
 		e, f, g = fn(a, b, c, d)
@@ -658,9 +922,9 @@ func ClosureLast432[A, B, C, D, E, F, G any](c C, d D, fn func(A, B, C, D) (E, F
 	}
 }
 
-// Closure433 with func( 4 in)(3 out) fix first 3 argument
-func Closure433[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D) (E, F, G)) func(B, C, D) (E, F, G) {
-	return func(b B, c C, d D) (e E, f F, g G) {
+// Closure433 with func( 4 in)(3 out) closure first 3 argument
+func Closure433[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D) (E, F, G)) func(D) (E, F, G) {
+	return func(d D) (e E, f F, g G) {
 		e, f, g = fn(a, b, c, d)
 		return
 	}
@@ -674,9 +938,17 @@ func ClosureLast433[A, B, C, D, E, F, G any](b B, c C, d D, fn func(A, B, C, D) 
 	}
 }
 
-// Closure441 with func( 4 in)(4 out) fix first 1 argument
-func Closure441[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H)) func(D) (E, F, G, H) {
-	return func(d D) (e E, f F, g G, h H) {
+// Closure434 with func( 4 in)(3 out) closure first 4 argument
+func Closure434[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G)) func() (E, F, G) {
+	return func() (e E, f F, g G) {
+		e, f, g = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure441 with func( 4 in)(4 out) closure first 1 argument
+func Closure441[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D) (E, F, G, H)) func(B, C, D) (E, F, G, H) {
+	return func(b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h = fn(a, b, c, d)
 		return
 	}
@@ -690,7 +962,7 @@ func ClosureLast441[A, B, C, D, E, F, G, H any](d D, fn func(A, B, C, D) (E, F, 
 	}
 }
 
-// Closure442 with func( 4 in)(4 out) fix first 2 argument
+// Closure442 with func( 4 in)(4 out) closure first 2 argument
 func Closure442[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D) (E, F, G, H)) func(C, D) (E, F, G, H) {
 	return func(c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h = fn(a, b, c, d)
@@ -706,9 +978,9 @@ func ClosureLast442[A, B, C, D, E, F, G, H any](c C, d D, fn func(A, B, C, D) (E
 	}
 }
 
-// Closure443 with func( 4 in)(4 out) fix first 3 argument
-func Closure443[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D) (E, F, G, H)) func(B, C, D) (E, F, G, H) {
-	return func(b B, c C, d D) (e E, f F, g G, h H) {
+// Closure443 with func( 4 in)(4 out) closure first 3 argument
+func Closure443[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H)) func(D) (E, F, G, H) {
+	return func(d D) (e E, f F, g G, h H) {
 		e, f, g, h = fn(a, b, c, d)
 		return
 	}
@@ -722,9 +994,17 @@ func ClosureLast443[A, B, C, D, E, F, G, H any](b B, c C, d D, fn func(A, B, C, 
 	}
 }
 
-// Closure451 with func( 4 in)(5 out) fix first 1 argument
-func Closure451[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I)) func(D) (E, F, G, H, I) {
-	return func(d D) (e E, f F, g G, h H, i I) {
+// Closure444 with func( 4 in)(4 out) closure first 4 argument
+func Closure444[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H)) func() (E, F, G, H) {
+	return func() (e E, f F, g G, h H) {
+		e, f, g, h = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure451 with func( 4 in)(5 out) closure first 1 argument
+func Closure451[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D) (E, F, G, H, I)) func(B, C, D) (E, F, G, H, I) {
+	return func(b B, c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i = fn(a, b, c, d)
 		return
 	}
@@ -738,7 +1018,7 @@ func ClosureLast451[A, B, C, D, E, F, G, H, I any](d D, fn func(A, B, C, D) (E, 
 	}
 }
 
-// Closure452 with func( 4 in)(5 out) fix first 2 argument
+// Closure452 with func( 4 in)(5 out) closure first 2 argument
 func Closure452[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D) (E, F, G, H, I)) func(C, D) (E, F, G, H, I) {
 	return func(c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i = fn(a, b, c, d)
@@ -754,9 +1034,9 @@ func ClosureLast452[A, B, C, D, E, F, G, H, I any](c C, d D, fn func(A, B, C, D)
 	}
 }
 
-// Closure453 with func( 4 in)(5 out) fix first 3 argument
-func Closure453[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D) (E, F, G, H, I)) func(B, C, D) (E, F, G, H, I) {
-	return func(b B, c C, d D) (e E, f F, g G, h H, i I) {
+// Closure453 with func( 4 in)(5 out) closure first 3 argument
+func Closure453[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I)) func(D) (E, F, G, H, I) {
+	return func(d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i = fn(a, b, c, d)
 		return
 	}
@@ -770,9 +1050,17 @@ func ClosureLast453[A, B, C, D, E, F, G, H, I any](b B, c C, d D, fn func(A, B, 
 	}
 }
 
-// Closure461 with func( 4 in)(6 out) fix first 1 argument
-func Closure461[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J)) func(D) (E, F, G, H, I, J) {
-	return func(d D) (e E, f F, g G, h H, i I, j J) {
+// Closure454 with func( 4 in)(5 out) closure first 4 argument
+func Closure454[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H, I)) func() (E, F, G, H, I) {
+	return func() (e E, f F, g G, h H, i I) {
+		e, f, g, h, i = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure461 with func( 4 in)(6 out) closure first 1 argument
+func Closure461[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D) (E, F, G, H, I, J)) func(B, C, D) (E, F, G, H, I, J) {
+	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j = fn(a, b, c, d)
 		return
 	}
@@ -786,7 +1074,7 @@ func ClosureLast461[A, B, C, D, E, F, G, H, I, J any](d D, fn func(A, B, C, D) (
 	}
 }
 
-// Closure462 with func( 4 in)(6 out) fix first 2 argument
+// Closure462 with func( 4 in)(6 out) closure first 2 argument
 func Closure462[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D) (E, F, G, H, I, J)) func(C, D) (E, F, G, H, I, J) {
 	return func(c C, d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j = fn(a, b, c, d)
@@ -802,9 +1090,9 @@ func ClosureLast462[A, B, C, D, E, F, G, H, I, J any](c C, d D, fn func(A, B, C,
 	}
 }
 
-// Closure463 with func( 4 in)(6 out) fix first 3 argument
-func Closure463[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D) (E, F, G, H, I, J)) func(B, C, D) (E, F, G, H, I, J) {
-	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J) {
+// Closure463 with func( 4 in)(6 out) closure first 3 argument
+func Closure463[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J)) func(D) (E, F, G, H, I, J) {
+	return func(d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j = fn(a, b, c, d)
 		return
 	}
@@ -818,9 +1106,17 @@ func ClosureLast463[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, fn func(A, 
 	}
 }
 
-// Closure471 with func( 4 in)(7 out) fix first 1 argument
-func Closure471[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(D) (E, F, G, H, I, J, K) {
-	return func(d D) (e E, f F, g G, h H, i I, j J, k K) {
+// Closure464 with func( 4 in)(6 out) closure first 4 argument
+func Closure464[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H, I, J)) func() (E, F, G, H, I, J) {
+	return func() (e E, f F, g G, h H, i I, j J) {
+		e, f, g, h, i, j = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure471 with func( 4 in)(7 out) closure first 1 argument
+func Closure471[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(B, C, D) (E, F, G, H, I, J, K) {
+	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K) {
 		e, f, g, h, i, j, k = fn(a, b, c, d)
 		return
 	}
@@ -834,7 +1130,7 @@ func ClosureLast471[A, B, C, D, E, F, G, H, I, J, K any](d D, fn func(A, B, C, D
 	}
 }
 
-// Closure472 with func( 4 in)(7 out) fix first 2 argument
+// Closure472 with func( 4 in)(7 out) closure first 2 argument
 func Closure472[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(C, D) (E, F, G, H, I, J, K) {
 	return func(c C, d D) (e E, f F, g G, h H, i I, j J, k K) {
 		e, f, g, h, i, j, k = fn(a, b, c, d)
@@ -850,9 +1146,9 @@ func ClosureLast472[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, fn func(A, B,
 	}
 }
 
-// Closure473 with func( 4 in)(7 out) fix first 3 argument
-func Closure473[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(B, C, D) (E, F, G, H, I, J, K) {
-	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K) {
+// Closure473 with func( 4 in)(7 out) closure first 3 argument
+func Closure473[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(D) (E, F, G, H, I, J, K) {
+	return func(d D) (e E, f F, g G, h H, i I, j J, k K) {
 		e, f, g, h, i, j, k = fn(a, b, c, d)
 		return
 	}
@@ -866,9 +1162,17 @@ func ClosureLast473[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, fn func(
 	}
 }
 
-// Closure481 with func( 4 in)(8 out) fix first 1 argument
-func Closure481[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(D) (E, F, G, H, I, J, K, L) {
-	return func(d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
+// Closure474 with func( 4 in)(7 out) closure first 4 argument
+func Closure474[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H, I, J, K)) func() (E, F, G, H, I, J, K) {
+	return func() (e E, f F, g G, h H, i I, j J, k K) {
+		e, f, g, h, i, j, k = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure481 with func( 4 in)(8 out) closure first 1 argument
+func Closure481[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(B, C, D) (E, F, G, H, I, J, K, L) {
+	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
 		e, f, g, h, i, j, k, l = fn(a, b, c, d)
 		return
 	}
@@ -882,7 +1186,7 @@ func ClosureLast481[A, B, C, D, E, F, G, H, I, J, K, L any](d D, fn func(A, B, C
 	}
 }
 
-// Closure482 with func( 4 in)(8 out) fix first 2 argument
+// Closure482 with func( 4 in)(8 out) closure first 2 argument
 func Closure482[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(C, D) (E, F, G, H, I, J, K, L) {
 	return func(c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
 		e, f, g, h, i, j, k, l = fn(a, b, c, d)
@@ -898,9 +1202,9 @@ func ClosureLast482[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, fn func(A,
 	}
 }
 
-// Closure483 with func( 4 in)(8 out) fix first 3 argument
-func Closure483[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(B, C, D) (E, F, G, H, I, J, K, L) {
-	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
+// Closure483 with func( 4 in)(8 out) closure first 3 argument
+func Closure483[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(D) (E, F, G, H, I, J, K, L) {
+	return func(d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
 		e, f, g, h, i, j, k, l = fn(a, b, c, d)
 		return
 	}
@@ -914,9 +1218,17 @@ func ClosureLast483[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, fn fu
 	}
 }
 
-// Closure491 with func( 4 in)(9 out) fix first 1 argument
-func Closure491[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(D) (E, F, G, H, I, J, K, L, M) {
-	return func(d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure484 with func( 4 in)(8 out) closure first 4 argument
+func Closure484[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func() (E, F, G, H, I, J, K, L) {
+	return func() (e E, f F, g G, h H, i I, j J, k K, l L) {
+		e, f, g, h, i, j, k, l = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure491 with func( 4 in)(9 out) closure first 1 argument
+func Closure491[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(B, C, D) (E, F, G, H, I, J, K, L, M) {
+	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
 		e, f, g, h, i, j, k, l, m = fn(a, b, c, d)
 		return
 	}
@@ -930,7 +1242,7 @@ func ClosureLast491[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, fn func(A, B
 	}
 }
 
-// Closure492 with func( 4 in)(9 out) fix first 2 argument
+// Closure492 with func( 4 in)(9 out) closure first 2 argument
 func Closure492[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(C, D) (E, F, G, H, I, J, K, L, M) {
 	return func(c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
 		e, f, g, h, i, j, k, l, m = fn(a, b, c, d)
@@ -946,9 +1258,9 @@ func ClosureLast492[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, fn func
 	}
 }
 
-// Closure493 with func( 4 in)(9 out) fix first 3 argument
-func Closure493[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(B, C, D) (E, F, G, H, I, J, K, L, M) {
-	return func(b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure493 with func( 4 in)(9 out) closure first 3 argument
+func Closure493[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(D) (E, F, G, H, I, J, K, L, M) {
+	return func(d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
 		e, f, g, h, i, j, k, l, m = fn(a, b, c, d)
 		return
 	}
@@ -962,9 +1274,17 @@ func ClosureLast493[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, fn
 	}
 }
 
-// Closure501 with func( 5 in)(0 out) fix first 1 argument
-func Closure501[A, B, C, D, E any](a A, b B, c C, d D, fn func(A, B, C, D, E)) func(E) {
-	return func(e E) {
+// Closure494 with func( 4 in)(9 out) closure first 4 argument
+func Closure494[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func() (E, F, G, H, I, J, K, L, M) {
+	return func() (e E, f F, g G, h H, i I, j J, k K, l L, m M) {
+		e, f, g, h, i, j, k, l, m = fn(a, b, c, d)
+		return
+	}
+}
+
+// Closure501 with func( 5 in)(0 out) closure first 1 argument
+func Closure501[A, B, C, D, E any](a A, fn func(A, B, C, D, E)) func(B, C, D, E) {
+	return func(b B, c C, d D, e E) {
 		fn(a, b, c, d, e)
 		return
 	}
@@ -978,9 +1298,9 @@ func ClosureLast501[A, B, C, D, E any](e E, fn func(A, B, C, D, E)) func(A, B, C
 	}
 }
 
-// Closure502 with func( 5 in)(0 out) fix first 2 argument
-func Closure502[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C, D, E)) func(D, E) {
-	return func(d D, e E) {
+// Closure502 with func( 5 in)(0 out) closure first 2 argument
+func Closure502[A, B, C, D, E any](a A, b B, fn func(A, B, C, D, E)) func(C, D, E) {
+	return func(c C, d D, e E) {
 		fn(a, b, c, d, e)
 		return
 	}
@@ -994,9 +1314,9 @@ func ClosureLast502[A, B, C, D, E any](d D, e E, fn func(A, B, C, D, E)) func(A,
 	}
 }
 
-// Closure503 with func( 5 in)(0 out) fix first 3 argument
-func Closure503[A, B, C, D, E any](a A, b B, fn func(A, B, C, D, E)) func(C, D, E) {
-	return func(c C, d D, e E) {
+// Closure503 with func( 5 in)(0 out) closure first 3 argument
+func Closure503[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C, D, E)) func(D, E) {
+	return func(d D, e E) {
 		fn(a, b, c, d, e)
 		return
 	}
@@ -1010,9 +1330,9 @@ func ClosureLast503[A, B, C, D, E any](c C, d D, e E, fn func(A, B, C, D, E)) fu
 	}
 }
 
-// Closure504 with func( 5 in)(0 out) fix first 4 argument
-func Closure504[A, B, C, D, E any](a A, fn func(A, B, C, D, E)) func(B, C, D, E) {
-	return func(b B, c C, d D, e E) {
+// Closure504 with func( 5 in)(0 out) closure first 4 argument
+func Closure504[A, B, C, D, E any](a A, b B, c C, d D, fn func(A, B, C, D, E)) func(E) {
+	return func(e E) {
 		fn(a, b, c, d, e)
 		return
 	}
@@ -1026,9 +1346,17 @@ func ClosureLast504[A, B, C, D, E any](b B, c C, d D, e E, fn func(A, B, C, D, E
 	}
 }
 
-// Closure511 with func( 5 in)(1 out) fix first 1 argument
-func Closure511[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D, E) F) func(E) F {
-	return func(e E) (f F) {
+// Closure505 with func( 5 in)(0 out) closure first 5 argument
+func Closure505[A, B, C, D, E any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E)) func() {
+	return func() {
+		fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure511 with func( 5 in)(1 out) closure first 1 argument
+func Closure511[A, B, C, D, E, F any](a A, fn func(A, B, C, D, E) F) func(B, C, D, E) F {
+	return func(b B, c C, d D, e E) (f F) {
 		f = fn(a, b, c, d, e)
 		return
 	}
@@ -1042,9 +1370,9 @@ func ClosureLast511[A, B, C, D, E, F any](e E, fn func(A, B, C, D, E) F) func(A,
 	}
 }
 
-// Closure512 with func( 5 in)(1 out) fix first 2 argument
-func Closure512[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C, D, E) F) func(D, E) F {
-	return func(d D, e E) (f F) {
+// Closure512 with func( 5 in)(1 out) closure first 2 argument
+func Closure512[A, B, C, D, E, F any](a A, b B, fn func(A, B, C, D, E) F) func(C, D, E) F {
+	return func(c C, d D, e E) (f F) {
 		f = fn(a, b, c, d, e)
 		return
 	}
@@ -1058,9 +1386,9 @@ func ClosureLast512[A, B, C, D, E, F any](d D, e E, fn func(A, B, C, D, E) F) fu
 	}
 }
 
-// Closure513 with func( 5 in)(1 out) fix first 3 argument
-func Closure513[A, B, C, D, E, F any](a A, b B, fn func(A, B, C, D, E) F) func(C, D, E) F {
-	return func(c C, d D, e E) (f F) {
+// Closure513 with func( 5 in)(1 out) closure first 3 argument
+func Closure513[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C, D, E) F) func(D, E) F {
+	return func(d D, e E) (f F) {
 		f = fn(a, b, c, d, e)
 		return
 	}
@@ -1074,9 +1402,9 @@ func ClosureLast513[A, B, C, D, E, F any](c C, d D, e E, fn func(A, B, C, D, E) 
 	}
 }
 
-// Closure514 with func( 5 in)(1 out) fix first 4 argument
-func Closure514[A, B, C, D, E, F any](a A, fn func(A, B, C, D, E) F) func(B, C, D, E) F {
-	return func(b B, c C, d D, e E) (f F) {
+// Closure514 with func( 5 in)(1 out) closure first 4 argument
+func Closure514[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D, E) F) func(E) F {
+	return func(e E) (f F) {
 		f = fn(a, b, c, d, e)
 		return
 	}
@@ -1090,9 +1418,17 @@ func ClosureLast514[A, B, C, D, E, F any](b B, c C, d D, e E, fn func(A, B, C, D
 	}
 }
 
-// Closure521 with func( 5 in)(2 out) fix first 1 argument
-func Closure521[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G)) func(E) (F, G) {
-	return func(e E) (f F, g G) {
+// Closure515 with func( 5 in)(1 out) closure first 5 argument
+func Closure515[A, B, C, D, E, F any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) F) func() F {
+	return func() (f F) {
+		f = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure521 with func( 5 in)(2 out) closure first 1 argument
+func Closure521[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E) (F, G)) func(B, C, D, E) (F, G) {
+	return func(b B, c C, d D, e E) (f F, g G) {
 		f, g = fn(a, b, c, d, e)
 		return
 	}
@@ -1106,9 +1442,9 @@ func ClosureLast521[A, B, C, D, E, F, G any](e E, fn func(A, B, C, D, E) (F, G))
 	}
 }
 
-// Closure522 with func( 5 in)(2 out) fix first 2 argument
-func Closure522[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D, E) (F, G)) func(D, E) (F, G) {
-	return func(d D, e E) (f F, g G) {
+// Closure522 with func( 5 in)(2 out) closure first 2 argument
+func Closure522[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E) (F, G)) func(C, D, E) (F, G) {
+	return func(c C, d D, e E) (f F, g G) {
 		f, g = fn(a, b, c, d, e)
 		return
 	}
@@ -1122,9 +1458,9 @@ func ClosureLast522[A, B, C, D, E, F, G any](d D, e E, fn func(A, B, C, D, E) (F
 	}
 }
 
-// Closure523 with func( 5 in)(2 out) fix first 3 argument
-func Closure523[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E) (F, G)) func(C, D, E) (F, G) {
-	return func(c C, d D, e E) (f F, g G) {
+// Closure523 with func( 5 in)(2 out) closure first 3 argument
+func Closure523[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D, E) (F, G)) func(D, E) (F, G) {
+	return func(d D, e E) (f F, g G) {
 		f, g = fn(a, b, c, d, e)
 		return
 	}
@@ -1138,9 +1474,9 @@ func ClosureLast523[A, B, C, D, E, F, G any](c C, d D, e E, fn func(A, B, C, D, 
 	}
 }
 
-// Closure524 with func( 5 in)(2 out) fix first 4 argument
-func Closure524[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E) (F, G)) func(B, C, D, E) (F, G) {
-	return func(b B, c C, d D, e E) (f F, g G) {
+// Closure524 with func( 5 in)(2 out) closure first 4 argument
+func Closure524[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G)) func(E) (F, G) {
+	return func(e E) (f F, g G) {
 		f, g = fn(a, b, c, d, e)
 		return
 	}
@@ -1154,9 +1490,17 @@ func ClosureLast524[A, B, C, D, E, F, G any](b B, c C, d D, e E, fn func(A, B, C
 	}
 }
 
-// Closure531 with func( 5 in)(3 out) fix first 1 argument
-func Closure531[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H)) func(E) (F, G, H) {
-	return func(e E) (f F, g G, h H) {
+// Closure525 with func( 5 in)(2 out) closure first 5 argument
+func Closure525[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G)) func() (F, G) {
+	return func() (f F, g G) {
+		f, g = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure531 with func( 5 in)(3 out) closure first 1 argument
+func Closure531[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E) (F, G, H)) func(B, C, D, E) (F, G, H) {
+	return func(b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h = fn(a, b, c, d, e)
 		return
 	}
@@ -1170,9 +1514,9 @@ func ClosureLast531[A, B, C, D, E, F, G, H any](e E, fn func(A, B, C, D, E) (F, 
 	}
 }
 
-// Closure532 with func( 5 in)(3 out) fix first 2 argument
-func Closure532[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H)) func(D, E) (F, G, H) {
-	return func(d D, e E) (f F, g G, h H) {
+// Closure532 with func( 5 in)(3 out) closure first 2 argument
+func Closure532[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E) (F, G, H)) func(C, D, E) (F, G, H) {
+	return func(c C, d D, e E) (f F, g G, h H) {
 		f, g, h = fn(a, b, c, d, e)
 		return
 	}
@@ -1186,9 +1530,9 @@ func ClosureLast532[A, B, C, D, E, F, G, H any](d D, e E, fn func(A, B, C, D, E)
 	}
 }
 
-// Closure533 with func( 5 in)(3 out) fix first 3 argument
-func Closure533[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E) (F, G, H)) func(C, D, E) (F, G, H) {
-	return func(c C, d D, e E) (f F, g G, h H) {
+// Closure533 with func( 5 in)(3 out) closure first 3 argument
+func Closure533[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H)) func(D, E) (F, G, H) {
+	return func(d D, e E) (f F, g G, h H) {
 		f, g, h = fn(a, b, c, d, e)
 		return
 	}
@@ -1202,9 +1546,9 @@ func ClosureLast533[A, B, C, D, E, F, G, H any](c C, d D, e E, fn func(A, B, C, 
 	}
 }
 
-// Closure534 with func( 5 in)(3 out) fix first 4 argument
-func Closure534[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E) (F, G, H)) func(B, C, D, E) (F, G, H) {
-	return func(b B, c C, d D, e E) (f F, g G, h H) {
+// Closure534 with func( 5 in)(3 out) closure first 4 argument
+func Closure534[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H)) func(E) (F, G, H) {
+	return func(e E) (f F, g G, h H) {
 		f, g, h = fn(a, b, c, d, e)
 		return
 	}
@@ -1218,9 +1562,17 @@ func ClosureLast534[A, B, C, D, E, F, G, H any](b B, c C, d D, e E, fn func(A, B
 	}
 }
 
-// Closure541 with func( 5 in)(4 out) fix first 1 argument
-func Closure541[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I)) func(E) (F, G, H, I) {
-	return func(e E) (f F, g G, h H, i I) {
+// Closure535 with func( 5 in)(3 out) closure first 5 argument
+func Closure535[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H)) func() (F, G, H) {
+	return func() (f F, g G, h H) {
+		f, g, h = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure541 with func( 5 in)(4 out) closure first 1 argument
+func Closure541[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E) (F, G, H, I)) func(B, C, D, E) (F, G, H, I) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i = fn(a, b, c, d, e)
 		return
 	}
@@ -1234,9 +1586,9 @@ func ClosureLast541[A, B, C, D, E, F, G, H, I any](e E, fn func(A, B, C, D, E) (
 	}
 }
 
-// Closure542 with func( 5 in)(4 out) fix first 2 argument
-func Closure542[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I)) func(D, E) (F, G, H, I) {
-	return func(d D, e E) (f F, g G, h H, i I) {
+// Closure542 with func( 5 in)(4 out) closure first 2 argument
+func Closure542[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I)) func(C, D, E) (F, G, H, I) {
+	return func(c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i = fn(a, b, c, d, e)
 		return
 	}
@@ -1250,9 +1602,9 @@ func ClosureLast542[A, B, C, D, E, F, G, H, I any](d D, e E, fn func(A, B, C, D,
 	}
 }
 
-// Closure543 with func( 5 in)(4 out) fix first 3 argument
-func Closure543[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I)) func(C, D, E) (F, G, H, I) {
-	return func(c C, d D, e E) (f F, g G, h H, i I) {
+// Closure543 with func( 5 in)(4 out) closure first 3 argument
+func Closure543[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I)) func(D, E) (F, G, H, I) {
+	return func(d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i = fn(a, b, c, d, e)
 		return
 	}
@@ -1266,9 +1618,9 @@ func ClosureLast543[A, B, C, D, E, F, G, H, I any](c C, d D, e E, fn func(A, B, 
 	}
 }
 
-// Closure544 with func( 5 in)(4 out) fix first 4 argument
-func Closure544[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E) (F, G, H, I)) func(B, C, D, E) (F, G, H, I) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I) {
+// Closure544 with func( 5 in)(4 out) closure first 4 argument
+func Closure544[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I)) func(E) (F, G, H, I) {
+	return func(e E) (f F, g G, h H, i I) {
 		f, g, h, i = fn(a, b, c, d, e)
 		return
 	}
@@ -1282,9 +1634,17 @@ func ClosureLast544[A, B, C, D, E, F, G, H, I any](b B, c C, d D, e E, fn func(A
 	}
 }
 
-// Closure551 with func( 5 in)(5 out) fix first 1 argument
-func Closure551[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J)) func(E) (F, G, H, I, J) {
-	return func(e E) (f F, g G, h H, i I, j J) {
+// Closure545 with func( 5 in)(4 out) closure first 5 argument
+func Closure545[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I)) func() (F, G, H, I) {
+	return func() (f F, g G, h H, i I) {
+		f, g, h, i = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure551 with func( 5 in)(5 out) closure first 1 argument
+func Closure551[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E) (F, G, H, I, J)) func(B, C, D, E) (F, G, H, I, J) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j = fn(a, b, c, d, e)
 		return
 	}
@@ -1298,9 +1658,9 @@ func ClosureLast551[A, B, C, D, E, F, G, H, I, J any](e E, fn func(A, B, C, D, E
 	}
 }
 
-// Closure552 with func( 5 in)(5 out) fix first 2 argument
-func Closure552[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J)) func(D, E) (F, G, H, I, J) {
-	return func(d D, e E) (f F, g G, h H, i I, j J) {
+// Closure552 with func( 5 in)(5 out) closure first 2 argument
+func Closure552[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J)) func(C, D, E) (F, G, H, I, J) {
+	return func(c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j = fn(a, b, c, d, e)
 		return
 	}
@@ -1314,9 +1674,9 @@ func ClosureLast552[A, B, C, D, E, F, G, H, I, J any](d D, e E, fn func(A, B, C,
 	}
 }
 
-// Closure553 with func( 5 in)(5 out) fix first 3 argument
-func Closure553[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J)) func(C, D, E) (F, G, H, I, J) {
-	return func(c C, d D, e E) (f F, g G, h H, i I, j J) {
+// Closure553 with func( 5 in)(5 out) closure first 3 argument
+func Closure553[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J)) func(D, E) (F, G, H, I, J) {
+	return func(d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j = fn(a, b, c, d, e)
 		return
 	}
@@ -1330,9 +1690,9 @@ func ClosureLast553[A, B, C, D, E, F, G, H, I, J any](c C, d D, e E, fn func(A, 
 	}
 }
 
-// Closure554 with func( 5 in)(5 out) fix first 4 argument
-func Closure554[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E) (F, G, H, I, J)) func(B, C, D, E) (F, G, H, I, J) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
+// Closure554 with func( 5 in)(5 out) closure first 4 argument
+func Closure554[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J)) func(E) (F, G, H, I, J) {
+	return func(e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j = fn(a, b, c, d, e)
 		return
 	}
@@ -1346,9 +1706,17 @@ func ClosureLast554[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, e E, fn fun
 	}
 }
 
-// Closure561 with func( 5 in)(6 out) fix first 1 argument
-func Closure561[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(E) (F, G, H, I, J, K) {
-	return func(e E) (f F, g G, h H, i I, j J, k K) {
+// Closure555 with func( 5 in)(5 out) closure first 5 argument
+func Closure555[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I, J)) func() (F, G, H, I, J) {
+	return func() (f F, g G, h H, i I, j J) {
+		f, g, h, i, j = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure561 with func( 5 in)(6 out) closure first 1 argument
+func Closure561[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(B, C, D, E) (F, G, H, I, J, K) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k = fn(a, b, c, d, e)
 		return
 	}
@@ -1362,9 +1730,9 @@ func ClosureLast561[A, B, C, D, E, F, G, H, I, J, K any](e E, fn func(A, B, C, D
 	}
 }
 
-// Closure562 with func( 5 in)(6 out) fix first 2 argument
-func Closure562[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(D, E) (F, G, H, I, J, K) {
-	return func(d D, e E) (f F, g G, h H, i I, j J, k K) {
+// Closure562 with func( 5 in)(6 out) closure first 2 argument
+func Closure562[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(C, D, E) (F, G, H, I, J, K) {
+	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k = fn(a, b, c, d, e)
 		return
 	}
@@ -1378,9 +1746,9 @@ func ClosureLast562[A, B, C, D, E, F, G, H, I, J, K any](d D, e E, fn func(A, B,
 	}
 }
 
-// Closure563 with func( 5 in)(6 out) fix first 3 argument
-func Closure563[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(C, D, E) (F, G, H, I, J, K) {
-	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
+// Closure563 with func( 5 in)(6 out) closure first 3 argument
+func Closure563[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(D, E) (F, G, H, I, J, K) {
+	return func(d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k = fn(a, b, c, d, e)
 		return
 	}
@@ -1394,9 +1762,9 @@ func ClosureLast563[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, e E, fn func(
 	}
 }
 
-// Closure564 with func( 5 in)(6 out) fix first 4 argument
-func Closure564[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(B, C, D, E) (F, G, H, I, J, K) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
+// Closure564 with func( 5 in)(6 out) closure first 4 argument
+func Closure564[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(E) (F, G, H, I, J, K) {
+	return func(e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k = fn(a, b, c, d, e)
 		return
 	}
@@ -1410,9 +1778,17 @@ func ClosureLast564[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, e E, fn 
 	}
 }
 
-// Closure571 with func( 5 in)(7 out) fix first 1 argument
-func Closure571[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(E) (F, G, H, I, J, K, L) {
-	return func(e E) (f F, g G, h H, i I, j J, k K, l L) {
+// Closure565 with func( 5 in)(6 out) closure first 5 argument
+func Closure565[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I, J, K)) func() (F, G, H, I, J, K) {
+	return func() (f F, g G, h H, i I, j J, k K) {
+		f, g, h, i, j, k = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure571 with func( 5 in)(7 out) closure first 1 argument
+func Closure571[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(B, C, D, E) (F, G, H, I, J, K, L) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l = fn(a, b, c, d, e)
 		return
 	}
@@ -1426,9 +1802,9 @@ func ClosureLast571[A, B, C, D, E, F, G, H, I, J, K, L any](e E, fn func(A, B, C
 	}
 }
 
-// Closure572 with func( 5 in)(7 out) fix first 2 argument
-func Closure572[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(D, E) (F, G, H, I, J, K, L) {
-	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
+// Closure572 with func( 5 in)(7 out) closure first 2 argument
+func Closure572[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(C, D, E) (F, G, H, I, J, K, L) {
+	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l = fn(a, b, c, d, e)
 		return
 	}
@@ -1442,9 +1818,9 @@ func ClosureLast572[A, B, C, D, E, F, G, H, I, J, K, L any](d D, e E, fn func(A,
 	}
 }
 
-// Closure573 with func( 5 in)(7 out) fix first 3 argument
-func Closure573[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(C, D, E) (F, G, H, I, J, K, L) {
-	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
+// Closure573 with func( 5 in)(7 out) closure first 3 argument
+func Closure573[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(D, E) (F, G, H, I, J, K, L) {
+	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l = fn(a, b, c, d, e)
 		return
 	}
@@ -1458,9 +1834,9 @@ func ClosureLast573[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, e E, fn fu
 	}
 }
 
-// Closure574 with func( 5 in)(7 out) fix first 4 argument
-func Closure574[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(B, C, D, E) (F, G, H, I, J, K, L) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
+// Closure574 with func( 5 in)(7 out) closure first 4 argument
+func Closure574[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(E) (F, G, H, I, J, K, L) {
+	return func(e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l = fn(a, b, c, d, e)
 		return
 	}
@@ -1474,9 +1850,17 @@ func ClosureLast574[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, e E, 
 	}
 }
 
-// Closure581 with func( 5 in)(8 out) fix first 1 argument
-func Closure581[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(E) (F, G, H, I, J, K, L, M) {
-	return func(e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure575 with func( 5 in)(7 out) closure first 5 argument
+func Closure575[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func() (F, G, H, I, J, K, L) {
+	return func() (f F, g G, h H, i I, j J, k K, l L) {
+		f, g, h, i, j, k, l = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure581 with func( 5 in)(8 out) closure first 1 argument
+func Closure581[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(B, C, D, E) (F, G, H, I, J, K, L, M) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
 	}
@@ -1490,9 +1874,9 @@ func ClosureLast581[A, B, C, D, E, F, G, H, I, J, K, L, M any](e E, fn func(A, B
 	}
 }
 
-// Closure582 with func( 5 in)(8 out) fix first 2 argument
-func Closure582[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(D, E) (F, G, H, I, J, K, L, M) {
-	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure582 with func( 5 in)(8 out) closure first 2 argument
+func Closure582[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(C, D, E) (F, G, H, I, J, K, L, M) {
+	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
 	}
@@ -1506,9 +1890,9 @@ func ClosureLast582[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, e E, fn func
 	}
 }
 
-// Closure583 with func( 5 in)(8 out) fix first 3 argument
-func Closure583[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(C, D, E) (F, G, H, I, J, K, L, M) {
-	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure583 with func( 5 in)(8 out) closure first 3 argument
+func Closure583[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(D, E) (F, G, H, I, J, K, L, M) {
+	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
 	}
@@ -1522,9 +1906,9 @@ func ClosureLast583[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, e E, fn
 	}
 }
 
-// Closure584 with func( 5 in)(8 out) fix first 4 argument
-func Closure584[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(B, C, D, E) (F, G, H, I, J, K, L, M) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
+// Closure584 with func( 5 in)(8 out) closure first 4 argument
+func Closure584[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(E) (F, G, H, I, J, K, L, M) {
+	return func(e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
 	}
@@ -1538,9 +1922,17 @@ func ClosureLast584[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, e 
 	}
 }
 
-// Closure591 with func( 5 in)(9 out) fix first 1 argument
-func Closure591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(E) (F, G, H, I, J, K, L, M, N) {
-	return func(e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure585 with func( 5 in)(8 out) closure first 5 argument
+func Closure585[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func() (F, G, H, I, J, K, L, M) {
+	return func() (f F, g G, h H, i I, j J, k K, l L, m M) {
+		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure591 with func( 5 in)(9 out) closure first 1 argument
+func Closure591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(B, C, D, E) (F, G, H, I, J, K, L, M, N) {
+	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
 		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
 	}
@@ -1554,9 +1946,9 @@ func ClosureLast591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](e E, fn func(A
 	}
 }
 
-// Closure592 with func( 5 in)(9 out) fix first 2 argument
-func Closure592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(D, E) (F, G, H, I, J, K, L, M, N) {
-	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure592 with func( 5 in)(9 out) closure first 2 argument
+func Closure592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(C, D, E) (F, G, H, I, J, K, L, M, N) {
+	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
 		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
 	}
@@ -1570,9 +1962,9 @@ func ClosureLast592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](d D, e E, fn f
 	}
 }
 
-// Closure593 with func( 5 in)(9 out) fix first 3 argument
-func Closure593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(C, D, E) (F, G, H, I, J, K, L, M, N) {
-	return func(c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure593 with func( 5 in)(9 out) closure first 3 argument
+func Closure593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(D, E) (F, G, H, I, J, K, L, M, N) {
+	return func(d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
 		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
 	}
@@ -1586,9 +1978,9 @@ func ClosureLast593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](c C, d D, e E,
 	}
 }
 
-// Closure594 with func( 5 in)(9 out) fix first 4 argument
-func Closure594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(B, C, D, E) (F, G, H, I, J, K, L, M, N) {
-	return func(b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure594 with func( 5 in)(9 out) closure first 4 argument
+func Closure594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(E) (F, G, H, I, J, K, L, M, N) {
+	return func(e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
 		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
 	}
@@ -1602,9 +1994,17 @@ func ClosureLast594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](b B, c C, d D,
 	}
 }
 
-// Closure601 with func( 6 in)(0 out) fix first 1 argument
-func Closure601[A, B, C, D, E, F any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F)) func(F) {
-	return func(f F) {
+// Closure595 with func( 5 in)(9 out) closure first 5 argument
+func Closure595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func() (F, G, H, I, J, K, L, M, N) {
+	return func() (f F, g G, h H, i I, j J, k K, l L, m M, n N) {
+		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Closure601 with func( 6 in)(0 out) closure first 1 argument
+func Closure601[A, B, C, D, E, F any](a A, fn func(A, B, C, D, E, F)) func(B, C, D, E, F) {
+	return func(b B, c C, d D, e E, f F) {
 		fn(a, b, c, d, e, f)
 		return
 	}
@@ -1618,9 +2018,9 @@ func ClosureLast601[A, B, C, D, E, F any](f F, fn func(A, B, C, D, E, F)) func(A
 	}
 }
 
-// Closure602 with func( 6 in)(0 out) fix first 2 argument
-func Closure602[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D, E, F)) func(E, F) {
-	return func(e E, f F) {
+// Closure602 with func( 6 in)(0 out) closure first 2 argument
+func Closure602[A, B, C, D, E, F any](a A, b B, fn func(A, B, C, D, E, F)) func(C, D, E, F) {
+	return func(c C, d D, e E, f F) {
 		fn(a, b, c, d, e, f)
 		return
 	}
@@ -1634,7 +2034,7 @@ func ClosureLast602[A, B, C, D, E, F any](e E, f F, fn func(A, B, C, D, E, F)) f
 	}
 }
 
-// Closure603 with func( 6 in)(0 out) fix first 3 argument
+// Closure603 with func( 6 in)(0 out) closure first 3 argument
 func Closure603[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C, D, E, F)) func(D, E, F) {
 	return func(d D, e E, f F) {
 		fn(a, b, c, d, e, f)
@@ -1650,9 +2050,9 @@ func ClosureLast603[A, B, C, D, E, F any](d D, e E, f F, fn func(A, B, C, D, E, 
 	}
 }
 
-// Closure604 with func( 6 in)(0 out) fix first 4 argument
-func Closure604[A, B, C, D, E, F any](a A, b B, fn func(A, B, C, D, E, F)) func(C, D, E, F) {
-	return func(c C, d D, e E, f F) {
+// Closure604 with func( 6 in)(0 out) closure first 4 argument
+func Closure604[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D, E, F)) func(E, F) {
+	return func(e E, f F) {
 		fn(a, b, c, d, e, f)
 		return
 	}
@@ -1666,9 +2066,9 @@ func ClosureLast604[A, B, C, D, E, F any](c C, d D, e E, f F, fn func(A, B, C, D
 	}
 }
 
-// Closure605 with func( 6 in)(0 out) fix first 5 argument
-func Closure605[A, B, C, D, E, F any](a A, fn func(A, B, C, D, E, F)) func(B, C, D, E, F) {
-	return func(b B, c C, d D, e E, f F) {
+// Closure605 with func( 6 in)(0 out) closure first 5 argument
+func Closure605[A, B, C, D, E, F any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F)) func(F) {
+	return func(f F) {
 		fn(a, b, c, d, e, f)
 		return
 	}
@@ -1682,9 +2082,17 @@ func ClosureLast605[A, B, C, D, E, F any](b B, c C, d D, e E, f F, fn func(A, B,
 	}
 }
 
-// Closure611 with func( 6 in)(1 out) fix first 1 argument
-func Closure611[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) G) func(F) G {
-	return func(f F) (g G) {
+// Closure606 with func( 6 in)(0 out) closure first 6 argument
+func Closure606[A, B, C, D, E, F any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F)) func() {
+	return func() {
+		fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure611 with func( 6 in)(1 out) closure first 1 argument
+func Closure611[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E, F) G) func(B, C, D, E, F) G {
+	return func(b B, c C, d D, e E, f F) (g G) {
 		g = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1698,9 +2106,9 @@ func ClosureLast611[A, B, C, D, E, F, G any](f F, fn func(A, B, C, D, E, F) G) f
 	}
 }
 
-// Closure612 with func( 6 in)(1 out) fix first 2 argument
-func Closure612[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) G) func(E, F) G {
-	return func(e E, f F) (g G) {
+// Closure612 with func( 6 in)(1 out) closure first 2 argument
+func Closure612[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E, F) G) func(C, D, E, F) G {
+	return func(c C, d D, e E, f F) (g G) {
 		g = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1714,7 +2122,7 @@ func ClosureLast612[A, B, C, D, E, F, G any](e E, f F, fn func(A, B, C, D, E, F)
 	}
 }
 
-// Closure613 with func( 6 in)(1 out) fix first 3 argument
+// Closure613 with func( 6 in)(1 out) closure first 3 argument
 func Closure613[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D, E, F) G) func(D, E, F) G {
 	return func(d D, e E, f F) (g G) {
 		g = fn(a, b, c, d, e, f)
@@ -1730,9 +2138,9 @@ func ClosureLast613[A, B, C, D, E, F, G any](d D, e E, f F, fn func(A, B, C, D, 
 	}
 }
 
-// Closure614 with func( 6 in)(1 out) fix first 4 argument
-func Closure614[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E, F) G) func(C, D, E, F) G {
-	return func(c C, d D, e E, f F) (g G) {
+// Closure614 with func( 6 in)(1 out) closure first 4 argument
+func Closure614[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) G) func(E, F) G {
+	return func(e E, f F) (g G) {
 		g = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1746,9 +2154,9 @@ func ClosureLast614[A, B, C, D, E, F, G any](c C, d D, e E, f F, fn func(A, B, C
 	}
 }
 
-// Closure615 with func( 6 in)(1 out) fix first 5 argument
-func Closure615[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E, F) G) func(B, C, D, E, F) G {
-	return func(b B, c C, d D, e E, f F) (g G) {
+// Closure615 with func( 6 in)(1 out) closure first 5 argument
+func Closure615[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) G) func(F) G {
+	return func(f F) (g G) {
 		g = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1762,9 +2170,17 @@ func ClosureLast615[A, B, C, D, E, F, G any](b B, c C, d D, e E, f F, fn func(A,
 	}
 }
 
-// Closure621 with func( 6 in)(2 out) fix first 1 argument
-func Closure621[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H)) func(F) (G, H) {
-	return func(f F) (g G, h H) {
+// Closure616 with func( 6 in)(1 out) closure first 6 argument
+func Closure616[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) G) func() G {
+	return func() (g G) {
+		g = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure621 with func( 6 in)(2 out) closure first 1 argument
+func Closure621[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F) (G, H)) func(B, C, D, E, F) (G, H) {
+	return func(b B, c C, d D, e E, f F) (g G, h H) {
 		g, h = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1778,9 +2194,9 @@ func ClosureLast621[A, B, C, D, E, F, G, H any](f F, fn func(A, B, C, D, E, F) (
 	}
 }
 
-// Closure622 with func( 6 in)(2 out) fix first 2 argument
-func Closure622[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H)) func(E, F) (G, H) {
-	return func(e E, f F) (g G, h H) {
+// Closure622 with func( 6 in)(2 out) closure first 2 argument
+func Closure622[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F) (G, H)) func(C, D, E, F) (G, H) {
+	return func(c C, d D, e E, f F) (g G, h H) {
 		g, h = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1794,7 +2210,7 @@ func ClosureLast622[A, B, C, D, E, F, G, H any](e E, f F, fn func(A, B, C, D, E,
 	}
 }
 
-// Closure623 with func( 6 in)(2 out) fix first 3 argument
+// Closure623 with func( 6 in)(2 out) closure first 3 argument
 func Closure623[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H)) func(D, E, F) (G, H) {
 	return func(d D, e E, f F) (g G, h H) {
 		g, h = fn(a, b, c, d, e, f)
@@ -1810,9 +2226,9 @@ func ClosureLast623[A, B, C, D, E, F, G, H any](d D, e E, f F, fn func(A, B, C, 
 	}
 }
 
-// Closure624 with func( 6 in)(2 out) fix first 4 argument
-func Closure624[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F) (G, H)) func(C, D, E, F) (G, H) {
-	return func(c C, d D, e E, f F) (g G, h H) {
+// Closure624 with func( 6 in)(2 out) closure first 4 argument
+func Closure624[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H)) func(E, F) (G, H) {
+	return func(e E, f F) (g G, h H) {
 		g, h = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1826,9 +2242,9 @@ func ClosureLast624[A, B, C, D, E, F, G, H any](c C, d D, e E, f F, fn func(A, B
 	}
 }
 
-// Closure625 with func( 6 in)(2 out) fix first 5 argument
-func Closure625[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F) (G, H)) func(B, C, D, E, F) (G, H) {
-	return func(b B, c C, d D, e E, f F) (g G, h H) {
+// Closure625 with func( 6 in)(2 out) closure first 5 argument
+func Closure625[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H)) func(F) (G, H) {
+	return func(f F) (g G, h H) {
 		g, h = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1842,9 +2258,17 @@ func ClosureLast625[A, B, C, D, E, F, G, H any](b B, c C, d D, e E, f F, fn func
 	}
 }
 
-// Closure631 with func( 6 in)(3 out) fix first 1 argument
-func Closure631[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I)) func(F) (G, H, I) {
-	return func(f F) (g G, h H, i I) {
+// Closure626 with func( 6 in)(2 out) closure first 6 argument
+func Closure626[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H)) func() (G, H) {
+	return func() (g G, h H) {
+		g, h = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure631 with func( 6 in)(3 out) closure first 1 argument
+func Closure631[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F) (G, H, I)) func(B, C, D, E, F) (G, H, I) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1858,9 +2282,9 @@ func ClosureLast631[A, B, C, D, E, F, G, H, I any](f F, fn func(A, B, C, D, E, F
 	}
 }
 
-// Closure632 with func( 6 in)(3 out) fix first 2 argument
-func Closure632[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I)) func(E, F) (G, H, I) {
-	return func(e E, f F) (g G, h H, i I) {
+// Closure632 with func( 6 in)(3 out) closure first 2 argument
+func Closure632[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I)) func(C, D, E, F) (G, H, I) {
+	return func(c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1874,7 +2298,7 @@ func ClosureLast632[A, B, C, D, E, F, G, H, I any](e E, f F, fn func(A, B, C, D,
 	}
 }
 
-// Closure633 with func( 6 in)(3 out) fix first 3 argument
+// Closure633 with func( 6 in)(3 out) closure first 3 argument
 func Closure633[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I)) func(D, E, F) (G, H, I) {
 	return func(d D, e E, f F) (g G, h H, i I) {
 		g, h, i = fn(a, b, c, d, e, f)
@@ -1890,9 +2314,9 @@ func ClosureLast633[A, B, C, D, E, F, G, H, I any](d D, e E, f F, fn func(A, B, 
 	}
 }
 
-// Closure634 with func( 6 in)(3 out) fix first 4 argument
-func Closure634[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I)) func(C, D, E, F) (G, H, I) {
-	return func(c C, d D, e E, f F) (g G, h H, i I) {
+// Closure634 with func( 6 in)(3 out) closure first 4 argument
+func Closure634[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I)) func(E, F) (G, H, I) {
+	return func(e E, f F) (g G, h H, i I) {
 		g, h, i = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1906,9 +2330,9 @@ func ClosureLast634[A, B, C, D, E, F, G, H, I any](c C, d D, e E, f F, fn func(A
 	}
 }
 
-// Closure635 with func( 6 in)(3 out) fix first 5 argument
-func Closure635[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F) (G, H, I)) func(B, C, D, E, F) (G, H, I) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I) {
+// Closure635 with func( 6 in)(3 out) closure first 5 argument
+func Closure635[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I)) func(F) (G, H, I) {
+	return func(f F) (g G, h H, i I) {
 		g, h, i = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1922,9 +2346,17 @@ func ClosureLast635[A, B, C, D, E, F, G, H, I any](b B, c C, d D, e E, f F, fn f
 	}
 }
 
-// Closure641 with func( 6 in)(4 out) fix first 1 argument
-func Closure641[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J)) func(F) (G, H, I, J) {
-	return func(f F) (g G, h H, i I, j J) {
+// Closure636 with func( 6 in)(3 out) closure first 6 argument
+func Closure636[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I)) func() (G, H, I) {
+	return func() (g G, h H, i I) {
+		g, h, i = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure641 with func( 6 in)(4 out) closure first 1 argument
+func Closure641[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F) (G, H, I, J)) func(B, C, D, E, F) (G, H, I, J) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1938,9 +2370,9 @@ func ClosureLast641[A, B, C, D, E, F, G, H, I, J any](f F, fn func(A, B, C, D, E
 	}
 }
 
-// Closure642 with func( 6 in)(4 out) fix first 2 argument
-func Closure642[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J)) func(E, F) (G, H, I, J) {
-	return func(e E, f F) (g G, h H, i I, j J) {
+// Closure642 with func( 6 in)(4 out) closure first 2 argument
+func Closure642[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J)) func(C, D, E, F) (G, H, I, J) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1954,7 +2386,7 @@ func ClosureLast642[A, B, C, D, E, F, G, H, I, J any](e E, f F, fn func(A, B, C,
 	}
 }
 
-// Closure643 with func( 6 in)(4 out) fix first 3 argument
+// Closure643 with func( 6 in)(4 out) closure first 3 argument
 func Closure643[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J)) func(D, E, F) (G, H, I, J) {
 	return func(d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j = fn(a, b, c, d, e, f)
@@ -1970,9 +2402,9 @@ func ClosureLast643[A, B, C, D, E, F, G, H, I, J any](d D, e E, f F, fn func(A, 
 	}
 }
 
-// Closure644 with func( 6 in)(4 out) fix first 4 argument
-func Closure644[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J)) func(C, D, E, F) (G, H, I, J) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J) {
+// Closure644 with func( 6 in)(4 out) closure first 4 argument
+func Closure644[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J)) func(E, F) (G, H, I, J) {
+	return func(e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j = fn(a, b, c, d, e, f)
 		return
 	}
@@ -1986,9 +2418,9 @@ func ClosureLast644[A, B, C, D, E, F, G, H, I, J any](c C, d D, e E, f F, fn fun
 	}
 }
 
-// Closure645 with func( 6 in)(4 out) fix first 5 argument
-func Closure645[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F) (G, H, I, J)) func(B, C, D, E, F) (G, H, I, J) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
+// Closure645 with func( 6 in)(4 out) closure first 5 argument
+func Closure645[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J)) func(F) (G, H, I, J) {
+	return func(f F) (g G, h H, i I, j J) {
 		g, h, i, j = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2002,9 +2434,17 @@ func ClosureLast645[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, e E, f F, f
 	}
 }
 
-// Closure651 with func( 6 in)(5 out) fix first 1 argument
-func Closure651[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(F) (G, H, I, J, K) {
-	return func(f F) (g G, h H, i I, j J, k K) {
+// Closure646 with func( 6 in)(4 out) closure first 6 argument
+func Closure646[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J)) func() (G, H, I, J) {
+	return func() (g G, h H, i I, j J) {
+		g, h, i, j = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure651 with func( 6 in)(5 out) closure first 1 argument
+func Closure651[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(B, C, D, E, F) (G, H, I, J, K) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2018,9 +2458,9 @@ func ClosureLast651[A, B, C, D, E, F, G, H, I, J, K any](f F, fn func(A, B, C, D
 	}
 }
 
-// Closure652 with func( 6 in)(5 out) fix first 2 argument
-func Closure652[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(E, F) (G, H, I, J, K) {
-	return func(e E, f F) (g G, h H, i I, j J, k K) {
+// Closure652 with func( 6 in)(5 out) closure first 2 argument
+func Closure652[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(C, D, E, F) (G, H, I, J, K) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2034,7 +2474,7 @@ func ClosureLast652[A, B, C, D, E, F, G, H, I, J, K any](e E, f F, fn func(A, B,
 	}
 }
 
-// Closure653 with func( 6 in)(5 out) fix first 3 argument
+// Closure653 with func( 6 in)(5 out) closure first 3 argument
 func Closure653[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(D, E, F) (G, H, I, J, K) {
 	return func(d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k = fn(a, b, c, d, e, f)
@@ -2050,9 +2490,9 @@ func ClosureLast653[A, B, C, D, E, F, G, H, I, J, K any](d D, e E, f F, fn func(
 	}
 }
 
-// Closure654 with func( 6 in)(5 out) fix first 4 argument
-func Closure654[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(C, D, E, F) (G, H, I, J, K) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
+// Closure654 with func( 6 in)(5 out) closure first 4 argument
+func Closure654[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(E, F) (G, H, I, J, K) {
+	return func(e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2066,9 +2506,9 @@ func ClosureLast654[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, e E, f F, fn 
 	}
 }
 
-// Closure655 with func( 6 in)(5 out) fix first 5 argument
-func Closure655[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(B, C, D, E, F) (G, H, I, J, K) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
+// Closure655 with func( 6 in)(5 out) closure first 5 argument
+func Closure655[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(F) (G, H, I, J, K) {
+	return func(f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2082,9 +2522,17 @@ func ClosureLast655[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, e E, f F
 	}
 }
 
-// Closure661 with func( 6 in)(6 out) fix first 1 argument
-func Closure661[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(F) (G, H, I, J, K, L) {
-	return func(f F) (g G, h H, i I, j J, k K, l L) {
+// Closure656 with func( 6 in)(5 out) closure first 6 argument
+func Closure656[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J, K)) func() (G, H, I, J, K) {
+	return func() (g G, h H, i I, j J, k K) {
+		g, h, i, j, k = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure661 with func( 6 in)(6 out) closure first 1 argument
+func Closure661[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(B, C, D, E, F) (G, H, I, J, K, L) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2098,9 +2546,9 @@ func ClosureLast661[A, B, C, D, E, F, G, H, I, J, K, L any](f F, fn func(A, B, C
 	}
 }
 
-// Closure662 with func( 6 in)(6 out) fix first 2 argument
-func Closure662[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(E, F) (G, H, I, J, K, L) {
-	return func(e E, f F) (g G, h H, i I, j J, k K, l L) {
+// Closure662 with func( 6 in)(6 out) closure first 2 argument
+func Closure662[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(C, D, E, F) (G, H, I, J, K, L) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2114,7 +2562,7 @@ func ClosureLast662[A, B, C, D, E, F, G, H, I, J, K, L any](e E, f F, fn func(A,
 	}
 }
 
-// Closure663 with func( 6 in)(6 out) fix first 3 argument
+// Closure663 with func( 6 in)(6 out) closure first 3 argument
 func Closure663[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(D, E, F) (G, H, I, J, K, L) {
 	return func(d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
@@ -2130,9 +2578,9 @@ func ClosureLast663[A, B, C, D, E, F, G, H, I, J, K, L any](d D, e E, f F, fn fu
 	}
 }
 
-// Closure664 with func( 6 in)(6 out) fix first 4 argument
-func Closure664[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(C, D, E, F) (G, H, I, J, K, L) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
+// Closure664 with func( 6 in)(6 out) closure first 4 argument
+func Closure664[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(E, F) (G, H, I, J, K, L) {
+	return func(e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2146,9 +2594,9 @@ func ClosureLast664[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, e E, f F, 
 	}
 }
 
-// Closure665 with func( 6 in)(6 out) fix first 5 argument
-func Closure665[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(B, C, D, E, F) (G, H, I, J, K, L) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
+// Closure665 with func( 6 in)(6 out) closure first 5 argument
+func Closure665[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(F) (G, H, I, J, K, L) {
+	return func(f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2162,9 +2610,17 @@ func ClosureLast665[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, e E, 
 	}
 }
 
-// Closure671 with func( 6 in)(7 out) fix first 1 argument
-func Closure671[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(F) (G, H, I, J, K, L, M) {
-	return func(f F) (g G, h H, i I, j J, k K, l L, m M) {
+// Closure666 with func( 6 in)(6 out) closure first 6 argument
+func Closure666[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func() (G, H, I, J, K, L) {
+	return func() (g G, h H, i I, j J, k K, l L) {
+		g, h, i, j, k, l = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure671 with func( 6 in)(7 out) closure first 1 argument
+func Closure671[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(B, C, D, E, F) (G, H, I, J, K, L, M) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2178,9 +2634,9 @@ func ClosureLast671[A, B, C, D, E, F, G, H, I, J, K, L, M any](f F, fn func(A, B
 	}
 }
 
-// Closure672 with func( 6 in)(7 out) fix first 2 argument
-func Closure672[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(E, F) (G, H, I, J, K, L, M) {
-	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
+// Closure672 with func( 6 in)(7 out) closure first 2 argument
+func Closure672[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(C, D, E, F) (G, H, I, J, K, L, M) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2194,7 +2650,7 @@ func ClosureLast672[A, B, C, D, E, F, G, H, I, J, K, L, M any](e E, f F, fn func
 	}
 }
 
-// Closure673 with func( 6 in)(7 out) fix first 3 argument
+// Closure673 with func( 6 in)(7 out) closure first 3 argument
 func Closure673[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(D, E, F) (G, H, I, J, K, L, M) {
 	return func(d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
@@ -2210,9 +2666,9 @@ func ClosureLast673[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, e E, f F, fn
 	}
 }
 
-// Closure674 with func( 6 in)(7 out) fix first 4 argument
-func Closure674[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(C, D, E, F) (G, H, I, J, K, L, M) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
+// Closure674 with func( 6 in)(7 out) closure first 4 argument
+func Closure674[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(E, F) (G, H, I, J, K, L, M) {
+	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2226,9 +2682,9 @@ func ClosureLast674[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, e E, f 
 	}
 }
 
-// Closure675 with func( 6 in)(7 out) fix first 5 argument
-func Closure675[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(B, C, D, E, F) (G, H, I, J, K, L, M) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
+// Closure675 with func( 6 in)(7 out) closure first 5 argument
+func Closure675[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(F) (G, H, I, J, K, L, M) {
+	return func(f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2242,9 +2698,17 @@ func ClosureLast675[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, e 
 	}
 }
 
-// Closure681 with func( 6 in)(8 out) fix first 1 argument
-func Closure681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(F) (G, H, I, J, K, L, M, N) {
-	return func(f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure676 with func( 6 in)(7 out) closure first 6 argument
+func Closure676[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func() (G, H, I, J, K, L, M) {
+	return func() (g G, h H, i I, j J, k K, l L, m M) {
+		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure681 with func( 6 in)(8 out) closure first 1 argument
+func Closure681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(B, C, D, E, F) (G, H, I, J, K, L, M, N) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2258,9 +2722,9 @@ func ClosureLast681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](f F, fn func(A
 	}
 }
 
-// Closure682 with func( 6 in)(8 out) fix first 2 argument
-func Closure682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(E, F) (G, H, I, J, K, L, M, N) {
-	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure682 with func( 6 in)(8 out) closure first 2 argument
+func Closure682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(C, D, E, F) (G, H, I, J, K, L, M, N) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2274,7 +2738,7 @@ func ClosureLast682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](e E, f F, fn f
 	}
 }
 
-// Closure683 with func( 6 in)(8 out) fix first 3 argument
+// Closure683 with func( 6 in)(8 out) closure first 3 argument
 func Closure683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(D, E, F) (G, H, I, J, K, L, M, N) {
 	return func(d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
@@ -2290,9 +2754,9 @@ func ClosureLast683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](d D, e E, f F,
 	}
 }
 
-// Closure684 with func( 6 in)(8 out) fix first 4 argument
-func Closure684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(C, D, E, F) (G, H, I, J, K, L, M, N) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure684 with func( 6 in)(8 out) closure first 4 argument
+func Closure684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(E, F) (G, H, I, J, K, L, M, N) {
+	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2306,9 +2770,9 @@ func ClosureLast684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](c C, d D, e E,
 	}
 }
 
-// Closure685 with func( 6 in)(8 out) fix first 5 argument
-func Closure685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(B, C, D, E, F) (G, H, I, J, K, L, M, N) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
+// Closure685 with func( 6 in)(8 out) closure first 5 argument
+func Closure685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(F) (G, H, I, J, K, L, M, N) {
+	return func(f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2322,9 +2786,17 @@ func ClosureLast685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](b B, c C, d D,
 	}
 }
 
-// Closure691 with func( 6 in)(9 out) fix first 1 argument
-func Closure691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(F) (G, H, I, J, K, L, M, N, O) {
-	return func(f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure686 with func( 6 in)(8 out) closure first 6 argument
+func Closure686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func() (G, H, I, J, K, L, M, N) {
+	return func() (g G, h H, i I, j J, k K, l L, m M, n N) {
+		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure691 with func( 6 in)(9 out) closure first 1 argument
+func Closure691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(B, C, D, E, F) (G, H, I, J, K, L, M, N, O) {
+	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2338,9 +2810,9 @@ func ClosureLast691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](f F, fn fun
 	}
 }
 
-// Closure692 with func( 6 in)(9 out) fix first 2 argument
-func Closure692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(E, F) (G, H, I, J, K, L, M, N, O) {
-	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure692 with func( 6 in)(9 out) closure first 2 argument
+func Closure692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(C, D, E, F) (G, H, I, J, K, L, M, N, O) {
+	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2354,7 +2826,7 @@ func ClosureLast692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](e E, f F, f
 	}
 }
 
-// Closure693 with func( 6 in)(9 out) fix first 3 argument
+// Closure693 with func( 6 in)(9 out) closure first 3 argument
 func Closure693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(D, E, F) (G, H, I, J, K, L, M, N, O) {
 	return func(d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
@@ -2370,9 +2842,9 @@ func ClosureLast693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](d D, e E, f
 	}
 }
 
-// Closure694 with func( 6 in)(9 out) fix first 4 argument
-func Closure694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(C, D, E, F) (G, H, I, J, K, L, M, N, O) {
-	return func(c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure694 with func( 6 in)(9 out) closure first 4 argument
+func Closure694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(E, F) (G, H, I, J, K, L, M, N, O) {
+	return func(e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2386,9 +2858,9 @@ func ClosureLast694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](c C, d D, e
 	}
 }
 
-// Closure695 with func( 6 in)(9 out) fix first 5 argument
-func Closure695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(B, C, D, E, F) (G, H, I, J, K, L, M, N, O) {
-	return func(b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure695 with func( 6 in)(9 out) closure first 5 argument
+func Closure695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(F) (G, H, I, J, K, L, M, N, O) {
+	return func(f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
 	}
@@ -2402,9 +2874,17 @@ func ClosureLast695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](b B, c C, d
 	}
 }
 
-// Closure701 with func( 7 in)(0 out) fix first 1 argument
-func Closure701[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G)) func(G) {
-	return func(g G) {
+// Closure696 with func( 6 in)(9 out) closure first 6 argument
+func Closure696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func() (G, H, I, J, K, L, M, N, O) {
+	return func() (g G, h H, i I, j J, k K, l L, m M, n N, o O) {
+		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Closure701 with func( 7 in)(0 out) closure first 1 argument
+func Closure701[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E, F, G)) func(B, C, D, E, F, G) {
+	return func(b B, c C, d D, e E, f F, g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2418,9 +2898,9 @@ func ClosureLast701[A, B, C, D, E, F, G any](g G, fn func(A, B, C, D, E, F, G)) 
 	}
 }
 
-// Closure702 with func( 7 in)(0 out) fix first 2 argument
-func Closure702[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G)) func(F, G) {
-	return func(f F, g G) {
+// Closure702 with func( 7 in)(0 out) closure first 2 argument
+func Closure702[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E, F, G)) func(C, D, E, F, G) {
+	return func(c C, d D, e E, f F, g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2434,9 +2914,9 @@ func ClosureLast702[A, B, C, D, E, F, G any](f F, g G, fn func(A, B, C, D, E, F,
 	}
 }
 
-// Closure703 with func( 7 in)(0 out) fix first 3 argument
-func Closure703[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G)) func(E, F, G) {
-	return func(e E, f F, g G) {
+// Closure703 with func( 7 in)(0 out) closure first 3 argument
+func Closure703[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D, E, F, G)) func(D, E, F, G) {
+	return func(d D, e E, f F, g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2450,9 +2930,9 @@ func ClosureLast703[A, B, C, D, E, F, G any](e E, f F, g G, fn func(A, B, C, D, 
 	}
 }
 
-// Closure704 with func( 7 in)(0 out) fix first 4 argument
-func Closure704[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C, D, E, F, G)) func(D, E, F, G) {
-	return func(d D, e E, f F, g G) {
+// Closure704 with func( 7 in)(0 out) closure first 4 argument
+func Closure704[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G)) func(E, F, G) {
+	return func(e E, f F, g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2466,9 +2946,9 @@ func ClosureLast704[A, B, C, D, E, F, G any](d D, e E, f F, g G, fn func(A, B, C
 	}
 }
 
-// Closure705 with func( 7 in)(0 out) fix first 5 argument
-func Closure705[A, B, C, D, E, F, G any](a A, b B, fn func(A, B, C, D, E, F, G)) func(C, D, E, F, G) {
-	return func(c C, d D, e E, f F, g G) {
+// Closure705 with func( 7 in)(0 out) closure first 5 argument
+func Closure705[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G)) func(F, G) {
+	return func(f F, g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2482,9 +2962,9 @@ func ClosureLast705[A, B, C, D, E, F, G any](c C, d D, e E, f F, g G, fn func(A,
 	}
 }
 
-// Closure706 with func( 7 in)(0 out) fix first 6 argument
-func Closure706[A, B, C, D, E, F, G any](a A, fn func(A, B, C, D, E, F, G)) func(B, C, D, E, F, G) {
-	return func(b B, c C, d D, e E, f F, g G) {
+// Closure706 with func( 7 in)(0 out) closure first 6 argument
+func Closure706[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G)) func(G) {
+	return func(g G) {
 		fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2498,9 +2978,17 @@ func ClosureLast706[A, B, C, D, E, F, G any](b B, c C, d D, e E, f F, g G, fn fu
 	}
 }
 
-// Closure711 with func( 7 in)(1 out) fix first 1 argument
-func Closure711[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) H) func(G) H {
-	return func(g G) (h H) {
+// Closure707 with func( 7 in)(0 out) closure first 7 argument
+func Closure707[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G)) func() {
+	return func() {
+		fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure711 with func( 7 in)(1 out) closure first 1 argument
+func Closure711[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F, G) H) func(B, C, D, E, F, G) H {
+	return func(b B, c C, d D, e E, f F, g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2514,9 +3002,9 @@ func ClosureLast711[A, B, C, D, E, F, G, H any](g G, fn func(A, B, C, D, E, F, G
 	}
 }
 
-// Closure712 with func( 7 in)(1 out) fix first 2 argument
-func Closure712[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) H) func(F, G) H {
-	return func(f F, g G) (h H) {
+// Closure712 with func( 7 in)(1 out) closure first 2 argument
+func Closure712[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F, G) H) func(C, D, E, F, G) H {
+	return func(c C, d D, e E, f F, g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2530,9 +3018,9 @@ func ClosureLast712[A, B, C, D, E, F, G, H any](f F, g G, fn func(A, B, C, D, E,
 	}
 }
 
-// Closure713 with func( 7 in)(1 out) fix first 3 argument
-func Closure713[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) H) func(E, F, G) H {
-	return func(e E, f F, g G) (h H) {
+// Closure713 with func( 7 in)(1 out) closure first 3 argument
+func Closure713[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E, F, G) H) func(D, E, F, G) H {
+	return func(d D, e E, f F, g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2546,9 +3034,9 @@ func ClosureLast713[A, B, C, D, E, F, G, H any](e E, f F, g G, fn func(A, B, C, 
 	}
 }
 
-// Closure714 with func( 7 in)(1 out) fix first 4 argument
-func Closure714[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E, F, G) H) func(D, E, F, G) H {
-	return func(d D, e E, f F, g G) (h H) {
+// Closure714 with func( 7 in)(1 out) closure first 4 argument
+func Closure714[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) H) func(E, F, G) H {
+	return func(e E, f F, g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2562,9 +3050,9 @@ func ClosureLast714[A, B, C, D, E, F, G, H any](d D, e E, f F, g G, fn func(A, B
 	}
 }
 
-// Closure715 with func( 7 in)(1 out) fix first 5 argument
-func Closure715[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F, G) H) func(C, D, E, F, G) H {
-	return func(c C, d D, e E, f F, g G) (h H) {
+// Closure715 with func( 7 in)(1 out) closure first 5 argument
+func Closure715[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) H) func(F, G) H {
+	return func(f F, g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2578,9 +3066,9 @@ func ClosureLast715[A, B, C, D, E, F, G, H any](c C, d D, e E, f F, g G, fn func
 	}
 }
 
-// Closure716 with func( 7 in)(1 out) fix first 6 argument
-func Closure716[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F, G) H) func(B, C, D, E, F, G) H {
-	return func(b B, c C, d D, e E, f F, g G) (h H) {
+// Closure716 with func( 7 in)(1 out) closure first 6 argument
+func Closure716[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) H) func(G) H {
+	return func(g G) (h H) {
 		h = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2594,9 +3082,17 @@ func ClosureLast716[A, B, C, D, E, F, G, H any](b B, c C, d D, e E, f F, g G, fn
 	}
 }
 
-// Closure721 with func( 7 in)(2 out) fix first 1 argument
-func Closure721[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I)) func(G) (H, I) {
-	return func(g G) (h H, i I) {
+// Closure717 with func( 7 in)(1 out) closure first 7 argument
+func Closure717[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) H) func() H {
+	return func() (h H) {
+		h = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure721 with func( 7 in)(2 out) closure first 1 argument
+func Closure721[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G) (H, I)) func(B, C, D, E, F, G) (H, I) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2610,9 +3106,9 @@ func ClosureLast721[A, B, C, D, E, F, G, H, I any](g G, fn func(A, B, C, D, E, F
 	}
 }
 
-// Closure722 with func( 7 in)(2 out) fix first 2 argument
-func Closure722[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I)) func(F, G) (H, I) {
-	return func(f F, g G) (h H, i I) {
+// Closure722 with func( 7 in)(2 out) closure first 2 argument
+func Closure722[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I)) func(C, D, E, F, G) (H, I) {
+	return func(c C, d D, e E, f F, g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2626,9 +3122,9 @@ func ClosureLast722[A, B, C, D, E, F, G, H, I any](f F, g G, fn func(A, B, C, D,
 	}
 }
 
-// Closure723 with func( 7 in)(2 out) fix first 3 argument
-func Closure723[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I)) func(E, F, G) (H, I) {
-	return func(e E, f F, g G) (h H, i I) {
+// Closure723 with func( 7 in)(2 out) closure first 3 argument
+func Closure723[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I)) func(D, E, F, G) (H, I) {
+	return func(d D, e E, f F, g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2642,9 +3138,9 @@ func ClosureLast723[A, B, C, D, E, F, G, H, I any](e E, f F, g G, fn func(A, B, 
 	}
 }
 
-// Closure724 with func( 7 in)(2 out) fix first 4 argument
-func Closure724[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I)) func(D, E, F, G) (H, I) {
-	return func(d D, e E, f F, g G) (h H, i I) {
+// Closure724 with func( 7 in)(2 out) closure first 4 argument
+func Closure724[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I)) func(E, F, G) (H, I) {
+	return func(e E, f F, g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2658,9 +3154,9 @@ func ClosureLast724[A, B, C, D, E, F, G, H, I any](d D, e E, f F, g G, fn func(A
 	}
 }
 
-// Closure725 with func( 7 in)(2 out) fix first 5 argument
-func Closure725[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I)) func(C, D, E, F, G) (H, I) {
-	return func(c C, d D, e E, f F, g G) (h H, i I) {
+// Closure725 with func( 7 in)(2 out) closure first 5 argument
+func Closure725[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I)) func(F, G) (H, I) {
+	return func(f F, g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2674,9 +3170,9 @@ func ClosureLast725[A, B, C, D, E, F, G, H, I any](c C, d D, e E, f F, g G, fn f
 	}
 }
 
-// Closure726 with func( 7 in)(2 out) fix first 6 argument
-func Closure726[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G) (H, I)) func(B, C, D, E, F, G) (H, I) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I) {
+// Closure726 with func( 7 in)(2 out) closure first 6 argument
+func Closure726[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I)) func(G) (H, I) {
+	return func(g G) (h H, i I) {
 		h, i = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2690,9 +3186,17 @@ func ClosureLast726[A, B, C, D, E, F, G, H, I any](b B, c C, d D, e E, f F, g G,
 	}
 }
 
-// Closure731 with func( 7 in)(3 out) fix first 1 argument
-func Closure731[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J)) func(G) (H, I, J) {
-	return func(g G) (h H, i I, j J) {
+// Closure727 with func( 7 in)(2 out) closure first 7 argument
+func Closure727[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I)) func() (H, I) {
+	return func() (h H, i I) {
+		h, i = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure731 with func( 7 in)(3 out) closure first 1 argument
+func Closure731[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G) (H, I, J)) func(B, C, D, E, F, G) (H, I, J) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2706,9 +3210,9 @@ func ClosureLast731[A, B, C, D, E, F, G, H, I, J any](g G, fn func(A, B, C, D, E
 	}
 }
 
-// Closure732 with func( 7 in)(3 out) fix first 2 argument
-func Closure732[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J)) func(F, G) (H, I, J) {
-	return func(f F, g G) (h H, i I, j J) {
+// Closure732 with func( 7 in)(3 out) closure first 2 argument
+func Closure732[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J)) func(C, D, E, F, G) (H, I, J) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2722,9 +3226,9 @@ func ClosureLast732[A, B, C, D, E, F, G, H, I, J any](f F, g G, fn func(A, B, C,
 	}
 }
 
-// Closure733 with func( 7 in)(3 out) fix first 3 argument
-func Closure733[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J)) func(E, F, G) (H, I, J) {
-	return func(e E, f F, g G) (h H, i I, j J) {
+// Closure733 with func( 7 in)(3 out) closure first 3 argument
+func Closure733[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J)) func(D, E, F, G) (H, I, J) {
+	return func(d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2738,9 +3242,9 @@ func ClosureLast733[A, B, C, D, E, F, G, H, I, J any](e E, f F, g G, fn func(A, 
 	}
 }
 
-// Closure734 with func( 7 in)(3 out) fix first 4 argument
-func Closure734[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J)) func(D, E, F, G) (H, I, J) {
-	return func(d D, e E, f F, g G) (h H, i I, j J) {
+// Closure734 with func( 7 in)(3 out) closure first 4 argument
+func Closure734[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J)) func(E, F, G) (H, I, J) {
+	return func(e E, f F, g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2754,9 +3258,9 @@ func ClosureLast734[A, B, C, D, E, F, G, H, I, J any](d D, e E, f F, g G, fn fun
 	}
 }
 
-// Closure735 with func( 7 in)(3 out) fix first 5 argument
-func Closure735[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J)) func(C, D, E, F, G) (H, I, J) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J) {
+// Closure735 with func( 7 in)(3 out) closure first 5 argument
+func Closure735[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J)) func(F, G) (H, I, J) {
+	return func(f F, g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2770,9 +3274,9 @@ func ClosureLast735[A, B, C, D, E, F, G, H, I, J any](c C, d D, e E, f F, g G, f
 	}
 }
 
-// Closure736 with func( 7 in)(3 out) fix first 6 argument
-func Closure736[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G) (H, I, J)) func(B, C, D, E, F, G) (H, I, J) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
+// Closure736 with func( 7 in)(3 out) closure first 6 argument
+func Closure736[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J)) func(G) (H, I, J) {
+	return func(g G) (h H, i I, j J) {
 		h, i, j = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2786,9 +3290,17 @@ func ClosureLast736[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, e E, f F, g
 	}
 }
 
-// Closure741 with func( 7 in)(4 out) fix first 1 argument
-func Closure741[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(G) (H, I, J, K) {
-	return func(g G) (h H, i I, j J, k K) {
+// Closure737 with func( 7 in)(3 out) closure first 7 argument
+func Closure737[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J)) func() (H, I, J) {
+	return func() (h H, i I, j J) {
+		h, i, j = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure741 with func( 7 in)(4 out) closure first 1 argument
+func Closure741[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(B, C, D, E, F, G) (H, I, J, K) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2802,9 +3314,9 @@ func ClosureLast741[A, B, C, D, E, F, G, H, I, J, K any](g G, fn func(A, B, C, D
 	}
 }
 
-// Closure742 with func( 7 in)(4 out) fix first 2 argument
-func Closure742[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(F, G) (H, I, J, K) {
-	return func(f F, g G) (h H, i I, j J, k K) {
+// Closure742 with func( 7 in)(4 out) closure first 2 argument
+func Closure742[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(C, D, E, F, G) (H, I, J, K) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2818,9 +3330,9 @@ func ClosureLast742[A, B, C, D, E, F, G, H, I, J, K any](f F, g G, fn func(A, B,
 	}
 }
 
-// Closure743 with func( 7 in)(4 out) fix first 3 argument
-func Closure743[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(E, F, G) (H, I, J, K) {
-	return func(e E, f F, g G) (h H, i I, j J, k K) {
+// Closure743 with func( 7 in)(4 out) closure first 3 argument
+func Closure743[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(D, E, F, G) (H, I, J, K) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2834,9 +3346,9 @@ func ClosureLast743[A, B, C, D, E, F, G, H, I, J, K any](e E, f F, g G, fn func(
 	}
 }
 
-// Closure744 with func( 7 in)(4 out) fix first 4 argument
-func Closure744[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(D, E, F, G) (H, I, J, K) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K) {
+// Closure744 with func( 7 in)(4 out) closure first 4 argument
+func Closure744[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(E, F, G) (H, I, J, K) {
+	return func(e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2850,9 +3362,9 @@ func ClosureLast744[A, B, C, D, E, F, G, H, I, J, K any](d D, e E, f F, g G, fn 
 	}
 }
 
-// Closure745 with func( 7 in)(4 out) fix first 5 argument
-func Closure745[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(C, D, E, F, G) (H, I, J, K) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
+// Closure745 with func( 7 in)(4 out) closure first 5 argument
+func Closure745[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(F, G) (H, I, J, K) {
+	return func(f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2866,9 +3378,9 @@ func ClosureLast745[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, e E, f F, g G
 	}
 }
 
-// Closure746 with func( 7 in)(4 out) fix first 6 argument
-func Closure746[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(B, C, D, E, F, G) (H, I, J, K) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
+// Closure746 with func( 7 in)(4 out) closure first 6 argument
+func Closure746[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(G) (H, I, J, K) {
+	return func(g G) (h H, i I, j J, k K) {
 		h, i, j, k = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2882,9 +3394,17 @@ func ClosureLast746[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, e E, f F
 	}
 }
 
-// Closure751 with func( 7 in)(5 out) fix first 1 argument
-func Closure751[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(G) (H, I, J, K, L) {
-	return func(g G) (h H, i I, j J, k K, l L) {
+// Closure747 with func( 7 in)(4 out) closure first 7 argument
+func Closure747[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K)) func() (H, I, J, K) {
+	return func() (h H, i I, j J, k K) {
+		h, i, j, k = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure751 with func( 7 in)(5 out) closure first 1 argument
+func Closure751[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(B, C, D, E, F, G) (H, I, J, K, L) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2898,9 +3418,9 @@ func ClosureLast751[A, B, C, D, E, F, G, H, I, J, K, L any](g G, fn func(A, B, C
 	}
 }
 
-// Closure752 with func( 7 in)(5 out) fix first 2 argument
-func Closure752[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(F, G) (H, I, J, K, L) {
-	return func(f F, g G) (h H, i I, j J, k K, l L) {
+// Closure752 with func( 7 in)(5 out) closure first 2 argument
+func Closure752[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(C, D, E, F, G) (H, I, J, K, L) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2914,9 +3434,9 @@ func ClosureLast752[A, B, C, D, E, F, G, H, I, J, K, L any](f F, g G, fn func(A,
 	}
 }
 
-// Closure753 with func( 7 in)(5 out) fix first 3 argument
-func Closure753[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(E, F, G) (H, I, J, K, L) {
-	return func(e E, f F, g G) (h H, i I, j J, k K, l L) {
+// Closure753 with func( 7 in)(5 out) closure first 3 argument
+func Closure753[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(D, E, F, G) (H, I, J, K, L) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2930,9 +3450,9 @@ func ClosureLast753[A, B, C, D, E, F, G, H, I, J, K, L any](e E, f F, g G, fn fu
 	}
 }
 
-// Closure754 with func( 7 in)(5 out) fix first 4 argument
-func Closure754[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(D, E, F, G) (H, I, J, K, L) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
+// Closure754 with func( 7 in)(5 out) closure first 4 argument
+func Closure754[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(E, F, G) (H, I, J, K, L) {
+	return func(e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2946,9 +3466,9 @@ func ClosureLast754[A, B, C, D, E, F, G, H, I, J, K, L any](d D, e E, f F, g G, 
 	}
 }
 
-// Closure755 with func( 7 in)(5 out) fix first 5 argument
-func Closure755[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(C, D, E, F, G) (H, I, J, K, L) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
+// Closure755 with func( 7 in)(5 out) closure first 5 argument
+func Closure755[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(F, G) (H, I, J, K, L) {
+	return func(f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2962,9 +3482,9 @@ func ClosureLast755[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, e E, f F, 
 	}
 }
 
-// Closure756 with func( 7 in)(5 out) fix first 6 argument
-func Closure756[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(B, C, D, E, F, G) (H, I, J, K, L) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
+// Closure756 with func( 7 in)(5 out) closure first 6 argument
+func Closure756[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(G) (H, I, J, K, L) {
+	return func(g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2978,9 +3498,17 @@ func ClosureLast756[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, e E, 
 	}
 }
 
-// Closure761 with func( 7 in)(6 out) fix first 1 argument
-func Closure761[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(G) (H, I, J, K, L, M) {
-	return func(g G) (h H, i I, j J, k K, l L, m M) {
+// Closure757 with func( 7 in)(5 out) closure first 7 argument
+func Closure757[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func() (H, I, J, K, L) {
+	return func() (h H, i I, j J, k K, l L) {
+		h, i, j, k, l = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure761 with func( 7 in)(6 out) closure first 1 argument
+func Closure761[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(B, C, D, E, F, G) (H, I, J, K, L, M) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -2994,9 +3522,9 @@ func ClosureLast761[A, B, C, D, E, F, G, H, I, J, K, L, M any](g G, fn func(A, B
 	}
 }
 
-// Closure762 with func( 7 in)(6 out) fix first 2 argument
-func Closure762[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(F, G) (H, I, J, K, L, M) {
-	return func(f F, g G) (h H, i I, j J, k K, l L, m M) {
+// Closure762 with func( 7 in)(6 out) closure first 2 argument
+func Closure762[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(C, D, E, F, G) (H, I, J, K, L, M) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3010,9 +3538,9 @@ func ClosureLast762[A, B, C, D, E, F, G, H, I, J, K, L, M any](f F, g G, fn func
 	}
 }
 
-// Closure763 with func( 7 in)(6 out) fix first 3 argument
-func Closure763[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(E, F, G) (H, I, J, K, L, M) {
-	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
+// Closure763 with func( 7 in)(6 out) closure first 3 argument
+func Closure763[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(D, E, F, G) (H, I, J, K, L, M) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3026,9 +3554,9 @@ func ClosureLast763[A, B, C, D, E, F, G, H, I, J, K, L, M any](e E, f F, g G, fn
 	}
 }
 
-// Closure764 with func( 7 in)(6 out) fix first 4 argument
-func Closure764[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(D, E, F, G) (H, I, J, K, L, M) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
+// Closure764 with func( 7 in)(6 out) closure first 4 argument
+func Closure764[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(E, F, G) (H, I, J, K, L, M) {
+	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3042,9 +3570,9 @@ func ClosureLast764[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, e E, f F, g 
 	}
 }
 
-// Closure765 with func( 7 in)(6 out) fix first 5 argument
-func Closure765[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(C, D, E, F, G) (H, I, J, K, L, M) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
+// Closure765 with func( 7 in)(6 out) closure first 5 argument
+func Closure765[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(F, G) (H, I, J, K, L, M) {
+	return func(f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3058,9 +3586,9 @@ func ClosureLast765[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, e E, f 
 	}
 }
 
-// Closure766 with func( 7 in)(6 out) fix first 6 argument
-func Closure766[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(B, C, D, E, F, G) (H, I, J, K, L, M) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
+// Closure766 with func( 7 in)(6 out) closure first 6 argument
+func Closure766[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(G) (H, I, J, K, L, M) {
+	return func(g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3074,9 +3602,17 @@ func ClosureLast766[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, e 
 	}
 }
 
-// Closure771 with func( 7 in)(7 out) fix first 1 argument
-func Closure771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(G) (H, I, J, K, L, M, N) {
-	return func(g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure767 with func( 7 in)(6 out) closure first 7 argument
+func Closure767[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func() (H, I, J, K, L, M) {
+	return func() (h H, i I, j J, k K, l L, m M) {
+		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure771 with func( 7 in)(7 out) closure first 1 argument
+func Closure771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3090,9 +3626,9 @@ func ClosureLast771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](g G, fn func(A
 	}
 }
 
-// Closure772 with func( 7 in)(7 out) fix first 2 argument
-func Closure772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(F, G) (H, I, J, K, L, M, N) {
-	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure772 with func( 7 in)(7 out) closure first 2 argument
+func Closure772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(C, D, E, F, G) (H, I, J, K, L, M, N) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3106,9 +3642,9 @@ func ClosureLast772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](f F, g G, fn f
 	}
 }
 
-// Closure773 with func( 7 in)(7 out) fix first 3 argument
-func Closure773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(E, F, G) (H, I, J, K, L, M, N) {
-	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure773 with func( 7 in)(7 out) closure first 3 argument
+func Closure773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(D, E, F, G) (H, I, J, K, L, M, N) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3122,9 +3658,9 @@ func ClosureLast773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](e E, f F, g G,
 	}
 }
 
-// Closure774 with func( 7 in)(7 out) fix first 4 argument
-func Closure774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(D, E, F, G) (H, I, J, K, L, M, N) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure774 with func( 7 in)(7 out) closure first 4 argument
+func Closure774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(E, F, G) (H, I, J, K, L, M, N) {
+	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3138,9 +3674,9 @@ func ClosureLast774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](d D, e E, f F,
 	}
 }
 
-// Closure775 with func( 7 in)(7 out) fix first 5 argument
-func Closure775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(C, D, E, F, G) (H, I, J, K, L, M, N) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure775 with func( 7 in)(7 out) closure first 5 argument
+func Closure775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(F, G) (H, I, J, K, L, M, N) {
+	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3154,9 +3690,9 @@ func ClosureLast775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](c C, d D, e E,
 	}
 }
 
-// Closure776 with func( 7 in)(7 out) fix first 6 argument
-func Closure776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
+// Closure776 with func( 7 in)(7 out) closure first 6 argument
+func Closure776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(G) (H, I, J, K, L, M, N) {
+	return func(g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3170,9 +3706,17 @@ func ClosureLast776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](b B, c C, d D,
 	}
 }
 
-// Closure781 with func( 7 in)(8 out) fix first 1 argument
-func Closure781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(G) (H, I, J, K, L, M, N, O) {
-	return func(g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure777 with func( 7 in)(7 out) closure first 7 argument
+func Closure777[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func() (H, I, J, K, L, M, N) {
+	return func() (h H, i I, j J, k K, l L, m M, n N) {
+		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure781 with func( 7 in)(8 out) closure first 1 argument
+func Closure781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N, O) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3186,9 +3730,9 @@ func ClosureLast781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](g G, fn fun
 	}
 }
 
-// Closure782 with func( 7 in)(8 out) fix first 2 argument
-func Closure782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(F, G) (H, I, J, K, L, M, N, O) {
-	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure782 with func( 7 in)(8 out) closure first 2 argument
+func Closure782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(C, D, E, F, G) (H, I, J, K, L, M, N, O) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3202,9 +3746,9 @@ func ClosureLast782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](f F, g G, f
 	}
 }
 
-// Closure783 with func( 7 in)(8 out) fix first 3 argument
-func Closure783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(E, F, G) (H, I, J, K, L, M, N, O) {
-	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure783 with func( 7 in)(8 out) closure first 3 argument
+func Closure783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(D, E, F, G) (H, I, J, K, L, M, N, O) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3218,9 +3762,9 @@ func ClosureLast783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](e E, f F, g
 	}
 }
 
-// Closure784 with func( 7 in)(8 out) fix first 4 argument
-func Closure784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(D, E, F, G) (H, I, J, K, L, M, N, O) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure784 with func( 7 in)(8 out) closure first 4 argument
+func Closure784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(E, F, G) (H, I, J, K, L, M, N, O) {
+	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3234,9 +3778,9 @@ func ClosureLast784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](d D, e E, f
 	}
 }
 
-// Closure785 with func( 7 in)(8 out) fix first 5 argument
-func Closure785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(C, D, E, F, G) (H, I, J, K, L, M, N, O) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure785 with func( 7 in)(8 out) closure first 5 argument
+func Closure785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(F, G) (H, I, J, K, L, M, N, O) {
+	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3250,9 +3794,9 @@ func ClosureLast785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](c C, d D, e
 	}
 }
 
-// Closure786 with func( 7 in)(8 out) fix first 6 argument
-func Closure786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N, O) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
+// Closure786 with func( 7 in)(8 out) closure first 6 argument
+func Closure786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(G) (H, I, J, K, L, M, N, O) {
+	return func(g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3266,9 +3810,17 @@ func ClosureLast786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](b B, c C, d
 	}
 }
 
-// Closure791 with func( 7 in)(9 out) fix first 1 argument
-func Closure791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(G) (H, I, J, K, L, M, N, O, P) {
-	return func(g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure787 with func( 7 in)(8 out) closure first 7 argument
+func Closure787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func() (H, I, J, K, L, M, N, O) {
+	return func() (h H, i I, j J, k K, l L, m M, n N, o O) {
+		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure791 with func( 7 in)(9 out) closure first 1 argument
+func Closure791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P) {
+	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3282,9 +3834,9 @@ func ClosureLast791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](g G, fn 
 	}
 }
 
-// Closure792 with func( 7 in)(9 out) fix first 2 argument
-func Closure792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(F, G) (H, I, J, K, L, M, N, O, P) {
-	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure792 with func( 7 in)(9 out) closure first 2 argument
+func Closure792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(C, D, E, F, G) (H, I, J, K, L, M, N, O, P) {
+	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3298,9 +3850,9 @@ func ClosureLast792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](f F, g G
 	}
 }
 
-// Closure793 with func( 7 in)(9 out) fix first 3 argument
-func Closure793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(E, F, G) (H, I, J, K, L, M, N, O, P) {
-	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure793 with func( 7 in)(9 out) closure first 3 argument
+func Closure793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(D, E, F, G) (H, I, J, K, L, M, N, O, P) {
+	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3314,9 +3866,9 @@ func ClosureLast793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](e E, f F
 	}
 }
 
-// Closure794 with func( 7 in)(9 out) fix first 4 argument
-func Closure794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(D, E, F, G) (H, I, J, K, L, M, N, O, P) {
-	return func(d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure794 with func( 7 in)(9 out) closure first 4 argument
+func Closure794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(E, F, G) (H, I, J, K, L, M, N, O, P) {
+	return func(e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3330,9 +3882,9 @@ func ClosureLast794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](d D, e E
 	}
 }
 
-// Closure795 with func( 7 in)(9 out) fix first 5 argument
-func Closure795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(C, D, E, F, G) (H, I, J, K, L, M, N, O, P) {
-	return func(c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure795 with func( 7 in)(9 out) closure first 5 argument
+func Closure795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(F, G) (H, I, J, K, L, M, N, O, P) {
+	return func(f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3346,9 +3898,9 @@ func ClosureLast795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](c C, d D
 	}
 }
 
-// Closure796 with func( 7 in)(9 out) fix first 6 argument
-func Closure796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P) {
-	return func(b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure796 with func( 7 in)(9 out) closure first 6 argument
+func Closure796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(G) (H, I, J, K, L, M, N, O, P) {
+	return func(g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
 	}
@@ -3362,9 +3914,17 @@ func ClosureLast796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](b B, c C
 	}
 }
 
-// Closure801 with func( 8 in)(0 out) fix first 1 argument
-func Closure801[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H)) func(H) {
-	return func(h H) {
+// Closure797 with func( 7 in)(9 out) closure first 7 argument
+func Closure797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func() (H, I, J, K, L, M, N, O, P) {
+	return func() (h H, i I, j J, k K, l L, m M, n N, o O, p P) {
+		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Closure801 with func( 8 in)(0 out) closure first 1 argument
+func Closure801[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F, G, H)) func(B, C, D, E, F, G, H) {
+	return func(b B, c C, d D, e E, f F, g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3378,9 +3938,9 @@ func ClosureLast801[A, B, C, D, E, F, G, H any](h H, fn func(A, B, C, D, E, F, G
 	}
 }
 
-// Closure802 with func( 8 in)(0 out) fix first 2 argument
-func Closure802[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H)) func(G, H) {
-	return func(g G, h H) {
+// Closure802 with func( 8 in)(0 out) closure first 2 argument
+func Closure802[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F, G, H)) func(C, D, E, F, G, H) {
+	return func(c C, d D, e E, f F, g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3394,9 +3954,9 @@ func ClosureLast802[A, B, C, D, E, F, G, H any](g G, h H, fn func(A, B, C, D, E,
 	}
 }
 
-// Closure803 with func( 8 in)(0 out) fix first 3 argument
-func Closure803[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H)) func(F, G, H) {
-	return func(f F, g G, h H) {
+// Closure803 with func( 8 in)(0 out) closure first 3 argument
+func Closure803[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H)) func(D, E, F, G, H) {
+	return func(d D, e E, f F, g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3410,7 +3970,7 @@ func ClosureLast803[A, B, C, D, E, F, G, H any](f F, g G, h H, fn func(A, B, C, 
 	}
 }
 
-// Closure804 with func( 8 in)(0 out) fix first 4 argument
+// Closure804 with func( 8 in)(0 out) closure first 4 argument
 func Closure804[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H)) func(E, F, G, H) {
 	return func(e E, f F, g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
@@ -3426,9 +3986,9 @@ func ClosureLast804[A, B, C, D, E, F, G, H any](e E, f F, g G, h H, fn func(A, B
 	}
 }
 
-// Closure805 with func( 8 in)(0 out) fix first 5 argument
-func Closure805[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H)) func(D, E, F, G, H) {
-	return func(d D, e E, f F, g G, h H) {
+// Closure805 with func( 8 in)(0 out) closure first 5 argument
+func Closure805[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H)) func(F, G, H) {
+	return func(f F, g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3442,9 +4002,9 @@ func ClosureLast805[A, B, C, D, E, F, G, H any](d D, e E, f F, g G, h H, fn func
 	}
 }
 
-// Closure806 with func( 8 in)(0 out) fix first 6 argument
-func Closure806[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B, C, D, E, F, G, H)) func(C, D, E, F, G, H) {
-	return func(c C, d D, e E, f F, g G, h H) {
+// Closure806 with func( 8 in)(0 out) closure first 6 argument
+func Closure806[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H)) func(G, H) {
+	return func(g G, h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3458,9 +4018,9 @@ func ClosureLast806[A, B, C, D, E, F, G, H any](c C, d D, e E, f F, g G, h H, fn
 	}
 }
 
-// Closure807 with func( 8 in)(0 out) fix first 7 argument
-func Closure807[A, B, C, D, E, F, G, H any](a A, fn func(A, B, C, D, E, F, G, H)) func(B, C, D, E, F, G, H) {
-	return func(b B, c C, d D, e E, f F, g G, h H) {
+// Closure807 with func( 8 in)(0 out) closure first 7 argument
+func Closure807[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H)) func(H) {
+	return func(h H) {
 		fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3474,9 +4034,17 @@ func ClosureLast807[A, B, C, D, E, F, G, H any](b B, c C, d D, e E, f F, g G, h 
 	}
 }
 
-// Closure811 with func( 8 in)(1 out) fix first 1 argument
-func Closure811[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) I) func(H) I {
-	return func(h H) (i I) {
+// Closure808 with func( 8 in)(0 out) closure first 8 argument
+func Closure808[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H)) func() {
+	return func() {
+		fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure811 with func( 8 in)(1 out) closure first 1 argument
+func Closure811[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G, H) I) func(B, C, D, E, F, G, H) I {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3490,9 +4058,9 @@ func ClosureLast811[A, B, C, D, E, F, G, H, I any](h H, fn func(A, B, C, D, E, F
 	}
 }
 
-// Closure812 with func( 8 in)(1 out) fix first 2 argument
-func Closure812[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) I) func(G, H) I {
-	return func(g G, h H) (i I) {
+// Closure812 with func( 8 in)(1 out) closure first 2 argument
+func Closure812[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G, H) I) func(C, D, E, F, G, H) I {
+	return func(c C, d D, e E, f F, g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3506,9 +4074,9 @@ func ClosureLast812[A, B, C, D, E, F, G, H, I any](g G, h H, fn func(A, B, C, D,
 	}
 }
 
-// Closure813 with func( 8 in)(1 out) fix first 3 argument
-func Closure813[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) I) func(F, G, H) I {
-	return func(f F, g G, h H) (i I) {
+// Closure813 with func( 8 in)(1 out) closure first 3 argument
+func Closure813[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) I) func(D, E, F, G, H) I {
+	return func(d D, e E, f F, g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3522,7 +4090,7 @@ func ClosureLast813[A, B, C, D, E, F, G, H, I any](f F, g G, h H, fn func(A, B, 
 	}
 }
 
-// Closure814 with func( 8 in)(1 out) fix first 4 argument
+// Closure814 with func( 8 in)(1 out) closure first 4 argument
 func Closure814[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) I) func(E, F, G, H) I {
 	return func(e E, f F, g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
@@ -3538,9 +4106,9 @@ func ClosureLast814[A, B, C, D, E, F, G, H, I any](e E, f F, g G, h H, fn func(A
 	}
 }
 
-// Closure815 with func( 8 in)(1 out) fix first 5 argument
-func Closure815[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) I) func(D, E, F, G, H) I {
-	return func(d D, e E, f F, g G, h H) (i I) {
+// Closure815 with func( 8 in)(1 out) closure first 5 argument
+func Closure815[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) I) func(F, G, H) I {
+	return func(f F, g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3554,9 +4122,9 @@ func ClosureLast815[A, B, C, D, E, F, G, H, I any](d D, e E, f F, g G, h H, fn f
 	}
 }
 
-// Closure816 with func( 8 in)(1 out) fix first 6 argument
-func Closure816[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G, H) I) func(C, D, E, F, G, H) I {
-	return func(c C, d D, e E, f F, g G, h H) (i I) {
+// Closure816 with func( 8 in)(1 out) closure first 6 argument
+func Closure816[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) I) func(G, H) I {
+	return func(g G, h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3570,9 +4138,9 @@ func ClosureLast816[A, B, C, D, E, F, G, H, I any](c C, d D, e E, f F, g G, h H,
 	}
 }
 
-// Closure817 with func( 8 in)(1 out) fix first 7 argument
-func Closure817[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G, H) I) func(B, C, D, E, F, G, H) I {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I) {
+// Closure817 with func( 8 in)(1 out) closure first 7 argument
+func Closure817[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) I) func(H) I {
+	return func(h H) (i I) {
 		i = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3586,9 +4154,17 @@ func ClosureLast817[A, B, C, D, E, F, G, H, I any](b B, c C, d D, e E, f F, g G,
 	}
 }
 
-// Closure821 with func( 8 in)(2 out) fix first 1 argument
-func Closure821[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J)) func(H) (I, J) {
-	return func(h H) (i I, j J) {
+// Closure818 with func( 8 in)(1 out) closure first 8 argument
+func Closure818[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) I) func() I {
+	return func() (i I) {
+		i = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure821 with func( 8 in)(2 out) closure first 1 argument
+func Closure821[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G, H) (I, J)) func(B, C, D, E, F, G, H) (I, J) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3602,9 +4178,9 @@ func ClosureLast821[A, B, C, D, E, F, G, H, I, J any](h H, fn func(A, B, C, D, E
 	}
 }
 
-// Closure822 with func( 8 in)(2 out) fix first 2 argument
-func Closure822[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J)) func(G, H) (I, J) {
-	return func(g G, h H) (i I, j J) {
+// Closure822 with func( 8 in)(2 out) closure first 2 argument
+func Closure822[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J)) func(C, D, E, F, G, H) (I, J) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3618,9 +4194,9 @@ func ClosureLast822[A, B, C, D, E, F, G, H, I, J any](g G, h H, fn func(A, B, C,
 	}
 }
 
-// Closure823 with func( 8 in)(2 out) fix first 3 argument
-func Closure823[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J)) func(F, G, H) (I, J) {
-	return func(f F, g G, h H) (i I, j J) {
+// Closure823 with func( 8 in)(2 out) closure first 3 argument
+func Closure823[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J)) func(D, E, F, G, H) (I, J) {
+	return func(d D, e E, f F, g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3634,7 +4210,7 @@ func ClosureLast823[A, B, C, D, E, F, G, H, I, J any](f F, g G, h H, fn func(A, 
 	}
 }
 
-// Closure824 with func( 8 in)(2 out) fix first 4 argument
+// Closure824 with func( 8 in)(2 out) closure first 4 argument
 func Closure824[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J)) func(E, F, G, H) (I, J) {
 	return func(e E, f F, g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
@@ -3650,9 +4226,9 @@ func ClosureLast824[A, B, C, D, E, F, G, H, I, J any](e E, f F, g G, h H, fn fun
 	}
 }
 
-// Closure825 with func( 8 in)(2 out) fix first 5 argument
-func Closure825[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J)) func(D, E, F, G, H) (I, J) {
-	return func(d D, e E, f F, g G, h H) (i I, j J) {
+// Closure825 with func( 8 in)(2 out) closure first 5 argument
+func Closure825[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J)) func(F, G, H) (I, J) {
+	return func(f F, g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3666,9 +4242,9 @@ func ClosureLast825[A, B, C, D, E, F, G, H, I, J any](d D, e E, f F, g G, h H, f
 	}
 }
 
-// Closure826 with func( 8 in)(2 out) fix first 6 argument
-func Closure826[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J)) func(C, D, E, F, G, H) (I, J) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J) {
+// Closure826 with func( 8 in)(2 out) closure first 6 argument
+func Closure826[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J)) func(G, H) (I, J) {
+	return func(g G, h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3682,9 +4258,9 @@ func ClosureLast826[A, B, C, D, E, F, G, H, I, J any](c C, d D, e E, f F, g G, h
 	}
 }
 
-// Closure827 with func( 8 in)(2 out) fix first 7 argument
-func Closure827[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G, H) (I, J)) func(B, C, D, E, F, G, H) (I, J) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
+// Closure827 with func( 8 in)(2 out) closure first 7 argument
+func Closure827[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J)) func(H) (I, J) {
+	return func(h H) (i I, j J) {
 		i, j = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3698,9 +4274,17 @@ func ClosureLast827[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, e E, f F, g
 	}
 }
 
-// Closure831 with func( 8 in)(3 out) fix first 1 argument
-func Closure831[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(H) (I, J, K) {
-	return func(h H) (i I, j J, k K) {
+// Closure828 with func( 8 in)(2 out) closure first 8 argument
+func Closure828[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J)) func() (I, J) {
+	return func() (i I, j J) {
+		i, j = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure831 with func( 8 in)(3 out) closure first 1 argument
+func Closure831[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(B, C, D, E, F, G, H) (I, J, K) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3714,9 +4298,9 @@ func ClosureLast831[A, B, C, D, E, F, G, H, I, J, K any](h H, fn func(A, B, C, D
 	}
 }
 
-// Closure832 with func( 8 in)(3 out) fix first 2 argument
-func Closure832[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(G, H) (I, J, K) {
-	return func(g G, h H) (i I, j J, k K) {
+// Closure832 with func( 8 in)(3 out) closure first 2 argument
+func Closure832[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(C, D, E, F, G, H) (I, J, K) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3730,9 +4314,9 @@ func ClosureLast832[A, B, C, D, E, F, G, H, I, J, K any](g G, h H, fn func(A, B,
 	}
 }
 
-// Closure833 with func( 8 in)(3 out) fix first 3 argument
-func Closure833[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(F, G, H) (I, J, K) {
-	return func(f F, g G, h H) (i I, j J, k K) {
+// Closure833 with func( 8 in)(3 out) closure first 3 argument
+func Closure833[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(D, E, F, G, H) (I, J, K) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3746,7 +4330,7 @@ func ClosureLast833[A, B, C, D, E, F, G, H, I, J, K any](f F, g G, h H, fn func(
 	}
 }
 
-// Closure834 with func( 8 in)(3 out) fix first 4 argument
+// Closure834 with func( 8 in)(3 out) closure first 4 argument
 func Closure834[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(E, F, G, H) (I, J, K) {
 	return func(e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
@@ -3762,9 +4346,9 @@ func ClosureLast834[A, B, C, D, E, F, G, H, I, J, K any](e E, f F, g G, h H, fn 
 	}
 }
 
-// Closure835 with func( 8 in)(3 out) fix first 5 argument
-func Closure835[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(D, E, F, G, H) (I, J, K) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K) {
+// Closure835 with func( 8 in)(3 out) closure first 5 argument
+func Closure835[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(F, G, H) (I, J, K) {
+	return func(f F, g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3778,9 +4362,9 @@ func ClosureLast835[A, B, C, D, E, F, G, H, I, J, K any](d D, e E, f F, g G, h H
 	}
 }
 
-// Closure836 with func( 8 in)(3 out) fix first 6 argument
-func Closure836[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(C, D, E, F, G, H) (I, J, K) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
+// Closure836 with func( 8 in)(3 out) closure first 6 argument
+func Closure836[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(G, H) (I, J, K) {
+	return func(g G, h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3794,9 +4378,9 @@ func ClosureLast836[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, e E, f F, g G
 	}
 }
 
-// Closure837 with func( 8 in)(3 out) fix first 7 argument
-func Closure837[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(B, C, D, E, F, G, H) (I, J, K) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
+// Closure837 with func( 8 in)(3 out) closure first 7 argument
+func Closure837[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(H) (I, J, K) {
+	return func(h H) (i I, j J, k K) {
 		i, j, k = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3810,9 +4394,17 @@ func ClosureLast837[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, e E, f F
 	}
 }
 
-// Closure841 with func( 8 in)(4 out) fix first 1 argument
-func Closure841[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(H) (I, J, K, L) {
-	return func(h H) (i I, j J, k K, l L) {
+// Closure838 with func( 8 in)(3 out) closure first 8 argument
+func Closure838[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K)) func() (I, J, K) {
+	return func() (i I, j J, k K) {
+		i, j, k = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure841 with func( 8 in)(4 out) closure first 1 argument
+func Closure841[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(B, C, D, E, F, G, H) (I, J, K, L) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3826,9 +4418,9 @@ func ClosureLast841[A, B, C, D, E, F, G, H, I, J, K, L any](h H, fn func(A, B, C
 	}
 }
 
-// Closure842 with func( 8 in)(4 out) fix first 2 argument
-func Closure842[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(G, H) (I, J, K, L) {
-	return func(g G, h H) (i I, j J, k K, l L) {
+// Closure842 with func( 8 in)(4 out) closure first 2 argument
+func Closure842[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(C, D, E, F, G, H) (I, J, K, L) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3842,9 +4434,9 @@ func ClosureLast842[A, B, C, D, E, F, G, H, I, J, K, L any](g G, h H, fn func(A,
 	}
 }
 
-// Closure843 with func( 8 in)(4 out) fix first 3 argument
-func Closure843[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(F, G, H) (I, J, K, L) {
-	return func(f F, g G, h H) (i I, j J, k K, l L) {
+// Closure843 with func( 8 in)(4 out) closure first 3 argument
+func Closure843[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(D, E, F, G, H) (I, J, K, L) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3858,7 +4450,7 @@ func ClosureLast843[A, B, C, D, E, F, G, H, I, J, K, L any](f F, g G, h H, fn fu
 	}
 }
 
-// Closure844 with func( 8 in)(4 out) fix first 4 argument
+// Closure844 with func( 8 in)(4 out) closure first 4 argument
 func Closure844[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(E, F, G, H) (I, J, K, L) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
@@ -3874,9 +4466,9 @@ func ClosureLast844[A, B, C, D, E, F, G, H, I, J, K, L any](e E, f F, g G, h H, 
 	}
 }
 
-// Closure845 with func( 8 in)(4 out) fix first 5 argument
-func Closure845[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(D, E, F, G, H) (I, J, K, L) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
+// Closure845 with func( 8 in)(4 out) closure first 5 argument
+func Closure845[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(F, G, H) (I, J, K, L) {
+	return func(f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3890,9 +4482,9 @@ func ClosureLast845[A, B, C, D, E, F, G, H, I, J, K, L any](d D, e E, f F, g G, 
 	}
 }
 
-// Closure846 with func( 8 in)(4 out) fix first 6 argument
-func Closure846[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(C, D, E, F, G, H) (I, J, K, L) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
+// Closure846 with func( 8 in)(4 out) closure first 6 argument
+func Closure846[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(G, H) (I, J, K, L) {
+	return func(g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3906,9 +4498,9 @@ func ClosureLast846[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, e E, f F, 
 	}
 }
 
-// Closure847 with func( 8 in)(4 out) fix first 7 argument
-func Closure847[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(B, C, D, E, F, G, H) (I, J, K, L) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
+// Closure847 with func( 8 in)(4 out) closure first 7 argument
+func Closure847[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(H) (I, J, K, L) {
+	return func(h H) (i I, j J, k K, l L) {
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3922,9 +4514,17 @@ func ClosureLast847[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, e E, 
 	}
 }
 
-// Closure851 with func( 8 in)(5 out) fix first 1 argument
-func Closure851[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(H) (I, J, K, L, M) {
-	return func(h H) (i I, j J, k K, l L, m M) {
+// Closure848 with func( 8 in)(4 out) closure first 8 argument
+func Closure848[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func() (I, J, K, L) {
+	return func() (i I, j J, k K, l L) {
+		i, j, k, l = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure851 with func( 8 in)(5 out) closure first 1 argument
+func Closure851[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(B, C, D, E, F, G, H) (I, J, K, L, M) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3938,9 +4538,9 @@ func ClosureLast851[A, B, C, D, E, F, G, H, I, J, K, L, M any](h H, fn func(A, B
 	}
 }
 
-// Closure852 with func( 8 in)(5 out) fix first 2 argument
-func Closure852[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(G, H) (I, J, K, L, M) {
-	return func(g G, h H) (i I, j J, k K, l L, m M) {
+// Closure852 with func( 8 in)(5 out) closure first 2 argument
+func Closure852[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(C, D, E, F, G, H) (I, J, K, L, M) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3954,9 +4554,9 @@ func ClosureLast852[A, B, C, D, E, F, G, H, I, J, K, L, M any](g G, h H, fn func
 	}
 }
 
-// Closure853 with func( 8 in)(5 out) fix first 3 argument
-func Closure853[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(F, G, H) (I, J, K, L, M) {
-	return func(f F, g G, h H) (i I, j J, k K, l L, m M) {
+// Closure853 with func( 8 in)(5 out) closure first 3 argument
+func Closure853[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(D, E, F, G, H) (I, J, K, L, M) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -3970,7 +4570,7 @@ func ClosureLast853[A, B, C, D, E, F, G, H, I, J, K, L, M any](f F, g G, h H, fn
 	}
 }
 
-// Closure854 with func( 8 in)(5 out) fix first 4 argument
+// Closure854 with func( 8 in)(5 out) closure first 4 argument
 func Closure854[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(E, F, G, H) (I, J, K, L, M) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
@@ -3986,9 +4586,9 @@ func ClosureLast854[A, B, C, D, E, F, G, H, I, J, K, L, M any](e E, f F, g G, h 
 	}
 }
 
-// Closure855 with func( 8 in)(5 out) fix first 5 argument
-func Closure855[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(D, E, F, G, H) (I, J, K, L, M) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
+// Closure855 with func( 8 in)(5 out) closure first 5 argument
+func Closure855[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(F, G, H) (I, J, K, L, M) {
+	return func(f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4002,9 +4602,9 @@ func ClosureLast855[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, e E, f F, g 
 	}
 }
 
-// Closure856 with func( 8 in)(5 out) fix first 6 argument
-func Closure856[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(C, D, E, F, G, H) (I, J, K, L, M) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
+// Closure856 with func( 8 in)(5 out) closure first 6 argument
+func Closure856[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(G, H) (I, J, K, L, M) {
+	return func(g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4018,9 +4618,9 @@ func ClosureLast856[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, e E, f 
 	}
 }
 
-// Closure857 with func( 8 in)(5 out) fix first 7 argument
-func Closure857[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(B, C, D, E, F, G, H) (I, J, K, L, M) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
+// Closure857 with func( 8 in)(5 out) closure first 7 argument
+func Closure857[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(H) (I, J, K, L, M) {
+	return func(h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4034,9 +4634,17 @@ func ClosureLast857[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, e 
 	}
 }
 
-// Closure861 with func( 8 in)(6 out) fix first 1 argument
-func Closure861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(H) (I, J, K, L, M, N) {
-	return func(h H) (i I, j J, k K, l L, m M, n N) {
+// Closure858 with func( 8 in)(5 out) closure first 8 argument
+func Closure858[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func() (I, J, K, L, M) {
+	return func() (i I, j J, k K, l L, m M) {
+		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure861 with func( 8 in)(6 out) closure first 1 argument
+func Closure861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4050,9 +4658,9 @@ func ClosureLast861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](h H, fn func(A
 	}
 }
 
-// Closure862 with func( 8 in)(6 out) fix first 2 argument
-func Closure862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(G, H) (I, J, K, L, M, N) {
-	return func(g G, h H) (i I, j J, k K, l L, m M, n N) {
+// Closure862 with func( 8 in)(6 out) closure first 2 argument
+func Closure862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(C, D, E, F, G, H) (I, J, K, L, M, N) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4066,9 +4674,9 @@ func ClosureLast862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](g G, h H, fn f
 	}
 }
 
-// Closure863 with func( 8 in)(6 out) fix first 3 argument
-func Closure863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(F, G, H) (I, J, K, L, M, N) {
-	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
+// Closure863 with func( 8 in)(6 out) closure first 3 argument
+func Closure863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(D, E, F, G, H) (I, J, K, L, M, N) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4082,7 +4690,7 @@ func ClosureLast863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](f F, g G, h H,
 	}
 }
 
-// Closure864 with func( 8 in)(6 out) fix first 4 argument
+// Closure864 with func( 8 in)(6 out) closure first 4 argument
 func Closure864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(E, F, G, H) (I, J, K, L, M, N) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
@@ -4098,9 +4706,9 @@ func ClosureLast864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](e E, f F, g G,
 	}
 }
 
-// Closure865 with func( 8 in)(6 out) fix first 5 argument
-func Closure865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(D, E, F, G, H) (I, J, K, L, M, N) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
+// Closure865 with func( 8 in)(6 out) closure first 5 argument
+func Closure865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(F, G, H) (I, J, K, L, M, N) {
+	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4114,9 +4722,9 @@ func ClosureLast865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](d D, e E, f F,
 	}
 }
 
-// Closure866 with func( 8 in)(6 out) fix first 6 argument
-func Closure866[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(C, D, E, F, G, H) (I, J, K, L, M, N) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
+// Closure866 with func( 8 in)(6 out) closure first 6 argument
+func Closure866[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(G, H) (I, J, K, L, M, N) {
+	return func(g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4130,9 +4738,9 @@ func ClosureLast866[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](c C, d D, e E,
 	}
 }
 
-// Closure867 with func( 8 in)(6 out) fix first 7 argument
-func Closure867[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
+// Closure867 with func( 8 in)(6 out) closure first 7 argument
+func Closure867[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(H) (I, J, K, L, M, N) {
+	return func(h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4146,9 +4754,17 @@ func ClosureLast867[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](b B, c C, d D,
 	}
 }
 
-// Closure871 with func( 8 in)(7 out) fix first 1 argument
-func Closure871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(H) (I, J, K, L, M, N, O) {
-	return func(h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure868 with func( 8 in)(6 out) closure first 8 argument
+func Closure868[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func() (I, J, K, L, M, N) {
+	return func() (i I, j J, k K, l L, m M, n N) {
+		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure871 with func( 8 in)(7 out) closure first 1 argument
+func Closure871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4162,9 +4778,9 @@ func ClosureLast871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](h H, fn fun
 	}
 }
 
-// Closure872 with func( 8 in)(7 out) fix first 2 argument
-func Closure872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(G, H) (I, J, K, L, M, N, O) {
-	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure872 with func( 8 in)(7 out) closure first 2 argument
+func Closure872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4178,9 +4794,9 @@ func ClosureLast872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](g G, h H, f
 	}
 }
 
-// Closure873 with func( 8 in)(7 out) fix first 3 argument
-func Closure873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(F, G, H) (I, J, K, L, M, N, O) {
-	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure873 with func( 8 in)(7 out) closure first 3 argument
+func Closure873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(D, E, F, G, H) (I, J, K, L, M, N, O) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4194,7 +4810,7 @@ func ClosureLast873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](f F, g G, h
 	}
 }
 
-// Closure874 with func( 8 in)(7 out) fix first 4 argument
+// Closure874 with func( 8 in)(7 out) closure first 4 argument
 func Closure874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(E, F, G, H) (I, J, K, L, M, N, O) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
@@ -4210,9 +4826,9 @@ func ClosureLast874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](e E, f F, g
 	}
 }
 
-// Closure875 with func( 8 in)(7 out) fix first 5 argument
-func Closure875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(D, E, F, G, H) (I, J, K, L, M, N, O) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure875 with func( 8 in)(7 out) closure first 5 argument
+func Closure875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(F, G, H) (I, J, K, L, M, N, O) {
+	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4226,9 +4842,9 @@ func ClosureLast875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](d D, e E, f
 	}
 }
 
-// Closure876 with func( 8 in)(7 out) fix first 6 argument
-func Closure876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure876 with func( 8 in)(7 out) closure first 6 argument
+func Closure876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(G, H) (I, J, K, L, M, N, O) {
+	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4242,9 +4858,9 @@ func ClosureLast876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](c C, d D, e
 	}
 }
 
-// Closure877 with func( 8 in)(7 out) fix first 7 argument
-func Closure877[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
+// Closure877 with func( 8 in)(7 out) closure first 7 argument
+func Closure877[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(H) (I, J, K, L, M, N, O) {
+	return func(h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4258,9 +4874,17 @@ func ClosureLast877[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](b B, c C, d
 	}
 }
 
-// Closure881 with func( 8 in)(8 out) fix first 1 argument
-func Closure881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(H) (I, J, K, L, M, N, O, P) {
-	return func(h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure878 with func( 8 in)(7 out) closure first 8 argument
+func Closure878[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func() (I, J, K, L, M, N, O) {
+	return func() (i I, j J, k K, l L, m M, n N, o O) {
+		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure881 with func( 8 in)(8 out) closure first 1 argument
+func Closure881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4274,9 +4898,9 @@ func ClosureLast881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](h H, fn 
 	}
 }
 
-// Closure882 with func( 8 in)(8 out) fix first 2 argument
-func Closure882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(G, H) (I, J, K, L, M, N, O, P) {
-	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure882 with func( 8 in)(8 out) closure first 2 argument
+func Closure882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O, P) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4290,9 +4914,9 @@ func ClosureLast882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](g G, h H
 	}
 }
 
-// Closure883 with func( 8 in)(8 out) fix first 3 argument
-func Closure883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(F, G, H) (I, J, K, L, M, N, O, P) {
-	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure883 with func( 8 in)(8 out) closure first 3 argument
+func Closure883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(D, E, F, G, H) (I, J, K, L, M, N, O, P) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4306,7 +4930,7 @@ func ClosureLast883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](f F, g G
 	}
 }
 
-// Closure884 with func( 8 in)(8 out) fix first 4 argument
+// Closure884 with func( 8 in)(8 out) closure first 4 argument
 func Closure884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(E, F, G, H) (I, J, K, L, M, N, O, P) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
@@ -4322,9 +4946,9 @@ func ClosureLast884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](e E, f F
 	}
 }
 
-// Closure885 with func( 8 in)(8 out) fix first 5 argument
-func Closure885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(D, E, F, G, H) (I, J, K, L, M, N, O, P) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure885 with func( 8 in)(8 out) closure first 5 argument
+func Closure885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(F, G, H) (I, J, K, L, M, N, O, P) {
+	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4338,9 +4962,9 @@ func ClosureLast885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](d D, e E
 	}
 }
 
-// Closure886 with func( 8 in)(8 out) fix first 6 argument
-func Closure886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O, P) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure886 with func( 8 in)(8 out) closure first 6 argument
+func Closure886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(G, H) (I, J, K, L, M, N, O, P) {
+	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4354,9 +4978,9 @@ func ClosureLast886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](c C, d D
 	}
 }
 
-// Closure887 with func( 8 in)(8 out) fix first 7 argument
-func Closure887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
+// Closure887 with func( 8 in)(8 out) closure first 7 argument
+func Closure887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(H) (I, J, K, L, M, N, O, P) {
+	return func(h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4370,9 +4994,17 @@ func ClosureLast887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](b B, c C
 	}
 }
 
-// Closure891 with func( 8 in)(9 out) fix first 1 argument
-func Closure891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(H) (I, J, K, L, M, N, O, P, Q) {
-	return func(h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure888 with func( 8 in)(8 out) closure first 8 argument
+func Closure888[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func() (I, J, K, L, M, N, O, P) {
+	return func() (i I, j J, k K, l L, m M, n N, o O, p P) {
+		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure891 with func( 8 in)(9 out) closure first 1 argument
+func Closure891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
+	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4386,9 +5018,9 @@ func ClosureLast891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](h H, 
 	}
 }
 
-// Closure892 with func( 8 in)(9 out) fix first 2 argument
-func Closure892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(G, H) (I, J, K, L, M, N, O, P, Q) {
-	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure892 with func( 8 in)(9 out) closure first 2 argument
+func Closure892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
+	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4402,9 +5034,9 @@ func ClosureLast892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](g G, 
 	}
 }
 
-// Closure893 with func( 8 in)(9 out) fix first 3 argument
-func Closure893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(F, G, H) (I, J, K, L, M, N, O, P, Q) {
-	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure893 with func( 8 in)(9 out) closure first 3 argument
+func Closure893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
+	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4418,7 +5050,7 @@ func ClosureLast893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](f F, 
 	}
 }
 
-// Closure894 with func( 8 in)(9 out) fix first 4 argument
+// Closure894 with func( 8 in)(9 out) closure first 4 argument
 func Closure894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
 	return func(e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
@@ -4434,9 +5066,9 @@ func ClosureLast894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](e E, 
 	}
 }
 
-// Closure895 with func( 8 in)(9 out) fix first 5 argument
-func Closure895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
-	return func(d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure895 with func( 8 in)(9 out) closure first 5 argument
+func Closure895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(F, G, H) (I, J, K, L, M, N, O, P, Q) {
+	return func(f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4450,9 +5082,9 @@ func ClosureLast895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](d D, 
 	}
 }
 
-// Closure896 with func( 8 in)(9 out) fix first 6 argument
-func Closure896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
-	return func(c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure896 with func( 8 in)(9 out) closure first 6 argument
+func Closure896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(G, H) (I, J, K, L, M, N, O, P, Q) {
+	return func(g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4466,9 +5098,9 @@ func ClosureLast896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](c C, 
 	}
 }
 
-// Closure897 with func( 8 in)(9 out) fix first 7 argument
-func Closure897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q) {
-	return func(b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure897 with func( 8 in)(9 out) closure first 7 argument
+func Closure897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(H) (I, J, K, L, M, N, O, P, Q) {
+	return func(h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
 	}
@@ -4482,9 +5114,17 @@ func ClosureLast897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](b B, 
 	}
 }
 
-// Closure901 with func( 9 in)(0 out) fix first 1 argument
-func Closure901[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I)) func(I) {
-	return func(i I) {
+// Closure898 with func( 8 in)(9 out) closure first 8 argument
+func Closure898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func() (I, J, K, L, M, N, O, P, Q) {
+	return func() (i I, j J, k K, l L, m M, n N, o O, p P, q Q) {
+		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Closure901 with func( 9 in)(0 out) closure first 1 argument
+func Closure901[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G, H, I)) func(B, C, D, E, F, G, H, I) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4498,9 +5138,9 @@ func ClosureLast901[A, B, C, D, E, F, G, H, I any](i I, fn func(A, B, C, D, E, F
 	}
 }
 
-// Closure902 with func( 9 in)(0 out) fix first 2 argument
-func Closure902[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I)) func(H, I) {
-	return func(h H, i I) {
+// Closure902 with func( 9 in)(0 out) closure first 2 argument
+func Closure902[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G, H, I)) func(C, D, E, F, G, H, I) {
+	return func(c C, d D, e E, f F, g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4514,9 +5154,9 @@ func ClosureLast902[A, B, C, D, E, F, G, H, I any](h H, i I, fn func(A, B, C, D,
 	}
 }
 
-// Closure903 with func( 9 in)(0 out) fix first 3 argument
-func Closure903[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I)) func(G, H, I) {
-	return func(g G, h H, i I) {
+// Closure903 with func( 9 in)(0 out) closure first 3 argument
+func Closure903[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I)) func(D, E, F, G, H, I) {
+	return func(d D, e E, f F, g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4530,9 +5170,9 @@ func ClosureLast903[A, B, C, D, E, F, G, H, I any](g G, h H, i I, fn func(A, B, 
 	}
 }
 
-// Closure904 with func( 9 in)(0 out) fix first 4 argument
-func Closure904[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I)) func(F, G, H, I) {
-	return func(f F, g G, h H, i I) {
+// Closure904 with func( 9 in)(0 out) closure first 4 argument
+func Closure904[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I)) func(E, F, G, H, I) {
+	return func(e E, f F, g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4546,9 +5186,9 @@ func ClosureLast904[A, B, C, D, E, F, G, H, I any](f F, g G, h H, i I, fn func(A
 	}
 }
 
-// Closure905 with func( 9 in)(0 out) fix first 5 argument
-func Closure905[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I)) func(E, F, G, H, I) {
-	return func(e E, f F, g G, h H, i I) {
+// Closure905 with func( 9 in)(0 out) closure first 5 argument
+func Closure905[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I)) func(F, G, H, I) {
+	return func(f F, g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4562,9 +5202,9 @@ func ClosureLast905[A, B, C, D, E, F, G, H, I any](e E, f F, g G, h H, i I, fn f
 	}
 }
 
-// Closure906 with func( 9 in)(0 out) fix first 6 argument
-func Closure906[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I)) func(D, E, F, G, H, I) {
-	return func(d D, e E, f F, g G, h H, i I) {
+// Closure906 with func( 9 in)(0 out) closure first 6 argument
+func Closure906[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I)) func(G, H, I) {
+	return func(g G, h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4578,9 +5218,9 @@ func ClosureLast906[A, B, C, D, E, F, G, H, I any](d D, e E, f F, g G, h H, i I,
 	}
 }
 
-// Closure907 with func( 9 in)(0 out) fix first 7 argument
-func Closure907[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B, C, D, E, F, G, H, I)) func(C, D, E, F, G, H, I) {
-	return func(c C, d D, e E, f F, g G, h H, i I) {
+// Closure907 with func( 9 in)(0 out) closure first 7 argument
+func Closure907[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I)) func(H, I) {
+	return func(h H, i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4594,9 +5234,9 @@ func ClosureLast907[A, B, C, D, E, F, G, H, I any](c C, d D, e E, f F, g G, h H,
 	}
 }
 
-// Closure908 with func( 9 in)(0 out) fix first 8 argument
-func Closure908[A, B, C, D, E, F, G, H, I any](a A, fn func(A, B, C, D, E, F, G, H, I)) func(B, C, D, E, F, G, H, I) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) {
+// Closure908 with func( 9 in)(0 out) closure first 8 argument
+func Closure908[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I)) func(I) {
+	return func(i I) {
 		fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4610,9 +5250,17 @@ func ClosureLast908[A, B, C, D, E, F, G, H, I any](b B, c C, d D, e E, f F, g G,
 	}
 }
 
-// Closure911 with func( 9 in)(1 out) fix first 1 argument
-func Closure911[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) J) func(I) J {
-	return func(i I) (j J) {
+// Closure909 with func( 9 in)(0 out) closure first 9 argument
+func Closure909[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I)) func() {
+	return func() {
+		fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure911 with func( 9 in)(1 out) closure first 1 argument
+func Closure911[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G, H, I) J) func(B, C, D, E, F, G, H, I) J {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4626,9 +5274,9 @@ func ClosureLast911[A, B, C, D, E, F, G, H, I, J any](i I, fn func(A, B, C, D, E
 	}
 }
 
-// Closure912 with func( 9 in)(1 out) fix first 2 argument
-func Closure912[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) J) func(H, I) J {
-	return func(h H, i I) (j J) {
+// Closure912 with func( 9 in)(1 out) closure first 2 argument
+func Closure912[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) J) func(C, D, E, F, G, H, I) J {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4642,9 +5290,9 @@ func ClosureLast912[A, B, C, D, E, F, G, H, I, J any](h H, i I, fn func(A, B, C,
 	}
 }
 
-// Closure913 with func( 9 in)(1 out) fix first 3 argument
-func Closure913[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) J) func(G, H, I) J {
-	return func(g G, h H, i I) (j J) {
+// Closure913 with func( 9 in)(1 out) closure first 3 argument
+func Closure913[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) J) func(D, E, F, G, H, I) J {
+	return func(d D, e E, f F, g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4658,9 +5306,9 @@ func ClosureLast913[A, B, C, D, E, F, G, H, I, J any](g G, h H, i I, fn func(A, 
 	}
 }
 
-// Closure914 with func( 9 in)(1 out) fix first 4 argument
-func Closure914[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) J) func(F, G, H, I) J {
-	return func(f F, g G, h H, i I) (j J) {
+// Closure914 with func( 9 in)(1 out) closure first 4 argument
+func Closure914[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) J) func(E, F, G, H, I) J {
+	return func(e E, f F, g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4674,9 +5322,9 @@ func ClosureLast914[A, B, C, D, E, F, G, H, I, J any](f F, g G, h H, i I, fn fun
 	}
 }
 
-// Closure915 with func( 9 in)(1 out) fix first 5 argument
-func Closure915[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) J) func(E, F, G, H, I) J {
-	return func(e E, f F, g G, h H, i I) (j J) {
+// Closure915 with func( 9 in)(1 out) closure first 5 argument
+func Closure915[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) J) func(F, G, H, I) J {
+	return func(f F, g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4690,9 +5338,9 @@ func ClosureLast915[A, B, C, D, E, F, G, H, I, J any](e E, f F, g G, h H, i I, f
 	}
 }
 
-// Closure916 with func( 9 in)(1 out) fix first 6 argument
-func Closure916[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) J) func(D, E, F, G, H, I) J {
-	return func(d D, e E, f F, g G, h H, i I) (j J) {
+// Closure916 with func( 9 in)(1 out) closure first 6 argument
+func Closure916[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) J) func(G, H, I) J {
+	return func(g G, h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4706,9 +5354,9 @@ func ClosureLast916[A, B, C, D, E, F, G, H, I, J any](d D, e E, f F, g G, h H, i
 	}
 }
 
-// Closure917 with func( 9 in)(1 out) fix first 7 argument
-func Closure917[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) J) func(C, D, E, F, G, H, I) J {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J) {
+// Closure917 with func( 9 in)(1 out) closure first 7 argument
+func Closure917[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) J) func(H, I) J {
+	return func(h H, i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4722,9 +5370,9 @@ func ClosureLast917[A, B, C, D, E, F, G, H, I, J any](c C, d D, e E, f F, g G, h
 	}
 }
 
-// Closure918 with func( 9 in)(1 out) fix first 8 argument
-func Closure918[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A, B, C, D, E, F, G, H, I) J) func(B, C, D, E, F, G, H, I) J {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
+// Closure918 with func( 9 in)(1 out) closure first 8 argument
+func Closure918[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) J) func(I) J {
+	return func(i I) (j J) {
 		j = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4738,9 +5386,17 @@ func ClosureLast918[A, B, C, D, E, F, G, H, I, J any](b B, c C, d D, e E, f F, g
 	}
 }
 
-// Closure921 with func( 9 in)(2 out) fix first 1 argument
-func Closure921[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(I) (J, K) {
-	return func(i I) (j J, k K) {
+// Closure919 with func( 9 in)(1 out) closure first 9 argument
+func Closure919[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) J) func() J {
+	return func() (j J) {
+		j = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure921 with func( 9 in)(2 out) closure first 1 argument
+func Closure921[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(B, C, D, E, F, G, H, I) (J, K) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4754,9 +5410,9 @@ func ClosureLast921[A, B, C, D, E, F, G, H, I, J, K any](i I, fn func(A, B, C, D
 	}
 }
 
-// Closure922 with func( 9 in)(2 out) fix first 2 argument
-func Closure922[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(H, I) (J, K) {
-	return func(h H, i I) (j J, k K) {
+// Closure922 with func( 9 in)(2 out) closure first 2 argument
+func Closure922[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(C, D, E, F, G, H, I) (J, K) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4770,9 +5426,9 @@ func ClosureLast922[A, B, C, D, E, F, G, H, I, J, K any](h H, i I, fn func(A, B,
 	}
 }
 
-// Closure923 with func( 9 in)(2 out) fix first 3 argument
-func Closure923[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(G, H, I) (J, K) {
-	return func(g G, h H, i I) (j J, k K) {
+// Closure923 with func( 9 in)(2 out) closure first 3 argument
+func Closure923[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(D, E, F, G, H, I) (J, K) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4786,9 +5442,9 @@ func ClosureLast923[A, B, C, D, E, F, G, H, I, J, K any](g G, h H, i I, fn func(
 	}
 }
 
-// Closure924 with func( 9 in)(2 out) fix first 4 argument
-func Closure924[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(F, G, H, I) (J, K) {
-	return func(f F, g G, h H, i I) (j J, k K) {
+// Closure924 with func( 9 in)(2 out) closure first 4 argument
+func Closure924[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(E, F, G, H, I) (J, K) {
+	return func(e E, f F, g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4802,9 +5458,9 @@ func ClosureLast924[A, B, C, D, E, F, G, H, I, J, K any](f F, g G, h H, i I, fn 
 	}
 }
 
-// Closure925 with func( 9 in)(2 out) fix first 5 argument
-func Closure925[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(E, F, G, H, I) (J, K) {
-	return func(e E, f F, g G, h H, i I) (j J, k K) {
+// Closure925 with func( 9 in)(2 out) closure first 5 argument
+func Closure925[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(F, G, H, I) (J, K) {
+	return func(f F, g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4818,9 +5474,9 @@ func ClosureLast925[A, B, C, D, E, F, G, H, I, J, K any](e E, f F, g G, h H, i I
 	}
 }
 
-// Closure926 with func( 9 in)(2 out) fix first 6 argument
-func Closure926[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(D, E, F, G, H, I) (J, K) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K) {
+// Closure926 with func( 9 in)(2 out) closure first 6 argument
+func Closure926[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(G, H, I) (J, K) {
+	return func(g G, h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4834,9 +5490,9 @@ func ClosureLast926[A, B, C, D, E, F, G, H, I, J, K any](d D, e E, f F, g G, h H
 	}
 }
 
-// Closure927 with func( 9 in)(2 out) fix first 7 argument
-func Closure927[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(C, D, E, F, G, H, I) (J, K) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
+// Closure927 with func( 9 in)(2 out) closure first 7 argument
+func Closure927[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(H, I) (J, K) {
+	return func(h H, i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4850,9 +5506,9 @@ func ClosureLast927[A, B, C, D, E, F, G, H, I, J, K any](c C, d D, e E, f F, g G
 	}
 }
 
-// Closure928 with func( 9 in)(2 out) fix first 8 argument
-func Closure928[A, B, C, D, E, F, G, H, I, J, K any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(B, C, D, E, F, G, H, I) (J, K) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
+// Closure928 with func( 9 in)(2 out) closure first 8 argument
+func Closure928[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(I) (J, K) {
+	return func(i I) (j J, k K) {
 		j, k = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4866,9 +5522,17 @@ func ClosureLast928[A, B, C, D, E, F, G, H, I, J, K any](b B, c C, d D, e E, f F
 	}
 }
 
-// Closure931 with func( 9 in)(3 out) fix first 1 argument
-func Closure931[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(I) (J, K, L) {
-	return func(i I) (j J, k K, l L) {
+// Closure929 with func( 9 in)(2 out) closure first 9 argument
+func Closure929[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K)) func() (J, K) {
+	return func() (j J, k K) {
+		j, k = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure931 with func( 9 in)(3 out) closure first 1 argument
+func Closure931[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(B, C, D, E, F, G, H, I) (J, K, L) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4882,9 +5546,9 @@ func ClosureLast931[A, B, C, D, E, F, G, H, I, J, K, L any](i I, fn func(A, B, C
 	}
 }
 
-// Closure932 with func( 9 in)(3 out) fix first 2 argument
-func Closure932[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(H, I) (J, K, L) {
-	return func(h H, i I) (j J, k K, l L) {
+// Closure932 with func( 9 in)(3 out) closure first 2 argument
+func Closure932[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(C, D, E, F, G, H, I) (J, K, L) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4898,9 +5562,9 @@ func ClosureLast932[A, B, C, D, E, F, G, H, I, J, K, L any](h H, i I, fn func(A,
 	}
 }
 
-// Closure933 with func( 9 in)(3 out) fix first 3 argument
-func Closure933[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(G, H, I) (J, K, L) {
-	return func(g G, h H, i I) (j J, k K, l L) {
+// Closure933 with func( 9 in)(3 out) closure first 3 argument
+func Closure933[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(D, E, F, G, H, I) (J, K, L) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4914,9 +5578,9 @@ func ClosureLast933[A, B, C, D, E, F, G, H, I, J, K, L any](g G, h H, i I, fn fu
 	}
 }
 
-// Closure934 with func( 9 in)(3 out) fix first 4 argument
-func Closure934[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(F, G, H, I) (J, K, L) {
-	return func(f F, g G, h H, i I) (j J, k K, l L) {
+// Closure934 with func( 9 in)(3 out) closure first 4 argument
+func Closure934[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(E, F, G, H, I) (J, K, L) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4930,9 +5594,9 @@ func ClosureLast934[A, B, C, D, E, F, G, H, I, J, K, L any](f F, g G, h H, i I, 
 	}
 }
 
-// Closure935 with func( 9 in)(3 out) fix first 5 argument
-func Closure935[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(E, F, G, H, I) (J, K, L) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L) {
+// Closure935 with func( 9 in)(3 out) closure first 5 argument
+func Closure935[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(F, G, H, I) (J, K, L) {
+	return func(f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4946,9 +5610,9 @@ func ClosureLast935[A, B, C, D, E, F, G, H, I, J, K, L any](e E, f F, g G, h H, 
 	}
 }
 
-// Closure936 with func( 9 in)(3 out) fix first 6 argument
-func Closure936[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(D, E, F, G, H, I) (J, K, L) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
+// Closure936 with func( 9 in)(3 out) closure first 6 argument
+func Closure936[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(G, H, I) (J, K, L) {
+	return func(g G, h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4962,9 +5626,9 @@ func ClosureLast936[A, B, C, D, E, F, G, H, I, J, K, L any](d D, e E, f F, g G, 
 	}
 }
 
-// Closure937 with func( 9 in)(3 out) fix first 7 argument
-func Closure937[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(C, D, E, F, G, H, I) (J, K, L) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
+// Closure937 with func( 9 in)(3 out) closure first 7 argument
+func Closure937[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(H, I) (J, K, L) {
+	return func(h H, i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4978,9 +5642,9 @@ func ClosureLast937[A, B, C, D, E, F, G, H, I, J, K, L any](c C, d D, e E, f F, 
 	}
 }
 
-// Closure938 with func( 9 in)(3 out) fix first 8 argument
-func Closure938[A, B, C, D, E, F, G, H, I, J, K, L any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(B, C, D, E, F, G, H, I) (J, K, L) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
+// Closure938 with func( 9 in)(3 out) closure first 8 argument
+func Closure938[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(I) (J, K, L) {
+	return func(i I) (j J, k K, l L) {
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -4994,9 +5658,17 @@ func ClosureLast938[A, B, C, D, E, F, G, H, I, J, K, L any](b B, c C, d D, e E, 
 	}
 }
 
-// Closure941 with func( 9 in)(4 out) fix first 1 argument
-func Closure941[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(I) (J, K, L, M) {
-	return func(i I) (j J, k K, l L, m M) {
+// Closure939 with func( 9 in)(3 out) closure first 9 argument
+func Closure939[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func() (J, K, L) {
+	return func() (j J, k K, l L) {
+		j, k, l = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure941 with func( 9 in)(4 out) closure first 1 argument
+func Closure941[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(B, C, D, E, F, G, H, I) (J, K, L, M) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5010,9 +5682,9 @@ func ClosureLast941[A, B, C, D, E, F, G, H, I, J, K, L, M any](i I, fn func(A, B
 	}
 }
 
-// Closure942 with func( 9 in)(4 out) fix first 2 argument
-func Closure942[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(H, I) (J, K, L, M) {
-	return func(h H, i I) (j J, k K, l L, m M) {
+// Closure942 with func( 9 in)(4 out) closure first 2 argument
+func Closure942[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(C, D, E, F, G, H, I) (J, K, L, M) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5026,9 +5698,9 @@ func ClosureLast942[A, B, C, D, E, F, G, H, I, J, K, L, M any](h H, i I, fn func
 	}
 }
 
-// Closure943 with func( 9 in)(4 out) fix first 3 argument
-func Closure943[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(G, H, I) (J, K, L, M) {
-	return func(g G, h H, i I) (j J, k K, l L, m M) {
+// Closure943 with func( 9 in)(4 out) closure first 3 argument
+func Closure943[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(D, E, F, G, H, I) (J, K, L, M) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5042,9 +5714,9 @@ func ClosureLast943[A, B, C, D, E, F, G, H, I, J, K, L, M any](g G, h H, i I, fn
 	}
 }
 
-// Closure944 with func( 9 in)(4 out) fix first 4 argument
-func Closure944[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(F, G, H, I) (J, K, L, M) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M) {
+// Closure944 with func( 9 in)(4 out) closure first 4 argument
+func Closure944[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(E, F, G, H, I) (J, K, L, M) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5058,9 +5730,9 @@ func ClosureLast944[A, B, C, D, E, F, G, H, I, J, K, L, M any](f F, g G, h H, i 
 	}
 }
 
-// Closure945 with func( 9 in)(4 out) fix first 5 argument
-func Closure945[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(E, F, G, H, I) (J, K, L, M) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
+// Closure945 with func( 9 in)(4 out) closure first 5 argument
+func Closure945[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(F, G, H, I) (J, K, L, M) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5074,9 +5746,9 @@ func ClosureLast945[A, B, C, D, E, F, G, H, I, J, K, L, M any](e E, f F, g G, h 
 	}
 }
 
-// Closure946 with func( 9 in)(4 out) fix first 6 argument
-func Closure946[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(D, E, F, G, H, I) (J, K, L, M) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
+// Closure946 with func( 9 in)(4 out) closure first 6 argument
+func Closure946[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(G, H, I) (J, K, L, M) {
+	return func(g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5090,9 +5762,9 @@ func ClosureLast946[A, B, C, D, E, F, G, H, I, J, K, L, M any](d D, e E, f F, g 
 	}
 }
 
-// Closure947 with func( 9 in)(4 out) fix first 7 argument
-func Closure947[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(C, D, E, F, G, H, I) (J, K, L, M) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
+// Closure947 with func( 9 in)(4 out) closure first 7 argument
+func Closure947[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(H, I) (J, K, L, M) {
+	return func(h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5106,9 +5778,9 @@ func ClosureLast947[A, B, C, D, E, F, G, H, I, J, K, L, M any](c C, d D, e E, f 
 	}
 }
 
-// Closure948 with func( 9 in)(4 out) fix first 8 argument
-func Closure948[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(B, C, D, E, F, G, H, I) (J, K, L, M) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
+// Closure948 with func( 9 in)(4 out) closure first 8 argument
+func Closure948[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(I) (J, K, L, M) {
+	return func(i I) (j J, k K, l L, m M) {
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5122,9 +5794,17 @@ func ClosureLast948[A, B, C, D, E, F, G, H, I, J, K, L, M any](b B, c C, d D, e 
 	}
 }
 
-// Closure951 with func( 9 in)(5 out) fix first 1 argument
-func Closure951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(I) (J, K, L, M, N) {
-	return func(i I) (j J, k K, l L, m M, n N) {
+// Closure949 with func( 9 in)(4 out) closure first 9 argument
+func Closure949[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func() (J, K, L, M) {
+	return func() (j J, k K, l L, m M) {
+		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure951 with func( 9 in)(5 out) closure first 1 argument
+func Closure951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5138,9 +5818,9 @@ func ClosureLast951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](i I, fn func(A
 	}
 }
 
-// Closure952 with func( 9 in)(5 out) fix first 2 argument
-func Closure952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(H, I) (J, K, L, M, N) {
-	return func(h H, i I) (j J, k K, l L, m M, n N) {
+// Closure952 with func( 9 in)(5 out) closure first 2 argument
+func Closure952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(C, D, E, F, G, H, I) (J, K, L, M, N) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5154,9 +5834,9 @@ func ClosureLast952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](h H, i I, fn f
 	}
 }
 
-// Closure953 with func( 9 in)(5 out) fix first 3 argument
-func Closure953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(G, H, I) (J, K, L, M, N) {
-	return func(g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure953 with func( 9 in)(5 out) closure first 3 argument
+func Closure953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(D, E, F, G, H, I) (J, K, L, M, N) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5170,9 +5850,9 @@ func ClosureLast953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](g G, h H, i I,
 	}
 }
 
-// Closure954 with func( 9 in)(5 out) fix first 4 argument
-func Closure954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(F, G, H, I) (J, K, L, M, N) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure954 with func( 9 in)(5 out) closure first 4 argument
+func Closure954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(E, F, G, H, I) (J, K, L, M, N) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5186,9 +5866,9 @@ func ClosureLast954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](f F, g G, h H,
 	}
 }
 
-// Closure955 with func( 9 in)(5 out) fix first 5 argument
-func Closure955[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(E, F, G, H, I) (J, K, L, M, N) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure955 with func( 9 in)(5 out) closure first 5 argument
+func Closure955[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(F, G, H, I) (J, K, L, M, N) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5202,9 +5882,9 @@ func ClosureLast955[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](e E, f F, g G,
 	}
 }
 
-// Closure956 with func( 9 in)(5 out) fix first 6 argument
-func Closure956[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(D, E, F, G, H, I) (J, K, L, M, N) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure956 with func( 9 in)(5 out) closure first 6 argument
+func Closure956[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(G, H, I) (J, K, L, M, N) {
+	return func(g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5218,9 +5898,9 @@ func ClosureLast956[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](d D, e E, f F,
 	}
 }
 
-// Closure957 with func( 9 in)(5 out) fix first 7 argument
-func Closure957[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(C, D, E, F, G, H, I) (J, K, L, M, N) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure957 with func( 9 in)(5 out) closure first 7 argument
+func Closure957[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(H, I) (J, K, L, M, N) {
+	return func(h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5234,9 +5914,9 @@ func ClosureLast957[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](c C, d D, e E,
 	}
 }
 
-// Closure958 with func( 9 in)(5 out) fix first 8 argument
-func Closure958[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
+// Closure958 with func( 9 in)(5 out) closure first 8 argument
+func Closure958[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(I) (J, K, L, M, N) {
+	return func(i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5250,9 +5930,17 @@ func ClosureLast958[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](b B, c C, d D,
 	}
 }
 
-// Closure961 with func( 9 in)(6 out) fix first 1 argument
-func Closure961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(I) (J, K, L, M, N, O) {
-	return func(i I) (j J, k K, l L, m M, n N, o O) {
+// Closure959 with func( 9 in)(5 out) closure first 9 argument
+func Closure959[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func() (J, K, L, M, N) {
+	return func() (j J, k K, l L, m M, n N) {
+		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure961 with func( 9 in)(6 out) closure first 1 argument
+func Closure961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5266,9 +5954,9 @@ func ClosureLast961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](i I, fn fun
 	}
 }
 
-// Closure962 with func( 9 in)(6 out) fix first 2 argument
-func Closure962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(H, I) (J, K, L, M, N, O) {
-	return func(h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure962 with func( 9 in)(6 out) closure first 2 argument
+func Closure962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5282,9 +5970,9 @@ func ClosureLast962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](h H, i I, f
 	}
 }
 
-// Closure963 with func( 9 in)(6 out) fix first 3 argument
-func Closure963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(G, H, I) (J, K, L, M, N, O) {
-	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure963 with func( 9 in)(6 out) closure first 3 argument
+func Closure963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(D, E, F, G, H, I) (J, K, L, M, N, O) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5298,9 +5986,9 @@ func ClosureLast963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](g G, h H, i
 	}
 }
 
-// Closure964 with func( 9 in)(6 out) fix first 4 argument
-func Closure964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(F, G, H, I) (J, K, L, M, N, O) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure964 with func( 9 in)(6 out) closure first 4 argument
+func Closure964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(E, F, G, H, I) (J, K, L, M, N, O) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5314,9 +6002,9 @@ func ClosureLast964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](f F, g G, h
 	}
 }
 
-// Closure965 with func( 9 in)(6 out) fix first 5 argument
-func Closure965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(E, F, G, H, I) (J, K, L, M, N, O) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure965 with func( 9 in)(6 out) closure first 5 argument
+func Closure965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(F, G, H, I) (J, K, L, M, N, O) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5330,9 +6018,9 @@ func ClosureLast965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](e E, f F, g
 	}
 }
 
-// Closure966 with func( 9 in)(6 out) fix first 6 argument
-func Closure966[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(D, E, F, G, H, I) (J, K, L, M, N, O) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure966 with func( 9 in)(6 out) closure first 6 argument
+func Closure966[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(G, H, I) (J, K, L, M, N, O) {
+	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5346,9 +6034,9 @@ func ClosureLast966[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](d D, e E, f
 	}
 }
 
-// Closure967 with func( 9 in)(6 out) fix first 7 argument
-func Closure967[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure967 with func( 9 in)(6 out) closure first 7 argument
+func Closure967[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(H, I) (J, K, L, M, N, O) {
+	return func(h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5362,9 +6050,9 @@ func ClosureLast967[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](c C, d D, e
 	}
 }
 
-// Closure968 with func( 9 in)(6 out) fix first 8 argument
-func Closure968[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
+// Closure968 with func( 9 in)(6 out) closure first 8 argument
+func Closure968[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(I) (J, K, L, M, N, O) {
+	return func(i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5378,9 +6066,17 @@ func ClosureLast968[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](b B, c C, d
 	}
 }
 
-// Closure971 with func( 9 in)(7 out) fix first 1 argument
-func Closure971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(I) (J, K, L, M, N, O, P) {
-	return func(i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure969 with func( 9 in)(6 out) closure first 9 argument
+func Closure969[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func() (J, K, L, M, N, O) {
+	return func() (j J, k K, l L, m M, n N, o O) {
+		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure971 with func( 9 in)(7 out) closure first 1 argument
+func Closure971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5394,9 +6090,9 @@ func ClosureLast971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](i I, fn 
 	}
 }
 
-// Closure972 with func( 9 in)(7 out) fix first 2 argument
-func Closure972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(H, I) (J, K, L, M, N, O, P) {
-	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure972 with func( 9 in)(7 out) closure first 2 argument
+func Closure972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5410,9 +6106,9 @@ func ClosureLast972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](h H, i I
 	}
 }
 
-// Closure973 with func( 9 in)(7 out) fix first 3 argument
-func Closure973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(G, H, I) (J, K, L, M, N, O, P) {
-	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure973 with func( 9 in)(7 out) closure first 3 argument
+func Closure973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5426,9 +6122,9 @@ func ClosureLast973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](g G, h H
 	}
 }
 
-// Closure974 with func( 9 in)(7 out) fix first 4 argument
-func Closure974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(F, G, H, I) (J, K, L, M, N, O, P) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure974 with func( 9 in)(7 out) closure first 4 argument
+func Closure974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(E, F, G, H, I) (J, K, L, M, N, O, P) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5442,9 +6138,9 @@ func ClosureLast974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](f F, g G
 	}
 }
 
-// Closure975 with func( 9 in)(7 out) fix first 5 argument
-func Closure975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(E, F, G, H, I) (J, K, L, M, N, O, P) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure975 with func( 9 in)(7 out) closure first 5 argument
+func Closure975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(F, G, H, I) (J, K, L, M, N, O, P) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5458,9 +6154,9 @@ func ClosureLast975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](e E, f F
 	}
 }
 
-// Closure976 with func( 9 in)(7 out) fix first 6 argument
-func Closure976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure976 with func( 9 in)(7 out) closure first 6 argument
+func Closure976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(G, H, I) (J, K, L, M, N, O, P) {
+	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5474,9 +6170,9 @@ func ClosureLast976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](d D, e E
 	}
 }
 
-// Closure977 with func( 9 in)(7 out) fix first 7 argument
-func Closure977[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure977 with func( 9 in)(7 out) closure first 7 argument
+func Closure977[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(H, I) (J, K, L, M, N, O, P) {
+	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5490,9 +6186,9 @@ func ClosureLast977[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](c C, d D
 	}
 }
 
-// Closure978 with func( 9 in)(7 out) fix first 8 argument
-func Closure978[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
+// Closure978 with func( 9 in)(7 out) closure first 8 argument
+func Closure978[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(I) (J, K, L, M, N, O, P) {
+	return func(i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5506,9 +6202,17 @@ func ClosureLast978[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](b B, c C
 	}
 }
 
-// Closure981 with func( 9 in)(8 out) fix first 1 argument
-func Closure981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(I) (J, K, L, M, N, O, P, Q) {
-	return func(i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure979 with func( 9 in)(7 out) closure first 9 argument
+func Closure979[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func() (J, K, L, M, N, O, P) {
+	return func() (j J, k K, l L, m M, n N, o O, p P) {
+		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure981 with func( 9 in)(8 out) closure first 1 argument
+func Closure981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5522,9 +6226,9 @@ func ClosureLast981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](i I, 
 	}
 }
 
-// Closure982 with func( 9 in)(8 out) fix first 2 argument
-func Closure982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(H, I) (J, K, L, M, N, O, P, Q) {
-	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure982 with func( 9 in)(8 out) closure first 2 argument
+func Closure982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5538,9 +6242,9 @@ func ClosureLast982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](h H, 
 	}
 }
 
-// Closure983 with func( 9 in)(8 out) fix first 3 argument
-func Closure983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure983 with func( 9 in)(8 out) closure first 3 argument
+func Closure983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5554,9 +6258,9 @@ func ClosureLast983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](g G, 
 	}
 }
 
-// Closure984 with func( 9 in)(8 out) fix first 4 argument
-func Closure984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(F, G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure984 with func( 9 in)(8 out) closure first 4 argument
+func Closure984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5570,9 +6274,9 @@ func ClosureLast984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](f F, 
 	}
 }
 
-// Closure985 with func( 9 in)(8 out) fix first 5 argument
-func Closure985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure985 with func( 9 in)(8 out) closure first 5 argument
+func Closure985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(F, G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5586,9 +6290,9 @@ func ClosureLast985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](e E, 
 	}
 }
 
-// Closure986 with func( 9 in)(8 out) fix first 6 argument
-func Closure986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure986 with func( 9 in)(8 out) closure first 6 argument
+func Closure986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(G, H, I) (J, K, L, M, N, O, P, Q) {
+	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5602,9 +6306,9 @@ func ClosureLast986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](d D, 
 	}
 }
 
-// Closure987 with func( 9 in)(8 out) fix first 7 argument
-func Closure987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure987 with func( 9 in)(8 out) closure first 7 argument
+func Closure987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(H, I) (J, K, L, M, N, O, P, Q) {
+	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5618,9 +6322,9 @@ func ClosureLast987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](c C, 
 	}
 }
 
-// Closure988 with func( 9 in)(8 out) fix first 8 argument
-func Closure988[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
+// Closure988 with func( 9 in)(8 out) closure first 8 argument
+func Closure988[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(I) (J, K, L, M, N, O, P, Q) {
+	return func(i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5634,9 +6338,17 @@ func ClosureLast988[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](b B, 
 	}
 }
 
-// Closure991 with func( 9 in)(9 out) fix first 1 argument
-func Closure991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(I) (J, K, L, M, N, O, P, Q, R) {
-	return func(i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure989 with func( 9 in)(8 out) closure first 9 argument
+func Closure989[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func() (J, K, L, M, N, O, P, Q) {
+	return func() (j J, k K, l L, m M, n N, o O, p P, q Q) {
+		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure991 with func( 9 in)(9 out) closure first 1 argument
+func Closure991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5650,9 +6362,9 @@ func ClosureLast991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](i 
 	}
 }
 
-// Closure992 with func( 9 in)(9 out) fix first 2 argument
-func Closure992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure992 with func( 9 in)(9 out) closure first 2 argument
+func Closure992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5666,9 +6378,9 @@ func ClosureLast992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](h 
 	}
 }
 
-// Closure993 with func( 9 in)(9 out) fix first 3 argument
-func Closure993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure993 with func( 9 in)(9 out) closure first 3 argument
+func Closure993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5682,9 +6394,9 @@ func ClosureLast993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](g 
 	}
 }
 
-// Closure994 with func( 9 in)(9 out) fix first 4 argument
-func Closure994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure994 with func( 9 in)(9 out) closure first 4 argument
+func Closure994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5698,9 +6410,9 @@ func ClosureLast994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](f 
 	}
 }
 
-// Closure995 with func( 9 in)(9 out) fix first 5 argument
-func Closure995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure995 with func( 9 in)(9 out) closure first 5 argument
+func Closure995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5714,9 +6426,9 @@ func ClosureLast995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](e 
 	}
 }
 
-// Closure996 with func( 9 in)(9 out) fix first 6 argument
-func Closure996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure996 with func( 9 in)(9 out) closure first 6 argument
+func Closure996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(G, H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5730,9 +6442,9 @@ func ClosureLast996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](d 
 	}
 }
 
-// Closure997 with func( 9 in)(9 out) fix first 7 argument
-func Closure997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure997 with func( 9 in)(9 out) closure first 7 argument
+func Closure997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, g G, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(H, I) (J, K, L, M, N, O, P, Q, R) {
+	return func(h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5746,9 +6458,9 @@ func ClosureLast997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](c 
 	}
 }
 
-// Closure998 with func( 9 in)(9 out) fix first 8 argument
-func Closure998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R) {
-	return func(b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+// Closure998 with func( 9 in)(9 out) closure first 8 argument
+func Closure998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, g G, h H, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(I) (J, K, L, M, N, O, P, Q, R) {
+	return func(i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
@@ -5757,6 +6469,14 @@ func Closure998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, f
 // ClosureLast998 with func( 9 in)(9 out) fix last 8 argument
 func ClosureLast998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A) (J, K, L, M, N, O, P, Q, R) {
 	return func(a A) (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
+		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Closure999 with func( 9 in)(9 out) closure first 9 argument
+func Closure999[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B, c C, d D, e E, f F, g G, h H, i I, fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func() (J, K, L, M, N, O, P, Q, R) {
+	return func() (j J, k K, l L, m M, n N, o O, p P, q Q, r R) {
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}

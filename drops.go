@@ -2,6 +2,14 @@ package fn
 
 //generated file should not edit
 
+// Drop011 with func( 0 in)(1 out) drop first 1 result
+func Drop011[A any](fn func() A) func() {
+	return func() {
+		_ = fn()
+		return
+	}
+}
+
 // Drop021 with func( 0 in)(2 out) drop first 1 result
 func Drop021[A, B any](fn func() (A, B)) func() B {
 	return func() (b B) {
@@ -14,6 +22,14 @@ func Drop021[A, B any](fn func() (A, B)) func() B {
 func DropLast021[A, B any](fn func() (A, B)) func() A {
 	return func() (a A) {
 		a, _ = fn()
+		return
+	}
+}
+
+// Drop022 with func( 0 in)(2 out) drop first 2 result
+func Drop022[A, B any](fn func() (A, B)) func() {
+	return func() {
+		_, _ = fn()
 		return
 	}
 }
@@ -46,6 +62,14 @@ func Drop032[A, B, C any](fn func() (A, B, C)) func() C {
 func DropLast032[A, B, C any](fn func() (A, B, C)) func() A {
 	return func() (a A) {
 		a, _, _ = fn()
+		return
+	}
+}
+
+// Drop033 with func( 0 in)(3 out) drop first 3 result
+func Drop033[A, B, C any](fn func() (A, B, C)) func() {
+	return func() {
+		_, _, _ = fn()
 		return
 	}
 }
@@ -94,6 +118,14 @@ func Drop043[A, B, C, D any](fn func() (A, B, C, D)) func() D {
 func DropLast043[A, B, C, D any](fn func() (A, B, C, D)) func() A {
 	return func() (a A) {
 		a, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop044 with func( 0 in)(4 out) drop first 4 result
+func Drop044[A, B, C, D any](fn func() (A, B, C, D)) func() {
+	return func() {
+		_, _, _, _ = fn()
 		return
 	}
 }
@@ -158,6 +190,14 @@ func Drop054[A, B, C, D, E any](fn func() (A, B, C, D, E)) func() E {
 func DropLast054[A, B, C, D, E any](fn func() (A, B, C, D, E)) func() A {
 	return func() (a A) {
 		a, _, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop055 with func( 0 in)(5 out) drop first 5 result
+func Drop055[A, B, C, D, E any](fn func() (A, B, C, D, E)) func() {
+	return func() {
+		_, _, _, _, _ = fn()
 		return
 	}
 }
@@ -238,6 +278,14 @@ func Drop065[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F)) func() F {
 func DropLast065[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F)) func() A {
 	return func() (a A) {
 		a, _, _, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop066 with func( 0 in)(6 out) drop first 6 result
+func Drop066[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F)) func() {
+	return func() {
+		_, _, _, _, _, _ = fn()
 		return
 	}
 }
@@ -334,6 +382,14 @@ func Drop076[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G)) func() G 
 func DropLast076[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G)) func() A {
 	return func() (a A) {
 		a, _, _, _, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop077 with func( 0 in)(7 out) drop first 7 result
+func Drop077[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G)) func() {
+	return func() {
+		_, _, _, _, _, _, _ = fn()
 		return
 	}
 }
@@ -446,6 +502,14 @@ func Drop087[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H)) fun
 func DropLast087[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H)) func() A {
 	return func() (a A) {
 		a, _, _, _, _, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop088 with func( 0 in)(8 out) drop first 8 result
+func Drop088[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H)) func() {
+	return func() {
+		_, _, _, _, _, _, _, _ = fn()
 		return
 	}
 }
@@ -578,8 +642,24 @@ func DropLast098[A, B, C, D, E, F, G, H, I any](fn func() (A, B, C, D, E, F, G, 
 	}
 }
 
+// Drop099 with func( 0 in)(9 out) drop first 9 result
+func Drop099[A, B, C, D, E, F, G, H, I any](fn func() (A, B, C, D, E, F, G, H, I)) func() {
+	return func() {
+		_, _, _, _, _, _, _, _, _ = fn()
+		return
+	}
+}
+
+// Drop111 with func( 1 in)(1 out) drop first 1 result
+func Drop111[A, B any](fn func(A) B) func(A) {
+	return func(a A) {
+		_ = fn(a)
+		return
+	}
+}
+
 // Drop121 with func( 1 in)(2 out) drop first 1 result
-func Drop121[A, B, C any](fn func(A) (B, C)) func(a A) C {
+func Drop121[A, B, C any](fn func(A) (B, C)) func(A) C {
 	return func(a A) (c C) {
 		_, c = fn(a)
 		return
@@ -587,15 +667,23 @@ func Drop121[A, B, C any](fn func(A) (B, C)) func(a A) C {
 }
 
 // DropLast121 with func( 1 in)(2 out) drop last 1 result
-func DropLast121[A, B, C any](fn func(A) (B, C)) func(a A) B {
+func DropLast121[A, B, C any](fn func(A) (B, C)) func(A) B {
 	return func(a A) (b B) {
 		b, _ = fn(a)
 		return
 	}
 }
 
+// Drop122 with func( 1 in)(2 out) drop first 2 result
+func Drop122[A, B, C any](fn func(A) (B, C)) func(A) {
+	return func(a A) {
+		_, _ = fn(a)
+		return
+	}
+}
+
 // Drop131 with func( 1 in)(3 out) drop first 1 result
-func Drop131[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (C, D) {
+func Drop131[A, B, C, D any](fn func(A) (B, C, D)) func(A) (C, D) {
 	return func(a A) (c C, d D) {
 		_, c, d = fn(a)
 		return
@@ -603,7 +691,7 @@ func Drop131[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (C, D) {
 }
 
 // DropLast131 with func( 1 in)(3 out) drop last 1 result
-func DropLast131[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (B, C) {
+func DropLast131[A, B, C, D any](fn func(A) (B, C, D)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _ = fn(a)
 		return
@@ -611,7 +699,7 @@ func DropLast131[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (B, C) {
 }
 
 // Drop132 with func( 1 in)(3 out) drop first 2 result
-func Drop132[A, B, C, D any](fn func(A) (B, C, D)) func(a A) D {
+func Drop132[A, B, C, D any](fn func(A) (B, C, D)) func(A) D {
 	return func(a A) (d D) {
 		_, _, d = fn(a)
 		return
@@ -619,15 +707,23 @@ func Drop132[A, B, C, D any](fn func(A) (B, C, D)) func(a A) D {
 }
 
 // DropLast132 with func( 1 in)(3 out) drop last 2 result
-func DropLast132[A, B, C, D any](fn func(A) (B, C, D)) func(a A) B {
+func DropLast132[A, B, C, D any](fn func(A) (B, C, D)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop133 with func( 1 in)(3 out) drop first 3 result
+func Drop133[A, B, C, D any](fn func(A) (B, C, D)) func(A) {
+	return func(a A) {
+		_, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop141 with func( 1 in)(4 out) drop first 1 result
-func Drop141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (C, D, E) {
+func Drop141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) (C, D, E) {
 	return func(a A) (c C, d D, e E) {
 		_, c, d, e = fn(a)
 		return
@@ -635,7 +731,7 @@ func Drop141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (C, D, E) {
 }
 
 // DropLast141 with func( 1 in)(4 out) drop last 1 result
-func DropLast141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C, D) {
+func DropLast141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _ = fn(a)
 		return
@@ -643,7 +739,7 @@ func DropLast141[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C, D)
 }
 
 // Drop142 with func( 1 in)(4 out) drop first 2 result
-func Drop142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (D, E) {
+func Drop142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) (D, E) {
 	return func(a A) (d D, e E) {
 		_, _, d, e = fn(a)
 		return
@@ -651,7 +747,7 @@ func Drop142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (D, E) {
 }
 
 // DropLast142 with func( 1 in)(4 out) drop last 2 result
-func DropLast142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C) {
+func DropLast142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _ = fn(a)
 		return
@@ -659,7 +755,7 @@ func DropLast142[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C) {
 }
 
 // Drop143 with func( 1 in)(4 out) drop first 3 result
-func Drop143[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) E {
+func Drop143[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) E {
 	return func(a A) (e E) {
 		_, _, _, e = fn(a)
 		return
@@ -667,15 +763,23 @@ func Drop143[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) E {
 }
 
 // DropLast143 with func( 1 in)(4 out) drop last 3 result
-func DropLast143[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) B {
+func DropLast143[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop144 with func( 1 in)(4 out) drop first 4 result
+func Drop144[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(A) {
+	return func(a A) {
+		_, _, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop151 with func( 1 in)(5 out) drop first 1 result
-func Drop151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (C, D, E, F) {
+func Drop151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (C, D, E, F) {
 	return func(a A) (c C, d D, e E, f F) {
 		_, c, d, e, f = fn(a)
 		return
@@ -683,7 +787,7 @@ func Drop151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (C, D, 
 }
 
 // DropLast151 with func( 1 in)(5 out) drop last 1 result
-func DropLast151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B, C, D, E) {
+func DropLast151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (B, C, D, E) {
 	return func(a A) (b B, c C, d D, e E) {
 		b, c, d, e, _ = fn(a)
 		return
@@ -691,7 +795,7 @@ func DropLast151[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B,
 }
 
 // Drop152 with func( 1 in)(5 out) drop first 2 result
-func Drop152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (D, E, F) {
+func Drop152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (D, E, F) {
 	return func(a A) (d D, e E, f F) {
 		_, _, d, e, f = fn(a)
 		return
@@ -699,7 +803,7 @@ func Drop152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (D, E, 
 }
 
 // DropLast152 with func( 1 in)(5 out) drop last 2 result
-func DropLast152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B, C, D) {
+func DropLast152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _, _ = fn(a)
 		return
@@ -707,7 +811,7 @@ func DropLast152[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B,
 }
 
 // Drop153 with func( 1 in)(5 out) drop first 3 result
-func Drop153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (E, F) {
+func Drop153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (E, F) {
 	return func(a A) (e E, f F) {
 		_, _, _, e, f = fn(a)
 		return
@@ -715,7 +819,7 @@ func Drop153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (E, F) 
 }
 
 // DropLast153 with func( 1 in)(5 out) drop last 3 result
-func DropLast153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B, C) {
+func DropLast153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _, _ = fn(a)
 		return
@@ -723,7 +827,7 @@ func DropLast153[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B,
 }
 
 // Drop154 with func( 1 in)(5 out) drop first 4 result
-func Drop154[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) F {
+func Drop154[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) F {
 	return func(a A) (f F) {
 		_, _, _, _, f = fn(a)
 		return
@@ -731,15 +835,23 @@ func Drop154[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) F {
 }
 
 // DropLast154 with func( 1 in)(5 out) drop last 4 result
-func DropLast154[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) B {
+func DropLast154[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop155 with func( 1 in)(5 out) drop first 5 result
+func Drop155[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(A) {
+	return func(a A) {
+		_, _, _, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop161 with func( 1 in)(6 out) drop first 1 result
-func Drop161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (C, D, E, F, G) {
+func Drop161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (C, D, E, F, G) {
 	return func(a A) (c C, d D, e E, f F, g G) {
 		_, c, d, e, f, g = fn(a)
 		return
@@ -747,7 +859,7 @@ func Drop161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (
 }
 
 // DropLast161 with func( 1 in)(6 out) drop last 1 result
-func DropLast161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (B, C, D, E, F) {
+func DropLast161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (B, C, D, E, F) {
 	return func(a A) (b B, c C, d D, e E, f F) {
 		b, c, d, e, f, _ = fn(a)
 		return
@@ -755,7 +867,7 @@ func DropLast161[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a 
 }
 
 // Drop162 with func( 1 in)(6 out) drop first 2 result
-func Drop162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (D, E, F, G) {
+func Drop162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (D, E, F, G) {
 	return func(a A) (d D, e E, f F, g G) {
 		_, _, d, e, f, g = fn(a)
 		return
@@ -763,7 +875,7 @@ func Drop162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (
 }
 
 // DropLast162 with func( 1 in)(6 out) drop last 2 result
-func DropLast162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (B, C, D, E) {
+func DropLast162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (B, C, D, E) {
 	return func(a A) (b B, c C, d D, e E) {
 		b, c, d, e, _, _ = fn(a)
 		return
@@ -771,7 +883,7 @@ func DropLast162[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a 
 }
 
 // Drop163 with func( 1 in)(6 out) drop first 3 result
-func Drop163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (E, F, G) {
+func Drop163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (E, F, G) {
 	return func(a A) (e E, f F, g G) {
 		_, _, _, e, f, g = fn(a)
 		return
@@ -779,7 +891,7 @@ func Drop163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (
 }
 
 // DropLast163 with func( 1 in)(6 out) drop last 3 result
-func DropLast163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (B, C, D) {
+func DropLast163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _, _, _ = fn(a)
 		return
@@ -787,7 +899,7 @@ func DropLast163[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a 
 }
 
 // Drop164 with func( 1 in)(6 out) drop first 4 result
-func Drop164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (F, G) {
+func Drop164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (F, G) {
 	return func(a A) (f F, g G) {
 		_, _, _, _, f, g = fn(a)
 		return
@@ -795,7 +907,7 @@ func Drop164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (
 }
 
 // DropLast164 with func( 1 in)(6 out) drop last 4 result
-func DropLast164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (B, C) {
+func DropLast164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _, _, _ = fn(a)
 		return
@@ -803,7 +915,7 @@ func DropLast164[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a 
 }
 
 // Drop165 with func( 1 in)(6 out) drop first 5 result
-func Drop165[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) G {
+func Drop165[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) G {
 	return func(a A) (g G) {
 		_, _, _, _, _, g = fn(a)
 		return
@@ -811,15 +923,23 @@ func Drop165[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) G
 }
 
 // DropLast165 with func( 1 in)(6 out) drop last 5 result
-func DropLast165[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) B {
+func DropLast165[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop166 with func( 1 in)(6 out) drop first 6 result
+func Drop166[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(A) {
+	return func(a A) {
+		_, _, _, _, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop171 with func( 1 in)(7 out) drop first 1 result
-func Drop171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (C, D, E, F, G, H) {
+func Drop171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (C, D, E, F, G, H) {
 	return func(a A) (c C, d D, e E, f F, g G, h H) {
 		_, c, d, e, f, g, h = fn(a)
 		return
@@ -827,7 +947,7 @@ func Drop171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast171 with func( 1 in)(7 out) drop last 1 result
-func DropLast171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C, D, E, F, G) {
+func DropLast171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (B, C, D, E, F, G) {
 	return func(a A) (b B, c C, d D, e E, f F, g G) {
 		b, c, d, e, f, g, _ = fn(a)
 		return
@@ -835,7 +955,7 @@ func DropLast171[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) f
 }
 
 // Drop172 with func( 1 in)(7 out) drop first 2 result
-func Drop172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (D, E, F, G, H) {
+func Drop172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (D, E, F, G, H) {
 	return func(a A) (d D, e E, f F, g G, h H) {
 		_, _, d, e, f, g, h = fn(a)
 		return
@@ -843,7 +963,7 @@ func Drop172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast172 with func( 1 in)(7 out) drop last 2 result
-func DropLast172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C, D, E, F) {
+func DropLast172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (B, C, D, E, F) {
 	return func(a A) (b B, c C, d D, e E, f F) {
 		b, c, d, e, f, _, _ = fn(a)
 		return
@@ -851,7 +971,7 @@ func DropLast172[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) f
 }
 
 // Drop173 with func( 1 in)(7 out) drop first 3 result
-func Drop173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (E, F, G, H) {
+func Drop173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (E, F, G, H) {
 	return func(a A) (e E, f F, g G, h H) {
 		_, _, _, e, f, g, h = fn(a)
 		return
@@ -859,7 +979,7 @@ func Drop173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast173 with func( 1 in)(7 out) drop last 3 result
-func DropLast173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C, D, E) {
+func DropLast173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (B, C, D, E) {
 	return func(a A) (b B, c C, d D, e E) {
 		b, c, d, e, _, _, _ = fn(a)
 		return
@@ -867,7 +987,7 @@ func DropLast173[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) f
 }
 
 // Drop174 with func( 1 in)(7 out) drop first 4 result
-func Drop174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (F, G, H) {
+func Drop174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (F, G, H) {
 	return func(a A) (f F, g G, h H) {
 		_, _, _, _, f, g, h = fn(a)
 		return
@@ -875,7 +995,7 @@ func Drop174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast174 with func( 1 in)(7 out) drop last 4 result
-func DropLast174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C, D) {
+func DropLast174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _, _, _, _ = fn(a)
 		return
@@ -883,7 +1003,7 @@ func DropLast174[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) f
 }
 
 // Drop175 with func( 1 in)(7 out) drop first 5 result
-func Drop175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (G, H) {
+func Drop175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (G, H) {
 	return func(a A) (g G, h H) {
 		_, _, _, _, _, g, h = fn(a)
 		return
@@ -891,7 +1011,7 @@ func Drop175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast175 with func( 1 in)(7 out) drop last 5 result
-func DropLast175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C) {
+func DropLast175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _, _, _, _ = fn(a)
 		return
@@ -899,7 +1019,7 @@ func DropLast175[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) f
 }
 
 // Drop176 with func( 1 in)(7 out) drop first 6 result
-func Drop176[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) H {
+func Drop176[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) H {
 	return func(a A) (h H) {
 		_, _, _, _, _, _, h = fn(a)
 		return
@@ -907,15 +1027,23 @@ func Drop176[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(
 }
 
 // DropLast176 with func( 1 in)(7 out) drop last 6 result
-func DropLast176[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) B {
+func DropLast176[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop177 with func( 1 in)(7 out) drop first 7 result
+func Drop177[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(A) {
+	return func(a A) {
+		_, _, _, _, _, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop181 with func( 1 in)(8 out) drop first 1 result
-func Drop181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (C, D, E, F, G, H, I) {
+func Drop181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (C, D, E, F, G, H, I) {
 	return func(a A) (c C, d D, e E, f F, g G, h H, i I) {
 		_, c, d, e, f, g, h, i = fn(a)
 		return
@@ -923,7 +1051,7 @@ func Drop181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast181 with func( 1 in)(8 out) drop last 1 result
-func DropLast181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D, E, F, G, H) {
+func DropLast181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C, D, E, F, G, H) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H) {
 		b, c, d, e, f, g, h, _ = fn(a)
 		return
@@ -931,7 +1059,7 @@ func DropLast181[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop182 with func( 1 in)(8 out) drop first 2 result
-func Drop182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (D, E, F, G, H, I) {
+func Drop182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (D, E, F, G, H, I) {
 	return func(a A) (d D, e E, f F, g G, h H, i I) {
 		_, _, d, e, f, g, h, i = fn(a)
 		return
@@ -939,7 +1067,7 @@ func Drop182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast182 with func( 1 in)(8 out) drop last 2 result
-func DropLast182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D, E, F, G) {
+func DropLast182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C, D, E, F, G) {
 	return func(a A) (b B, c C, d D, e E, f F, g G) {
 		b, c, d, e, f, g, _, _ = fn(a)
 		return
@@ -947,7 +1075,7 @@ func DropLast182[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop183 with func( 1 in)(8 out) drop first 3 result
-func Drop183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (E, F, G, H, I) {
+func Drop183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (E, F, G, H, I) {
 	return func(a A) (e E, f F, g G, h H, i I) {
 		_, _, _, e, f, g, h, i = fn(a)
 		return
@@ -955,7 +1083,7 @@ func Drop183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast183 with func( 1 in)(8 out) drop last 3 result
-func DropLast183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D, E, F) {
+func DropLast183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C, D, E, F) {
 	return func(a A) (b B, c C, d D, e E, f F) {
 		b, c, d, e, f, _, _, _ = fn(a)
 		return
@@ -963,7 +1091,7 @@ func DropLast183[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop184 with func( 1 in)(8 out) drop first 4 result
-func Drop184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (F, G, H, I) {
+func Drop184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (F, G, H, I) {
 	return func(a A) (f F, g G, h H, i I) {
 		_, _, _, _, f, g, h, i = fn(a)
 		return
@@ -971,7 +1099,7 @@ func Drop184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast184 with func( 1 in)(8 out) drop last 4 result
-func DropLast184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D, E) {
+func DropLast184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C, D, E) {
 	return func(a A) (b B, c C, d D, e E) {
 		b, c, d, e, _, _, _, _ = fn(a)
 		return
@@ -979,7 +1107,7 @@ func DropLast184[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop185 with func( 1 in)(8 out) drop first 5 result
-func Drop185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (G, H, I) {
+func Drop185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (G, H, I) {
 	return func(a A) (g G, h H, i I) {
 		_, _, _, _, _, g, h, i = fn(a)
 		return
@@ -987,7 +1115,7 @@ func Drop185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast185 with func( 1 in)(8 out) drop last 5 result
-func DropLast185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D) {
+func DropLast185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _, _, _, _, _ = fn(a)
 		return
@@ -995,7 +1123,7 @@ func DropLast185[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop186 with func( 1 in)(8 out) drop first 6 result
-func Drop186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (H, I) {
+func Drop186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (H, I) {
 	return func(a A) (h H, i I) {
 		_, _, _, _, _, _, h, i = fn(a)
 		return
@@ -1003,7 +1131,7 @@ func Drop186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast186 with func( 1 in)(8 out) drop last 6 result
-func DropLast186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C) {
+func DropLast186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _, _, _, _, _ = fn(a)
 		return
@@ -1011,7 +1139,7 @@ func DropLast186[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H,
 }
 
 // Drop187 with func( 1 in)(8 out) drop first 7 result
-func Drop187[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) I {
+func Drop187[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) I {
 	return func(a A) (i I) {
 		_, _, _, _, _, _, _, i = fn(a)
 		return
@@ -1019,15 +1147,23 @@ func Drop187[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I))
 }
 
 // DropLast187 with func( 1 in)(8 out) drop last 7 result
-func DropLast187[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) B {
+func DropLast187[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _, _, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop188 with func( 1 in)(8 out) drop first 8 result
+func Drop188[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(A) {
+	return func(a A) {
+		_, _, _, _, _, _, _, _ = fn(a)
+		return
+	}
+}
+
 // Drop191 with func( 1 in)(9 out) drop first 1 result
-func Drop191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (C, D, E, F, G, H, I, J) {
+func Drop191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (C, D, E, F, G, H, I, J) {
 	return func(a A) (c C, d D, e E, f F, g G, h H, i I, j J) {
 		_, c, d, e, f, g, h, i, j = fn(a)
 		return
@@ -1035,7 +1171,7 @@ func Drop191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast191 with func( 1 in)(9 out) drop last 1 result
-func DropLast191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E, F, G, H, I) {
+func DropLast191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D, E, F, G, H, I) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H, i I) {
 		b, c, d, e, f, g, h, i, _ = fn(a)
 		return
@@ -1043,7 +1179,7 @@ func DropLast191[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop192 with func( 1 in)(9 out) drop first 2 result
-func Drop192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (D, E, F, G, H, I, J) {
+func Drop192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (D, E, F, G, H, I, J) {
 	return func(a A) (d D, e E, f F, g G, h H, i I, j J) {
 		_, _, d, e, f, g, h, i, j = fn(a)
 		return
@@ -1051,7 +1187,7 @@ func Drop192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast192 with func( 1 in)(9 out) drop last 2 result
-func DropLast192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E, F, G, H) {
+func DropLast192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D, E, F, G, H) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H) {
 		b, c, d, e, f, g, h, _, _ = fn(a)
 		return
@@ -1059,7 +1195,7 @@ func DropLast192[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop193 with func( 1 in)(9 out) drop first 3 result
-func Drop193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (E, F, G, H, I, J) {
+func Drop193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (E, F, G, H, I, J) {
 	return func(a A) (e E, f F, g G, h H, i I, j J) {
 		_, _, _, e, f, g, h, i, j = fn(a)
 		return
@@ -1067,7 +1203,7 @@ func Drop193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast193 with func( 1 in)(9 out) drop last 3 result
-func DropLast193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E, F, G) {
+func DropLast193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D, E, F, G) {
 	return func(a A) (b B, c C, d D, e E, f F, g G) {
 		b, c, d, e, f, g, _, _, _ = fn(a)
 		return
@@ -1075,7 +1211,7 @@ func DropLast193[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop194 with func( 1 in)(9 out) drop first 4 result
-func Drop194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (F, G, H, I, J) {
+func Drop194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (F, G, H, I, J) {
 	return func(a A) (f F, g G, h H, i I, j J) {
 		_, _, _, _, f, g, h, i, j = fn(a)
 		return
@@ -1083,7 +1219,7 @@ func Drop194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast194 with func( 1 in)(9 out) drop last 4 result
-func DropLast194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E, F) {
+func DropLast194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D, E, F) {
 	return func(a A) (b B, c C, d D, e E, f F) {
 		b, c, d, e, f, _, _, _, _ = fn(a)
 		return
@@ -1091,7 +1227,7 @@ func DropLast194[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop195 with func( 1 in)(9 out) drop first 5 result
-func Drop195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (G, H, I, J) {
+func Drop195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (G, H, I, J) {
 	return func(a A) (g G, h H, i I, j J) {
 		_, _, _, _, _, g, h, i, j = fn(a)
 		return
@@ -1099,7 +1235,7 @@ func Drop195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast195 with func( 1 in)(9 out) drop last 5 result
-func DropLast195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E) {
+func DropLast195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D, E) {
 	return func(a A) (b B, c C, d D, e E) {
 		b, c, d, e, _, _, _, _, _ = fn(a)
 		return
@@ -1107,7 +1243,7 @@ func DropLast195[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop196 with func( 1 in)(9 out) drop first 6 result
-func Drop196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (H, I, J) {
+func Drop196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (H, I, J) {
 	return func(a A) (h H, i I, j J) {
 		_, _, _, _, _, _, h, i, j = fn(a)
 		return
@@ -1115,7 +1251,7 @@ func Drop196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast196 with func( 1 in)(9 out) drop last 6 result
-func DropLast196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D) {
+func DropLast196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C, D) {
 	return func(a A) (b B, c C, d D) {
 		b, c, d, _, _, _, _, _, _ = fn(a)
 		return
@@ -1123,7 +1259,7 @@ func DropLast196[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop197 with func( 1 in)(9 out) drop first 7 result
-func Drop197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (I, J) {
+func Drop197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (I, J) {
 	return func(a A) (i I, j J) {
 		_, _, _, _, _, _, _, i, j = fn(a)
 		return
@@ -1131,7 +1267,7 @@ func Drop197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast197 with func( 1 in)(9 out) drop last 7 result
-func DropLast197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C) {
+func DropLast197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) (B, C) {
 	return func(a A) (b B, c C) {
 		b, c, _, _, _, _, _, _, _ = fn(a)
 		return
@@ -1139,7 +1275,7 @@ func DropLast197[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G,
 }
 
 // Drop198 with func( 1 in)(9 out) drop first 8 result
-func Drop198[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) J {
+func Drop198[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) J {
 	return func(a A) (j J) {
 		_, _, _, _, _, _, _, _, j = fn(a)
 		return
@@ -1147,15 +1283,31 @@ func Drop198[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, 
 }
 
 // DropLast198 with func( 1 in)(9 out) drop last 8 result
-func DropLast198[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) B {
+func DropLast198[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) B {
 	return func(a A) (b B) {
 		b, _, _, _, _, _, _, _, _ = fn(a)
 		return
 	}
 }
 
+// Drop199 with func( 1 in)(9 out) drop first 9 result
+func Drop199[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(A) {
+	return func(a A) {
+		_, _, _, _, _, _, _, _, _ = fn(a)
+		return
+	}
+}
+
+// Drop211 with func( 2 in)(1 out) drop first 1 result
+func Drop211[A, B, C any](fn func(A, B) C) func(A, B) {
+	return func(a A, b B) {
+		_ = fn(a, b)
+		return
+	}
+}
+
 // Drop221 with func( 2 in)(2 out) drop first 1 result
-func Drop221[A, B, C, D any](fn func(A, B) (C, D)) func(a A, b B) D {
+func Drop221[A, B, C, D any](fn func(A, B) (C, D)) func(A, B) D {
 	return func(a A, b B) (d D) {
 		_, d = fn(a, b)
 		return
@@ -1163,15 +1315,23 @@ func Drop221[A, B, C, D any](fn func(A, B) (C, D)) func(a A, b B) D {
 }
 
 // DropLast221 with func( 2 in)(2 out) drop last 1 result
-func DropLast221[A, B, C, D any](fn func(A, B) (C, D)) func(a A, b B) C {
+func DropLast221[A, B, C, D any](fn func(A, B) (C, D)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop222 with func( 2 in)(2 out) drop first 2 result
+func Drop222[A, B, C, D any](fn func(A, B) (C, D)) func(A, B) {
+	return func(a A, b B) {
+		_, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop231 with func( 2 in)(3 out) drop first 1 result
-func Drop231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (D, E) {
+func Drop231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(A, B) (D, E) {
 	return func(a A, b B) (d D, e E) {
 		_, d, e = fn(a, b)
 		return
@@ -1179,7 +1339,7 @@ func Drop231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (D, E) {
 }
 
 // DropLast231 with func( 2 in)(3 out) drop last 1 result
-func DropLast231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (C, D) {
+func DropLast231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _ = fn(a, b)
 		return
@@ -1187,7 +1347,7 @@ func DropLast231[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (C, 
 }
 
 // Drop232 with func( 2 in)(3 out) drop first 2 result
-func Drop232[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) E {
+func Drop232[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(A, B) E {
 	return func(a A, b B) (e E) {
 		_, _, e = fn(a, b)
 		return
@@ -1195,15 +1355,23 @@ func Drop232[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) E {
 }
 
 // DropLast232 with func( 2 in)(3 out) drop last 2 result
-func DropLast232[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) C {
+func DropLast232[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop233 with func( 2 in)(3 out) drop first 3 result
+func Drop233[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop241 with func( 2 in)(4 out) drop first 1 result
-func Drop241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (D, E, F) {
+func Drop241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) (D, E, F) {
 	return func(a A, b B) (d D, e E, f F) {
 		_, d, e, f = fn(a, b)
 		return
@@ -1211,7 +1379,7 @@ func Drop241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (D
 }
 
 // DropLast241 with func( 2 in)(4 out) drop last 1 result
-func DropLast241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (C, D, E) {
+func DropLast241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _ = fn(a, b)
 		return
@@ -1219,7 +1387,7 @@ func DropLast241[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B
 }
 
 // Drop242 with func( 2 in)(4 out) drop first 2 result
-func Drop242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (E, F) {
+func Drop242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) (E, F) {
 	return func(a A, b B) (e E, f F) {
 		_, _, e, f = fn(a, b)
 		return
@@ -1227,7 +1395,7 @@ func Drop242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (E
 }
 
 // DropLast242 with func( 2 in)(4 out) drop last 2 result
-func DropLast242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (C, D) {
+func DropLast242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _ = fn(a, b)
 		return
@@ -1235,7 +1403,7 @@ func DropLast242[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B
 }
 
 // Drop243 with func( 2 in)(4 out) drop first 3 result
-func Drop243[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) F {
+func Drop243[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) F {
 	return func(a A, b B) (f F) {
 		_, _, _, f = fn(a, b)
 		return
@@ -1243,15 +1411,23 @@ func Drop243[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) F 
 }
 
 // DropLast243 with func( 2 in)(4 out) drop last 3 result
-func DropLast243[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) C {
+func DropLast243[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop244 with func( 2 in)(4 out) drop first 4 result
+func Drop244[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop251 with func( 2 in)(5 out) drop first 1 result
-func Drop251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (D, E, F, G) {
+func Drop251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (D, E, F, G) {
 	return func(a A, b B) (d D, e E, f F, g G) {
 		_, d, e, f, g = fn(a, b)
 		return
@@ -1259,7 +1435,7 @@ func Drop251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b
 }
 
 // DropLast251 with func( 2 in)(5 out) drop last 1 result
-func DropLast251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (C, D, E, F) {
+func DropLast251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (C, D, E, F) {
 	return func(a A, b B) (c C, d D, e E, f F) {
 		c, d, e, f, _ = fn(a, b)
 		return
@@ -1267,7 +1443,7 @@ func DropLast251[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a 
 }
 
 // Drop252 with func( 2 in)(5 out) drop first 2 result
-func Drop252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (E, F, G) {
+func Drop252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (E, F, G) {
 	return func(a A, b B) (e E, f F, g G) {
 		_, _, e, f, g = fn(a, b)
 		return
@@ -1275,7 +1451,7 @@ func Drop252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b
 }
 
 // DropLast252 with func( 2 in)(5 out) drop last 2 result
-func DropLast252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (C, D, E) {
+func DropLast252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _, _ = fn(a, b)
 		return
@@ -1283,7 +1459,7 @@ func DropLast252[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a 
 }
 
 // Drop253 with func( 2 in)(5 out) drop first 3 result
-func Drop253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (F, G) {
+func Drop253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (F, G) {
 	return func(a A, b B) (f F, g G) {
 		_, _, _, f, g = fn(a, b)
 		return
@@ -1291,7 +1467,7 @@ func Drop253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b
 }
 
 // DropLast253 with func( 2 in)(5 out) drop last 3 result
-func DropLast253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (C, D) {
+func DropLast253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _, _ = fn(a, b)
 		return
@@ -1299,7 +1475,7 @@ func DropLast253[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a 
 }
 
 // Drop254 with func( 2 in)(5 out) drop first 4 result
-func Drop254[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) G {
+func Drop254[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) G {
 	return func(a A, b B) (g G) {
 		_, _, _, _, g = fn(a, b)
 		return
@@ -1307,15 +1483,23 @@ func Drop254[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b
 }
 
 // DropLast254 with func( 2 in)(5 out) drop last 4 result
-func DropLast254[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) C {
+func DropLast254[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop255 with func( 2 in)(5 out) drop first 5 result
+func Drop255[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop261 with func( 2 in)(6 out) drop first 1 result
-func Drop261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (D, E, F, G, H) {
+func Drop261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (D, E, F, G, H) {
 	return func(a A, b B) (d D, e E, f F, g G, h H) {
 		_, d, e, f, g, h = fn(a, b)
 		return
@@ -1323,7 +1507,7 @@ func Drop261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(
 }
 
 // DropLast261 with func( 2 in)(6 out) drop last 1 result
-func DropLast261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (C, D, E, F, G) {
+func DropLast261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (C, D, E, F, G) {
 	return func(a A, b B) (c C, d D, e E, f F, g G) {
 		c, d, e, f, g, _ = fn(a, b)
 		return
@@ -1331,7 +1515,7 @@ func DropLast261[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) f
 }
 
 // Drop262 with func( 2 in)(6 out) drop first 2 result
-func Drop262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (E, F, G, H) {
+func Drop262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (E, F, G, H) {
 	return func(a A, b B) (e E, f F, g G, h H) {
 		_, _, e, f, g, h = fn(a, b)
 		return
@@ -1339,7 +1523,7 @@ func Drop262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(
 }
 
 // DropLast262 with func( 2 in)(6 out) drop last 2 result
-func DropLast262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (C, D, E, F) {
+func DropLast262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (C, D, E, F) {
 	return func(a A, b B) (c C, d D, e E, f F) {
 		c, d, e, f, _, _ = fn(a, b)
 		return
@@ -1347,7 +1531,7 @@ func DropLast262[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) f
 }
 
 // Drop263 with func( 2 in)(6 out) drop first 3 result
-func Drop263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (F, G, H) {
+func Drop263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (F, G, H) {
 	return func(a A, b B) (f F, g G, h H) {
 		_, _, _, f, g, h = fn(a, b)
 		return
@@ -1355,7 +1539,7 @@ func Drop263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(
 }
 
 // DropLast263 with func( 2 in)(6 out) drop last 3 result
-func DropLast263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (C, D, E) {
+func DropLast263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _, _, _ = fn(a, b)
 		return
@@ -1363,7 +1547,7 @@ func DropLast263[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) f
 }
 
 // Drop264 with func( 2 in)(6 out) drop first 4 result
-func Drop264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (G, H) {
+func Drop264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (G, H) {
 	return func(a A, b B) (g G, h H) {
 		_, _, _, _, g, h = fn(a, b)
 		return
@@ -1371,7 +1555,7 @@ func Drop264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(
 }
 
 // DropLast264 with func( 2 in)(6 out) drop last 4 result
-func DropLast264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (C, D) {
+func DropLast264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _, _, _ = fn(a, b)
 		return
@@ -1379,7 +1563,7 @@ func DropLast264[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) f
 }
 
 // Drop265 with func( 2 in)(6 out) drop first 5 result
-func Drop265[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) H {
+func Drop265[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) H {
 	return func(a A, b B) (h H) {
 		_, _, _, _, _, h = fn(a, b)
 		return
@@ -1387,15 +1571,23 @@ func Drop265[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(
 }
 
 // DropLast265 with func( 2 in)(6 out) drop last 5 result
-func DropLast265[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) C {
+func DropLast265[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop266 with func( 2 in)(6 out) drop first 6 result
+func Drop266[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop271 with func( 2 in)(7 out) drop first 1 result
-func Drop271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (D, E, F, G, H, I) {
+func Drop271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (D, E, F, G, H, I) {
 	return func(a A, b B) (d D, e E, f F, g G, h H, i I) {
 		_, d, e, f, g, h, i = fn(a, b)
 		return
@@ -1403,7 +1595,7 @@ func Drop271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast271 with func( 2 in)(7 out) drop last 1 result
-func DropLast271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D, E, F, G, H) {
+func DropLast271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (C, D, E, F, G, H) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H) {
 		c, d, e, f, g, h, _ = fn(a, b)
 		return
@@ -1411,7 +1603,7 @@ func DropLast271[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H,
 }
 
 // Drop272 with func( 2 in)(7 out) drop first 2 result
-func Drop272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (E, F, G, H, I) {
+func Drop272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (E, F, G, H, I) {
 	return func(a A, b B) (e E, f F, g G, h H, i I) {
 		_, _, e, f, g, h, i = fn(a, b)
 		return
@@ -1419,7 +1611,7 @@ func Drop272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast272 with func( 2 in)(7 out) drop last 2 result
-func DropLast272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D, E, F, G) {
+func DropLast272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (C, D, E, F, G) {
 	return func(a A, b B) (c C, d D, e E, f F, g G) {
 		c, d, e, f, g, _, _ = fn(a, b)
 		return
@@ -1427,7 +1619,7 @@ func DropLast272[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H,
 }
 
 // Drop273 with func( 2 in)(7 out) drop first 3 result
-func Drop273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (F, G, H, I) {
+func Drop273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (F, G, H, I) {
 	return func(a A, b B) (f F, g G, h H, i I) {
 		_, _, _, f, g, h, i = fn(a, b)
 		return
@@ -1435,7 +1627,7 @@ func Drop273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast273 with func( 2 in)(7 out) drop last 3 result
-func DropLast273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D, E, F) {
+func DropLast273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (C, D, E, F) {
 	return func(a A, b B) (c C, d D, e E, f F) {
 		c, d, e, f, _, _, _ = fn(a, b)
 		return
@@ -1443,7 +1635,7 @@ func DropLast273[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H,
 }
 
 // Drop274 with func( 2 in)(7 out) drop first 4 result
-func Drop274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (G, H, I) {
+func Drop274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (G, H, I) {
 	return func(a A, b B) (g G, h H, i I) {
 		_, _, _, _, g, h, i = fn(a, b)
 		return
@@ -1451,7 +1643,7 @@ func Drop274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast274 with func( 2 in)(7 out) drop last 4 result
-func DropLast274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D, E) {
+func DropLast274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _, _, _, _ = fn(a, b)
 		return
@@ -1459,7 +1651,7 @@ func DropLast274[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H,
 }
 
 // Drop275 with func( 2 in)(7 out) drop first 5 result
-func Drop275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (H, I) {
+func Drop275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (H, I) {
 	return func(a A, b B) (h H, i I) {
 		_, _, _, _, _, h, i = fn(a, b)
 		return
@@ -1467,7 +1659,7 @@ func Drop275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast275 with func( 2 in)(7 out) drop last 5 result
-func DropLast275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D) {
+func DropLast275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _, _, _, _ = fn(a, b)
 		return
@@ -1475,7 +1667,7 @@ func DropLast275[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H,
 }
 
 // Drop276 with func( 2 in)(7 out) drop first 6 result
-func Drop276[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) I {
+func Drop276[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) I {
 	return func(a A, b B) (i I) {
 		_, _, _, _, _, _, i = fn(a, b)
 		return
@@ -1483,15 +1675,23 @@ func Drop276[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I))
 }
 
 // DropLast276 with func( 2 in)(7 out) drop last 6 result
-func DropLast276[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) C {
+func DropLast276[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop277 with func( 2 in)(7 out) drop first 7 result
+func Drop277[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _, _, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop281 with func( 2 in)(8 out) drop first 1 result
-func Drop281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (D, E, F, G, H, I, J) {
+func Drop281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (D, E, F, G, H, I, J) {
 	return func(a A, b B) (d D, e E, f F, g G, h H, i I, j J) {
 		_, d, e, f, g, h, i, j = fn(a, b)
 		return
@@ -1499,7 +1699,7 @@ func Drop281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast281 with func( 2 in)(8 out) drop last 1 result
-func DropLast281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E, F, G, H, I) {
+func DropLast281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D, E, F, G, H, I) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I) {
 		c, d, e, f, g, h, i, _ = fn(a, b)
 		return
@@ -1507,7 +1707,7 @@ func DropLast281[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop282 with func( 2 in)(8 out) drop first 2 result
-func Drop282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (E, F, G, H, I, J) {
+func Drop282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (E, F, G, H, I, J) {
 	return func(a A, b B) (e E, f F, g G, h H, i I, j J) {
 		_, _, e, f, g, h, i, j = fn(a, b)
 		return
@@ -1515,7 +1715,7 @@ func Drop282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast282 with func( 2 in)(8 out) drop last 2 result
-func DropLast282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E, F, G, H) {
+func DropLast282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D, E, F, G, H) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H) {
 		c, d, e, f, g, h, _, _ = fn(a, b)
 		return
@@ -1523,7 +1723,7 @@ func DropLast282[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop283 with func( 2 in)(8 out) drop first 3 result
-func Drop283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (F, G, H, I, J) {
+func Drop283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (F, G, H, I, J) {
 	return func(a A, b B) (f F, g G, h H, i I, j J) {
 		_, _, _, f, g, h, i, j = fn(a, b)
 		return
@@ -1531,7 +1731,7 @@ func Drop283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast283 with func( 2 in)(8 out) drop last 3 result
-func DropLast283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E, F, G) {
+func DropLast283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D, E, F, G) {
 	return func(a A, b B) (c C, d D, e E, f F, g G) {
 		c, d, e, f, g, _, _, _ = fn(a, b)
 		return
@@ -1539,7 +1739,7 @@ func DropLast283[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop284 with func( 2 in)(8 out) drop first 4 result
-func Drop284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (G, H, I, J) {
+func Drop284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (G, H, I, J) {
 	return func(a A, b B) (g G, h H, i I, j J) {
 		_, _, _, _, g, h, i, j = fn(a, b)
 		return
@@ -1547,7 +1747,7 @@ func Drop284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast284 with func( 2 in)(8 out) drop last 4 result
-func DropLast284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E, F) {
+func DropLast284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D, E, F) {
 	return func(a A, b B) (c C, d D, e E, f F) {
 		c, d, e, f, _, _, _, _ = fn(a, b)
 		return
@@ -1555,7 +1755,7 @@ func DropLast284[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop285 with func( 2 in)(8 out) drop first 5 result
-func Drop285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (H, I, J) {
+func Drop285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (H, I, J) {
 	return func(a A, b B) (h H, i I, j J) {
 		_, _, _, _, _, h, i, j = fn(a, b)
 		return
@@ -1563,7 +1763,7 @@ func Drop285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast285 with func( 2 in)(8 out) drop last 5 result
-func DropLast285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E) {
+func DropLast285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _, _, _, _, _ = fn(a, b)
 		return
@@ -1571,7 +1771,7 @@ func DropLast285[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop286 with func( 2 in)(8 out) drop first 6 result
-func Drop286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (I, J) {
+func Drop286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (I, J) {
 	return func(a A, b B) (i I, j J) {
 		_, _, _, _, _, _, i, j = fn(a, b)
 		return
@@ -1579,7 +1779,7 @@ func Drop286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast286 with func( 2 in)(8 out) drop last 6 result
-func DropLast286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D) {
+func DropLast286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _, _, _, _, _ = fn(a, b)
 		return
@@ -1587,7 +1787,7 @@ func DropLast286[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G,
 }
 
 // Drop287 with func( 2 in)(8 out) drop first 7 result
-func Drop287[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) J {
+func Drop287[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) J {
 	return func(a A, b B) (j J) {
 		_, _, _, _, _, _, _, j = fn(a, b)
 		return
@@ -1595,15 +1795,23 @@ func Drop287[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, 
 }
 
 // DropLast287 with func( 2 in)(8 out) drop last 7 result
-func DropLast287[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) C {
+func DropLast287[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _, _, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop288 with func( 2 in)(8 out) drop first 8 result
+func Drop288[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _, _, _, _, _ = fn(a, b)
+		return
+	}
+}
+
 // Drop291 with func( 2 in)(9 out) drop first 1 result
-func Drop291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (D, E, F, G, H, I, J, K) {
+func Drop291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (D, E, F, G, H, I, J, K) {
 	return func(a A, b B) (d D, e E, f F, g G, h H, i I, j J, k K) {
 		_, d, e, f, g, h, i, j, k = fn(a, b)
 		return
@@ -1611,7 +1819,7 @@ func Drop291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast291 with func( 2 in)(9 out) drop last 1 result
-func DropLast291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F, G, H, I, J) {
+func DropLast291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E, F, G, H, I, J) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I, j J) {
 		c, d, e, f, g, h, i, j, _ = fn(a, b)
 		return
@@ -1619,7 +1827,7 @@ func DropLast291[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop292 with func( 2 in)(9 out) drop first 2 result
-func Drop292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (E, F, G, H, I, J, K) {
+func Drop292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (E, F, G, H, I, J, K) {
 	return func(a A, b B) (e E, f F, g G, h H, i I, j J, k K) {
 		_, _, e, f, g, h, i, j, k = fn(a, b)
 		return
@@ -1627,7 +1835,7 @@ func Drop292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast292 with func( 2 in)(9 out) drop last 2 result
-func DropLast292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F, G, H, I) {
+func DropLast292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E, F, G, H, I) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I) {
 		c, d, e, f, g, h, i, _, _ = fn(a, b)
 		return
@@ -1635,7 +1843,7 @@ func DropLast292[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop293 with func( 2 in)(9 out) drop first 3 result
-func Drop293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (F, G, H, I, J, K) {
+func Drop293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (F, G, H, I, J, K) {
 	return func(a A, b B) (f F, g G, h H, i I, j J, k K) {
 		_, _, _, f, g, h, i, j, k = fn(a, b)
 		return
@@ -1643,7 +1851,7 @@ func Drop293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast293 with func( 2 in)(9 out) drop last 3 result
-func DropLast293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F, G, H) {
+func DropLast293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E, F, G, H) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H) {
 		c, d, e, f, g, h, _, _, _ = fn(a, b)
 		return
@@ -1651,7 +1859,7 @@ func DropLast293[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop294 with func( 2 in)(9 out) drop first 4 result
-func Drop294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (G, H, I, J, K) {
+func Drop294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (G, H, I, J, K) {
 	return func(a A, b B) (g G, h H, i I, j J, k K) {
 		_, _, _, _, g, h, i, j, k = fn(a, b)
 		return
@@ -1659,7 +1867,7 @@ func Drop294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast294 with func( 2 in)(9 out) drop last 4 result
-func DropLast294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F, G) {
+func DropLast294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E, F, G) {
 	return func(a A, b B) (c C, d D, e E, f F, g G) {
 		c, d, e, f, g, _, _, _, _ = fn(a, b)
 		return
@@ -1667,7 +1875,7 @@ func DropLast294[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop295 with func( 2 in)(9 out) drop first 5 result
-func Drop295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (H, I, J, K) {
+func Drop295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (H, I, J, K) {
 	return func(a A, b B) (h H, i I, j J, k K) {
 		_, _, _, _, _, h, i, j, k = fn(a, b)
 		return
@@ -1675,7 +1883,7 @@ func Drop295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast295 with func( 2 in)(9 out) drop last 5 result
-func DropLast295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F) {
+func DropLast295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E, F) {
 	return func(a A, b B) (c C, d D, e E, f F) {
 		c, d, e, f, _, _, _, _, _ = fn(a, b)
 		return
@@ -1683,7 +1891,7 @@ func DropLast295[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop296 with func( 2 in)(9 out) drop first 6 result
-func Drop296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (I, J, K) {
+func Drop296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (I, J, K) {
 	return func(a A, b B) (i I, j J, k K) {
 		_, _, _, _, _, _, i, j, k = fn(a, b)
 		return
@@ -1691,7 +1899,7 @@ func Drop296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast296 with func( 2 in)(9 out) drop last 6 result
-func DropLast296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E) {
+func DropLast296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D, E) {
 	return func(a A, b B) (c C, d D, e E) {
 		c, d, e, _, _, _, _, _, _ = fn(a, b)
 		return
@@ -1699,7 +1907,7 @@ func DropLast296[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop297 with func( 2 in)(9 out) drop first 7 result
-func Drop297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (J, K) {
+func Drop297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (J, K) {
 	return func(a A, b B) (j J, k K) {
 		_, _, _, _, _, _, _, j, k = fn(a, b)
 		return
@@ -1707,7 +1915,7 @@ func Drop297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast297 with func( 2 in)(9 out) drop last 7 result
-func DropLast297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D) {
+func DropLast297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) (C, D) {
 	return func(a A, b B) (c C, d D) {
 		c, d, _, _, _, _, _, _, _ = fn(a, b)
 		return
@@ -1715,7 +1923,7 @@ func DropLast297[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F,
 }
 
 // Drop298 with func( 2 in)(9 out) drop first 8 result
-func Drop298[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) K {
+func Drop298[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) K {
 	return func(a A, b B) (k K) {
 		_, _, _, _, _, _, _, _, k = fn(a, b)
 		return
@@ -1723,15 +1931,31 @@ func Drop298[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, 
 }
 
 // DropLast298 with func( 2 in)(9 out) drop last 8 result
-func DropLast298[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) C {
+func DropLast298[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) C {
 	return func(a A, b B) (c C) {
 		c, _, _, _, _, _, _, _, _ = fn(a, b)
 		return
 	}
 }
 
+// Drop299 with func( 2 in)(9 out) drop first 9 result
+func Drop299[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(A, B) {
+	return func(a A, b B) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b)
+		return
+	}
+}
+
+// Drop311 with func( 3 in)(1 out) drop first 1 result
+func Drop311[A, B, C, D any](fn func(A, B, C) D) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop321 with func( 3 in)(2 out) drop first 1 result
-func Drop321[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(a A, b B, c C) E {
+func Drop321[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(A, B, C) E {
 	return func(a A, b B, c C) (e E) {
 		_, e = fn(a, b, c)
 		return
@@ -1739,15 +1963,23 @@ func Drop321[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(a A, b B, c C) E {
 }
 
 // DropLast321 with func( 3 in)(2 out) drop last 1 result
-func DropLast321[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(a A, b B, c C) D {
+func DropLast321[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop322 with func( 3 in)(2 out) drop first 2 result
+func Drop322[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop331 with func( 3 in)(3 out) drop first 1 result
-func Drop331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c C) (E, F) {
+func Drop331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(A, B, C) (E, F) {
 	return func(a A, b B, c C) (e E, f F) {
 		_, e, f = fn(a, b, c)
 		return
@@ -1755,7 +1987,7 @@ func Drop331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c 
 }
 
 // DropLast331 with func( 3 in)(3 out) drop last 1 result
-func DropLast331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c C) (D, E) {
+func DropLast331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _ = fn(a, b, c)
 		return
@@ -1763,7 +1995,7 @@ func DropLast331[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B
 }
 
 // Drop332 with func( 3 in)(3 out) drop first 2 result
-func Drop332[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c C) F {
+func Drop332[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(A, B, C) F {
 	return func(a A, b B, c C) (f F) {
 		_, _, f = fn(a, b, c)
 		return
@@ -1771,15 +2003,23 @@ func Drop332[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c 
 }
 
 // DropLast332 with func( 3 in)(3 out) drop last 2 result
-func DropLast332[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c C) D {
+func DropLast332[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop333 with func( 3 in)(3 out) drop first 3 result
+func Drop333[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop341 with func( 3 in)(4 out) drop first 1 result
-func Drop341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) (E, F, G) {
+func Drop341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) (E, F, G) {
 	return func(a A, b B, c C) (e E, f F, g G) {
 		_, e, f, g = fn(a, b, c)
 		return
@@ -1787,7 +2027,7 @@ func Drop341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b
 }
 
 // DropLast341 with func( 3 in)(4 out) drop last 1 result
-func DropLast341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) (D, E, F) {
+func DropLast341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _ = fn(a, b, c)
 		return
@@ -1795,7 +2035,7 @@ func DropLast341[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a 
 }
 
 // Drop342 with func( 3 in)(4 out) drop first 2 result
-func Drop342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) (F, G) {
+func Drop342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) (F, G) {
 	return func(a A, b B, c C) (f F, g G) {
 		_, _, f, g = fn(a, b, c)
 		return
@@ -1803,7 +2043,7 @@ func Drop342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b
 }
 
 // DropLast342 with func( 3 in)(4 out) drop last 2 result
-func DropLast342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) (D, E) {
+func DropLast342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _ = fn(a, b, c)
 		return
@@ -1811,7 +2051,7 @@ func DropLast342[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a 
 }
 
 // Drop343 with func( 3 in)(4 out) drop first 3 result
-func Drop343[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) G {
+func Drop343[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) G {
 	return func(a A, b B, c C) (g G) {
 		_, _, _, g = fn(a, b, c)
 		return
@@ -1819,15 +2059,23 @@ func Drop343[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b
 }
 
 // DropLast343 with func( 3 in)(4 out) drop last 3 result
-func DropLast343[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) D {
+func DropLast343[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop344 with func( 3 in)(4 out) drop first 4 result
+func Drop344[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop351 with func( 3 in)(5 out) drop first 1 result
-func Drop351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (E, F, G, H) {
+func Drop351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (E, F, G, H) {
 	return func(a A, b B, c C) (e E, f F, g G, h H) {
 		_, e, f, g, h = fn(a, b, c)
 		return
@@ -1835,7 +2083,7 @@ func Drop351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(
 }
 
 // DropLast351 with func( 3 in)(5 out) drop last 1 result
-func DropLast351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (D, E, F, G) {
+func DropLast351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (D, E, F, G) {
 	return func(a A, b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g, _ = fn(a, b, c)
 		return
@@ -1843,7 +2091,7 @@ func DropLast351[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) f
 }
 
 // Drop352 with func( 3 in)(5 out) drop first 2 result
-func Drop352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (F, G, H) {
+func Drop352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (F, G, H) {
 	return func(a A, b B, c C) (f F, g G, h H) {
 		_, _, f, g, h = fn(a, b, c)
 		return
@@ -1851,7 +2099,7 @@ func Drop352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(
 }
 
 // DropLast352 with func( 3 in)(5 out) drop last 2 result
-func DropLast352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (D, E, F) {
+func DropLast352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _, _ = fn(a, b, c)
 		return
@@ -1859,7 +2107,7 @@ func DropLast352[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) f
 }
 
 // Drop353 with func( 3 in)(5 out) drop first 3 result
-func Drop353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (G, H) {
+func Drop353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (G, H) {
 	return func(a A, b B, c C) (g G, h H) {
 		_, _, _, g, h = fn(a, b, c)
 		return
@@ -1867,7 +2115,7 @@ func Drop353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(
 }
 
 // DropLast353 with func( 3 in)(5 out) drop last 3 result
-func DropLast353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (D, E) {
+func DropLast353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _, _ = fn(a, b, c)
 		return
@@ -1875,7 +2123,7 @@ func DropLast353[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) f
 }
 
 // Drop354 with func( 3 in)(5 out) drop first 4 result
-func Drop354[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) H {
+func Drop354[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) H {
 	return func(a A, b B, c C) (h H) {
 		_, _, _, _, h = fn(a, b, c)
 		return
@@ -1883,15 +2131,23 @@ func Drop354[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(
 }
 
 // DropLast354 with func( 3 in)(5 out) drop last 4 result
-func DropLast354[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) D {
+func DropLast354[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop355 with func( 3 in)(5 out) drop first 5 result
+func Drop355[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop361 with func( 3 in)(6 out) drop first 1 result
-func Drop361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (E, F, G, H, I) {
+func Drop361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (E, F, G, H, I) {
 	return func(a A, b B, c C) (e E, f F, g G, h H, i I) {
 		_, e, f, g, h, i = fn(a, b, c)
 		return
@@ -1899,7 +2155,7 @@ func Drop361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I))
 }
 
 // DropLast361 with func( 3 in)(6 out) drop last 1 result
-func DropLast361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (D, E, F, G, H) {
+func DropLast361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (D, E, F, G, H) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h, _ = fn(a, b, c)
 		return
@@ -1907,7 +2163,7 @@ func DropLast361[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H,
 }
 
 // Drop362 with func( 3 in)(6 out) drop first 2 result
-func Drop362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (F, G, H, I) {
+func Drop362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (F, G, H, I) {
 	return func(a A, b B, c C) (f F, g G, h H, i I) {
 		_, _, f, g, h, i = fn(a, b, c)
 		return
@@ -1915,7 +2171,7 @@ func Drop362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I))
 }
 
 // DropLast362 with func( 3 in)(6 out) drop last 2 result
-func DropLast362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (D, E, F, G) {
+func DropLast362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (D, E, F, G) {
 	return func(a A, b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g, _, _ = fn(a, b, c)
 		return
@@ -1923,7 +2179,7 @@ func DropLast362[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H,
 }
 
 // Drop363 with func( 3 in)(6 out) drop first 3 result
-func Drop363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (G, H, I) {
+func Drop363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (G, H, I) {
 	return func(a A, b B, c C) (g G, h H, i I) {
 		_, _, _, g, h, i = fn(a, b, c)
 		return
@@ -1931,7 +2187,7 @@ func Drop363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I))
 }
 
 // DropLast363 with func( 3 in)(6 out) drop last 3 result
-func DropLast363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (D, E, F) {
+func DropLast363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _, _, _ = fn(a, b, c)
 		return
@@ -1939,7 +2195,7 @@ func DropLast363[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H,
 }
 
 // Drop364 with func( 3 in)(6 out) drop first 4 result
-func Drop364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (H, I) {
+func Drop364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (H, I) {
 	return func(a A, b B, c C) (h H, i I) {
 		_, _, _, _, h, i = fn(a, b, c)
 		return
@@ -1947,7 +2203,7 @@ func Drop364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I))
 }
 
 // DropLast364 with func( 3 in)(6 out) drop last 4 result
-func DropLast364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (D, E) {
+func DropLast364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _, _, _ = fn(a, b, c)
 		return
@@ -1955,7 +2211,7 @@ func DropLast364[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H,
 }
 
 // Drop365 with func( 3 in)(6 out) drop first 5 result
-func Drop365[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) I {
+func Drop365[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) I {
 	return func(a A, b B, c C) (i I) {
 		_, _, _, _, _, i = fn(a, b, c)
 		return
@@ -1963,15 +2219,23 @@ func Drop365[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I))
 }
 
 // DropLast365 with func( 3 in)(6 out) drop last 5 result
-func DropLast365[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) D {
+func DropLast365[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop366 with func( 3 in)(6 out) drop first 6 result
+func Drop366[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop371 with func( 3 in)(7 out) drop first 1 result
-func Drop371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (E, F, G, H, I, J) {
+func Drop371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (E, F, G, H, I, J) {
 	return func(a A, b B, c C) (e E, f F, g G, h H, i I, j J) {
 		_, e, f, g, h, i, j = fn(a, b, c)
 		return
@@ -1979,7 +2243,7 @@ func Drop371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast371 with func( 3 in)(7 out) drop last 1 result
-func DropLast371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E, F, G, H, I) {
+func DropLast371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (D, E, F, G, H, I) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I) {
 		d, e, f, g, h, i, _ = fn(a, b, c)
 		return
@@ -1987,7 +2251,7 @@ func DropLast371[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G,
 }
 
 // Drop372 with func( 3 in)(7 out) drop first 2 result
-func Drop372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (F, G, H, I, J) {
+func Drop372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (F, G, H, I, J) {
 	return func(a A, b B, c C) (f F, g G, h H, i I, j J) {
 		_, _, f, g, h, i, j = fn(a, b, c)
 		return
@@ -1995,7 +2259,7 @@ func Drop372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast372 with func( 3 in)(7 out) drop last 2 result
-func DropLast372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E, F, G, H) {
+func DropLast372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (D, E, F, G, H) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h, _, _ = fn(a, b, c)
 		return
@@ -2003,7 +2267,7 @@ func DropLast372[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G,
 }
 
 // Drop373 with func( 3 in)(7 out) drop first 3 result
-func Drop373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (G, H, I, J) {
+func Drop373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (G, H, I, J) {
 	return func(a A, b B, c C) (g G, h H, i I, j J) {
 		_, _, _, g, h, i, j = fn(a, b, c)
 		return
@@ -2011,7 +2275,7 @@ func Drop373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast373 with func( 3 in)(7 out) drop last 3 result
-func DropLast373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E, F, G) {
+func DropLast373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (D, E, F, G) {
 	return func(a A, b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g, _, _, _ = fn(a, b, c)
 		return
@@ -2019,7 +2283,7 @@ func DropLast373[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G,
 }
 
 // Drop374 with func( 3 in)(7 out) drop first 4 result
-func Drop374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (H, I, J) {
+func Drop374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (H, I, J) {
 	return func(a A, b B, c C) (h H, i I, j J) {
 		_, _, _, _, h, i, j = fn(a, b, c)
 		return
@@ -2027,7 +2291,7 @@ func Drop374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast374 with func( 3 in)(7 out) drop last 4 result
-func DropLast374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E, F) {
+func DropLast374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _, _, _, _ = fn(a, b, c)
 		return
@@ -2035,7 +2299,7 @@ func DropLast374[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G,
 }
 
 // Drop375 with func( 3 in)(7 out) drop first 5 result
-func Drop375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (I, J) {
+func Drop375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (I, J) {
 	return func(a A, b B, c C) (i I, j J) {
 		_, _, _, _, _, i, j = fn(a, b, c)
 		return
@@ -2043,7 +2307,7 @@ func Drop375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast375 with func( 3 in)(7 out) drop last 5 result
-func DropLast375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E) {
+func DropLast375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2051,7 +2315,7 @@ func DropLast375[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G,
 }
 
 // Drop376 with func( 3 in)(7 out) drop first 6 result
-func Drop376[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) J {
+func Drop376[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) J {
 	return func(a A, b B, c C) (j J) {
 		_, _, _, _, _, _, j = fn(a, b, c)
 		return
@@ -2059,15 +2323,23 @@ func Drop376[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, 
 }
 
 // DropLast376 with func( 3 in)(7 out) drop last 6 result
-func DropLast376[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) D {
+func DropLast376[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop377 with func( 3 in)(7 out) drop first 7 result
+func Drop377[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop381 with func( 3 in)(8 out) drop first 1 result
-func Drop381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (E, F, G, H, I, J, K) {
+func Drop381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (E, F, G, H, I, J, K) {
 	return func(a A, b B, c C) (e E, f F, g G, h H, i I, j J, k K) {
 		_, e, f, g, h, i, j, k = fn(a, b, c)
 		return
@@ -2075,7 +2347,7 @@ func Drop381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast381 with func( 3 in)(8 out) drop last 1 result
-func DropLast381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F, G, H, I, J) {
+func DropLast381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E, F, G, H, I, J) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J) {
 		d, e, f, g, h, i, j, _ = fn(a, b, c)
 		return
@@ -2083,7 +2355,7 @@ func DropLast381[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop382 with func( 3 in)(8 out) drop first 2 result
-func Drop382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (F, G, H, I, J, K) {
+func Drop382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (F, G, H, I, J, K) {
 	return func(a A, b B, c C) (f F, g G, h H, i I, j J, k K) {
 		_, _, f, g, h, i, j, k = fn(a, b, c)
 		return
@@ -2091,7 +2363,7 @@ func Drop382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast382 with func( 3 in)(8 out) drop last 2 result
-func DropLast382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F, G, H, I) {
+func DropLast382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E, F, G, H, I) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I) {
 		d, e, f, g, h, i, _, _ = fn(a, b, c)
 		return
@@ -2099,7 +2371,7 @@ func DropLast382[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop383 with func( 3 in)(8 out) drop first 3 result
-func Drop383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (G, H, I, J, K) {
+func Drop383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (G, H, I, J, K) {
 	return func(a A, b B, c C) (g G, h H, i I, j J, k K) {
 		_, _, _, g, h, i, j, k = fn(a, b, c)
 		return
@@ -2107,7 +2379,7 @@ func Drop383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast383 with func( 3 in)(8 out) drop last 3 result
-func DropLast383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F, G, H) {
+func DropLast383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E, F, G, H) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h, _, _, _ = fn(a, b, c)
 		return
@@ -2115,7 +2387,7 @@ func DropLast383[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop384 with func( 3 in)(8 out) drop first 4 result
-func Drop384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (H, I, J, K) {
+func Drop384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (H, I, J, K) {
 	return func(a A, b B, c C) (h H, i I, j J, k K) {
 		_, _, _, _, h, i, j, k = fn(a, b, c)
 		return
@@ -2123,7 +2395,7 @@ func Drop384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast384 with func( 3 in)(8 out) drop last 4 result
-func DropLast384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F, G) {
+func DropLast384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E, F, G) {
 	return func(a A, b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g, _, _, _, _ = fn(a, b, c)
 		return
@@ -2131,7 +2403,7 @@ func DropLast384[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop385 with func( 3 in)(8 out) drop first 5 result
-func Drop385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (I, J, K) {
+func Drop385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (I, J, K) {
 	return func(a A, b B, c C) (i I, j J, k K) {
 		_, _, _, _, _, i, j, k = fn(a, b, c)
 		return
@@ -2139,7 +2411,7 @@ func Drop385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast385 with func( 3 in)(8 out) drop last 5 result
-func DropLast385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F) {
+func DropLast385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2147,7 +2419,7 @@ func DropLast385[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop386 with func( 3 in)(8 out) drop first 6 result
-func Drop386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (J, K) {
+func Drop386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (J, K) {
 	return func(a A, b B, c C) (j J, k K) {
 		_, _, _, _, _, _, j, k = fn(a, b, c)
 		return
@@ -2155,7 +2427,7 @@ func Drop386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast386 with func( 3 in)(8 out) drop last 6 result
-func DropLast386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E) {
+func DropLast386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2163,7 +2435,7 @@ func DropLast386[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F,
 }
 
 // Drop387 with func( 3 in)(8 out) drop first 7 result
-func Drop387[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) K {
+func Drop387[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) K {
 	return func(a A, b B, c C) (k K) {
 		_, _, _, _, _, _, _, k = fn(a, b, c)
 		return
@@ -2171,15 +2443,23 @@ func Drop387[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, 
 }
 
 // DropLast387 with func( 3 in)(8 out) drop last 7 result
-func DropLast387[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) D {
+func DropLast387[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _, _, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop388 with func( 3 in)(8 out) drop first 8 result
+func Drop388[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
 // Drop391 with func( 3 in)(9 out) drop first 1 result
-func Drop391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (E, F, G, H, I, J, K, L) {
+func Drop391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (E, F, G, H, I, J, K, L) {
 	return func(a A, b B, c C) (e E, f F, g G, h H, i I, j J, k K, l L) {
 		_, e, f, g, h, i, j, k, l = fn(a, b, c)
 		return
@@ -2187,7 +2467,7 @@ func Drop391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast391 with func( 3 in)(9 out) drop last 1 result
-func DropLast391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G, H, I, J, K) {
+func DropLast391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F, G, H, I, J, K) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K) {
 		d, e, f, g, h, i, j, k, _ = fn(a, b, c)
 		return
@@ -2195,7 +2475,7 @@ func DropLast391[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop392 with func( 3 in)(9 out) drop first 2 result
-func Drop392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (F, G, H, I, J, K, L) {
+func Drop392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (F, G, H, I, J, K, L) {
 	return func(a A, b B, c C) (f F, g G, h H, i I, j J, k K, l L) {
 		_, _, f, g, h, i, j, k, l = fn(a, b, c)
 		return
@@ -2203,7 +2483,7 @@ func Drop392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast392 with func( 3 in)(9 out) drop last 2 result
-func DropLast392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G, H, I, J) {
+func DropLast392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F, G, H, I, J) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J) {
 		d, e, f, g, h, i, j, _, _ = fn(a, b, c)
 		return
@@ -2211,7 +2491,7 @@ func DropLast392[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop393 with func( 3 in)(9 out) drop first 3 result
-func Drop393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (G, H, I, J, K, L) {
+func Drop393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (G, H, I, J, K, L) {
 	return func(a A, b B, c C) (g G, h H, i I, j J, k K, l L) {
 		_, _, _, g, h, i, j, k, l = fn(a, b, c)
 		return
@@ -2219,7 +2499,7 @@ func Drop393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast393 with func( 3 in)(9 out) drop last 3 result
-func DropLast393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G, H, I) {
+func DropLast393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F, G, H, I) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I) {
 		d, e, f, g, h, i, _, _, _ = fn(a, b, c)
 		return
@@ -2227,7 +2507,7 @@ func DropLast393[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop394 with func( 3 in)(9 out) drop first 4 result
-func Drop394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (H, I, J, K, L) {
+func Drop394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (H, I, J, K, L) {
 	return func(a A, b B, c C) (h H, i I, j J, k K, l L) {
 		_, _, _, _, h, i, j, k, l = fn(a, b, c)
 		return
@@ -2235,7 +2515,7 @@ func Drop394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast394 with func( 3 in)(9 out) drop last 4 result
-func DropLast394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G, H) {
+func DropLast394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F, G, H) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H) {
 		d, e, f, g, h, _, _, _, _ = fn(a, b, c)
 		return
@@ -2243,7 +2523,7 @@ func DropLast394[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop395 with func( 3 in)(9 out) drop first 5 result
-func Drop395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (I, J, K, L) {
+func Drop395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (I, J, K, L) {
 	return func(a A, b B, c C) (i I, j J, k K, l L) {
 		_, _, _, _, _, i, j, k, l = fn(a, b, c)
 		return
@@ -2251,7 +2531,7 @@ func Drop395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast395 with func( 3 in)(9 out) drop last 5 result
-func DropLast395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G) {
+func DropLast395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F, G) {
 	return func(a A, b B, c C) (d D, e E, f F, g G) {
 		d, e, f, g, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2259,7 +2539,7 @@ func DropLast395[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop396 with func( 3 in)(9 out) drop first 6 result
-func Drop396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (J, K, L) {
+func Drop396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (J, K, L) {
 	return func(a A, b B, c C) (j J, k K, l L) {
 		_, _, _, _, _, _, j, k, l = fn(a, b, c)
 		return
@@ -2267,7 +2547,7 @@ func Drop396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast396 with func( 3 in)(9 out) drop last 6 result
-func DropLast396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F) {
+func DropLast396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E, F) {
 	return func(a A, b B, c C) (d D, e E, f F) {
 		d, e, f, _, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2275,7 +2555,7 @@ func DropLast396[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop397 with func( 3 in)(9 out) drop first 7 result
-func Drop397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (K, L) {
+func Drop397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (K, L) {
 	return func(a A, b B, c C) (k K, l L) {
 		_, _, _, _, _, _, _, k, l = fn(a, b, c)
 		return
@@ -2283,7 +2563,7 @@ func Drop397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast397 with func( 3 in)(9 out) drop last 7 result
-func DropLast397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E) {
+func DropLast397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) (D, E) {
 	return func(a A, b B, c C) (d D, e E) {
 		d, e, _, _, _, _, _, _, _ = fn(a, b, c)
 		return
@@ -2291,7 +2571,7 @@ func DropLast397[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E,
 }
 
 // Drop398 with func( 3 in)(9 out) drop first 8 result
-func Drop398[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) L {
+func Drop398[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) L {
 	return func(a A, b B, c C) (l L) {
 		_, _, _, _, _, _, _, _, l = fn(a, b, c)
 		return
@@ -2299,15 +2579,31 @@ func Drop398[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, 
 }
 
 // DropLast398 with func( 3 in)(9 out) drop last 8 result
-func DropLast398[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) D {
+func DropLast398[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) D {
 	return func(a A, b B, c C) (d D) {
 		d, _, _, _, _, _, _, _, _ = fn(a, b, c)
 		return
 	}
 }
 
+// Drop399 with func( 3 in)(9 out) drop first 9 result
+func Drop399[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(A, B, C) {
+	return func(a A, b B, c C) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c)
+		return
+	}
+}
+
+// Drop411 with func( 4 in)(1 out) drop first 1 result
+func Drop411[A, B, C, D, E any](fn func(A, B, C, D) E) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop421 with func( 4 in)(2 out) drop first 1 result
-func Drop421[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(a A, b B, c C, d D) F {
+func Drop421[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(A, B, C, D) F {
 	return func(a A, b B, c C, d D) (f F) {
 		_, f = fn(a, b, c, d)
 		return
@@ -2315,15 +2611,23 @@ func Drop421[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(a A, b B, c 
 }
 
 // DropLast421 with func( 4 in)(2 out) drop last 1 result
-func DropLast421[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(a A, b B, c C, d D) E {
+func DropLast421[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop422 with func( 4 in)(2 out) drop first 2 result
+func Drop422[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop431 with func( 4 in)(3 out) drop first 1 result
-func Drop431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b B, c C, d D) (F, G) {
+func Drop431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(A, B, C, D) (F, G) {
 	return func(a A, b B, c C, d D) (f F, g G) {
 		_, f, g = fn(a, b, c, d)
 		return
@@ -2331,7 +2635,7 @@ func Drop431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b
 }
 
 // DropLast431 with func( 4 in)(3 out) drop last 1 result
-func DropLast431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b B, c C, d D) (E, F) {
+func DropLast431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _ = fn(a, b, c, d)
 		return
@@ -2339,7 +2643,7 @@ func DropLast431[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a 
 }
 
 // Drop432 with func( 4 in)(3 out) drop first 2 result
-func Drop432[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b B, c C, d D) G {
+func Drop432[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(A, B, C, D) G {
 	return func(a A, b B, c C, d D) (g G) {
 		_, _, g = fn(a, b, c, d)
 		return
@@ -2347,15 +2651,23 @@ func Drop432[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b
 }
 
 // DropLast432 with func( 4 in)(3 out) drop last 2 result
-func DropLast432[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b B, c C, d D) E {
+func DropLast432[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop433 with func( 4 in)(3 out) drop first 3 result
+func Drop433[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop441 with func( 4 in)(4 out) drop first 1 result
-func Drop441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) (F, G, H) {
+func Drop441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) (F, G, H) {
 	return func(a A, b B, c C, d D) (f F, g G, h H) {
 		_, f, g, h = fn(a, b, c, d)
 		return
@@ -2363,7 +2675,7 @@ func Drop441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(
 }
 
 // DropLast441 with func( 4 in)(4 out) drop last 1 result
-func DropLast441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _ = fn(a, b, c, d)
 		return
@@ -2371,7 +2683,7 @@ func DropLast441[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) f
 }
 
 // Drop442 with func( 4 in)(4 out) drop first 2 result
-func Drop442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) (G, H) {
+func Drop442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) (G, H) {
 	return func(a A, b B, c C, d D) (g G, h H) {
 		_, _, g, h = fn(a, b, c, d)
 		return
@@ -2379,7 +2691,7 @@ func Drop442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(
 }
 
 // DropLast442 with func( 4 in)(4 out) drop last 2 result
-func DropLast442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) (E, F) {
+func DropLast442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _ = fn(a, b, c, d)
 		return
@@ -2387,7 +2699,7 @@ func DropLast442[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) f
 }
 
 // Drop443 with func( 4 in)(4 out) drop first 3 result
-func Drop443[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) H {
+func Drop443[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) H {
 	return func(a A, b B, c C, d D) (h H) {
 		_, _, _, h = fn(a, b, c, d)
 		return
@@ -2395,15 +2707,23 @@ func Drop443[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(
 }
 
 // DropLast443 with func( 4 in)(4 out) drop last 3 result
-func DropLast443[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) E {
+func DropLast443[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop444 with func( 4 in)(4 out) drop first 4 result
+func Drop444[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop451 with func( 4 in)(5 out) drop first 1 result
-func Drop451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (F, G, H, I) {
+func Drop451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (F, G, H, I) {
 	return func(a A, b B, c C, d D) (f F, g G, h H, i I) {
 		_, f, g, h, i = fn(a, b, c, d)
 		return
@@ -2411,7 +2731,7 @@ func Drop451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I))
 }
 
 // DropLast451 with func( 4 in)(5 out) drop last 1 result
-func DropLast451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (E, F, G, H) {
+func DropLast451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (E, F, G, H) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h, _ = fn(a, b, c, d)
 		return
@@ -2419,7 +2739,7 @@ func DropLast451[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H,
 }
 
 // Drop452 with func( 4 in)(5 out) drop first 2 result
-func Drop452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (G, H, I) {
+func Drop452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (G, H, I) {
 	return func(a A, b B, c C, d D) (g G, h H, i I) {
 		_, _, g, h, i = fn(a, b, c, d)
 		return
@@ -2427,7 +2747,7 @@ func Drop452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I))
 }
 
 // DropLast452 with func( 4 in)(5 out) drop last 2 result
-func DropLast452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _, _ = fn(a, b, c, d)
 		return
@@ -2435,7 +2755,7 @@ func DropLast452[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H,
 }
 
 // Drop453 with func( 4 in)(5 out) drop first 3 result
-func Drop453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (H, I) {
+func Drop453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (H, I) {
 	return func(a A, b B, c C, d D) (h H, i I) {
 		_, _, _, h, i = fn(a, b, c, d)
 		return
@@ -2443,7 +2763,7 @@ func Drop453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I))
 }
 
 // DropLast453 with func( 4 in)(5 out) drop last 3 result
-func DropLast453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (E, F) {
+func DropLast453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _, _ = fn(a, b, c, d)
 		return
@@ -2451,7 +2771,7 @@ func DropLast453[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H,
 }
 
 // Drop454 with func( 4 in)(5 out) drop first 4 result
-func Drop454[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) I {
+func Drop454[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) I {
 	return func(a A, b B, c C, d D) (i I) {
 		_, _, _, _, i = fn(a, b, c, d)
 		return
@@ -2459,15 +2779,23 @@ func Drop454[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I))
 }
 
 // DropLast454 with func( 4 in)(5 out) drop last 4 result
-func DropLast454[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) E {
+func DropLast454[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop455 with func( 4 in)(5 out) drop first 5 result
+func Drop455[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop461 with func( 4 in)(6 out) drop first 1 result
-func Drop461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (F, G, H, I, J) {
+func Drop461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (F, G, H, I, J) {
 	return func(a A, b B, c C, d D) (f F, g G, h H, i I, j J) {
 		_, f, g, h, i, j = fn(a, b, c, d)
 		return
@@ -2475,7 +2803,7 @@ func Drop461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, 
 }
 
 // DropLast461 with func( 4 in)(6 out) drop last 1 result
-func DropLast461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (E, F, G, H, I) {
+func DropLast461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (E, F, G, H, I) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i, _ = fn(a, b, c, d)
 		return
@@ -2483,7 +2811,7 @@ func DropLast461[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G,
 }
 
 // Drop462 with func( 4 in)(6 out) drop first 2 result
-func Drop462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (G, H, I, J) {
+func Drop462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (G, H, I, J) {
 	return func(a A, b B, c C, d D) (g G, h H, i I, j J) {
 		_, _, g, h, i, j = fn(a, b, c, d)
 		return
@@ -2491,7 +2819,7 @@ func Drop462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, 
 }
 
 // DropLast462 with func( 4 in)(6 out) drop last 2 result
-func DropLast462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (E, F, G, H) {
+func DropLast462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (E, F, G, H) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h, _, _ = fn(a, b, c, d)
 		return
@@ -2499,7 +2827,7 @@ func DropLast462[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G,
 }
 
 // Drop463 with func( 4 in)(6 out) drop first 3 result
-func Drop463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (H, I, J) {
+func Drop463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (H, I, J) {
 	return func(a A, b B, c C, d D) (h H, i I, j J) {
 		_, _, _, h, i, j = fn(a, b, c, d)
 		return
@@ -2507,7 +2835,7 @@ func Drop463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, 
 }
 
 // DropLast463 with func( 4 in)(6 out) drop last 3 result
-func DropLast463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _, _, _ = fn(a, b, c, d)
 		return
@@ -2515,7 +2843,7 @@ func DropLast463[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G,
 }
 
 // Drop464 with func( 4 in)(6 out) drop first 4 result
-func Drop464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (I, J) {
+func Drop464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (I, J) {
 	return func(a A, b B, c C, d D) (i I, j J) {
 		_, _, _, _, i, j = fn(a, b, c, d)
 		return
@@ -2523,7 +2851,7 @@ func Drop464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, 
 }
 
 // DropLast464 with func( 4 in)(6 out) drop last 4 result
-func DropLast464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (E, F) {
+func DropLast464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2531,7 +2859,7 @@ func DropLast464[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G,
 }
 
 // Drop465 with func( 4 in)(6 out) drop first 5 result
-func Drop465[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) J {
+func Drop465[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) J {
 	return func(a A, b B, c C, d D) (j J) {
 		_, _, _, _, _, j = fn(a, b, c, d)
 		return
@@ -2539,15 +2867,23 @@ func Drop465[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, 
 }
 
 // DropLast465 with func( 4 in)(6 out) drop last 5 result
-func DropLast465[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) E {
+func DropLast465[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop466 with func( 4 in)(6 out) drop first 6 result
+func Drop466[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop471 with func( 4 in)(7 out) drop first 1 result
-func Drop471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (F, G, H, I, J, K) {
+func Drop471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D) (f F, g G, h H, i I, j J, k K) {
 		_, f, g, h, i, j, k = fn(a, b, c, d)
 		return
@@ -2555,7 +2891,7 @@ func Drop471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast471 with func( 4 in)(7 out) drop last 1 result
-func DropLast471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F, G, H, I, J) {
+func DropLast471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (E, F, G, H, I, J) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j, _ = fn(a, b, c, d)
 		return
@@ -2563,7 +2899,7 @@ func DropLast471[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F,
 }
 
 // Drop472 with func( 4 in)(7 out) drop first 2 result
-func Drop472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (G, H, I, J, K) {
+func Drop472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D) (g G, h H, i I, j J, k K) {
 		_, _, g, h, i, j, k = fn(a, b, c, d)
 		return
@@ -2571,7 +2907,7 @@ func Drop472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast472 with func( 4 in)(7 out) drop last 2 result
-func DropLast472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F, G, H, I) {
+func DropLast472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (E, F, G, H, I) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i, _, _ = fn(a, b, c, d)
 		return
@@ -2579,7 +2915,7 @@ func DropLast472[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F,
 }
 
 // Drop473 with func( 4 in)(7 out) drop first 3 result
-func Drop473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (H, I, J, K) {
+func Drop473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (H, I, J, K) {
 	return func(a A, b B, c C, d D) (h H, i I, j J, k K) {
 		_, _, _, h, i, j, k = fn(a, b, c, d)
 		return
@@ -2587,7 +2923,7 @@ func Drop473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast473 with func( 4 in)(7 out) drop last 3 result
-func DropLast473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F, G, H) {
+func DropLast473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (E, F, G, H) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h, _, _, _ = fn(a, b, c, d)
 		return
@@ -2595,7 +2931,7 @@ func DropLast473[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F,
 }
 
 // Drop474 with func( 4 in)(7 out) drop first 4 result
-func Drop474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (I, J, K) {
+func Drop474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (I, J, K) {
 	return func(a A, b B, c C, d D) (i I, j J, k K) {
 		_, _, _, _, i, j, k = fn(a, b, c, d)
 		return
@@ -2603,7 +2939,7 @@ func Drop474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast474 with func( 4 in)(7 out) drop last 4 result
-func DropLast474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2611,7 +2947,7 @@ func DropLast474[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F,
 }
 
 // Drop475 with func( 4 in)(7 out) drop first 5 result
-func Drop475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (J, K) {
+func Drop475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (J, K) {
 	return func(a A, b B, c C, d D) (j J, k K) {
 		_, _, _, _, _, j, k = fn(a, b, c, d)
 		return
@@ -2619,7 +2955,7 @@ func Drop475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast475 with func( 4 in)(7 out) drop last 5 result
-func DropLast475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F) {
+func DropLast475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2627,7 +2963,7 @@ func DropLast475[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F,
 }
 
 // Drop476 with func( 4 in)(7 out) drop first 6 result
-func Drop476[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) K {
+func Drop476[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) K {
 	return func(a A, b B, c C, d D) (k K) {
 		_, _, _, _, _, _, k = fn(a, b, c, d)
 		return
@@ -2635,15 +2971,23 @@ func Drop476[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, 
 }
 
 // DropLast476 with func( 4 in)(7 out) drop last 6 result
-func DropLast476[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) E {
+func DropLast476[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop477 with func( 4 in)(7 out) drop first 7 result
+func Drop477[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop481 with func( 4 in)(8 out) drop first 1 result
-func Drop481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (F, G, H, I, J, K, L) {
+func Drop481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (F, G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D) (f F, g G, h H, i I, j J, k K, l L) {
 		_, f, g, h, i, j, k, l = fn(a, b, c, d)
 		return
@@ -2651,7 +2995,7 @@ func Drop481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast481 with func( 4 in)(8 out) drop last 1 result
-func DropLast481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K) {
+func DropLast481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K) {
 		e, f, g, h, i, j, k, _ = fn(a, b, c, d)
 		return
@@ -2659,7 +3003,7 @@ func DropLast481[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop482 with func( 4 in)(8 out) drop first 2 result
-func Drop482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (G, H, I, J, K, L) {
+func Drop482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D) (g G, h H, i I, j J, k K, l L) {
 		_, _, g, h, i, j, k, l = fn(a, b, c, d)
 		return
@@ -2667,7 +3011,7 @@ func Drop482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast482 with func( 4 in)(8 out) drop last 2 result
-func DropLast482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G, H, I, J) {
+func DropLast482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F, G, H, I, J) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j, _, _ = fn(a, b, c, d)
 		return
@@ -2675,7 +3019,7 @@ func DropLast482[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop483 with func( 4 in)(8 out) drop first 3 result
-func Drop483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (H, I, J, K, L) {
+func Drop483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D) (h H, i I, j J, k K, l L) {
 		_, _, _, h, i, j, k, l = fn(a, b, c, d)
 		return
@@ -2683,7 +3027,7 @@ func Drop483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast483 with func( 4 in)(8 out) drop last 3 result
-func DropLast483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G, H, I) {
+func DropLast483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F, G, H, I) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i, _, _, _ = fn(a, b, c, d)
 		return
@@ -2691,7 +3035,7 @@ func DropLast483[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop484 with func( 4 in)(8 out) drop first 4 result
-func Drop484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (I, J, K, L) {
+func Drop484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (I, J, K, L) {
 	return func(a A, b B, c C, d D) (i I, j J, k K, l L) {
 		_, _, _, _, i, j, k, l = fn(a, b, c, d)
 		return
@@ -2699,7 +3043,7 @@ func Drop484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast484 with func( 4 in)(8 out) drop last 4 result
-func DropLast484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G, H) {
+func DropLast484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F, G, H) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2707,7 +3051,7 @@ func DropLast484[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop485 with func( 4 in)(8 out) drop first 5 result
-func Drop485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (J, K, L) {
+func Drop485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (J, K, L) {
 	return func(a A, b B, c C, d D) (j J, k K, l L) {
 		_, _, _, _, _, j, k, l = fn(a, b, c, d)
 		return
@@ -2715,7 +3059,7 @@ func Drop485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast485 with func( 4 in)(8 out) drop last 5 result
-func DropLast485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2723,7 +3067,7 @@ func DropLast485[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop486 with func( 4 in)(8 out) drop first 6 result
-func Drop486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (K, L) {
+func Drop486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (K, L) {
 	return func(a A, b B, c C, d D) (k K, l L) {
 		_, _, _, _, _, _, k, l = fn(a, b, c, d)
 		return
@@ -2731,7 +3075,7 @@ func Drop486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast486 with func( 4 in)(8 out) drop last 6 result
-func DropLast486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F) {
+func DropLast486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2739,7 +3083,7 @@ func DropLast486[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E,
 }
 
 // Drop487 with func( 4 in)(8 out) drop first 7 result
-func Drop487[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) L {
+func Drop487[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) L {
 	return func(a A, b B, c C, d D) (l L) {
 		_, _, _, _, _, _, _, l = fn(a, b, c, d)
 		return
@@ -2747,15 +3091,23 @@ func Drop487[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, 
 }
 
 // DropLast487 with func( 4 in)(8 out) drop last 7 result
-func DropLast487[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) E {
+func DropLast487[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop488 with func( 4 in)(8 out) drop first 8 result
+func Drop488[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
 // Drop491 with func( 4 in)(9 out) drop first 1 result
-func Drop491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (F, G, H, I, J, K, L, M) {
+func Drop491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (F, G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		_, f, g, h, i, j, k, l, m = fn(a, b, c, d)
 		return
@@ -2763,7 +3115,7 @@ func Drop491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast491 with func( 4 in)(9 out) drop last 1 result
-func DropLast491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K, L) {
+func DropLast491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L) {
 		e, f, g, h, i, j, k, l, _ = fn(a, b, c, d)
 		return
@@ -2771,7 +3123,7 @@ func DropLast491[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop492 with func( 4 in)(9 out) drop first 2 result
-func Drop492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (G, H, I, J, K, L, M) {
+func Drop492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D) (g G, h H, i I, j J, k K, l L, m M) {
 		_, _, g, h, i, j, k, l, m = fn(a, b, c, d)
 		return
@@ -2779,7 +3131,7 @@ func Drop492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast492 with func( 4 in)(9 out) drop last 2 result
-func DropLast492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K) {
+func DropLast492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K) {
 		e, f, g, h, i, j, k, _, _ = fn(a, b, c, d)
 		return
@@ -2787,7 +3139,7 @@ func DropLast492[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop493 with func( 4 in)(9 out) drop first 3 result
-func Drop493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (H, I, J, K, L, M) {
+func Drop493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D) (h H, i I, j J, k K, l L, m M) {
 		_, _, _, h, i, j, k, l, m = fn(a, b, c, d)
 		return
@@ -2795,7 +3147,7 @@ func Drop493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast493 with func( 4 in)(9 out) drop last 3 result
-func DropLast493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H, I, J) {
+func DropLast493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G, H, I, J) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J) {
 		e, f, g, h, i, j, _, _, _ = fn(a, b, c, d)
 		return
@@ -2803,7 +3155,7 @@ func DropLast493[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop494 with func( 4 in)(9 out) drop first 4 result
-func Drop494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (I, J, K, L, M) {
+func Drop494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D) (i I, j J, k K, l L, m M) {
 		_, _, _, _, i, j, k, l, m = fn(a, b, c, d)
 		return
@@ -2811,7 +3163,7 @@ func Drop494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast494 with func( 4 in)(9 out) drop last 4 result
-func DropLast494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H, I) {
+func DropLast494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G, H, I) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I) {
 		e, f, g, h, i, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2819,7 +3171,7 @@ func DropLast494[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop495 with func( 4 in)(9 out) drop first 5 result
-func Drop495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (J, K, L, M) {
+func Drop495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (J, K, L, M) {
 	return func(a A, b B, c C, d D) (j J, k K, l L, m M) {
 		_, _, _, _, _, j, k, l, m = fn(a, b, c, d)
 		return
@@ -2827,7 +3179,7 @@ func Drop495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast495 with func( 4 in)(9 out) drop last 5 result
-func DropLast495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H) {
+func DropLast495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G, H) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H) {
 		e, f, g, h, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2835,7 +3187,7 @@ func DropLast495[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop496 with func( 4 in)(9 out) drop first 6 result
-func Drop496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (K, L, M) {
+func Drop496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (K, L, M) {
 	return func(a A, b B, c C, d D) (k K, l L, m M) {
 		_, _, _, _, _, _, k, l, m = fn(a, b, c, d)
 		return
@@ -2843,7 +3195,7 @@ func Drop496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast496 with func( 4 in)(9 out) drop last 6 result
-func DropLast496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G) {
+func DropLast496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F, G) {
 	return func(a A, b B, c C, d D) (e E, f F, g G) {
 		e, f, g, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2851,7 +3203,7 @@ func DropLast496[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop497 with func( 4 in)(9 out) drop first 7 result
-func Drop497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (L, M) {
+func Drop497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (L, M) {
 	return func(a A, b B, c C, d D) (l L, m M) {
 		_, _, _, _, _, _, _, l, m = fn(a, b, c, d)
 		return
@@ -2859,7 +3211,7 @@ func Drop497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast497 with func( 4 in)(9 out) drop last 7 result
-func DropLast497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F) {
+func DropLast497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) (E, F) {
 	return func(a A, b B, c C, d D) (e E, f F) {
 		e, f, _, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
@@ -2867,7 +3219,7 @@ func DropLast497[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) 
 }
 
 // Drop498 with func( 4 in)(9 out) drop first 8 result
-func Drop498[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) M {
+func Drop498[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) M {
 	return func(a A, b B, c C, d D) (m M) {
 		_, _, _, _, _, _, _, _, m = fn(a, b, c, d)
 		return
@@ -2875,15 +3227,31 @@ func Drop498[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, 
 }
 
 // DropLast498 with func( 4 in)(9 out) drop last 8 result
-func DropLast498[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) E {
+func DropLast498[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) E {
 	return func(a A, b B, c C, d D) (e E) {
 		e, _, _, _, _, _, _, _, _ = fn(a, b, c, d)
 		return
 	}
 }
 
+// Drop499 with func( 4 in)(9 out) drop first 9 result
+func Drop499[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(A, B, C, D) {
+	return func(a A, b B, c C, d D) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d)
+		return
+	}
+}
+
+// Drop511 with func( 5 in)(1 out) drop first 1 result
+func Drop511[A, B, C, D, E, F any](fn func(A, B, C, D, E) F) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop521 with func( 5 in)(2 out) drop first 1 result
-func Drop521[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(a A, b B, c C, d D, e E) G {
+func Drop521[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(A, B, C, D, E) G {
 	return func(a A, b B, c C, d D, e E) (g G) {
 		_, g = fn(a, b, c, d, e)
 		return
@@ -2891,15 +3259,23 @@ func Drop521[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(a A, b
 }
 
 // DropLast521 with func( 5 in)(2 out) drop last 1 result
-func DropLast521[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(a A, b B, c C, d D, e E) F {
+func DropLast521[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop522 with func( 5 in)(2 out) drop first 2 result
+func Drop522[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop531 with func( 5 in)(3 out) drop first 1 result
-func Drop531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(a A, b B, c C, d D, e E) (G, H) {
+func Drop531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(A, B, C, D, E) (G, H) {
 	return func(a A, b B, c C, d D, e E) (g G, h H) {
 		_, g, h = fn(a, b, c, d, e)
 		return
@@ -2907,7 +3283,7 @@ func Drop531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(
 }
 
 // DropLast531 with func( 5 in)(3 out) drop last 1 result
-func DropLast531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _ = fn(a, b, c, d, e)
 		return
@@ -2915,7 +3291,7 @@ func DropLast531[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) f
 }
 
 // Drop532 with func( 5 in)(3 out) drop first 2 result
-func Drop532[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(a A, b B, c C, d D, e E) H {
+func Drop532[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(A, B, C, D, E) H {
 	return func(a A, b B, c C, d D, e E) (h H) {
 		_, _, h = fn(a, b, c, d, e)
 		return
@@ -2923,15 +3299,23 @@ func Drop532[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(
 }
 
 // DropLast532 with func( 5 in)(3 out) drop last 2 result
-func DropLast532[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(a A, b B, c C, d D, e E) F {
+func DropLast532[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop533 with func( 5 in)(3 out) drop first 3 result
+func Drop533[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop541 with func( 5 in)(4 out) drop first 1 result
-func Drop541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) (G, H, I) {
+func Drop541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) (G, H, I) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I) {
 		_, g, h, i = fn(a, b, c, d, e)
 		return
@@ -2939,7 +3323,7 @@ func Drop541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I))
 }
 
 // DropLast541 with func( 5 in)(4 out) drop last 1 result
-func DropLast541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _ = fn(a, b, c, d, e)
 		return
@@ -2947,7 +3331,7 @@ func DropLast541[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H,
 }
 
 // Drop542 with func( 5 in)(4 out) drop first 2 result
-func Drop542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) (H, I) {
+func Drop542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) (H, I) {
 	return func(a A, b B, c C, d D, e E) (h H, i I) {
 		_, _, h, i = fn(a, b, c, d, e)
 		return
@@ -2955,7 +3339,7 @@ func Drop542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I))
 }
 
 // DropLast542 with func( 5 in)(4 out) drop last 2 result
-func DropLast542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _ = fn(a, b, c, d, e)
 		return
@@ -2963,7 +3347,7 @@ func DropLast542[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H,
 }
 
 // Drop543 with func( 5 in)(4 out) drop first 3 result
-func Drop543[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) I {
+func Drop543[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) I {
 	return func(a A, b B, c C, d D, e E) (i I) {
 		_, _, _, i = fn(a, b, c, d, e)
 		return
@@ -2971,15 +3355,23 @@ func Drop543[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I))
 }
 
 // DropLast543 with func( 5 in)(4 out) drop last 3 result
-func DropLast543[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) F {
+func DropLast543[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop544 with func( 5 in)(4 out) drop first 4 result
+func Drop544[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop551 with func( 5 in)(5 out) drop first 1 result
-func Drop551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (G, H, I, J) {
+func Drop551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I, j J) {
 		_, g, h, i, j = fn(a, b, c, d, e)
 		return
@@ -2987,7 +3379,7 @@ func Drop551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, 
 }
 
 // DropLast551 with func( 5 in)(5 out) drop last 1 result
-func DropLast551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (F, G, H, I) {
+func DropLast551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (F, G, H, I) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i, _ = fn(a, b, c, d, e)
 		return
@@ -2995,7 +3387,7 @@ func DropLast551[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G,
 }
 
 // Drop552 with func( 5 in)(5 out) drop first 2 result
-func Drop552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (H, I, J) {
+func Drop552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (H, I, J) {
 	return func(a A, b B, c C, d D, e E) (h H, i I, j J) {
 		_, _, h, i, j = fn(a, b, c, d, e)
 		return
@@ -3003,7 +3395,7 @@ func Drop552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, 
 }
 
 // DropLast552 with func( 5 in)(5 out) drop last 2 result
-func DropLast552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _, _ = fn(a, b, c, d, e)
 		return
@@ -3011,7 +3403,7 @@ func DropLast552[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G,
 }
 
 // Drop553 with func( 5 in)(5 out) drop first 3 result
-func Drop553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (I, J) {
+func Drop553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (I, J) {
 	return func(a A, b B, c C, d D, e E) (i I, j J) {
 		_, _, _, i, j = fn(a, b, c, d, e)
 		return
@@ -3019,7 +3411,7 @@ func Drop553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, 
 }
 
 // DropLast553 with func( 5 in)(5 out) drop last 3 result
-func DropLast553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3027,7 +3419,7 @@ func DropLast553[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G,
 }
 
 // Drop554 with func( 5 in)(5 out) drop first 4 result
-func Drop554[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) J {
+func Drop554[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) J {
 	return func(a A, b B, c C, d D, e E) (j J) {
 		_, _, _, _, j = fn(a, b, c, d, e)
 		return
@@ -3035,15 +3427,23 @@ func Drop554[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, 
 }
 
 // DropLast554 with func( 5 in)(5 out) drop last 4 result
-func DropLast554[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) F {
+func DropLast554[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop555 with func( 5 in)(5 out) drop first 5 result
+func Drop555[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop561 with func( 5 in)(6 out) drop first 1 result
-func Drop561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (G, H, I, J, K) {
+func Drop561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I, j J, k K) {
 		_, g, h, i, j, k = fn(a, b, c, d, e)
 		return
@@ -3051,7 +3451,7 @@ func Drop561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, 
 }
 
 // DropLast561 with func( 5 in)(6 out) drop last 1 result
-func DropLast561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (F, G, H, I, J) {
+func DropLast561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (F, G, H, I, J) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j, _ = fn(a, b, c, d, e)
 		return
@@ -3059,7 +3459,7 @@ func DropLast561[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F,
 }
 
 // Drop562 with func( 5 in)(6 out) drop first 2 result
-func Drop562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (H, I, J, K) {
+func Drop562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E) (h H, i I, j J, k K) {
 		_, _, h, i, j, k = fn(a, b, c, d, e)
 		return
@@ -3067,7 +3467,7 @@ func Drop562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, 
 }
 
 // DropLast562 with func( 5 in)(6 out) drop last 2 result
-func DropLast562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (F, G, H, I) {
+func DropLast562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (F, G, H, I) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i, _, _ = fn(a, b, c, d, e)
 		return
@@ -3075,7 +3475,7 @@ func DropLast562[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F,
 }
 
 // Drop563 with func( 5 in)(6 out) drop first 3 result
-func Drop563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (I, J, K) {
+func Drop563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (I, J, K) {
 	return func(a A, b B, c C, d D, e E) (i I, j J, k K) {
 		_, _, _, i, j, k = fn(a, b, c, d, e)
 		return
@@ -3083,7 +3483,7 @@ func Drop563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, 
 }
 
 // DropLast563 with func( 5 in)(6 out) drop last 3 result
-func DropLast563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3091,7 +3491,7 @@ func DropLast563[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F,
 }
 
 // Drop564 with func( 5 in)(6 out) drop first 4 result
-func Drop564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (J, K) {
+func Drop564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (J, K) {
 	return func(a A, b B, c C, d D, e E) (j J, k K) {
 		_, _, _, _, j, k = fn(a, b, c, d, e)
 		return
@@ -3099,7 +3499,7 @@ func Drop564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, 
 }
 
 // DropLast564 with func( 5 in)(6 out) drop last 4 result
-func DropLast564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3107,7 +3507,7 @@ func DropLast564[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F,
 }
 
 // Drop565 with func( 5 in)(6 out) drop first 5 result
-func Drop565[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) K {
+func Drop565[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) K {
 	return func(a A, b B, c C, d D, e E) (k K) {
 		_, _, _, _, _, k = fn(a, b, c, d, e)
 		return
@@ -3115,15 +3515,23 @@ func Drop565[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, 
 }
 
 // DropLast565 with func( 5 in)(6 out) drop last 5 result
-func DropLast565[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) F {
+func DropLast565[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop566 with func( 5 in)(6 out) drop first 6 result
+func Drop566[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop571 with func( 5 in)(7 out) drop first 1 result
-func Drop571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (G, H, I, J, K, L) {
+func Drop571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I, j J, k K, l L) {
 		_, g, h, i, j, k, l = fn(a, b, c, d, e)
 		return
@@ -3131,7 +3539,7 @@ func Drop571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast571 with func( 5 in)(7 out) drop last 1 result
-func DropLast571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K) {
+func DropLast571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k, _ = fn(a, b, c, d, e)
 		return
@@ -3139,7 +3547,7 @@ func DropLast571[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) 
 }
 
 // Drop572 with func( 5 in)(7 out) drop first 2 result
-func Drop572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (H, I, J, K, L) {
+func Drop572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E) (h H, i I, j J, k K, l L) {
 		_, _, h, i, j, k, l = fn(a, b, c, d, e)
 		return
@@ -3147,7 +3555,7 @@ func Drop572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast572 with func( 5 in)(7 out) drop last 2 result
-func DropLast572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G, H, I, J) {
+func DropLast572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (F, G, H, I, J) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j, _, _ = fn(a, b, c, d, e)
 		return
@@ -3155,7 +3563,7 @@ func DropLast572[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) 
 }
 
 // Drop573 with func( 5 in)(7 out) drop first 3 result
-func Drop573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (I, J, K, L) {
+func Drop573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E) (i I, j J, k K, l L) {
 		_, _, _, i, j, k, l = fn(a, b, c, d, e)
 		return
@@ -3163,7 +3571,7 @@ func Drop573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast573 with func( 5 in)(7 out) drop last 3 result
-func DropLast573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G, H, I) {
+func DropLast573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (F, G, H, I) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3171,7 +3579,7 @@ func DropLast573[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) 
 }
 
 // Drop574 with func( 5 in)(7 out) drop first 4 result
-func Drop574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (J, K, L) {
+func Drop574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (J, K, L) {
 	return func(a A, b B, c C, d D, e E) (j J, k K, l L) {
 		_, _, _, _, j, k, l = fn(a, b, c, d, e)
 		return
@@ -3179,7 +3587,7 @@ func Drop574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast574 with func( 5 in)(7 out) drop last 4 result
-func DropLast574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3187,7 +3595,7 @@ func DropLast574[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) 
 }
 
 // Drop575 with func( 5 in)(7 out) drop first 5 result
-func Drop575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (K, L) {
+func Drop575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (K, L) {
 	return func(a A, b B, c C, d D, e E) (k K, l L) {
 		_, _, _, _, _, k, l = fn(a, b, c, d, e)
 		return
@@ -3195,7 +3603,7 @@ func Drop575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast575 with func( 5 in)(7 out) drop last 5 result
-func DropLast575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3203,7 +3611,7 @@ func DropLast575[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) 
 }
 
 // Drop576 with func( 5 in)(7 out) drop first 6 result
-func Drop576[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) L {
+func Drop576[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) L {
 	return func(a A, b B, c C, d D, e E) (l L) {
 		_, _, _, _, _, _, l = fn(a, b, c, d, e)
 		return
@@ -3211,15 +3619,23 @@ func Drop576[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, 
 }
 
 // DropLast576 with func( 5 in)(7 out) drop last 6 result
-func DropLast576[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) F {
+func DropLast576[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop577 with func( 5 in)(7 out) drop first 7 result
+func Drop577[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop581 with func( 5 in)(8 out) drop first 1 result
-func Drop581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (G, H, I, J, K, L, M) {
+func Drop581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I, j J, k K, l L, m M) {
 		_, g, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
@@ -3227,7 +3643,7 @@ func Drop581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast581 with func( 5 in)(8 out) drop last 1 result
-func DropLast581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L) {
+func DropLast581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l, _ = fn(a, b, c, d, e)
 		return
@@ -3235,7 +3651,7 @@ func DropLast581[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop582 with func( 5 in)(8 out) drop first 2 result
-func Drop582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (H, I, J, K, L, M) {
+func Drop582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E) (h H, i I, j J, k K, l L, m M) {
 		_, _, h, i, j, k, l, m = fn(a, b, c, d, e)
 		return
@@ -3243,7 +3659,7 @@ func Drop582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast582 with func( 5 in)(8 out) drop last 2 result
-func DropLast582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K) {
+func DropLast582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k, _, _ = fn(a, b, c, d, e)
 		return
@@ -3251,7 +3667,7 @@ func DropLast582[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop583 with func( 5 in)(8 out) drop first 3 result
-func Drop583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (I, J, K, L, M) {
+func Drop583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E) (i I, j J, k K, l L, m M) {
 		_, _, _, i, j, k, l, m = fn(a, b, c, d, e)
 		return
@@ -3259,7 +3675,7 @@ func Drop583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast583 with func( 5 in)(8 out) drop last 3 result
-func DropLast583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H, I, J) {
+func DropLast583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G, H, I, J) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3267,7 +3683,7 @@ func DropLast583[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop584 with func( 5 in)(8 out) drop first 4 result
-func Drop584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (J, K, L, M) {
+func Drop584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E) (j J, k K, l L, m M) {
 		_, _, _, _, j, k, l, m = fn(a, b, c, d, e)
 		return
@@ -3275,7 +3691,7 @@ func Drop584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast584 with func( 5 in)(8 out) drop last 4 result
-func DropLast584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H, I) {
+func DropLast584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G, H, I) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3283,7 +3699,7 @@ func DropLast584[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop585 with func( 5 in)(8 out) drop first 5 result
-func Drop585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (K, L, M) {
+func Drop585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (K, L, M) {
 	return func(a A, b B, c C, d D, e E) (k K, l L, m M) {
 		_, _, _, _, _, k, l, m = fn(a, b, c, d, e)
 		return
@@ -3291,7 +3707,7 @@ func Drop585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast585 with func( 5 in)(8 out) drop last 5 result
-func DropLast585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3299,7 +3715,7 @@ func DropLast585[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop586 with func( 5 in)(8 out) drop first 6 result
-func Drop586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (L, M) {
+func Drop586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (L, M) {
 	return func(a A, b B, c C, d D, e E) (l L, m M) {
 		_, _, _, _, _, _, l, m = fn(a, b, c, d, e)
 		return
@@ -3307,7 +3723,7 @@ func Drop586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast586 with func( 5 in)(8 out) drop last 6 result
-func DropLast586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3315,7 +3731,7 @@ func DropLast586[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop587 with func( 5 in)(8 out) drop first 7 result
-func Drop587[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) M {
+func Drop587[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) M {
 	return func(a A, b B, c C, d D, e E) (m M) {
 		_, _, _, _, _, _, _, m = fn(a, b, c, d, e)
 		return
@@ -3323,15 +3739,23 @@ func Drop587[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (
 }
 
 // DropLast587 with func( 5 in)(8 out) drop last 7 result
-func DropLast587[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) F {
+func DropLast587[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop588 with func( 5 in)(8 out) drop first 8 result
+func Drop588[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
 // Drop591 with func( 5 in)(9 out) drop first 1 result
-func Drop591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (G, H, I, J, K, L, M, N) {
+func Drop591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (G, H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		_, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3339,7 +3763,7 @@ func Drop591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast591 with func( 5 in)(9 out) drop last 1 result
-func DropLast591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L, M) {
+func DropLast591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M) {
 		f, g, h, i, j, k, l, m, _ = fn(a, b, c, d, e)
 		return
@@ -3347,7 +3771,7 @@ func DropLast591[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop592 with func( 5 in)(9 out) drop first 2 result
-func Drop592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (H, I, J, K, L, M, N) {
+func Drop592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E) (h H, i I, j J, k K, l L, m M, n N) {
 		_, _, h, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3355,7 +3779,7 @@ func Drop592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast592 with func( 5 in)(9 out) drop last 2 result
-func DropLast592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L) {
+func DropLast592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L) {
 		f, g, h, i, j, k, l, _, _ = fn(a, b, c, d, e)
 		return
@@ -3363,7 +3787,7 @@ func DropLast592[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop593 with func( 5 in)(9 out) drop first 3 result
-func Drop593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (I, J, K, L, M, N) {
+func Drop593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E) (i I, j J, k K, l L, m M, n N) {
 		_, _, _, i, j, k, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3371,7 +3795,7 @@ func Drop593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast593 with func( 5 in)(9 out) drop last 3 result
-func DropLast593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K) {
+func DropLast593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K) {
 		f, g, h, i, j, k, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3379,7 +3803,7 @@ func DropLast593[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop594 with func( 5 in)(9 out) drop first 4 result
-func Drop594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (J, K, L, M, N) {
+func Drop594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E) (j J, k K, l L, m M, n N) {
 		_, _, _, _, j, k, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3387,7 +3811,7 @@ func Drop594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast594 with func( 5 in)(9 out) drop last 4 result
-func DropLast594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I, J) {
+func DropLast594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H, I, J) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J) {
 		f, g, h, i, j, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3395,7 +3819,7 @@ func DropLast594[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop595 with func( 5 in)(9 out) drop first 5 result
-func Drop595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (K, L, M, N) {
+func Drop595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (K, L, M, N) {
 	return func(a A, b B, c C, d D, e E) (k K, l L, m M, n N) {
 		_, _, _, _, _, k, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3403,7 +3827,7 @@ func Drop595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast595 with func( 5 in)(9 out) drop last 5 result
-func DropLast595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I) {
+func DropLast595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H, I) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I) {
 		f, g, h, i, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3411,7 +3835,7 @@ func DropLast595[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop596 with func( 5 in)(9 out) drop first 6 result
-func Drop596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (L, M, N) {
+func Drop596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (L, M, N) {
 	return func(a A, b B, c C, d D, e E) (l L, m M, n N) {
 		_, _, _, _, _, _, l, m, n = fn(a, b, c, d, e)
 		return
@@ -3419,7 +3843,7 @@ func Drop596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast596 with func( 5 in)(9 out) drop last 6 result
-func DropLast596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H) {
+func DropLast596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G, H) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H) {
 		f, g, h, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3427,7 +3851,7 @@ func DropLast596[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop597 with func( 5 in)(9 out) drop first 7 result
-func Drop597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (M, N) {
+func Drop597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (M, N) {
 	return func(a A, b B, c C, d D, e E) (m M, n N) {
 		_, _, _, _, _, _, _, m, n = fn(a, b, c, d, e)
 		return
@@ -3435,7 +3859,7 @@ func Drop597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast597 with func( 5 in)(9 out) drop last 7 result
-func DropLast597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G) {
+func DropLast597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) (F, G) {
 	return func(a A, b B, c C, d D, e E) (f F, g G) {
 		f, g, _, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
@@ -3443,7 +3867,7 @@ func DropLast597[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop598 with func( 5 in)(9 out) drop first 8 result
-func Drop598[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) N {
+func Drop598[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) N {
 	return func(a A, b B, c C, d D, e E) (n N) {
 		_, _, _, _, _, _, _, _, n = fn(a, b, c, d, e)
 		return
@@ -3451,15 +3875,31 @@ func Drop598[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast598 with func( 5 in)(9 out) drop last 8 result
-func DropLast598[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) F {
+func DropLast598[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) F {
 	return func(a A, b B, c C, d D, e E) (f F) {
 		f, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e)
 		return
 	}
 }
 
+// Drop599 with func( 5 in)(9 out) drop first 9 result
+func Drop599[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(A, B, C, D, E) {
+	return func(a A, b B, c C, d D, e E) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e)
+		return
+	}
+}
+
+// Drop611 with func( 6 in)(1 out) drop first 1 result
+func Drop611[A, B, C, D, E, F, G any](fn func(A, B, C, D, E, F) G) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop621 with func( 6 in)(2 out) drop first 1 result
-func Drop621[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(a A, b B, c C, d D, e E, f F) H {
+func Drop621[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(A, B, C, D, E, F) H {
 	return func(a A, b B, c C, d D, e E, f F) (h H) {
 		_, h = fn(a, b, c, d, e, f)
 		return
@@ -3467,15 +3907,23 @@ func Drop621[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(
 }
 
 // DropLast621 with func( 6 in)(2 out) drop last 1 result
-func DropLast621[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast621[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop622 with func( 6 in)(2 out) drop first 2 result
+func Drop622[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop631 with func( 6 in)(3 out) drop first 1 result
-func Drop631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(a A, b B, c C, d D, e E, f F) (H, I) {
+func Drop631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(A, B, C, D, E, F) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I) {
 		_, h, i = fn(a, b, c, d, e, f)
 		return
@@ -3483,7 +3931,7 @@ func Drop631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I))
 }
 
 // DropLast631 with func( 6 in)(3 out) drop last 1 result
-func DropLast631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _ = fn(a, b, c, d, e, f)
 		return
@@ -3491,7 +3939,7 @@ func DropLast631[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H,
 }
 
 // Drop632 with func( 6 in)(3 out) drop first 2 result
-func Drop632[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(a A, b B, c C, d D, e E, f F) I {
+func Drop632[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(A, B, C, D, E, F) I {
 	return func(a A, b B, c C, d D, e E, f F) (i I) {
 		_, _, i = fn(a, b, c, d, e, f)
 		return
@@ -3499,15 +3947,23 @@ func Drop632[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I))
 }
 
 // DropLast632 with func( 6 in)(3 out) drop last 2 result
-func DropLast632[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast632[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop633 with func( 6 in)(3 out) drop first 3 result
+func Drop633[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop641 with func( 6 in)(4 out) drop first 1 result
-func Drop641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) (H, I, J) {
+func Drop641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J) {
 		_, h, i, j = fn(a, b, c, d, e, f)
 		return
@@ -3515,7 +3971,7 @@ func Drop641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, 
 }
 
 // DropLast641 with func( 6 in)(4 out) drop last 1 result
-func DropLast641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _ = fn(a, b, c, d, e, f)
 		return
@@ -3523,7 +3979,7 @@ func DropLast641[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G,
 }
 
 // Drop642 with func( 6 in)(4 out) drop first 2 result
-func Drop642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) (I, J) {
+func Drop642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J) {
 		_, _, i, j = fn(a, b, c, d, e, f)
 		return
@@ -3531,7 +3987,7 @@ func Drop642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, 
 }
 
 // DropLast642 with func( 6 in)(4 out) drop last 2 result
-func DropLast642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3539,7 +3995,7 @@ func DropLast642[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G,
 }
 
 // Drop643 with func( 6 in)(4 out) drop first 3 result
-func Drop643[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) J {
+func Drop643[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) J {
 	return func(a A, b B, c C, d D, e E, f F) (j J) {
 		_, _, _, j = fn(a, b, c, d, e, f)
 		return
@@ -3547,15 +4003,23 @@ func Drop643[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, 
 }
 
 // DropLast643 with func( 6 in)(4 out) drop last 3 result
-func DropLast643[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast643[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop644 with func( 6 in)(4 out) drop first 4 result
+func Drop644[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop651 with func( 6 in)(5 out) drop first 1 result
-func Drop651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (H, I, J, K) {
+func Drop651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J, k K) {
 		_, h, i, j, k = fn(a, b, c, d, e, f)
 		return
@@ -3563,7 +4027,7 @@ func Drop651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, 
 }
 
 // DropLast651 with func( 6 in)(5 out) drop last 1 result
-func DropLast651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J) {
+func DropLast651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j, _ = fn(a, b, c, d, e, f)
 		return
@@ -3571,7 +4035,7 @@ func DropLast651[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) 
 }
 
 // Drop652 with func( 6 in)(5 out) drop first 2 result
-func Drop652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (I, J, K) {
+func Drop652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J, k K) {
 		_, _, i, j, k = fn(a, b, c, d, e, f)
 		return
@@ -3579,7 +4043,7 @@ func Drop652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, 
 }
 
 // DropLast652 with func( 6 in)(5 out) drop last 2 result
-func DropLast652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3587,7 +4051,7 @@ func DropLast652[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) 
 }
 
 // Drop653 with func( 6 in)(5 out) drop first 3 result
-func Drop653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (J, K) {
+func Drop653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (j J, k K) {
 		_, _, _, j, k = fn(a, b, c, d, e, f)
 		return
@@ -3595,7 +4059,7 @@ func Drop653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, 
 }
 
 // DropLast653 with func( 6 in)(5 out) drop last 3 result
-func DropLast653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3603,7 +4067,7 @@ func DropLast653[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) 
 }
 
 // Drop654 with func( 6 in)(5 out) drop first 4 result
-func Drop654[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) K {
+func Drop654[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) K {
 	return func(a A, b B, c C, d D, e E, f F) (k K) {
 		_, _, _, _, k = fn(a, b, c, d, e, f)
 		return
@@ -3611,15 +4075,23 @@ func Drop654[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, 
 }
 
 // DropLast654 with func( 6 in)(5 out) drop last 4 result
-func DropLast654[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast654[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop655 with func( 6 in)(5 out) drop first 5 result
+func Drop655[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop661 with func( 6 in)(6 out) drop first 1 result
-func Drop661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (H, I, J, K, L) {
+func Drop661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J, k K, l L) {
 		_, h, i, j, k, l = fn(a, b, c, d, e, f)
 		return
@@ -3627,7 +4099,7 @@ func Drop661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (
 }
 
 // DropLast661 with func( 6 in)(6 out) drop last 1 result
-func DropLast661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K) {
+func DropLast661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k, _ = fn(a, b, c, d, e, f)
 		return
@@ -3635,7 +4107,7 @@ func DropLast661[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop662 with func( 6 in)(6 out) drop first 2 result
-func Drop662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (I, J, K, L) {
+func Drop662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J, k K, l L) {
 		_, _, i, j, k, l = fn(a, b, c, d, e, f)
 		return
@@ -3643,7 +4115,7 @@ func Drop662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (
 }
 
 // DropLast662 with func( 6 in)(6 out) drop last 2 result
-func DropLast662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J) {
+func DropLast662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3651,7 +4123,7 @@ func DropLast662[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop663 with func( 6 in)(6 out) drop first 3 result
-func Drop663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (J, K, L) {
+func Drop663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (j J, k K, l L) {
 		_, _, _, j, k, l = fn(a, b, c, d, e, f)
 		return
@@ -3659,7 +4131,7 @@ func Drop663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (
 }
 
 // DropLast663 with func( 6 in)(6 out) drop last 3 result
-func DropLast663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3667,7 +4139,7 @@ func DropLast663[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop664 with func( 6 in)(6 out) drop first 4 result
-func Drop664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (K, L) {
+func Drop664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (k K, l L) {
 		_, _, _, _, k, l = fn(a, b, c, d, e, f)
 		return
@@ -3675,7 +4147,7 @@ func Drop664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (
 }
 
 // DropLast664 with func( 6 in)(6 out) drop last 4 result
-func DropLast664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3683,7 +4155,7 @@ func DropLast664[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop665 with func( 6 in)(6 out) drop first 5 result
-func Drop665[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) L {
+func Drop665[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) L {
 	return func(a A, b B, c C, d D, e E, f F) (l L) {
 		_, _, _, _, _, l = fn(a, b, c, d, e, f)
 		return
@@ -3691,15 +4163,23 @@ func Drop665[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (
 }
 
 // DropLast665 with func( 6 in)(6 out) drop last 5 result
-func DropLast665[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast665[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop666 with func( 6 in)(6 out) drop first 6 result
+func Drop666[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop671 with func( 6 in)(7 out) drop first 1 result
-func Drop671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (H, I, J, K, L, M) {
+func Drop671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J, k K, l L, m M) {
 		_, h, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
@@ -3707,7 +4187,7 @@ func Drop671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast671 with func( 6 in)(7 out) drop last 1 result
-func DropLast671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L) {
+func DropLast671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l, _ = fn(a, b, c, d, e, f)
 		return
@@ -3715,7 +4195,7 @@ func DropLast671[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop672 with func( 6 in)(7 out) drop first 2 result
-func Drop672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (I, J, K, L, M) {
+func Drop672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J, k K, l L, m M) {
 		_, _, i, j, k, l, m = fn(a, b, c, d, e, f)
 		return
@@ -3723,7 +4203,7 @@ func Drop672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast672 with func( 6 in)(7 out) drop last 2 result
-func DropLast672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K) {
+func DropLast672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3731,7 +4211,7 @@ func DropLast672[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop673 with func( 6 in)(7 out) drop first 3 result
-func Drop673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (J, K, L, M) {
+func Drop673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (j J, k K, l L, m M) {
 		_, _, _, j, k, l, m = fn(a, b, c, d, e, f)
 		return
@@ -3739,7 +4219,7 @@ func Drop673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast673 with func( 6 in)(7 out) drop last 3 result
-func DropLast673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J) {
+func DropLast673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3747,7 +4227,7 @@ func DropLast673[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop674 with func( 6 in)(7 out) drop first 4 result
-func Drop674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (K, L, M) {
+func Drop674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (k K, l L, m M) {
 		_, _, _, _, k, l, m = fn(a, b, c, d, e, f)
 		return
@@ -3755,7 +4235,7 @@ func Drop674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast674 with func( 6 in)(7 out) drop last 4 result
-func DropLast674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3763,7 +4243,7 @@ func DropLast674[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop675 with func( 6 in)(7 out) drop first 5 result
-func Drop675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (L, M) {
+func Drop675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (l L, m M) {
 		_, _, _, _, _, l, m = fn(a, b, c, d, e, f)
 		return
@@ -3771,7 +4251,7 @@ func Drop675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast675 with func( 6 in)(7 out) drop last 5 result
-func DropLast675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3779,7 +4259,7 @@ func DropLast675[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop676 with func( 6 in)(7 out) drop first 6 result
-func Drop676[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) M {
+func Drop676[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) M {
 	return func(a A, b B, c C, d D, e E, f F) (m M) {
 		_, _, _, _, _, _, m = fn(a, b, c, d, e, f)
 		return
@@ -3787,15 +4267,23 @@ func Drop676[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast676 with func( 6 in)(7 out) drop last 6 result
-func DropLast676[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast676[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop677 with func( 6 in)(7 out) drop first 7 result
+func Drop677[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop681 with func( 6 in)(8 out) drop first 1 result
-func Drop681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (H, I, J, K, L, M, N) {
+func Drop681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J, k K, l L, m M, n N) {
 		_, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3803,7 +4291,7 @@ func Drop681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast681 with func( 6 in)(8 out) drop last 1 result
-func DropLast681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M) {
+func DropLast681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m, _ = fn(a, b, c, d, e, f)
 		return
@@ -3811,7 +4299,7 @@ func DropLast681[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop682 with func( 6 in)(8 out) drop first 2 result
-func Drop682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (I, J, K, L, M, N) {
+func Drop682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J, k K, l L, m M, n N) {
 		_, _, i, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3819,7 +4307,7 @@ func Drop682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast682 with func( 6 in)(8 out) drop last 2 result
-func DropLast682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L) {
+func DropLast682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3827,7 +4315,7 @@ func DropLast682[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop683 with func( 6 in)(8 out) drop first 3 result
-func Drop683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (J, K, L, M, N) {
+func Drop683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (j J, k K, l L, m M, n N) {
 		_, _, _, j, k, l, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3835,7 +4323,7 @@ func Drop683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast683 with func( 6 in)(8 out) drop last 3 result
-func DropLast683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K) {
+func DropLast683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3843,7 +4331,7 @@ func DropLast683[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop684 with func( 6 in)(8 out) drop first 4 result
-func Drop684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (K, L, M, N) {
+func Drop684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (k K, l L, m M, n N) {
 		_, _, _, _, k, l, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3851,7 +4339,7 @@ func Drop684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast684 with func( 6 in)(8 out) drop last 4 result
-func DropLast684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J) {
+func DropLast684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3859,7 +4347,7 @@ func DropLast684[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop685 with func( 6 in)(8 out) drop first 5 result
-func Drop685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (L, M, N) {
+func Drop685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (l L, m M, n N) {
 		_, _, _, _, _, l, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3867,7 +4355,7 @@ func Drop685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast685 with func( 6 in)(8 out) drop last 5 result
-func DropLast685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3875,7 +4363,7 @@ func DropLast685[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop686 with func( 6 in)(8 out) drop first 6 result
-func Drop686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (M, N) {
+func Drop686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (m M, n N) {
 		_, _, _, _, _, _, m, n = fn(a, b, c, d, e, f)
 		return
@@ -3883,7 +4371,7 @@ func Drop686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast686 with func( 6 in)(8 out) drop last 6 result
-func DropLast686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3891,7 +4379,7 @@ func DropLast686[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop687 with func( 6 in)(8 out) drop first 7 result
-func Drop687[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) N {
+func Drop687[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) N {
 	return func(a A, b B, c C, d D, e E, f F) (n N) {
 		_, _, _, _, _, _, _, n = fn(a, b, c, d, e, f)
 		return
@@ -3899,15 +4387,23 @@ func Drop687[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast687 with func( 6 in)(8 out) drop last 7 result
-func DropLast687[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast687[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop688 with func( 6 in)(8 out) drop first 8 result
+func Drop688[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
 // Drop691 with func( 6 in)(9 out) drop first 1 result
-func Drop691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (H, I, J, K, L, M, N, O) {
+func Drop691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (H, I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		_, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3915,7 +4411,7 @@ func Drop691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast691 with func( 6 in)(9 out) drop last 1 result
-func DropLast691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M, N) {
+func DropLast691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N) {
 		g, h, i, j, k, l, m, n, _ = fn(a, b, c, d, e, f)
 		return
@@ -3923,7 +4419,7 @@ func DropLast691[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop692 with func( 6 in)(9 out) drop first 2 result
-func Drop692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (I, J, K, L, M, N, O) {
+func Drop692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (i I, j J, k K, l L, m M, n N, o O) {
 		_, _, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3931,7 +4427,7 @@ func Drop692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast692 with func( 6 in)(9 out) drop last 2 result
-func DropLast692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M) {
+func DropLast692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M) {
 		g, h, i, j, k, l, m, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3939,7 +4435,7 @@ func DropLast692[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop693 with func( 6 in)(9 out) drop first 3 result
-func Drop693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (J, K, L, M, N, O) {
+func Drop693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (j J, k K, l L, m M, n N, o O) {
 		_, _, _, j, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3947,7 +4443,7 @@ func Drop693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast693 with func( 6 in)(9 out) drop last 3 result
-func DropLast693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L) {
+func DropLast693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L) {
 		g, h, i, j, k, l, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3955,7 +4451,7 @@ func DropLast693[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop694 with func( 6 in)(9 out) drop first 4 result
-func Drop694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (K, L, M, N, O) {
+func Drop694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (k K, l L, m M, n N, o O) {
 		_, _, _, _, k, l, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3963,7 +4459,7 @@ func Drop694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast694 with func( 6 in)(9 out) drop last 4 result
-func DropLast694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K) {
+func DropLast694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K) {
 		g, h, i, j, k, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3971,7 +4467,7 @@ func DropLast694[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop695 with func( 6 in)(9 out) drop first 5 result
-func Drop695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (L, M, N, O) {
+func Drop695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (l L, m M, n N, o O) {
 		_, _, _, _, _, l, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3979,7 +4475,7 @@ func Drop695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast695 with func( 6 in)(9 out) drop last 5 result
-func DropLast695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J) {
+func DropLast695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J) {
 		g, h, i, j, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -3987,7 +4483,7 @@ func DropLast695[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop696 with func( 6 in)(9 out) drop first 6 result
-func Drop696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (M, N, O) {
+func Drop696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (m M, n N, o O) {
 		_, _, _, _, _, _, m, n, o = fn(a, b, c, d, e, f)
 		return
@@ -3995,7 +4491,7 @@ func Drop696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast696 with func( 6 in)(9 out) drop last 6 result
-func DropLast696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I) {
+func DropLast696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H, I) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I) {
 		g, h, i, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -4003,7 +4499,7 @@ func DropLast696[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop697 with func( 6 in)(9 out) drop first 7 result
-func Drop697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (N, O) {
+func Drop697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (N, O) {
 	return func(a A, b B, c C, d D, e E, f F) (n N, o O) {
 		_, _, _, _, _, _, _, n, o = fn(a, b, c, d, e, f)
 		return
@@ -4011,7 +4507,7 @@ func Drop697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast697 with func( 6 in)(9 out) drop last 7 result
-func DropLast697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H) {
+func DropLast697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) (G, H) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H) {
 		g, h, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
@@ -4019,7 +4515,7 @@ func DropLast697[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop698 with func( 6 in)(9 out) drop first 8 result
-func Drop698[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) O {
+func Drop698[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) O {
 	return func(a A, b B, c C, d D, e E, f F) (o O) {
 		_, _, _, _, _, _, _, _, o = fn(a, b, c, d, e, f)
 		return
@@ -4027,15 +4523,31 @@ func Drop698[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast698 with func( 6 in)(9 out) drop last 8 result
-func DropLast698[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) G {
+func DropLast698[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) G {
 	return func(a A, b B, c C, d D, e E, f F) (g G) {
 		g, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
 		return
 	}
 }
 
+// Drop699 with func( 6 in)(9 out) drop first 9 result
+func Drop699[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F) {
+	return func(a A, b B, c C, d D, e E, f F) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f)
+		return
+	}
+}
+
+// Drop711 with func( 7 in)(1 out) drop first 1 result
+func Drop711[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F, G) H) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop721 with func( 7 in)(2 out) drop first 1 result
-func Drop721[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(a A, b B, c C, d D, e E, f F, g G) I {
+func Drop721[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(A, B, C, D, E, F, G) I {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I) {
 		_, i = fn(a, b, c, d, e, f, g)
 		return
@@ -4043,15 +4555,23 @@ func Drop721[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I))
 }
 
 // DropLast721 with func( 7 in)(2 out) drop last 1 result
-func DropLast721[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast721[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop722 with func( 7 in)(2 out) drop first 2 result
+func Drop722[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop731 with func( 7 in)(3 out) drop first 1 result
-func Drop731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(a A, b B, c C, d D, e E, f F, g G) (I, J) {
+func Drop731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(A, B, C, D, E, F, G) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J) {
 		_, i, j = fn(a, b, c, d, e, f, g)
 		return
@@ -4059,7 +4579,7 @@ func Drop731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, 
 }
 
 // DropLast731 with func( 7 in)(3 out) drop last 1 result
-func DropLast731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4067,7 +4587,7 @@ func DropLast731[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) 
 }
 
 // Drop732 with func( 7 in)(3 out) drop first 2 result
-func Drop732[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(a A, b B, c C, d D, e E, f F, g G) J {
+func Drop732[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(A, B, C, D, E, F, G) J {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J) {
 		_, _, j = fn(a, b, c, d, e, f, g)
 		return
@@ -4075,15 +4595,23 @@ func Drop732[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, 
 }
 
 // DropLast732 with func( 7 in)(3 out) drop last 2 result
-func DropLast732[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast732[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop733 with func( 7 in)(3 out) drop first 3 result
+func Drop733[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop741 with func( 7 in)(4 out) drop first 1 result
-func Drop741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K) {
+func Drop741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K) {
 		_, i, j, k = fn(a, b, c, d, e, f, g)
 		return
@@ -4091,7 +4619,7 @@ func Drop741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (
 }
 
 // DropLast741 with func( 7 in)(4 out) drop last 1 result
-func DropLast741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4099,7 +4627,7 @@ func DropLast741[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, 
 }
 
 // Drop742 with func( 7 in)(4 out) drop first 2 result
-func Drop742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) (J, K) {
+func Drop742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K) {
 		_, _, j, k = fn(a, b, c, d, e, f, g)
 		return
@@ -4107,7 +4635,7 @@ func Drop742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (
 }
 
 // DropLast742 with func( 7 in)(4 out) drop last 2 result
-func DropLast742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4115,7 +4643,7 @@ func DropLast742[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, 
 }
 
 // Drop743 with func( 7 in)(4 out) drop first 3 result
-func Drop743[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) K {
+func Drop743[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) K {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K) {
 		_, _, _, k = fn(a, b, c, d, e, f, g)
 		return
@@ -4123,15 +4651,23 @@ func Drop743[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (
 }
 
 // DropLast743 with func( 7 in)(4 out) drop last 3 result
-func DropLast743[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast743[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop744 with func( 7 in)(4 out) drop first 4 result
+func Drop744[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop751 with func( 7 in)(5 out) drop first 1 result
-func Drop751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K, L) {
+func Drop751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K, l L) {
 		_, i, j, k, l = fn(a, b, c, d, e, f, g)
 		return
@@ -4139,7 +4675,7 @@ func Drop751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast751 with func( 7 in)(5 out) drop last 1 result
-func DropLast751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K) {
+func DropLast751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4147,7 +4683,7 @@ func DropLast751[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop752 with func( 7 in)(5 out) drop first 2 result
-func Drop752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (J, K, L) {
+func Drop752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K, l L) {
 		_, _, j, k, l = fn(a, b, c, d, e, f, g)
 		return
@@ -4155,7 +4691,7 @@ func Drop752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast752 with func( 7 in)(5 out) drop last 2 result
-func DropLast752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4163,7 +4699,7 @@ func DropLast752[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop753 with func( 7 in)(5 out) drop first 3 result
-func Drop753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (K, L) {
+func Drop753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K, l L) {
 		_, _, _, k, l = fn(a, b, c, d, e, f, g)
 		return
@@ -4171,7 +4707,7 @@ func Drop753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast753 with func( 7 in)(5 out) drop last 3 result
-func DropLast753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4179,7 +4715,7 @@ func DropLast753[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop754 with func( 7 in)(5 out) drop first 4 result
-func Drop754[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) L {
+func Drop754[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) L {
 	return func(a A, b B, c C, d D, e E, f F, g G) (l L) {
 		_, _, _, _, l = fn(a, b, c, d, e, f, g)
 		return
@@ -4187,15 +4723,23 @@ func Drop754[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast754 with func( 7 in)(5 out) drop last 4 result
-func DropLast754[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast754[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop755 with func( 7 in)(5 out) drop first 5 result
+func Drop755[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop761 with func( 7 in)(6 out) drop first 1 result
-func Drop761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K, L, M) {
+func Drop761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K, l L, m M) {
 		_, i, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
@@ -4203,7 +4747,7 @@ func Drop761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast761 with func( 7 in)(6 out) drop last 1 result
-func DropLast761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L) {
+func DropLast761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4211,7 +4755,7 @@ func DropLast761[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop762 with func( 7 in)(6 out) drop first 2 result
-func Drop762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (J, K, L, M) {
+func Drop762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K, l L, m M) {
 		_, _, j, k, l, m = fn(a, b, c, d, e, f, g)
 		return
@@ -4219,7 +4763,7 @@ func Drop762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast762 with func( 7 in)(6 out) drop last 2 result
-func DropLast762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K) {
+func DropLast762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4227,7 +4771,7 @@ func DropLast762[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop763 with func( 7 in)(6 out) drop first 3 result
-func Drop763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (K, L, M) {
+func Drop763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K, l L, m M) {
 		_, _, _, k, l, m = fn(a, b, c, d, e, f, g)
 		return
@@ -4235,7 +4779,7 @@ func Drop763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast763 with func( 7 in)(6 out) drop last 3 result
-func DropLast763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4243,7 +4787,7 @@ func DropLast763[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop764 with func( 7 in)(6 out) drop first 4 result
-func Drop764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (L, M) {
+func Drop764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (l L, m M) {
 		_, _, _, _, l, m = fn(a, b, c, d, e, f, g)
 		return
@@ -4251,7 +4795,7 @@ func Drop764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast764 with func( 7 in)(6 out) drop last 4 result
-func DropLast764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4259,7 +4803,7 @@ func DropLast764[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop765 with func( 7 in)(6 out) drop first 5 result
-func Drop765[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) M {
+func Drop765[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) M {
 	return func(a A, b B, c C, d D, e E, f F, g G) (m M) {
 		_, _, _, _, _, m = fn(a, b, c, d, e, f, g)
 		return
@@ -4267,15 +4811,23 @@ func Drop765[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast765 with func( 7 in)(6 out) drop last 5 result
-func DropLast765[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast765[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop766 with func( 7 in)(6 out) drop first 6 result
+func Drop766[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop771 with func( 7 in)(7 out) drop first 1 result
-func Drop771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K, L, M, N) {
+func Drop771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K, l L, m M, n N) {
 		_, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4283,7 +4835,7 @@ func Drop771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast771 with func( 7 in)(7 out) drop last 1 result
-func DropLast771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M) {
+func DropLast771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4291,7 +4843,7 @@ func DropLast771[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop772 with func( 7 in)(7 out) drop first 2 result
-func Drop772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (J, K, L, M, N) {
+func Drop772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K, l L, m M, n N) {
 		_, _, j, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4299,7 +4851,7 @@ func Drop772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast772 with func( 7 in)(7 out) drop last 2 result
-func DropLast772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L) {
+func DropLast772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4307,7 +4859,7 @@ func DropLast772[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop773 with func( 7 in)(7 out) drop first 3 result
-func Drop773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (K, L, M, N) {
+func Drop773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K, l L, m M, n N) {
 		_, _, _, k, l, m, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4315,7 +4867,7 @@ func Drop773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast773 with func( 7 in)(7 out) drop last 3 result
-func DropLast773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K) {
+func DropLast773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4323,7 +4875,7 @@ func DropLast773[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop774 with func( 7 in)(7 out) drop first 4 result
-func Drop774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (L, M, N) {
+func Drop774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (l L, m M, n N) {
 		_, _, _, _, l, m, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4331,7 +4883,7 @@ func Drop774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast774 with func( 7 in)(7 out) drop last 4 result
-func DropLast774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4339,7 +4891,7 @@ func DropLast774[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop775 with func( 7 in)(7 out) drop first 5 result
-func Drop775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (M, N) {
+func Drop775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (m M, n N) {
 		_, _, _, _, _, m, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4347,7 +4899,7 @@ func Drop775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast775 with func( 7 in)(7 out) drop last 5 result
-func DropLast775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4355,7 +4907,7 @@ func DropLast775[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop776 with func( 7 in)(7 out) drop first 6 result
-func Drop776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) N {
+func Drop776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) N {
 	return func(a A, b B, c C, d D, e E, f F, g G) (n N) {
 		_, _, _, _, _, _, n = fn(a, b, c, d, e, f, g)
 		return
@@ -4363,15 +4915,23 @@ func Drop776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast776 with func( 7 in)(7 out) drop last 6 result
-func DropLast776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast776[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop777 with func( 7 in)(7 out) drop first 7 result
+func Drop777[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop781 with func( 7 in)(8 out) drop first 1 result
-func Drop781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K, L, M, N, O) {
+func Drop781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K, l L, m M, n N, o O) {
 		_, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4379,7 +4939,7 @@ func Drop781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast781 with func( 7 in)(8 out) drop last 1 result
-func DropLast781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N) {
+func DropLast781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4387,7 +4947,7 @@ func DropLast781[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop782 with func( 7 in)(8 out) drop first 2 result
-func Drop782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (J, K, L, M, N, O) {
+func Drop782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K, l L, m M, n N, o O) {
 		_, _, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4395,7 +4955,7 @@ func Drop782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast782 with func( 7 in)(8 out) drop last 2 result
-func DropLast782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M) {
+func DropLast782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4403,7 +4963,7 @@ func DropLast782[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop783 with func( 7 in)(8 out) drop first 3 result
-func Drop783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (K, L, M, N, O) {
+func Drop783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K, l L, m M, n N, o O) {
 		_, _, _, k, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4411,7 +4971,7 @@ func Drop783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast783 with func( 7 in)(8 out) drop last 3 result
-func DropLast783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L) {
+func DropLast783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4419,7 +4979,7 @@ func DropLast783[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop784 with func( 7 in)(8 out) drop first 4 result
-func Drop784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (L, M, N, O) {
+func Drop784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (l L, m M, n N, o O) {
 		_, _, _, _, l, m, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4427,7 +4987,7 @@ func Drop784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast784 with func( 7 in)(8 out) drop last 4 result
-func DropLast784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K) {
+func DropLast784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4435,7 +4995,7 @@ func DropLast784[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop785 with func( 7 in)(8 out) drop first 5 result
-func Drop785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (M, N, O) {
+func Drop785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (m M, n N, o O) {
 		_, _, _, _, _, m, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4443,7 +5003,7 @@ func Drop785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast785 with func( 7 in)(8 out) drop last 5 result
-func DropLast785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4451,7 +5011,7 @@ func DropLast785[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop786 with func( 7 in)(8 out) drop first 6 result
-func Drop786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (N, O) {
+func Drop786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (n N, o O) {
 		_, _, _, _, _, _, n, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4459,7 +5019,7 @@ func Drop786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast786 with func( 7 in)(8 out) drop last 6 result
-func DropLast786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4467,7 +5027,7 @@ func DropLast786[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop787 with func( 7 in)(8 out) drop first 7 result
-func Drop787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) O {
+func Drop787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) O {
 	return func(a A, b B, c C, d D, e E, f F, g G) (o O) {
 		_, _, _, _, _, _, _, o = fn(a, b, c, d, e, f, g)
 		return
@@ -4475,15 +5035,23 @@ func Drop787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast787 with func( 7 in)(8 out) drop last 7 result
-func DropLast787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast787[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop788 with func( 7 in)(8 out) drop first 8 result
+func Drop788[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
 // Drop791 with func( 7 in)(9 out) drop first 1 result
-func Drop791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (I, J, K, L, M, N, O, P) {
+func Drop791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (I, J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		_, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4491,7 +5059,7 @@ func Drop791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast791 with func( 7 in)(9 out) drop last 1 result
-func DropLast791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N, O) {
+func DropLast791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O) {
 		h, i, j, k, l, m, n, o, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4499,7 +5067,7 @@ func DropLast791[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop792 with func( 7 in)(9 out) drop first 2 result
-func Drop792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (J, K, L, M, N, O, P) {
+func Drop792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (j J, k K, l L, m M, n N, o O, p P) {
 		_, _, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4507,7 +5075,7 @@ func Drop792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast792 with func( 7 in)(9 out) drop last 2 result
-func DropLast792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N) {
+func DropLast792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N) {
 		h, i, j, k, l, m, n, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4515,7 +5083,7 @@ func DropLast792[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop793 with func( 7 in)(9 out) drop first 3 result
-func Drop793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (K, L, M, N, O, P) {
+func Drop793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (k K, l L, m M, n N, o O, p P) {
 		_, _, _, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4523,7 +5091,7 @@ func Drop793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast793 with func( 7 in)(9 out) drop last 3 result
-func DropLast793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M) {
+func DropLast793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M) {
 		h, i, j, k, l, m, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4531,7 +5099,7 @@ func DropLast793[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop794 with func( 7 in)(9 out) drop first 4 result
-func Drop794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (L, M, N, O, P) {
+func Drop794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (l L, m M, n N, o O, p P) {
 		_, _, _, _, l, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4539,7 +5107,7 @@ func Drop794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast794 with func( 7 in)(9 out) drop last 4 result
-func DropLast794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L) {
+func DropLast794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L) {
 		h, i, j, k, l, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4547,7 +5115,7 @@ func DropLast794[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop795 with func( 7 in)(9 out) drop first 5 result
-func Drop795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (M, N, O, P) {
+func Drop795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (m M, n N, o O, p P) {
 		_, _, _, _, _, m, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4555,7 +5123,7 @@ func Drop795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast795 with func( 7 in)(9 out) drop last 5 result
-func DropLast795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K) {
+func DropLast795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K) {
 		h, i, j, k, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4563,7 +5131,7 @@ func DropLast795[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop796 with func( 7 in)(9 out) drop first 6 result
-func Drop796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (N, O, P) {
+func Drop796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (n N, o O, p P) {
 		_, _, _, _, _, _, n, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4571,7 +5139,7 @@ func Drop796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast796 with func( 7 in)(9 out) drop last 6 result
-func DropLast796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J) {
+func DropLast796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J) {
 		h, i, j, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4579,7 +5147,7 @@ func DropLast796[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop797 with func( 7 in)(9 out) drop first 7 result
-func Drop797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (O, P) {
+func Drop797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (o O, p P) {
 		_, _, _, _, _, _, _, o, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4587,7 +5155,7 @@ func Drop797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast797 with func( 7 in)(9 out) drop last 7 result
-func DropLast797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I) {
+func DropLast797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) (H, I) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I) {
 		h, i, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
@@ -4595,7 +5163,7 @@ func DropLast797[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop798 with func( 7 in)(9 out) drop first 8 result
-func Drop798[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) P {
+func Drop798[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) P {
 	return func(a A, b B, c C, d D, e E, f F, g G) (p P) {
 		_, _, _, _, _, _, _, _, p = fn(a, b, c, d, e, f, g)
 		return
@@ -4603,15 +5171,31 @@ func Drop798[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast798 with func( 7 in)(9 out) drop last 8 result
-func DropLast798[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) H {
+func DropLast798[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) H {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H) {
 		h, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
 		return
 	}
 }
 
+// Drop799 with func( 7 in)(9 out) drop first 9 result
+func Drop799[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G) {
+	return func(a A, b B, c C, d D, e E, f F, g G) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g)
+		return
+	}
+}
+
+// Drop811 with func( 8 in)(1 out) drop first 1 result
+func Drop811[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G, H) I) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop821 with func( 8 in)(2 out) drop first 1 result
-func Drop821[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(a A, b B, c C, d D, e E, f F, g G, h H) J {
+func Drop821[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(A, B, C, D, E, F, G, H) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J) {
 		_, j = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4619,15 +5203,23 @@ func Drop821[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (
 }
 
 // DropLast821 with func( 8 in)(2 out) drop last 1 result
-func DropLast821[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast821[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop822 with func( 8 in)(2 out) drop first 2 result
+func Drop822[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop831 with func( 8 in)(3 out) drop first 1 result
-func Drop831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K) {
+func Drop831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(A, B, C, D, E, F, G, H) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K) {
 		_, j, k = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4635,7 +5227,7 @@ func Drop831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H
 }
 
 // DropLast831 with func( 8 in)(3 out) drop last 1 result
-func DropLast831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4643,7 +5235,7 @@ func DropLast831[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, 
 }
 
 // Drop832 with func( 8 in)(3 out) drop first 2 result
-func Drop832[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H) K {
+func Drop832[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(A, B, C, D, E, F, G, H) K {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K) {
 		_, _, k = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4651,15 +5243,23 @@ func Drop832[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H
 }
 
 // DropLast832 with func( 8 in)(3 out) drop last 2 result
-func DropLast832[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast832[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop833 with func( 8 in)(3 out) drop first 3 result
+func Drop833[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop841 with func( 8 in)(4 out) drop first 1 result
-func Drop841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L) {
+func Drop841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L) {
 		_, j, k, l = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4667,7 +5267,7 @@ func Drop841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast841 with func( 8 in)(4 out) drop last 1 result
-func DropLast841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4675,7 +5275,7 @@ func DropLast841[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop842 with func( 8 in)(4 out) drop first 2 result
-func Drop842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L) {
+func Drop842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) (K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L) {
 		_, _, k, l = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4683,7 +5283,7 @@ func Drop842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast842 with func( 8 in)(4 out) drop last 2 result
-func DropLast842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4691,7 +5291,7 @@ func DropLast842[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop843 with func( 8 in)(4 out) drop first 3 result
-func Drop843[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) L {
+func Drop843[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) L {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L) {
 		_, _, _, l = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4699,15 +5299,23 @@ func Drop843[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast843 with func( 8 in)(4 out) drop last 3 result
-func DropLast843[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast843[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop844 with func( 8 in)(4 out) drop first 4 result
+func Drop844[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop851 with func( 8 in)(5 out) drop first 1 result
-func Drop851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L, M) {
+func Drop851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L, m M) {
 		_, j, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4715,7 +5323,7 @@ func Drop851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast851 with func( 8 in)(5 out) drop last 1 result
-func DropLast851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L) {
+func DropLast851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4723,7 +5331,7 @@ func DropLast851[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop852 with func( 8 in)(5 out) drop first 2 result
-func Drop852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L, M) {
+func Drop852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L, m M) {
 		_, _, k, l, m = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4731,7 +5339,7 @@ func Drop852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast852 with func( 8 in)(5 out) drop last 2 result
-func DropLast852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4739,7 +5347,7 @@ func DropLast852[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop853 with func( 8 in)(5 out) drop first 3 result
-func Drop853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (L, M) {
+func Drop853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L, m M) {
 		_, _, _, l, m = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4747,7 +5355,7 @@ func Drop853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast853 with func( 8 in)(5 out) drop last 3 result
-func DropLast853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4755,7 +5363,7 @@ func DropLast853[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop854 with func( 8 in)(5 out) drop first 4 result
-func Drop854[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) M {
+func Drop854[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) M {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (m M) {
 		_, _, _, _, m = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4763,15 +5371,23 @@ func Drop854[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast854 with func( 8 in)(5 out) drop last 4 result
-func DropLast854[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast854[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop855 with func( 8 in)(5 out) drop first 5 result
+func Drop855[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop861 with func( 8 in)(6 out) drop first 1 result
-func Drop861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L, M, N) {
+func Drop861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L, m M, n N) {
 		_, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4779,7 +5395,7 @@ func Drop861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast861 with func( 8 in)(6 out) drop last 1 result
-func DropLast861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M) {
+func DropLast861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4787,7 +5403,7 @@ func DropLast861[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop862 with func( 8 in)(6 out) drop first 2 result
-func Drop862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L, M, N) {
+func Drop862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L, m M, n N) {
 		_, _, k, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4795,7 +5411,7 @@ func Drop862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast862 with func( 8 in)(6 out) drop last 2 result
-func DropLast862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L) {
+func DropLast862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4803,7 +5419,7 @@ func DropLast862[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop863 with func( 8 in)(6 out) drop first 3 result
-func Drop863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (L, M, N) {
+func Drop863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L, m M, n N) {
 		_, _, _, l, m, n = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4811,7 +5427,7 @@ func Drop863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast863 with func( 8 in)(6 out) drop last 3 result
-func DropLast863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4819,7 +5435,7 @@ func DropLast863[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop864 with func( 8 in)(6 out) drop first 4 result
-func Drop864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (M, N) {
+func Drop864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (m M, n N) {
 		_, _, _, _, m, n = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4827,7 +5443,7 @@ func Drop864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast864 with func( 8 in)(6 out) drop last 4 result
-func DropLast864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4835,7 +5451,7 @@ func DropLast864[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop865 with func( 8 in)(6 out) drop first 5 result
-func Drop865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) N {
+func Drop865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) N {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (n N) {
 		_, _, _, _, _, n = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4843,15 +5459,23 @@ func Drop865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast865 with func( 8 in)(6 out) drop last 5 result
-func DropLast865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast865[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop866 with func( 8 in)(6 out) drop first 6 result
+func Drop866[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop871 with func( 8 in)(7 out) drop first 1 result
-func Drop871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L, M, N, O) {
+func Drop871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L, m M, n N, o O) {
 		_, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4859,7 +5483,7 @@ func Drop871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast871 with func( 8 in)(7 out) drop last 1 result
-func DropLast871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N) {
+func DropLast871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4867,7 +5491,7 @@ func DropLast871[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop872 with func( 8 in)(7 out) drop first 2 result
-func Drop872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L, M, N, O) {
+func Drop872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L, m M, n N, o O) {
 		_, _, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4875,7 +5499,7 @@ func Drop872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast872 with func( 8 in)(7 out) drop last 2 result
-func DropLast872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M) {
+func DropLast872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4883,7 +5507,7 @@ func DropLast872[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop873 with func( 8 in)(7 out) drop first 3 result
-func Drop873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (L, M, N, O) {
+func Drop873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L, m M, n N, o O) {
 		_, _, _, l, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4891,7 +5515,7 @@ func Drop873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast873 with func( 8 in)(7 out) drop last 3 result
-func DropLast873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L) {
+func DropLast873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4899,7 +5523,7 @@ func DropLast873[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop874 with func( 8 in)(7 out) drop first 4 result
-func Drop874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (M, N, O) {
+func Drop874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (m M, n N, o O) {
 		_, _, _, _, m, n, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4907,7 +5531,7 @@ func Drop874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast874 with func( 8 in)(7 out) drop last 4 result
-func DropLast874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4915,7 +5539,7 @@ func DropLast874[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop875 with func( 8 in)(7 out) drop first 5 result
-func Drop875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (N, O) {
+func Drop875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (n N, o O) {
 		_, _, _, _, _, n, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4923,7 +5547,7 @@ func Drop875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast875 with func( 8 in)(7 out) drop last 5 result
-func DropLast875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4931,7 +5555,7 @@ func DropLast875[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop876 with func( 8 in)(7 out) drop first 6 result
-func Drop876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) O {
+func Drop876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) O {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (o O) {
 		_, _, _, _, _, _, o = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4939,15 +5563,23 @@ func Drop876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast876 with func( 8 in)(7 out) drop last 6 result
-func DropLast876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast876[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop877 with func( 8 in)(7 out) drop first 7 result
+func Drop877[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop881 with func( 8 in)(8 out) drop first 1 result
-func Drop881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L, M, N, O, P) {
+func Drop881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L, m M, n N, o O, p P) {
 		_, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4955,7 +5587,7 @@ func Drop881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast881 with func( 8 in)(8 out) drop last 1 result
-func DropLast881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O) {
+func DropLast881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4963,7 +5595,7 @@ func DropLast881[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop882 with func( 8 in)(8 out) drop first 2 result
-func Drop882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L, M, N, O, P) {
+func Drop882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L, m M, n N, o O, p P) {
 		_, _, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4971,7 +5603,7 @@ func Drop882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast882 with func( 8 in)(8 out) drop last 2 result
-func DropLast882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N) {
+func DropLast882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4979,7 +5611,7 @@ func DropLast882[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop883 with func( 8 in)(8 out) drop first 3 result
-func Drop883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (L, M, N, O, P) {
+func Drop883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L, m M, n N, o O, p P) {
 		_, _, _, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4987,7 +5619,7 @@ func Drop883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast883 with func( 8 in)(8 out) drop last 3 result
-func DropLast883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M) {
+func DropLast883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -4995,7 +5627,7 @@ func DropLast883[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop884 with func( 8 in)(8 out) drop first 4 result
-func Drop884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (M, N, O, P) {
+func Drop884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (m M, n N, o O, p P) {
 		_, _, _, _, m, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5003,7 +5635,7 @@ func Drop884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast884 with func( 8 in)(8 out) drop last 4 result
-func DropLast884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L) {
+func DropLast884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5011,7 +5643,7 @@ func DropLast884[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop885 with func( 8 in)(8 out) drop first 5 result
-func Drop885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (N, O, P) {
+func Drop885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (n N, o O, p P) {
 		_, _, _, _, _, n, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5019,7 +5651,7 @@ func Drop885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast885 with func( 8 in)(8 out) drop last 5 result
-func DropLast885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5027,7 +5659,7 @@ func DropLast885[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop886 with func( 8 in)(8 out) drop first 6 result
-func Drop886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (O, P) {
+func Drop886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (o O, p P) {
 		_, _, _, _, _, _, o, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5035,7 +5667,7 @@ func Drop886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast886 with func( 8 in)(8 out) drop last 6 result
-func DropLast886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5043,7 +5675,7 @@ func DropLast886[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop887 with func( 8 in)(8 out) drop first 7 result
-func Drop887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) P {
+func Drop887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) P {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (p P) {
 		_, _, _, _, _, _, _, p = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5051,15 +5683,23 @@ func Drop887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast887 with func( 8 in)(8 out) drop last 7 result
-func DropLast887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast887[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop888 with func( 8 in)(8 out) drop first 8 result
+func Drop888[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
 // Drop891 with func( 8 in)(9 out) drop first 1 result
-func Drop891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (J, K, L, M, N, O, P, Q) {
+func Drop891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (J, K, L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		_, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5067,7 +5707,7 @@ func Drop891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast891 with func( 8 in)(9 out) drop last 1 result
-func DropLast891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O, P) {
+func DropLast891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P) {
 		i, j, k, l, m, n, o, p, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5075,7 +5715,7 @@ func DropLast891[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop892 with func( 8 in)(9 out) drop first 2 result
-func Drop892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (K, L, M, N, O, P, Q) {
+func Drop892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (K, L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (k K, l L, m M, n N, o O, p P, q Q) {
 		_, _, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5083,7 +5723,7 @@ func Drop892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast892 with func( 8 in)(9 out) drop last 2 result
-func DropLast892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O) {
+func DropLast892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O) {
 		i, j, k, l, m, n, o, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5091,7 +5731,7 @@ func DropLast892[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop893 with func( 8 in)(9 out) drop first 3 result
-func Drop893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (L, M, N, O, P, Q) {
+func Drop893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (l L, m M, n N, o O, p P, q Q) {
 		_, _, _, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5099,7 +5739,7 @@ func Drop893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast893 with func( 8 in)(9 out) drop last 3 result
-func DropLast893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N) {
+func DropLast893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N) {
 		i, j, k, l, m, n, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5107,7 +5747,7 @@ func DropLast893[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop894 with func( 8 in)(9 out) drop first 4 result
-func Drop894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (M, N, O, P, Q) {
+func Drop894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (m M, n N, o O, p P, q Q) {
 		_, _, _, _, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5115,7 +5755,7 @@ func Drop894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast894 with func( 8 in)(9 out) drop last 4 result
-func DropLast894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M) {
+func DropLast894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M) {
 		i, j, k, l, m, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5123,7 +5763,7 @@ func DropLast894[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop895 with func( 8 in)(9 out) drop first 5 result
-func Drop895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (N, O, P, Q) {
+func Drop895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (n N, o O, p P, q Q) {
 		_, _, _, _, _, n, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5131,7 +5771,7 @@ func Drop895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast895 with func( 8 in)(9 out) drop last 5 result
-func DropLast895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L) {
+func DropLast895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L) {
 		i, j, k, l, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5139,7 +5779,7 @@ func DropLast895[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop896 with func( 8 in)(9 out) drop first 6 result
-func Drop896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (O, P, Q) {
+func Drop896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (o O, p P, q Q) {
 		_, _, _, _, _, _, o, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5147,7 +5787,7 @@ func Drop896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast896 with func( 8 in)(9 out) drop last 6 result
-func DropLast896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K) {
+func DropLast896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K) {
 		i, j, k, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5155,7 +5795,7 @@ func DropLast896[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop897 with func( 8 in)(9 out) drop first 7 result
-func Drop897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (P, Q) {
+func Drop897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (p P, q Q) {
 		_, _, _, _, _, _, _, p, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5163,7 +5803,7 @@ func Drop897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast897 with func( 8 in)(9 out) drop last 7 result
-func DropLast897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J) {
+func DropLast897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) (I, J) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J) {
 		i, j, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5171,7 +5811,7 @@ func DropLast897[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop898 with func( 8 in)(9 out) drop first 8 result
-func Drop898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) Q {
+func Drop898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) Q {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (q Q) {
 		_, _, _, _, _, _, _, _, q = fn(a, b, c, d, e, f, g, h)
 		return
@@ -5179,15 +5819,31 @@ func Drop898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast898 with func( 8 in)(9 out) drop last 8 result
-func DropLast898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) I {
+func DropLast898[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) I {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I) {
 		i, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
 		return
 	}
 }
 
+// Drop899 with func( 8 in)(9 out) drop first 9 result
+func Drop899[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h)
+		return
+	}
+}
+
+// Drop911 with func( 9 in)(1 out) drop first 1 result
+func Drop911[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H, I) J) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop921 with func( 9 in)(2 out) drop first 1 result
-func Drop921[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) K {
+func Drop921[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(A, B, C, D, E, F, G, H, I) K {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K) {
 		_, k = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5195,15 +5851,23 @@ func Drop921[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H
 }
 
 // DropLast921 with func( 9 in)(2 out) drop last 1 result
-func DropLast921[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast921[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop922 with func( 9 in)(2 out) drop first 2 result
+func Drop922[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop931 with func( 9 in)(3 out) drop first 1 result
-func Drop931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L) {
+func Drop931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(A, B, C, D, E, F, G, H, I) (K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L) {
 		_, k, l = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5211,7 +5875,7 @@ func Drop931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast931 with func( 9 in)(3 out) drop last 1 result
-func DropLast931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5219,7 +5883,7 @@ func DropLast931[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, 
 }
 
 // Drop932 with func( 9 in)(3 out) drop first 2 result
-func Drop932[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) L {
+func Drop932[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(A, B, C, D, E, F, G, H, I) L {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L) {
 		_, _, l = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5227,15 +5891,23 @@ func Drop932[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G
 }
 
 // DropLast932 with func( 9 in)(3 out) drop last 2 result
-func DropLast932[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast932[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop933 with func( 9 in)(3 out) drop first 3 result
+func Drop933[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop941 with func( 9 in)(4 out) drop first 1 result
-func Drop941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M) {
+func Drop941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) (K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M) {
 		_, k, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5243,7 +5915,7 @@ func Drop941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast941 with func( 9 in)(4 out) drop last 1 result
-func DropLast941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5251,7 +5923,7 @@ func DropLast941[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop942 with func( 9 in)(4 out) drop first 2 result
-func Drop942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M) {
+func Drop942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) (L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M) {
 		_, _, l, m = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5259,7 +5931,7 @@ func Drop942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast942 with func( 9 in)(4 out) drop last 2 result
-func DropLast942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5267,7 +5939,7 @@ func DropLast942[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, 
 }
 
 // Drop943 with func( 9 in)(4 out) drop first 3 result
-func Drop943[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) M {
+func Drop943[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) M {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M) {
 		_, _, _, m = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5275,15 +5947,23 @@ func Drop943[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F
 }
 
 // DropLast943 with func( 9 in)(4 out) drop last 3 result
-func DropLast943[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast943[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop944 with func( 9 in)(4 out) drop first 4 result
+func Drop944[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop951 with func( 9 in)(5 out) drop first 1 result
-func Drop951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M, N) {
+func Drop951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M, n N) {
 		_, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5291,7 +5971,7 @@ func Drop951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast951 with func( 9 in)(5 out) drop last 1 result
-func DropLast951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M) {
+func DropLast951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5299,7 +5979,7 @@ func DropLast951[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop952 with func( 9 in)(5 out) drop first 2 result
-func Drop952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M, N) {
+func Drop952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M, n N) {
 		_, _, l, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5307,7 +5987,7 @@ func Drop952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast952 with func( 9 in)(5 out) drop last 2 result
-func DropLast952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5315,7 +5995,7 @@ func DropLast952[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop953 with func( 9 in)(5 out) drop first 3 result
-func Drop953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (M, N) {
+func Drop953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M, n N) {
 		_, _, _, m, n = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5323,7 +6003,7 @@ func Drop953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast953 with func( 9 in)(5 out) drop last 3 result
-func DropLast953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5331,7 +6011,7 @@ func DropLast953[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, 
 }
 
 // Drop954 with func( 9 in)(5 out) drop first 4 result
-func Drop954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) N {
+func Drop954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) N {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (n N) {
 		_, _, _, _, n = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5339,15 +6019,23 @@ func Drop954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E
 }
 
 // DropLast954 with func( 9 in)(5 out) drop last 4 result
-func DropLast954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast954[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop955 with func( 9 in)(5 out) drop first 5 result
+func Drop955[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop961 with func( 9 in)(6 out) drop first 1 result
-func Drop961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M, N, O) {
+func Drop961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M, n N, o O) {
 		_, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5355,7 +6043,7 @@ func Drop961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast961 with func( 9 in)(6 out) drop last 1 result
-func DropLast961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N) {
+func DropLast961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5363,7 +6051,7 @@ func DropLast961[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop962 with func( 9 in)(6 out) drop first 2 result
-func Drop962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M, N, O) {
+func Drop962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M, n N, o O) {
 		_, _, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5371,7 +6059,7 @@ func Drop962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast962 with func( 9 in)(6 out) drop last 2 result
-func DropLast962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M) {
+func DropLast962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5379,7 +6067,7 @@ func DropLast962[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop963 with func( 9 in)(6 out) drop first 3 result
-func Drop963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (M, N, O) {
+func Drop963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M, n N, o O) {
 		_, _, _, m, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5387,7 +6075,7 @@ func Drop963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast963 with func( 9 in)(6 out) drop last 3 result
-func DropLast963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5395,7 +6083,7 @@ func DropLast963[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop964 with func( 9 in)(6 out) drop first 4 result
-func Drop964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (N, O) {
+func Drop964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (n N, o O) {
 		_, _, _, _, n, o = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5403,7 +6091,7 @@ func Drop964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast964 with func( 9 in)(6 out) drop last 4 result
-func DropLast964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5411,7 +6099,7 @@ func DropLast964[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, 
 }
 
 // Drop965 with func( 9 in)(6 out) drop first 5 result
-func Drop965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) O {
+func Drop965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) O {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (o O) {
 		_, _, _, _, _, o = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5419,15 +6107,23 @@ func Drop965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D
 }
 
 // DropLast965 with func( 9 in)(6 out) drop last 5 result
-func DropLast965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast965[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop966 with func( 9 in)(6 out) drop first 6 result
+func Drop966[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop971 with func( 9 in)(7 out) drop first 1 result
-func Drop971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M, N, O, P) {
+func Drop971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M, n N, o O, p P) {
 		_, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5435,7 +6131,7 @@ func Drop971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast971 with func( 9 in)(7 out) drop last 1 result
-func DropLast971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O) {
+func DropLast971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5443,7 +6139,7 @@ func DropLast971[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop972 with func( 9 in)(7 out) drop first 2 result
-func Drop972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M, N, O, P) {
+func Drop972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M, n N, o O, p P) {
 		_, _, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5451,7 +6147,7 @@ func Drop972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast972 with func( 9 in)(7 out) drop last 2 result
-func DropLast972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N) {
+func DropLast972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5459,7 +6155,7 @@ func DropLast972[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop973 with func( 9 in)(7 out) drop first 3 result
-func Drop973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (M, N, O, P) {
+func Drop973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M, n N, o O, p P) {
 		_, _, _, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5467,7 +6163,7 @@ func Drop973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast973 with func( 9 in)(7 out) drop last 3 result
-func DropLast973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M) {
+func DropLast973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5475,7 +6171,7 @@ func DropLast973[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop974 with func( 9 in)(7 out) drop first 4 result
-func Drop974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (N, O, P) {
+func Drop974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (n N, o O, p P) {
 		_, _, _, _, n, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5483,7 +6179,7 @@ func Drop974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast974 with func( 9 in)(7 out) drop last 4 result
-func DropLast974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5491,7 +6187,7 @@ func DropLast974[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop975 with func( 9 in)(7 out) drop first 5 result
-func Drop975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (O, P) {
+func Drop975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (o O, p P) {
 		_, _, _, _, _, o, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5499,7 +6195,7 @@ func Drop975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast975 with func( 9 in)(7 out) drop last 5 result
-func DropLast975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5507,7 +6203,7 @@ func DropLast975[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, 
 }
 
 // Drop976 with func( 9 in)(7 out) drop first 6 result
-func Drop976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) P {
+func Drop976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) P {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (p P) {
 		_, _, _, _, _, _, p = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5515,15 +6211,23 @@ func Drop976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C
 }
 
 // DropLast976 with func( 9 in)(7 out) drop last 6 result
-func DropLast976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast976[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop977 with func( 9 in)(7 out) drop first 7 result
+func Drop977[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop981 with func( 9 in)(8 out) drop first 1 result
-func Drop981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M, N, O, P, Q) {
+func Drop981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (K, L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M, n N, o O, p P, q Q) {
 		_, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5531,7 +6235,7 @@ func Drop981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast981 with func( 9 in)(8 out) drop last 1 result
-func DropLast981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P) {
+func DropLast981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5539,7 +6243,7 @@ func DropLast981[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop982 with func( 9 in)(8 out) drop first 2 result
-func Drop982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M, N, O, P, Q) {
+func Drop982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M, n N, o O, p P, q Q) {
 		_, _, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5547,7 +6251,7 @@ func Drop982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast982 with func( 9 in)(8 out) drop last 2 result
-func DropLast982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O) {
+func DropLast982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5555,7 +6259,7 @@ func DropLast982[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop983 with func( 9 in)(8 out) drop first 3 result
-func Drop983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (M, N, O, P, Q) {
+func Drop983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M, n N, o O, p P, q Q) {
 		_, _, _, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5563,7 +6267,7 @@ func Drop983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast983 with func( 9 in)(8 out) drop last 3 result
-func DropLast983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N) {
+func DropLast983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5571,7 +6275,7 @@ func DropLast983[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop984 with func( 9 in)(8 out) drop first 4 result
-func Drop984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (N, O, P, Q) {
+func Drop984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (n N, o O, p P, q Q) {
 		_, _, _, _, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5579,7 +6283,7 @@ func Drop984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast984 with func( 9 in)(8 out) drop last 4 result
-func DropLast984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M) {
+func DropLast984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5587,7 +6291,7 @@ func DropLast984[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop985 with func( 9 in)(8 out) drop first 5 result
-func Drop985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (O, P, Q) {
+func Drop985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (o O, p P, q Q) {
 		_, _, _, _, _, o, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5595,7 +6299,7 @@ func Drop985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast985 with func( 9 in)(8 out) drop last 5 result
-func DropLast985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5603,7 +6307,7 @@ func DropLast985[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop986 with func( 9 in)(8 out) drop first 6 result
-func Drop986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (P, Q) {
+func Drop986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (p P, q Q) {
 		_, _, _, _, _, _, p, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5611,7 +6315,7 @@ func Drop986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast986 with func( 9 in)(8 out) drop last 6 result
-func DropLast986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5619,7 +6323,7 @@ func DropLast986[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(
 }
 
 // Drop987 with func( 9 in)(8 out) drop first 7 result
-func Drop987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) Q {
+func Drop987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) Q {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (q Q) {
 		_, _, _, _, _, _, _, q = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5627,15 +6331,23 @@ func Drop987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B
 }
 
 // DropLast987 with func( 9 in)(8 out) drop last 7 result
-func DropLast987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast987[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }
 
+// Drop988 with func( 9 in)(8 out) drop first 8 result
+func Drop988[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
 // Drop991 with func( 9 in)(9 out) drop first 1 result
-func Drop991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (K, L, M, N, O, P, Q, R) {
+func Drop991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (K, L, M, N, O, P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (k K, l L, m M, n N, o O, p P, q Q, r R) {
 		_, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5643,7 +6355,7 @@ func Drop991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast991 with func( 9 in)(9 out) drop last 1 result
-func DropLast991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P, Q) {
+func DropLast991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q) {
 		j, k, l, m, n, o, p, q, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5651,7 +6363,7 @@ func DropLast991[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop992 with func( 9 in)(9 out) drop first 2 result
-func Drop992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (L, M, N, O, P, Q, R) {
+func Drop992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (L, M, N, O, P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (l L, m M, n N, o O, p P, q Q, r R) {
 		_, _, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5659,7 +6371,7 @@ func Drop992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast992 with func( 9 in)(9 out) drop last 2 result
-func DropLast992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P) {
+func DropLast992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P) {
 		j, k, l, m, n, o, p, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5667,7 +6379,7 @@ func DropLast992[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop993 with func( 9 in)(9 out) drop first 3 result
-func Drop993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (M, N, O, P, Q, R) {
+func Drop993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (M, N, O, P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (m M, n N, o O, p P, q Q, r R) {
 		_, _, _, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5675,7 +6387,7 @@ func Drop993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast993 with func( 9 in)(9 out) drop last 3 result
-func DropLast993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O) {
+func DropLast993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O) {
 		j, k, l, m, n, o, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5683,7 +6395,7 @@ func DropLast993[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop994 with func( 9 in)(9 out) drop first 4 result
-func Drop994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (N, O, P, Q, R) {
+func Drop994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (N, O, P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (n N, o O, p P, q Q, r R) {
 		_, _, _, _, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5691,7 +6403,7 @@ func Drop994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast994 with func( 9 in)(9 out) drop last 4 result
-func DropLast994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N) {
+func DropLast994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N) {
 		j, k, l, m, n, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5699,7 +6411,7 @@ func DropLast994[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop995 with func( 9 in)(9 out) drop first 5 result
-func Drop995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (O, P, Q, R) {
+func Drop995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (O, P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (o O, p P, q Q, r R) {
 		_, _, _, _, _, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5707,7 +6419,7 @@ func Drop995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast995 with func( 9 in)(9 out) drop last 5 result
-func DropLast995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M) {
+func DropLast995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L, M) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M) {
 		j, k, l, m, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5715,7 +6427,7 @@ func DropLast995[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop996 with func( 9 in)(9 out) drop first 6 result
-func Drop996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (P, Q, R) {
+func Drop996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (P, Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (p P, q Q, r R) {
 		_, _, _, _, _, _, p, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5723,7 +6435,7 @@ func Drop996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast996 with func( 9 in)(9 out) drop last 6 result
-func DropLast996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L) {
+func DropLast996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K, L) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L) {
 		j, k, l, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5731,7 +6443,7 @@ func DropLast996[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop997 with func( 9 in)(9 out) drop first 7 result
-func Drop997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (Q, R) {
+func Drop997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (Q, R) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (q Q, r R) {
 		_, _, _, _, _, _, _, q, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5739,7 +6451,7 @@ func Drop997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast997 with func( 9 in)(9 out) drop last 7 result
-func DropLast997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K) {
+func DropLast997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) (J, K) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K) {
 		j, k, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5747,7 +6459,7 @@ func DropLast997[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn fu
 }
 
 // Drop998 with func( 9 in)(9 out) drop first 8 result
-func Drop998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) R {
+func Drop998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) R {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (r R) {
 		_, _, _, _, _, _, _, _, r = fn(a, b, c, d, e, f, g, h, i)
 		return
@@ -5755,9 +6467,17 @@ func Drop998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A
 }
 
 // DropLast998 with func( 9 in)(9 out) drop last 8 result
-func DropLast998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) J {
+func DropLast998[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) J {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J) {
 		j, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
+		return
+	}
+}
+
+// Drop999 with func( 9 in)(9 out) drop first 9 result
+func Drop999[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(A, B, C, D, E, F, G, H, I) {
+	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) {
+		_, _, _, _, _, _, _, _, _ = fn(a, b, c, d, e, f, g, h, i)
 		return
 	}
 }

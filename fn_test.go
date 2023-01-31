@@ -4,12 +4,11 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 	"testing"
 )
 
 const (
-	MAX = 10
+	MAX = 10 //never bigger than 10
 )
 
 var (
@@ -32,49 +31,30 @@ func generate(path string, act func()) {
 }
 func genPanics() {
 	for i := 1; i < MAX; i++ {
-		pntf("// Panic%d error or return other %d value\n", i, i)
-		pntf(`func Panic%d[`, i)
-		n(i, A)
-		pnt(` any](`)
-		n(i, aA)
-		pnt(", err error)(")
-		n(i, A)
-		pnt("){\n\tif err!=nil{\n\t\tpanic(err)\n\t}\n\treturn ")
-		n(i, a)
-		pnt("\n}\n\n")
+		P(pf("// Panic%d error or return other %d value\n", i, i))
+		P(pf(`func Panic%d[`, i), n(i, A), p(` any]`), p(` (`), n(i, aA), p(", err error)"), q(i > 1, n(i, A)), p(`{
+	if err!=nil{
+		panic(err)
+	}
+	return `), n(i, a), p(`
+}
+
+`))
 	}
 }
 func genRecovers() {
+	P(pf("import \"fmt\" \n"))
 	for i := 0; i < MAX; i++ {
 	no:
 		for o := 0; o < MAX; o++ {
 			if i == o && o == 0 {
 				continue no
 			}
-			pntf("// Recover%d%d panic with func %d in %d out\n", i, o, i, o)
-			pntf(`func Recover%d%d[`, i, o)
-			n(i+o, A)
-			pnt(` any](fn func(`)
-			n(i, A)
-			pnt(`)(`)
-			r(i, i+o, A)
-			pnt(`) )func(`)
-			n(i, aA)
-			pnt(")(")
-			r(i, i+o, A)
-			if o != 0 {
-				pnt(",")
-			}
-			pnt(`error){
-	return func(`)
-			n(i, aA)
-			pnt(")(")
-			r(i, i+o, aA)
-			if o != 0 {
-				pnt(",")
-			}
-			pnt("err error){\n")
-			pnt(`		defer func() {
+			P(pf("// Recover%d%d panic with func %d in %d out\n", i, o, i, o))
+			P(pf(`func Recover%d%d[`, i, o), n(i+o, A), p(` any](fn func(`), n(i, A), p(")"), q(o > 1, r(i, i+o, A)),
+				p(` )func(`), n(i, aA), p(")"), w(o > 0, "("), r(i, i+o, A), w(o > 0, ","), p("error"), w(o > 0, ")"), p(`{
+	return func(`), n(i, aA), p(")("), r(i, i+o, aA), w(o > 0, ","), p(`err error){
+`), p(`		defer func() {
 				z := recover()
 				switch z.(type) {
 				case error:
@@ -86,14 +66,12 @@ func genRecovers() {
 					err = fmt.Errorf("%#v", z)
 				}
 			}()
-		`)
-			r(i, i+o, a)
-			if o != 0 {
-				pnt("= ")
-			}
-			pnt("fn(")
-			n(i, a)
-			pnt(")\n\t\treturn\n\t}\n}\n\n")
+		`), r(i, i+o, a), w(o > 0, " = "), p("fn("), n(i, a), p(`)
+		return
+	}
+}
+
+`))
 		}
 
 	}
@@ -102,67 +80,36 @@ func genDrops() {
 	for i := 0; i < MAX; i++ {
 	no:
 		for o := 0; o < MAX; o++ {
-			for d := 1; d < o; d++ {
+			for d := 1; d <= o; d++ {
 				if o == 0 {
 					continue no
 				}
-				pntf("// Drop%d%d%d with func( %d in)(%d out) drop first %d result \n", i, o, d, i, o, d)
-				pntf(`func Drop%d%d%d[`, i, o, d)
-				n(i+o, A)
-				pnt(` any](fn func(`)
-				//in param
-				n(i, A)
-				pnt(`)(`)
-				//out param
-				r(i, i+o, A)
-				pnt(`) )func(`)
-				//in param
-				n(i, aA)
-				pnt(")(")
-				//out after drop
-				r(i+d, i+o, A)
-				pnt(`){
-	return func(`)
-				n(i, aA)
-				pnt(")(")
-				r(i+d, i+o, aA)
-				pnt("){\n\t\t")
-				f(d, "_")
-				pnt(",")
-				r(i+d, i+o, a)
-				pnt(" = ")
-				pnt("fn(")
-				n(i, a)
-				pnt(")\n\t\treturn\n\t}\n}\n\n")
 
-				pntf("// DropLast%d%d%d with func( %d in)(%d out) drop last %d result \n", i, o, d, i, o, d)
-				pntf(`func DropLast%d%d%d[`, i, o, d)
-				n(i+o, A)
-				pnt(` any](fn func(`)
-				//in param
-				n(i, A)
-				pnt(`)(`)
-				//out param
-				r(i, i+o, A)
-				pnt(`) )func(`)
-				//in param
-				n(i, aA)
-				pnt(")(")
-				//out after drop
-				r(i, i+o-d, A)
-				pnt(`){
-	return func(`)
-				n(i, aA)
-				pnt(")(")
-				r(i, i+o-d, aA)
-				pnt("){\n\t\t")
-				r(i, i+o-d, a)
-				pnt(",")
-				f(d, "_")
-				pnt(" = ")
-				pnt("fn(")
-				n(i, a)
-				pnt(")\n\t\treturn\n\t}\n}\n\n")
+				do := o - d
+				ts := i + o
+
+				P(pf("// Drop%d%d%d with func( %d in)(%d out) drop first %d result \n", i, o, d, i, o, d))
+				P(pf(`func Drop%d%d%d[`, i, o, d), n(ts, A), p(` any] (fn func(`), n(i, A), p(`)`), q(o > 1, r(i, i+o, A)), p(`) func(`), n(i, A), p(")"), q(do > 1, r(i+d, i+o, A)), p(`{
+	return func(`), n(i, aA), p(")"), q(do > 0, r(i+d, i+o, aA)), p(`{
+		`), ww(d > 0, f(d, "_")), ww(do > 0, w(d > 0, ","), r(i+d, i+o, a)), w(o > 0, " = "), p("fn("), n(i, a), p(`)
+		return
+	}
+}
+
+`))
+
+				if o == d {
+					continue
+				}
+				P(pf("// DropLast%d%d%d with func( %d in)(%d out) drop last %d result \n", i, o, d, i, o, d))
+				P(pf(`func DropLast%d%d%d[`, i, o, d), n(ts, A), p(` any](fn func(`), n(i, A), p(`)`), q(o > 1, r(i, i+o, A)), p(`) func(`), n(i, A), p(")"), q(do > 1, r(i, i+do, A)), p(` {
+	return func(`), n(i, aA), p(")"), q(do > 0, r(i, i+do, aA)), p(`{
+		`), ww(do != 0, r(i, i+do, a)), ww(d != 0, w(do != 0, ","), f(d, "_")), w(do != 0, " = "), p("fn("), n(i, a), p(`)
+		return
+	}
+}
+
+`))
 			}
 		}
 
@@ -172,73 +119,32 @@ func genClosures() {
 ni:
 	for i := 0; i < MAX; i++ {
 		for o := 0; o < MAX; o++ {
-			for d := 1; d < i; d++ {
+			for d := 1; d <= i; d++ {
 				if i == 0 {
 					continue ni
 				}
-				pntf("// Closure%d%d%d with func( %d in)(%d out) fix first %d argument \n", i, o, d, i, o, d)
-				pntf(`func Closure%d%d%d[`, i, o, d)
-				n(i+o, A)
-				pnt(` any](`)
-				r(0, i-d, aA)
-				pnt(`,fn func(`)
-				//in param
-				n(i, A)
-				pnt(`)(`)
-				//out param
-				r(i, i+o, A)
-				pnt(`)`)
-				pnt(` )func(`)
-				//in param
-				r(i-d, i, A)
-				pnt(")(")
-				//outs
-				r(i, i+o, A)
-				pnt(`){
-	return func(`)
-				r(i-d, i, aA)
-				pnt(")(")
-				r(i, i+o, aA)
-				pnt("){\n\t\t")
-				r(i, i+o, a)
-				if o != 0 {
-					pnt(" = ")
-				}
-				pnt("fn(")
-				n(i, a)
-				pnt(")\n\t\treturn\n\t}\n}\n\n")
+				P(pf("// Closure%d%d%d with func( %d in)(%d out) closure first %d argument \n", i, o, d, i, o, d))
+				ts := i + o
+				P(pf(`func Closure%d%d%d[`, i, o, d), n(ts, A), p(` any](`), r(0, d, aA), w(d > 0, ","), p(`fn func(`), n(i, A), p(`)`), q(o > 1, r(i, i+o, A)), p(` )func(`), r(d, i, A), p(")"), q(o > 1, r(i, ts, A)), p(`{
+	return func(`), r(d, i, aA), p(")"), q(o > 0, r(i, ts, aA)), p(`{
+		`), r(i, ts, a), w(o > 0, " = "), p("fn("), n(i, a), p(`)
+		return
+	}
+}
 
-				pntf("// ClosureLast%d%d%d with func( %d in)(%d out) fix last %d argument \n", i, o, d, i, o, d)
-				pntf(`func ClosureLast%d%d%d[`, i, o, d)
-				n(i+o, A)
-				pnt(` any](`)
-				r(i-d, i, aA)
-				pnt(`,fn func(`)
-				//in param
-				n(i, A)
-				pnt(`)(`)
-				//out param
-				r(i, i+o, A)
-				pnt(`)`)
-				pnt(` )func(`)
-				//in param
-				r(0, i-d, A)
-				pnt(")(")
-				//outs
-				r(i, i+o, A)
-				pnt(`){
-	return func(`)
-				r(0, i-d, aA)
-				pnt(")(")
-				r(i, i+o, aA)
-				pnt("){\n\t\t")
-				r(i, i+o, a)
-				if o != 0 {
-					pnt(" = ")
+`))
+				if i == d {
+					continue
 				}
-				pnt("fn(")
-				n(i, a)
-				pnt(")\n\t\treturn\n\t}\n}\n\n")
+				P(pf("// ClosureLast%d%d%d with func( %d in)(%d out) fix last %d argument \n", i, o, d, i, o, d))
+				P(pf(`func ClosureLast%d%d%d[`, i, o, d), n(ts, A), p(` any](`), r(i-d, i, aA), w(d > 0, ","), p(`fn func(`), n(i, A), p(`)`), q(o > 1, r(i, i+o, A)), p(` )func(`), r(0, i-d, A), p(")"), q(o > 1, r(i, i+o, A)), p(`{
+	return func(`), r(0, i-d, aA), p(")"), q(o > 0, r(i, i+o, aA)), p(`{
+		`), r(i, i+o, a), w(o != 0, " = "), p("fn("), n(i, a), p(`)
+		return
+	}
+}
+
+`))
 			}
 		}
 
@@ -251,97 +157,133 @@ func genPanicsFn() {
 			if i == o && o == 0 {
 				continue no
 			}
-			pntf("// PanicsFn%d%d panic with func %d in %d out (last out is an error), returns a Runnable.\n", i, o, i, o+1)
-			pntf(`func PanicsFn%d%d[`, i, o)
-			n(i+o, A)
-			pnt(` any](`)
-			n(i, aA)
-			if i != 0 {
-				pnt(",")
-			}
-			pnt(` fn func(`)
-			n(i, A)
-			pnt(`)(`)
-			r(i, i+o, A)
-			if o != 0 {
-				pnt(",")
-			}
-			pnt(`error) )func()`)
-			pnt(`{
+			P(pf("// PanicsFn%d%d panic with func %d in %d out (last out is an error), returns a Runnable.\n", i, o, i, o+1))
+			P(pf(`func PanicsFn%d%d[`, i, o), n(i+o, A), p(` any](`), n(i, aA), w(i > 0, ","), p(` fn func(`), n(i, A), p(`)`), w(o > 0, "("), r(i, i+o, A), w(o > 0, ","), p(`error`), w(o > 0, ")"), p(` )func()`), p(`{
 	return func(){
 		var err error
-		`)
-			if o != 0 {
-				fr(i, i+o, "_")
-				pnt(",")
-			}
-			pnt("err= ")
-			pnt("fn(")
-			n(i, a)
-			pnt(")\n\t\tif err!=nil{\n\t\t\tpanic(err)\n\t\t}\n\t\treturn\n\t}\n}\n\n")
+		`), ww(o > 0, fr(i, i+o, "_"), p(",")), p("err= "), p("fn("), n(i, a), p(`)
+		if err!=nil{
+			panic(err)
+		}
+		return
+	}
+}
+
+`))
 		}
 
 	}
 }
 func TestGenerate(t *testing.T) {
-	//generate("panics.go", genPanics)
+	generate("panics.go", genPanics)
 	//generate("recovers.go", genRecovers)
 	//generate("drops.go", genDrops)
 	//generate("closures.go", genClosures)
 	//generate("panics_fn.go", genPanicsFn)
+	/*	buf = bufio.NewWriter(os.Stdout)
+		P(n(10, A))
+		Panic(buf.Flush())*/
 }
 
-func pntf(p string, a ...any) {
-	_, _ = buf.WriteString(fmt.Sprintf(p, a...))
-}
-func pnt(v ...string) {
-	for _, x := range v {
-		_, _ = buf.WriteString(x)
+func pf(p string, a ...any) func() {
+	return func() {
+		_, _ = buf.WriteString(fmt.Sprintf(p, a...))
 	}
 }
-func id(i int, v string) {
-	pnt(strings.Repeat("\t", i), v)
+func p(v ...string) func() {
+	return func() {
+		for _, u := range v {
+			_, _ = buf.WriteString(u)
+		}
+	}
 }
+
 func a(i int) {
-	pnt(string(rune(i + 'a')))
+	p(string(rune(i + 'a')))()
 }
 func aA(i int) {
-	pnt(string(rune(i + 'a')))
-	pnt(" ")
-	pnt(string(rune(i + 'A')))
+	p(string(rune(i + 'a')))()
+	p(" ")()
+	p(string(rune(i + 'A')))()
 }
 func A(i int) {
-	pnt(string(rune(i + 'A')))
+	p(string(rune(i + 'A')))()
 }
-func n(i int, v func(j int)) {
-	for j := 0; j < i; j++ {
-		if j != 0 {
-			pnt(",")
+
+func n(i int, v func(j int)) func() {
+	return func() {
+		for j := 0; j < i; j++ {
+			if j != 0 {
+				p(",")()
+			}
+			v(j)
 		}
-		v(j)
 	}
 }
-func f(i int, v string) {
-	for j := 0; j < i; j++ {
-		if j != 0 {
-			pnt(",")
+func f(i int, v string) func() {
+	return func() {
+		for j := 0; j < i; j++ {
+			if j != 0 {
+				p(",")()
+			}
+			p(v)()
 		}
-		pnt(v)
 	}
 }
-func fr(i int, u int, v string) {
-	for j := i; j < u; j++ {
-		if j != i {
-			pnt(",")
+func fr(i int, u int, v string) func() {
+	return func() {
+		for j := i; j < u; j++ {
+			if j != i {
+				p(",")()
+			}
+			p(v)()
 		}
-		pnt(v)
 	}
 }
-func r(i int, u int, v func(j int)) {
-	for j := i; j < u; j++ {
-		if j != i {
-			pnt(",")
+func r(i int, u int, v func(j int)) func() {
+	if i < 0 || i >= u {
+		return func() {
+
 		}
-		v(j)
+	}
+	return func() {
+		for j := i; j < u; j++ {
+			if j != i {
+				p(",")()
+			}
+			v(j)
+		}
+	}
+}
+func q(b bool, act func()) func() {
+	return func() {
+		if b {
+			p("(")()
+		}
+		act()
+		if b {
+			p(")")()
+		}
+	}
+}
+func w(b bool, v string) func() {
+	return func() {
+		if b {
+			p(v)()
+		}
+	}
+}
+func ww(b bool, act ...func()) func() {
+	return func() {
+		if b {
+			for _, f2 := range act {
+				f2()
+			}
+		}
+	}
+}
+func P(v ...func()) {
+	for _, f2 := range v {
+		f2()
 	}
 }

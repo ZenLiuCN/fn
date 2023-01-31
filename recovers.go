@@ -1,8 +1,8 @@
 package fn
 
-import "fmt"
-
 //generated file should not edit
+
+import "fmt"
 
 // Recover01 panic with func 0 in 1 out
 func Recover01[A any](fn func() A) func() (A, error) {
