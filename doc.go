@@ -1,6 +1,8 @@
 // Package fn  are utilities for generics.
-
+//
 //Panics: check if returns error then panic,otherwise return values.
+//
+//PanicsFn??: same a Panics but returns a Runnable.
 //
 //Recovers: wrap functions with recovery.
 //
@@ -8,14 +10,13 @@
 //
 //Maps: map operates.
 //
+// Drop???: drop the first N result.
 //
-// Drop???: drop the first N result
+// DropLast???: drop the last N result.
 //
-// DropLast???: drop the last N result
+// Closure???: closure with first N argument.
 //
-// Closure???: closure with first N argument
-//
-// ClosureLast???: closure with last N argument
+// ClosureLast???: closure with last N argument.
 //
 
 package fn
