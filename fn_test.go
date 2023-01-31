@@ -1,56 +1,80 @@
 package fn
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 	"testing"
 )
 
-func TestGenPanics(t *testing.T) {
-	for i := 1; i < 6; i++ {
-		printf("// Panic%d error or return other %d value\n", i, i)
-		printf(`func Panic%d[`, i)
-		n(i, a)
-		print(` any](`)
-		n(i, aA)
-		print(", err error)(")
+const (
+	MAX = 10
+)
+
+var (
+	buf *bufio.Writer
+)
+
+func panic1[A any](a A, err error) A {
+	if err != nil {
+		panic(err)
+	}
+	return a
+}
+func generate(path string, act func()) {
+	file := panic1(os.OpenFile(path, os.O_TRUNC|os.O_CREATE|os.O_RDONLY, os.ModePerm))
+	defer PanicFn(file.Close)
+	buf = bufio.NewWriter(file)
+	_ = panic1(buf.WriteString("package fn \n//generated file should not edit\n\n"))
+	act()
+	Panic(buf.Flush())
+}
+func genPanics() {
+	for i := 1; i < MAX; i++ {
+		pntf("// Panic%d error or return other %d value\n", i, i)
+		pntf(`func Panic%d[`, i)
 		n(i, A)
-		print("){\n\tif err!=nil{\n\t\tpanic(err)\n\t}\n\treturn ")
+		pnt(` any](`)
+		n(i, aA)
+		pnt(", err error)(")
+		n(i, A)
+		pnt("){\n\tif err!=nil{\n\t\tpanic(err)\n\t}\n\treturn ")
 		n(i, a)
-		print("\n}\n\n")
+		pnt("\n}\n\n")
 	}
 }
-func TestGenRecovers(t *testing.T) {
-	for i := 0; i < 6; i++ {
+func genRecovers() {
+	for i := 0; i < MAX; i++ {
 	no:
-		for o := 0; o < 6; o++ {
+		for o := 0; o < MAX; o++ {
 			if i == o && o == 0 {
 				continue no
 			}
-			printf("// Recover%d%d panic with func %d in %d out\n", i, o, i, o)
-			printf(`func Recover%d%d[`, i, o)
+			pntf("// Recover%d%d panic with func %d in %d out\n", i, o, i, o)
+			pntf(`func Recover%d%d[`, i, o)
 			n(i+o, A)
-			print(` any](fn func(`)
+			pnt(` any](fn func(`)
 			n(i, A)
-			print(`)(`)
+			pnt(`)(`)
 			r(i, i+o, A)
-			print(`) )func(`)
+			pnt(`) )func(`)
 			n(i, aA)
-			print(")(")
+			pnt(")(")
 			r(i, i+o, A)
 			if o != 0 {
-				print(",")
+				pnt(",")
 			}
-			print(`error){
+			pnt(`error){
 	return func(`)
 			n(i, aA)
-			print(")(")
+			pnt(")(")
 			r(i, i+o, aA)
 			if o != 0 {
-				print(",")
+				pnt(",")
 			}
-			print("err error){\n")
-			print(`		defer func() {
+			pnt("err error){\n")
+			pnt(`		defer func() {
 				z := recover()
 				switch z.(type) {
 				case error:
@@ -65,183 +89,234 @@ func TestGenRecovers(t *testing.T) {
 		`)
 			r(i, i+o, a)
 			if o != 0 {
-				print("= ")
+				pnt("= ")
 			}
-			print("fn(")
+			pnt("fn(")
 			n(i, a)
-			print(")\n\t\treturn\n\t}\n}\n\n")
+			pnt(")\n\t\treturn\n\t}\n}\n\n")
 		}
 
 	}
 }
-func TestGenDrop(t *testing.T) {
-	for i := 0; i < 6; i++ {
+func genDrops() {
+	for i := 0; i < MAX; i++ {
 	no:
-		for o := 0; o < 6; o++ {
+		for o := 0; o < MAX; o++ {
 			for d := 1; d < o; d++ {
 				if o == 0 {
 					continue no
 				}
-				printf("// Drop%d%d%d with func( %d in)(%d out) drop first %d result \n", i, o, d, i, o, d)
-				printf(`func Drop%d%d%d[`, i, o, d)
+				pntf("// Drop%d%d%d with func( %d in)(%d out) drop first %d result \n", i, o, d, i, o, d)
+				pntf(`func Drop%d%d%d[`, i, o, d)
 				n(i+o, A)
-				print(` any](fn func(`)
+				pnt(` any](fn func(`)
 				//in param
 				n(i, A)
-				print(`)(`)
+				pnt(`)(`)
 				//out param
 				r(i, i+o, A)
-				print(`) )func(`)
+				pnt(`) )func(`)
 				//in param
 				n(i, aA)
-				print(")(")
+				pnt(")(")
 				//out after drop
 				r(i+d, i+o, A)
-				print(`){
+				pnt(`){
 	return func(`)
 				n(i, aA)
-				print(")(")
+				pnt(")(")
 				r(i+d, i+o, aA)
-				print("){\n\t\t")
+				pnt("){\n\t\t")
 				f(d, "_")
-				print(",")
+				pnt(",")
 				r(i+d, i+o, a)
-				print(" = ")
-				print("fn(")
+				pnt(" = ")
+				pnt("fn(")
 				n(i, a)
-				print(")\n\t\treturn\n\t}\n}\n\n")
+				pnt(")\n\t\treturn\n\t}\n}\n\n")
 
-				printf("// DropLast%d%d%d with func( %d in)(%d out) drop last %d result \n", i, o, d, i, o, d)
-				printf(`func DropLast%d%d%d[`, i, o, d)
+				pntf("// DropLast%d%d%d with func( %d in)(%d out) drop last %d result \n", i, o, d, i, o, d)
+				pntf(`func DropLast%d%d%d[`, i, o, d)
 				n(i+o, A)
-				print(` any](fn func(`)
+				pnt(` any](fn func(`)
 				//in param
 				n(i, A)
-				print(`)(`)
+				pnt(`)(`)
 				//out param
 				r(i, i+o, A)
-				print(`) )func(`)
+				pnt(`) )func(`)
 				//in param
 				n(i, aA)
-				print(")(")
+				pnt(")(")
 				//out after drop
 				r(i, i+o-d, A)
-				print(`){
+				pnt(`){
 	return func(`)
 				n(i, aA)
-				print(")(")
+				pnt(")(")
 				r(i, i+o-d, aA)
-				print("){\n\t\t")
+				pnt("){\n\t\t")
 				r(i, i+o-d, a)
-				print(",")
+				pnt(",")
 				f(d, "_")
-				print(" = ")
-				print("fn(")
+				pnt(" = ")
+				pnt("fn(")
 				n(i, a)
-				print(")\n\t\treturn\n\t}\n}\n\n")
+				pnt(")\n\t\treturn\n\t}\n}\n\n")
 			}
 		}
 
 	}
 }
-func TestGenFix(t *testing.T) {
+func genClosures() {
 ni:
-	for i := 0; i < 6; i++ {
-		for o := 0; o < 6; o++ {
+	for i := 0; i < MAX; i++ {
+		for o := 0; o < MAX; o++ {
 			for d := 1; d < i; d++ {
 				if i == 0 {
 					continue ni
 				}
-				printf("// Closure%d%d%d with func( %d in)(%d out) fix first %d argument \n", i, o, d, i, o, d)
-				printf(`func Closure%d%d%d[`, i, o, d)
+				pntf("// Closure%d%d%d with func( %d in)(%d out) fix first %d argument \n", i, o, d, i, o, d)
+				pntf(`func Closure%d%d%d[`, i, o, d)
 				n(i+o, A)
-				print(` any](`)
+				pnt(` any](`)
 				r(0, i-d, aA)
-				print(`,fn func(`)
+				pnt(`,fn func(`)
 				//in param
 				n(i, A)
-				print(`)(`)
+				pnt(`)(`)
 				//out param
 				r(i, i+o, A)
-				print(`)`)
-				print(` )func(`)
+				pnt(`)`)
+				pnt(` )func(`)
 				//in param
 				r(i-d, i, A)
-				print(")(")
+				pnt(")(")
 				//outs
 				r(i, i+o, A)
-				print(`){
+				pnt(`){
 	return func(`)
 				r(i-d, i, aA)
-				print(")(")
+				pnt(")(")
 				r(i, i+o, aA)
-				print("){\n\t\t")
+				pnt("){\n\t\t")
 				r(i, i+o, a)
 				if o != 0 {
-					print(" = ")
+					pnt(" = ")
 				}
-				print("fn(")
+				pnt("fn(")
 				n(i, a)
-				print(")\n\t\treturn\n\t}\n}\n\n")
+				pnt(")\n\t\treturn\n\t}\n}\n\n")
 
-				printf("// ClosureLast%d%d%d with func( %d in)(%d out) fix last %d argument \n", i, o, d, i, o, d)
-				printf(`func ClosureLast%d%d%d[`, i, o, d)
+				pntf("// ClosureLast%d%d%d with func( %d in)(%d out) fix last %d argument \n", i, o, d, i, o, d)
+				pntf(`func ClosureLast%d%d%d[`, i, o, d)
 				n(i+o, A)
-				print(` any](`)
+				pnt(` any](`)
 				r(i-d, i, aA)
-				print(`,fn func(`)
+				pnt(`,fn func(`)
 				//in param
 				n(i, A)
-				print(`)(`)
+				pnt(`)(`)
 				//out param
 				r(i, i+o, A)
-				print(`)`)
-				print(` )func(`)
+				pnt(`)`)
+				pnt(` )func(`)
 				//in param
 				r(0, i-d, A)
-				print(")(")
+				pnt(")(")
 				//outs
 				r(i, i+o, A)
-				print(`){
+				pnt(`){
 	return func(`)
 				r(0, i-d, aA)
-				print(")(")
+				pnt(")(")
 				r(i, i+o, aA)
-				print("){\n\t\t")
+				pnt("){\n\t\t")
 				r(i, i+o, a)
 				if o != 0 {
-					print(" = ")
+					pnt(" = ")
 				}
-				print("fn(")
+				pnt("fn(")
 				n(i, a)
-				print(")\n\t\treturn\n\t}\n}\n\n")
+				pnt(")\n\t\treturn\n\t}\n}\n\n")
 			}
 		}
 
 	}
 }
+func genPanicsFn() {
+	for i := 0; i < MAX; i++ {
+	no:
+		for o := 0; o < MAX; o++ {
+			if i == o && o == 0 {
+				continue no
+			}
+			pntf("// PanicsFn%d%d panic with func %d in %d out (last out is an error), returns a Runnable.\n", i, o, i, o+1)
+			pntf(`func PanicsFn%d%d[`, i, o)
+			n(i+o, A)
+			pnt(` any](`)
+			n(i, aA)
+			if i != 0 {
+				pnt(",")
+			}
+			pnt(` fn func(`)
+			n(i, A)
+			pnt(`)(`)
+			r(i, i+o, A)
+			if o != 0 {
+				pnt(",")
+			}
+			pnt(`error) )func()`)
+			pnt(`{
+	return func(){
+		var err error
+		`)
+			if o != 0 {
+				fr(i, i+o, "_")
+				pnt(",")
+			}
+			pnt("err= ")
+			pnt("fn(")
+			n(i, a)
+			pnt(")\n\t\tif err!=nil{\n\t\t\tpanic(err)\n\t\t}\n\t\treturn\n\t}\n}\n\n")
+		}
 
-func printf(p string, a ...any) {
-	fmt.Printf(p, a...)
+	}
+}
+func TestGenerate(t *testing.T) {
+	//generate("panics.go", genPanics)
+	//generate("recovers.go", genRecovers)
+	//generate("drops.go", genDrops)
+	//generate("closures.go", genClosures)
+	//generate("panics_fn.go", genPanicsFn)
+}
+
+func pntf(p string, a ...any) {
+	_, _ = buf.WriteString(fmt.Sprintf(p, a...))
+}
+func pnt(v ...string) {
+	for _, x := range v {
+		_, _ = buf.WriteString(x)
+	}
 }
 func id(i int, v string) {
-	print(strings.Repeat("\t", i), v)
+	pnt(strings.Repeat("\t", i), v)
 }
 func a(i int) {
-	print(string(rune(i + 'a')))
+	pnt(string(rune(i + 'a')))
 }
 func aA(i int) {
-	print(string(rune(i + 'a')))
-	print(" ")
-	print(string(rune(i + 'A')))
+	pnt(string(rune(i + 'a')))
+	pnt(" ")
+	pnt(string(rune(i + 'A')))
 }
 func A(i int) {
-	print(string(rune(i + 'A')))
+	pnt(string(rune(i + 'A')))
 }
 func n(i int, v func(j int)) {
 	for j := 0; j < i; j++ {
 		if j != 0 {
-			print(",")
+			pnt(",")
 		}
 		v(j)
 	}
@@ -249,15 +324,23 @@ func n(i int, v func(j int)) {
 func f(i int, v string) {
 	for j := 0; j < i; j++ {
 		if j != 0 {
-			print(",")
+			pnt(",")
 		}
-		print(v)
+		pnt(v)
+	}
+}
+func fr(i int, u int, v string) {
+	for j := i; j < u; j++ {
+		if j != i {
+			pnt(",")
+		}
+		pnt(v)
 	}
 }
 func r(i int, u int, v func(j int)) {
 	for j := i; j < u; j++ {
 		if j != i {
-			print(",")
+			pnt(",")
 		}
 		v(j)
 	}
