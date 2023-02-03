@@ -57,6 +57,7 @@ func MapKey[K, K1 comparable, V any, M ~map[K]V](m M, fn func(K) K1) (o map[K1]V
 	if m == nil || len(m) == 0 {
 		return
 	}
+	o = make(map[K1]V, len(m))
 	for k, val := range m {
 		o[fn(k)] = val
 	}
@@ -76,6 +77,7 @@ func MapValue[K comparable, V, V1 any, M ~map[K]V](m M, fn func(V) V1) (o map[K]
 	if m == nil || len(m) == 0 {
 		return
 	}
+	o = make(map[K]V1, len(m))
 	for k, val := range m {
 		o[k] = fn(val)
 	}
@@ -87,6 +89,7 @@ func MapValueTo[K comparable, V, V1 any, M ~map[K]V](m M, v V1) (o map[K]V1) {
 	if m == nil || len(m) == 0 {
 		return
 	}
+	o = make(map[K]V1, len(m))
 	for k := range m {
 		o[k] = v
 	}
@@ -105,6 +108,7 @@ func HasValue[K comparable, V comparable, M ~map[K]V](m M, v V) (ok bool) {
 
 //Filter filter entries
 func Filter[K comparable, V, V1 any, M ~map[K]V](m M, pred func(K, V) bool) (o map[K]V) {
+	o = make(map[K]V, len(m))
 	for k, v := range m {
 		if pred(k, v) {
 			o[k] = v
@@ -116,6 +120,7 @@ func Filter[K comparable, V, V1 any, M ~map[K]V](m M, pred func(K, V) bool) (o m
 //Pick entries in to new map
 func Pick[K comparable, V any, M ~map[K]V](m M, pick func(K, V) int) (r []map[K]V) {
 	p := 0
+
 	for k, v := range m {
 		i := pick(k, v)
 		if i < 0 {
@@ -149,7 +154,7 @@ func SortByValueStable[K comparable, V any, M ~map[K]V](m M, cmp func(V, V) bool
 	return
 }
 
-type HashSet[K comparable] interface {
+type Set[K comparable] interface {
 	Clear()
 	Values() []K
 	Each(func(K) bool)
@@ -162,35 +167,41 @@ type HashSet[K comparable] interface {
 	Exists(K) bool
 }
 
-//Set HashSet impl with map[K]struct{}
-type Set[K comparable] map[K]struct{}
+//HashSet Set impl with map[K]struct{}
+type HashSet[K comparable] map[K]struct{}
 
-func MewMapSet[K comparable]() Set[K] {
-	return make(Set[K])
+func NewHashSet[K comparable]() HashSet[K] {
+	return make(HashSet[K])
 }
-func MewMapSetInit[K comparable](initCap int) Set[K] {
-	return make(Set[K], initCap)
+func NewHashSetInit[K comparable](size int) HashSet[K] {
+	return make(HashSet[K], max(0, size))
+}
+func max(n0, n1 int) int {
+	if n0 > n1 {
+		return n0
+	}
+	return n1
 }
 
-func (m Set[K]) Exists(k K) bool {
+func (m HashSet[K]) Exists(k K) bool {
 	return m[k] != Nothing
 }
-func (m Set[K]) Clear() {
+func (m HashSet[K]) Clear() {
 	for k := range m {
 		delete(m, k)
 	}
 }
-func (m Set[K]) Values() []K {
+func (m HashSet[K]) Values() []K {
 	return Keys(m)
 }
-func (m Set[K]) Each(fn func(K) bool) {
+func (m HashSet[K]) Each(fn func(K) bool) {
 	for k := range m {
 		if fn(k) {
 			break
 		}
 	}
 }
-func (m Set[K]) EachIndex(fn func(int, K) bool) {
+func (m HashSet[K]) EachIndex(fn func(int, K) bool) {
 	i := 0
 	for k := range m {
 		if fn(i, k) {
@@ -199,29 +210,29 @@ func (m Set[K]) EachIndex(fn func(int, K) bool) {
 		i++
 	}
 }
-func (m Set[K]) Add(k K) bool {
+func (m HashSet[K]) Add(k K) bool {
 	if m.Exists(k) {
 		return false
 	}
 	m[k] = Nothing
 	return true
 }
-func (m Set[K]) Remove(k K) bool {
+func (m HashSet[K]) Remove(k K) bool {
 	if m.Exists(k) {
 		delete(m, k)
 		return true
 	}
 	return false
 }
-func (m Set[K]) Put(k K) {
+func (m HashSet[K]) Put(k K) {
 	m[k] = Nothing
 }
-func (m Set[K]) Delete(k K) {
+func (m HashSet[K]) Delete(k K) {
 	if m.Exists(k) {
 		delete(m, k)
 	}
 }
-func (m Set[K]) Len() int {
+func (m HashSet[K]) Len() int {
 	return len(m)
 }
 
