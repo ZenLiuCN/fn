@@ -1,4 +1,6 @@
-package fn
+package slices
+
+import . "github.com/ZenLiuCN/fn"
 
 //ToMap slice to map without check duplication
 func ToMap[K comparable, V any](
@@ -110,7 +112,7 @@ func MapMany[A, B any](a []A, fn func(A) []B) (r []B) {
 	return
 }
 
-//Chunks  if n<=0 || a==nil then nil else [[n],*,[remains]]
+//Chunks  if next<=0 || a==nil then nil else [[next],*,[remains]]
 func Chunks[A any](a []A, n int) (r [][]A) {
 	if n <= 0 || a == nil {
 		return
@@ -153,7 +155,7 @@ func FoldIdx[A, B any](s []A, init B, act func(B, int, A) B) B {
 	return init
 }
 
-//FoldN fold n sub slice
+//FoldN fold next sub slice
 func FoldN[A, B any](s []A, n int, init B, act func(B, []A) B) B {
 	switch {
 	case s == nil || n <= 0:
@@ -183,7 +185,7 @@ func Distinct[A comparable](s []A) (r []A) {
 		for _, a := range s {
 			if _, ok := set[a]; !ok {
 				r = append(r, a)
-				set[a] = EmptyValue
+				set[a] = Nothing
 			}
 		}
 		return

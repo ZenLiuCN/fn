@@ -3,8 +3,8 @@ package fn
 import "errors"
 
 var (
-	//EmptyValue placeholder value
-	EmptyValue = struct{}{}
+	//Nothing placeholder value
+	Nothing = struct{}{}
 	//ErrDuplicate for found duplicated value
 	ErrDuplicate = errors.New("duplicated value")
 )

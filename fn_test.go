@@ -181,7 +181,7 @@ func TestGenerate(t *testing.T) {
 	//generate("closures.go", genClosures)
 	//generate("panics_fn.go", genPanicsFn)
 	/*	buf = bufio.NewWriter(os.Stdout)
-		P(n(10, A))
+		P(next(10, A))
 		Panic(buf.Flush())*/
 }
 
