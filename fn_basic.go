@@ -28,8 +28,8 @@ func Panic(err error) {
 	}
 }
 
-//PanicFn return a Runnable
-func PanicFn(fn func() error) func() {
+//Panics return a Runnable
+func Panics(fn func() error) func() {
 	return func() {
 		if err := fn(); err != nil {
 			panic(err)

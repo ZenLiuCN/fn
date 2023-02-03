@@ -1,6 +1,4 @@
-package maps
-
-import . "github.com/ZenLiuCN/fn"
+package fn
 
 //Set current base on map that's why it inside package maps
 type Set[K comparable] interface {
@@ -41,7 +39,7 @@ func (m HashSet[K]) Clear() {
 	}
 }
 func (m HashSet[K]) Values() []K {
-	return Keys(m)
+	return MapKeys(m)
 }
 func (m HashSet[K]) Each(fn func(K) bool) {
 	for k := range m {

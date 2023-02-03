@@ -1,4 +1,4 @@
-package slices
+package fn
 
 import (
 	"reflect"
@@ -22,7 +22,7 @@ func TestChunks(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if gotR := Chunks(tt.args.a, tt.args.n); !reflect.DeepEqual(gotR, tt.wantR) {
+			if gotR := SliceChunkBy(tt.args.a, tt.args.n); !reflect.DeepEqual(gotR, tt.wantR) {
 				t.Errorf("Chunks() = %v, want %v", gotR, tt.wantR)
 			}
 		})
@@ -51,8 +51,8 @@ func TestFoldN(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := FoldN(tt.args.s, tt.args.n, tt.args.init, tt.args.act); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("FoldN() = %v, want %v", got, tt.want)
+			if got := SliceFoldChunk(tt.args.s, tt.args.n, tt.args.init, tt.args.act); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("SliceFoldChunk() = %v, want %v", got, tt.want)
 			}
 		})
 	}

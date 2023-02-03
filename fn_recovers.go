@@ -1,3 +1,5 @@
+//go:build !gen
+
 package fn
 
 //generated file should not edit
