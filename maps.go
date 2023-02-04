@@ -2,76 +2,205 @@ package fn
 
 import "sort"
 
+//MapEx the object style map support for mappings
+type MapEx[K, K1 key, V, V1 any] Map[K, V]
+
+//MapExOfMap same as MapEx[K, K1, V, V1](m)
+func MapExOfMap[K, K1 key, V, V1 any](m Map[K, V]) MapEx[K, K1, V, V1] {
+	return MapEx[K, K1, V, V1](m)
+}
+
+//MapExOf  same as MapEx[K, K1, V, V1](m)
+func MapExOf[K, K1 key, V, V1 any](m map[K]V) MapEx[K, K1, V, V1] {
+	return m
+}
+
+//AsMap same as Map[K, V](m)
+func (m MapEx[K, K1, V, V1]) AsMap() Map[K, V] {
+	return Map[K, V](m)
+}
+
+//AsRaw same as map[K]V(m)
+func (m MapEx[K, K1, V, V1]) AsRaw() map[K]V {
+	return m
+}
+
+//MappingKey see MapKeyMapping
+func (m MapEx[K, K1, V, V1]) MappingKey(fn func(K) K1) (r Map[K1, V]) {
+	return MapKeyMapping(m, fn)
+}
+
+//MappingValue  see MapValueMapping
+func (m MapEx[K, K1, V, V1]) MappingValue(fn func(V) V1) (r Map[K, V1]) {
+	return MapValueMapping(m, fn)
+}
+
+//MappingValueTo see MapValueTo
+func (m MapEx[K, K1, V, V1]) MappingValueTo(v V1) (r Map[K, V1]) {
+	return MapValueTo(m, v)
+}
+
+//Len same as len(m)
+func (m MapEx[K, K1, V, V1]) Len() int {
+	return len(m)
+}
+
+//Values see MapValues
+func (m MapEx[K, K1, V, V1]) Values() []V {
+	return MapValues(m)
+}
+
+//Keys see MapKeys
+func (m MapEx[K, K1, V, V1]) Keys() []K {
+	return MapKeys(m)
+}
+
+//HasValue see MapHasValueBy
+func (m MapEx[K, K1, V, V1]) HasValue(cmp func(V) bool) bool {
+	return MapHasValueBy(m, cmp)
+}
+
+//HasKey see MapHasKey
+func (m MapEx[K, K1, V, V1]) HasKey(k K) bool {
+	return MapHasKey(m, k)
+}
+
+//KeyBy  see MapKeyBy
+func (m MapEx[K, K1, V, V1]) KeyBy(pred func(V) bool) K {
+	return MapKeyBy(m, pred)
+}
+
+//KeysBy  see MapKeysBy
+func (m MapEx[K, K1, V, V1]) KeysBy(pred func(V) bool) []K {
+	return MapKeysBy(m, pred)
+}
+
+//ValuesBy see 	return MapValuesBy(m, pred)
+func (m MapEx[K, K1, V, V1]) ValuesBy(pred func(K) bool) []V {
+	return MapValuesBy(m, pred)
+}
+
+//Entries see MapEntries
+func (m MapEx[K, K1, V, V1]) Entries() []*Entry[K, V] {
+	return MapEntries(m)
+}
+
+//Filter see MapFilter
+func (m MapEx[K, K1, V, V1]) Filter(pred func(K, V) bool) []*Entry[K, V] {
+	return MapFilter(m, pred)
+}
+
+//FilterSitu see MapFilterSitu
+func (m MapEx[K, K1, V, V1]) FilterSitu(pred func(K, V) bool) {
+	MapFilterSitu(m, pred)
+}
+
+//Pick see MapPick
+func (m MapEx[K, K1, V, V1]) Pick(picker func(K, V) int) []map[K]V {
+	return MapPick(m, picker)
+}
+
+//Each see MapEach
+func (m MapEx[K, K1, V, V1]) Each(c func(K, V)) {
+	MapEach(m, c)
+}
+
+//Sort see MapSortByValue
+func (m MapEx[K, K1, V, V1]) Sort(lesser func(V, V) bool) []K {
+	return MapSortByValue(m, lesser)
+}
+
+//SortStable see MapSortByValueStable
+func (m MapEx[K, K1, V, V1]) SortStable(lesser func(V, V) bool) []K {
+	return MapSortByValueStable(m, lesser)
+}
+
 //Map the object style map
 type Map[K key, V any] map[K]V
 
+//Len same as len(m)
 func (m Map[K, V]) Len() int {
 	return len(m)
 }
 
+//Values see MapValues
 func (m Map[K, V]) Values() []V {
 	return MapValues(m)
 }
+
+//Keys see MapKeys
 func (m Map[K, V]) Keys() []K {
 	return MapKeys(m)
 }
 
+//HasValue see MapHasValueBy
 func (m Map[K, V]) HasValue(cmp func(V) bool) bool {
 	return MapHasValueBy(m, cmp)
 }
+
+//HasKey see MapHasKey
 func (m Map[K, V]) HasKey(k K) bool {
 	return MapHasKey(m, k)
 }
 
+//KeyBy  see MapKeyBy
 func (m Map[K, V]) KeyBy(pred func(V) bool) K {
 	return MapKeyBy(m, pred)
 }
+
+//KeysBy  see MapKeysBy
 func (m Map[K, V]) KeysBy(pred func(V) bool) []K {
 	return MapKeysBy(m, pred)
 }
 
+//ValuesBy see 	return MapValuesBy(m, pred)
 func (m Map[K, V]) ValuesBy(pred func(K) bool) []V {
 	return MapValuesBy(m, pred)
 }
 
+//Entries see MapEntries
 func (m Map[K, V]) Entries() []*Entry[K, V] {
 	return MapEntries(m)
 }
 
+//Filter see MapFilter
 func (m Map[K, V]) Filter(pred func(K, V) bool) []*Entry[K, V] {
 	return MapFilter(m, pred)
 }
 
-//FilterSitu filter and remove
+//FilterSitu see MapFilterSitu
 func (m Map[K, V]) FilterSitu(pred func(K, V) bool) {
 	MapFilterSitu(m, pred)
 }
 
-//Pick picker returns: negative for discard, otherwise for put map N
+//Pick see MapPick
 func (m Map[K, V]) Pick(picker func(K, V) int) []map[K]V {
 	return MapPick(m, picker)
 }
 
+//Each see MapEach
 func (m Map[K, V]) Each(c func(K, V)) {
 	MapEach(m, c)
 }
 
+//Sort see MapSortByValue
 func (m Map[K, V]) Sort(lesser func(V, V) bool) []K {
 	return MapSortByValue(m, lesser)
 }
 
+//SortStable see MapSortByValueStable
 func (m Map[K, V]) SortStable(lesser func(V, V) bool) []K {
 	return MapSortByValueStable(m, lesser)
 }
 
-//MapEach consume each key and value
+//MapEach same as for k, v := range m
 func MapEach[K key, V any, M ~map[K]V](m M, c func(K, V)) {
 	for k, v := range m {
 		c(k, v)
 	}
 }
 
-//MapEntries map to Entry slice
+//MapEntries fetch map to an Entry slice
 func MapEntries[K key, V any, M ~map[K]V](m M) (r []*Entry[K, V]) {
 	for k, v := range m {
 		r = append(r, &Entry[K, V]{k, v})
@@ -97,7 +226,7 @@ func MapKeys[K key, V any, M ~map[K]V](m M) (r []K) {
 	return
 }
 
-//MapHasKey check key is exists
+//MapHasKey check key is exists, just _, ok = m[k]
 func MapHasKey[K key, V any, M ~map[K]V](m M, k K) (ok bool) {
 	_, ok = m[k]
 	return
@@ -266,6 +395,7 @@ func MapSortByValueStable[K key, V any, M ~map[K]V](m M, cmp func(V, V) bool) (r
 	return
 }
 
+//Entry hold a key value pair (key must comparable)
 type Entry[K key, V any] struct {
 	Key K
 	Val V

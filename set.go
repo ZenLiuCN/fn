@@ -1,17 +1,17 @@
 package fn
 
-//Set current base on map that's why it inside package maps
+//Set interface
 type Set[K comparable] interface {
-	Clear()
-	Values() []K
-	Each(func(K) bool)
-	EachIndex(func(int, K) bool)
-	Add(K) bool
-	Remove(K) bool
-	Put(K)
-	Delete(K)
-	Len() int
-	Exists(K) bool
+	Clear()                      //Clear remove all values
+	Values() []K                 //Values as a slice
+	Each(func(K) bool)           //Each loop for value
+	EachIndex(func(int, K) bool) //EachIndex loop with index and value
+	Add(K) bool                  //Add with exists check,return true if success.
+	Remove(K) bool               //Remove delete from underlying map with exists check,return true if success.
+	Put(K)                       //Put Add without existence check
+	Delete(K)                    //Delete without existence check.
+	Len() int                    //Len the len.
+	Exists(K) bool               //Exists check exists
 }
 
 //HashSet Set impl with map[K]struct{}
@@ -23,6 +23,7 @@ func NewHashSet[K comparable]() HashSet[K] {
 func NewHashSetInit[K comparable](size int) HashSet[K] {
 	return make(HashSet[K], max(0, size))
 }
+
 func max(n0, n1 int) int {
 	if n0 > n1 {
 		return n0
