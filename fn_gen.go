@@ -138,7 +138,7 @@ func genPanics() {
 		P(pf("// Panic%d error or return other %d value\n", i, i))
 		P(pf(`func Panic%d[`, i), n(i, A), p(` any]`), p(` (`), n(i, aA), p(", err error)"), q(i > 1, n(i, A)), p(`{
 	if err!=nil{
-		panic(err)
+		panic(Packer(err, 2))
 	}
 	return `), n(i, a), p(`
 }
@@ -147,7 +147,6 @@ func genPanics() {
 	}
 }
 func genRecovers() {
-	P(pf("import \"fmt\" \n"))
 	for i := 0; i < MAX; i++ {
 	no:
 		for o := 0; o < MAX; o++ {
@@ -159,15 +158,8 @@ func genRecovers() {
 				p(` )func(`), n(i, aA), p(")"), w(o > 0, "("), r(i, i+o, A), w(o > 0, ","), p("error"), w(o > 0, ")"), p(`{
 	return func(`), n(i, aA), p(")("), r(i, i+o, aA), w(o > 0, ","), p(`err error){
 `), p(`		defer func() {
-				z := recover()
-				switch z.(type) {
-				case error:
-					err = z.(error)
-					return
-				case nil:
-					return
-				default:
-					err = fmt.Errorf("%#v", z)
+				if z := recover(); z != nil {
+					err = Packer(z, 3)
 				}
 			}()
 		`), r(i, i+o, a), w(o > 0, " = "), p("fn("), n(i, a), p(`)
@@ -267,7 +259,7 @@ func genPanicsFn() {
 		var err error
 		`), ww(o > 0, fr(i, i+o, "_"), p(",")), p("err= "), p("fn("), n(i, a), p(`)
 		if err!=nil{
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}

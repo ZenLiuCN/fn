@@ -4,21 +4,12 @@ package fn
 
 //generated file should not edit
 
-import "fmt"
-
 // Recover01 panic with func 0 in 1 out
 func Recover01[A any](fn func() A) func() (A, error) {
 	return func() (a A, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a = fn()
@@ -30,15 +21,8 @@ func Recover01[A any](fn func() A) func() (A, error) {
 func Recover02[A, B any](fn func() (A, B)) func() (A, B, error) {
 	return func() (a A, b B, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b = fn()
@@ -50,15 +34,8 @@ func Recover02[A, B any](fn func() (A, B)) func() (A, B, error) {
 func Recover03[A, B, C any](fn func() (A, B, C)) func() (A, B, C, error) {
 	return func() (a A, b B, c C, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c = fn()
@@ -70,15 +47,8 @@ func Recover03[A, B, C any](fn func() (A, B, C)) func() (A, B, C, error) {
 func Recover04[A, B, C, D any](fn func() (A, B, C, D)) func() (A, B, C, D, error) {
 	return func() (a A, b B, c C, d D, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d = fn()
@@ -90,15 +60,8 @@ func Recover04[A, B, C, D any](fn func() (A, B, C, D)) func() (A, B, C, D, error
 func Recover05[A, B, C, D, E any](fn func() (A, B, C, D, E)) func() (A, B, C, D, E, error) {
 	return func() (a A, b B, c C, d D, e E, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d, e = fn()
@@ -110,15 +73,8 @@ func Recover05[A, B, C, D, E any](fn func() (A, B, C, D, E)) func() (A, B, C, D,
 func Recover06[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F)) func() (A, B, C, D, E, F, error) {
 	return func() (a A, b B, c C, d D, e E, f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d, e, f = fn()
@@ -130,15 +86,8 @@ func Recover06[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F)) func() (A, B,
 func Recover07[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G)) func() (A, B, C, D, E, F, G, error) {
 	return func() (a A, b B, c C, d D, e E, f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d, e, f, g = fn()
@@ -150,15 +99,8 @@ func Recover07[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G)) func() 
 func Recover08[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H)) func() (A, B, C, D, E, F, G, H, error) {
 	return func() (a A, b B, c C, d D, e E, f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d, e, f, g, h = fn()
@@ -170,15 +112,8 @@ func Recover08[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H)) f
 func Recover09[A, B, C, D, E, F, G, H, I any](fn func() (A, B, C, D, E, F, G, H, I)) func() (A, B, C, D, E, F, G, H, I, error) {
 	return func() (a A, b B, c C, d D, e E, f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		a, b, c, d, e, f, g, h, i = fn()
@@ -190,15 +125,8 @@ func Recover09[A, B, C, D, E, F, G, H, I any](fn func() (A, B, C, D, E, F, G, H,
 func Recover10[A any](fn func(A)) func(a A) error {
 	return func(a A) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a)
@@ -210,15 +138,8 @@ func Recover10[A any](fn func(A)) func(a A) error {
 func Recover11[A, B any](fn func(A) B) func(a A) (B, error) {
 	return func(a A) (b B, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b = fn(a)
@@ -230,15 +151,8 @@ func Recover11[A, B any](fn func(A) B) func(a A) (B, error) {
 func Recover12[A, B, C any](fn func(A) (B, C)) func(a A) (B, C, error) {
 	return func(a A) (b B, c C, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c = fn(a)
@@ -250,15 +164,8 @@ func Recover12[A, B, C any](fn func(A) (B, C)) func(a A) (B, C, error) {
 func Recover13[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (B, C, D, error) {
 	return func(a A) (b B, c C, d D, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d = fn(a)
@@ -270,15 +177,8 @@ func Recover13[A, B, C, D any](fn func(A) (B, C, D)) func(a A) (B, C, D, error) 
 func Recover14[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C, D, E, error) {
 	return func(a A) (b B, c C, d D, e E, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e = fn(a)
@@ -290,15 +190,8 @@ func Recover14[A, B, C, D, E any](fn func(A) (B, C, D, E)) func(a A) (B, C, D, E
 func Recover15[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B, C, D, E, F, error) {
 	return func(a A) (b B, c C, d D, e E, f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e, f = fn(a)
@@ -310,15 +203,8 @@ func Recover15[A, B, C, D, E, F any](fn func(A) (B, C, D, E, F)) func(a A) (B, C
 func Recover16[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A) (B, C, D, E, F, G, error) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e, f, g = fn(a)
@@ -330,15 +216,8 @@ func Recover16[A, B, C, D, E, F, G any](fn func(A) (B, C, D, E, F, G)) func(a A)
 func Recover17[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) func(a A) (B, C, D, E, F, G, H, error) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e, f, g, h = fn(a)
@@ -350,15 +229,8 @@ func Recover17[A, B, C, D, E, F, G, H any](fn func(A) (B, C, D, E, F, G, H)) fun
 func Recover18[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I)) func(a A) (B, C, D, E, F, G, H, I, error) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e, f, g, h, i = fn(a)
@@ -370,15 +242,8 @@ func Recover18[A, B, C, D, E, F, G, H, I any](fn func(A) (B, C, D, E, F, G, H, I
 func Recover19[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H, I, J)) func(a A) (B, C, D, E, F, G, H, I, J, error) {
 	return func(a A) (b B, c C, d D, e E, f F, g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		b, c, d, e, f, g, h, i, j = fn(a)
@@ -390,15 +255,8 @@ func Recover19[A, B, C, D, E, F, G, H, I, J any](fn func(A) (B, C, D, E, F, G, H
 func Recover20[A, B any](fn func(A, B)) func(a A, b B) error {
 	return func(a A, b B) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b)
@@ -410,15 +268,8 @@ func Recover20[A, B any](fn func(A, B)) func(a A, b B) error {
 func Recover21[A, B, C any](fn func(A, B) C) func(a A, b B) (C, error) {
 	return func(a A, b B) (c C, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c = fn(a, b)
@@ -430,15 +281,8 @@ func Recover21[A, B, C any](fn func(A, B) C) func(a A, b B) (C, error) {
 func Recover22[A, B, C, D any](fn func(A, B) (C, D)) func(a A, b B) (C, D, error) {
 	return func(a A, b B) (c C, d D, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d = fn(a, b)
@@ -450,15 +294,8 @@ func Recover22[A, B, C, D any](fn func(A, B) (C, D)) func(a A, b B) (C, D, error
 func Recover23[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (C, D, E, error) {
 	return func(a A, b B) (c C, d D, e E, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e = fn(a, b)
@@ -470,15 +307,8 @@ func Recover23[A, B, C, D, E any](fn func(A, B) (C, D, E)) func(a A, b B) (C, D,
 func Recover24[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) (C, D, E, F, error) {
 	return func(a A, b B) (c C, d D, e E, f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f = fn(a, b)
@@ -490,15 +320,8 @@ func Recover24[A, B, C, D, E, F any](fn func(A, B) (C, D, E, F)) func(a A, b B) 
 func Recover25[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A, b B) (C, D, E, F, G, error) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f, g = fn(a, b)
@@ -510,15 +333,8 @@ func Recover25[A, B, C, D, E, F, G any](fn func(A, B) (C, D, E, F, G)) func(a A,
 func Recover26[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) func(a A, b B) (C, D, E, F, G, H, error) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f, g, h = fn(a, b)
@@ -530,15 +346,8 @@ func Recover26[A, B, C, D, E, F, G, H any](fn func(A, B) (C, D, E, F, G, H)) fun
 func Recover27[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I)) func(a A, b B) (C, D, E, F, G, H, I, error) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f, g, h, i = fn(a, b)
@@ -550,15 +359,8 @@ func Recover27[A, B, C, D, E, F, G, H, I any](fn func(A, B) (C, D, E, F, G, H, I
 func Recover28[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H, I, J)) func(a A, b B) (C, D, E, F, G, H, I, J, error) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f, g, h, i, j = fn(a, b)
@@ -570,15 +372,8 @@ func Recover28[A, B, C, D, E, F, G, H, I, J any](fn func(A, B) (C, D, E, F, G, H
 func Recover29[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G, H, I, J, K)) func(a A, b B) (C, D, E, F, G, H, I, J, K, error) {
 	return func(a A, b B) (c C, d D, e E, f F, g G, h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		c, d, e, f, g, h, i, j, k = fn(a, b)
@@ -590,15 +385,8 @@ func Recover29[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B) (C, D, E, F, G
 func Recover30[A, B, C any](fn func(A, B, C)) func(a A, b B, c C) error {
 	return func(a A, b B, c C) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c)
@@ -610,15 +398,8 @@ func Recover30[A, B, C any](fn func(A, B, C)) func(a A, b B, c C) error {
 func Recover31[A, B, C, D any](fn func(A, B, C) D) func(a A, b B, c C) (D, error) {
 	return func(a A, b B, c C) (d D, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d = fn(a, b, c)
@@ -630,15 +411,8 @@ func Recover31[A, B, C, D any](fn func(A, B, C) D) func(a A, b B, c C) (D, error
 func Recover32[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(a A, b B, c C) (D, E, error) {
 	return func(a A, b B, c C) (d D, e E, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e = fn(a, b, c)
@@ -650,15 +424,8 @@ func Recover32[A, B, C, D, E any](fn func(A, B, C) (D, E)) func(a A, b B, c C) (
 func Recover33[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, c C) (D, E, F, error) {
 	return func(a A, b B, c C) (d D, e E, f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f = fn(a, b, c)
@@ -670,15 +437,8 @@ func Recover33[A, B, C, D, E, F any](fn func(A, B, C) (D, E, F)) func(a A, b B, 
 func Recover34[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A, b B, c C) (D, E, F, G, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g = fn(a, b, c)
@@ -690,15 +450,8 @@ func Recover34[A, B, C, D, E, F, G any](fn func(A, B, C) (D, E, F, G)) func(a A,
 func Recover35[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) func(a A, b B, c C) (D, E, F, G, H, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g, h = fn(a, b, c)
@@ -710,15 +463,8 @@ func Recover35[A, B, C, D, E, F, G, H any](fn func(A, B, C) (D, E, F, G, H)) fun
 func Recover36[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I)) func(a A, b B, c C) (D, E, F, G, H, I, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g, h, i = fn(a, b, c)
@@ -730,15 +476,8 @@ func Recover36[A, B, C, D, E, F, G, H, I any](fn func(A, B, C) (D, E, F, G, H, I
 func Recover37[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H, I, J)) func(a A, b B, c C) (D, E, F, G, H, I, J, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g, h, i, j = fn(a, b, c)
@@ -750,15 +489,8 @@ func Recover37[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C) (D, E, F, G, H
 func Recover38[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G, H, I, J, K)) func(a A, b B, c C) (D, E, F, G, H, I, J, K, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g, h, i, j, k = fn(a, b, c)
@@ -770,15 +502,8 @@ func Recover38[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C) (D, E, F, G
 func Recover39[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F, G, H, I, J, K, L)) func(a A, b B, c C) (D, E, F, G, H, I, J, K, L, error) {
 	return func(a A, b B, c C) (d D, e E, f F, g G, h H, i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		d, e, f, g, h, i, j, k, l = fn(a, b, c)
@@ -790,15 +515,8 @@ func Recover39[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C) (D, E, F
 func Recover40[A, B, C, D any](fn func(A, B, C, D)) func(a A, b B, c C, d D) error {
 	return func(a A, b B, c C, d D) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d)
@@ -810,15 +528,8 @@ func Recover40[A, B, C, D any](fn func(A, B, C, D)) func(a A, b B, c C, d D) err
 func Recover41[A, B, C, D, E any](fn func(A, B, C, D) E) func(a A, b B, c C, d D) (E, error) {
 	return func(a A, b B, c C, d D) (e E, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e = fn(a, b, c, d)
@@ -830,15 +541,8 @@ func Recover41[A, B, C, D, E any](fn func(A, B, C, D) E) func(a A, b B, c C, d D
 func Recover42[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(a A, b B, c C, d D) (E, F, error) {
 	return func(a A, b B, c C, d D) (e E, f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f = fn(a, b, c, d)
@@ -850,15 +554,8 @@ func Recover42[A, B, C, D, E, F any](fn func(A, B, C, D) (E, F)) func(a A, b B, 
 func Recover43[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A, b B, c C, d D) (E, F, G, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g = fn(a, b, c, d)
@@ -870,15 +567,8 @@ func Recover43[A, B, C, D, E, F, G any](fn func(A, B, C, D) (E, F, G)) func(a A,
 func Recover44[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) func(a A, b B, c C, d D) (E, F, G, H, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h = fn(a, b, c, d)
@@ -890,15 +580,8 @@ func Recover44[A, B, C, D, E, F, G, H any](fn func(A, B, C, D) (E, F, G, H)) fun
 func Recover45[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I)) func(a A, b B, c C, d D) (E, F, G, H, I, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h, i = fn(a, b, c, d)
@@ -910,15 +593,8 @@ func Recover45[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D) (E, F, G, H, I
 func Recover46[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H, I, J)) func(a A, b B, c C, d D) (E, F, G, H, I, J, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h, i, j = fn(a, b, c, d)
@@ -930,15 +606,8 @@ func Recover46[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D) (E, F, G, H
 func Recover47[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G, H, I, J, K)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h, i, j, k = fn(a, b, c, d)
@@ -950,15 +619,8 @@ func Recover47[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D) (E, F, G
 func Recover48[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K, L, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h, i, j, k, l = fn(a, b, c, d)
@@ -970,15 +632,8 @@ func Recover48[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D) (E, F
 func Recover49[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E, F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D) (E, F, G, H, I, J, K, L, M, error) {
 	return func(a A, b B, c C, d D) (e E, f F, g G, h H, i I, j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		e, f, g, h, i, j, k, l, m = fn(a, b, c, d)
@@ -990,15 +645,8 @@ func Recover49[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D) (E
 func Recover50[A, B, C, D, E any](fn func(A, B, C, D, E)) func(a A, b B, c C, d D, e E) error {
 	return func(a A, b B, c C, d D, e E) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d, e)
@@ -1010,15 +658,8 @@ func Recover50[A, B, C, D, E any](fn func(A, B, C, D, E)) func(a A, b B, c C, d 
 func Recover51[A, B, C, D, E, F any](fn func(A, B, C, D, E) F) func(a A, b B, c C, d D, e E) (F, error) {
 	return func(a A, b B, c C, d D, e E) (f F, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f = fn(a, b, c, d, e)
@@ -1030,15 +671,8 @@ func Recover51[A, B, C, D, E, F any](fn func(A, B, C, D, E) F) func(a A, b B, c 
 func Recover52[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(a A, b B, c C, d D, e E) (F, G, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g = fn(a, b, c, d, e)
@@ -1050,15 +684,8 @@ func Recover52[A, B, C, D, E, F, G any](fn func(A, B, C, D, E) (F, G)) func(a A,
 func Recover53[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) func(a A, b B, c C, d D, e E) (F, G, H, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h = fn(a, b, c, d, e)
@@ -1070,15 +697,8 @@ func Recover53[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E) (F, G, H)) fun
 func Recover54[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I)) func(a A, b B, c C, d D, e E) (F, G, H, I, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i = fn(a, b, c, d, e)
@@ -1090,15 +710,8 @@ func Recover54[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E) (F, G, H, I
 func Recover55[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H, I, J)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i, j = fn(a, b, c, d, e)
@@ -1110,15 +723,8 @@ func Recover55[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E) (F, G, H
 func Recover56[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G, H, I, J, K)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i, j, k = fn(a, b, c, d, e)
@@ -1130,15 +736,8 @@ func Recover56[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E) (F, G
 func Recover57[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i, j, k, l = fn(a, b, c, d, e)
@@ -1150,15 +749,8 @@ func Recover57[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E) (F
 func Recover58[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L, M, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i, j, k, l, m = fn(a, b, c, d, e)
@@ -1170,15 +762,8 @@ func Recover58[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E)
 func Recover59[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E) (F, G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E) (F, G, H, I, J, K, L, M, N, error) {
 	return func(a A, b B, c C, d D, e E) (f F, g G, h H, i I, j J, k K, l L, m M, n N, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		f, g, h, i, j, k, l, m, n = fn(a, b, c, d, e)
@@ -1190,15 +775,8 @@ func Recover59[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D,
 func Recover60[A, B, C, D, E, F any](fn func(A, B, C, D, E, F)) func(a A, b B, c C, d D, e E, f F) error {
 	return func(a A, b B, c C, d D, e E, f F) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d, e, f)
@@ -1210,15 +788,8 @@ func Recover60[A, B, C, D, E, F any](fn func(A, B, C, D, E, F)) func(a A, b B, c
 func Recover61[A, B, C, D, E, F, G any](fn func(A, B, C, D, E, F) G) func(a A, b B, c C, d D, e E, f F) (G, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g = fn(a, b, c, d, e, f)
@@ -1230,15 +801,8 @@ func Recover61[A, B, C, D, E, F, G any](fn func(A, B, C, D, E, F) G) func(a A, b
 func Recover62[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) func(a A, b B, c C, d D, e E, f F) (G, H, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h = fn(a, b, c, d, e, f)
@@ -1250,15 +814,8 @@ func Recover62[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F) (G, H)) fun
 func Recover63[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I)) func(a A, b B, c C, d D, e E, f F) (G, H, I, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i = fn(a, b, c, d, e, f)
@@ -1270,15 +827,8 @@ func Recover63[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F) (G, H, I
 func Recover64[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H, I, J)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j = fn(a, b, c, d, e, f)
@@ -1290,15 +840,8 @@ func Recover64[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F) (G, H
 func Recover65[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G, H, I, J, K)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j, k = fn(a, b, c, d, e, f)
@@ -1310,15 +853,8 @@ func Recover65[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F) (G
 func Recover66[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j, k, l = fn(a, b, c, d, e, f)
@@ -1330,15 +866,8 @@ func Recover66[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F)
 func Recover67[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j, k, l, m = fn(a, b, c, d, e, f)
@@ -1350,15 +879,8 @@ func Recover67[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E,
 func Recover68[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M, N, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j, k, l, m, n = fn(a, b, c, d, e, f)
@@ -1370,15 +892,8 @@ func Recover68[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D,
 func Recover69[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F) (G, H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F) (G, H, I, J, K, L, M, N, O, error) {
 	return func(a A, b B, c C, d D, e E, f F) (g G, h H, i I, j J, k K, l L, m M, n N, o O, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		g, h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f)
@@ -1390,15 +905,8 @@ func Recover69[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C,
 func Recover70[A, B, C, D, E, F, G any](fn func(A, B, C, D, E, F, G)) func(a A, b B, c C, d D, e E, f F, g G) error {
 	return func(a A, b B, c C, d D, e E, f F, g G) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d, e, f, g)
@@ -1410,15 +918,8 @@ func Recover70[A, B, C, D, E, F, G any](fn func(A, B, C, D, E, F, G)) func(a A, 
 func Recover71[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F, G) H) func(a A, b B, c C, d D, e E, f F, g G) (H, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h = fn(a, b, c, d, e, f, g)
@@ -1430,15 +931,8 @@ func Recover71[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F, G) H) func(
 func Recover72[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i = fn(a, b, c, d, e, f, g)
@@ -1450,15 +944,8 @@ func Recover72[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G) (H, I
 func Recover73[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H, I, J)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j = fn(a, b, c, d, e, f, g)
@@ -1470,15 +957,8 @@ func Recover73[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G) (H
 func Recover74[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G) (H, I, J, K)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k = fn(a, b, c, d, e, f, g)
@@ -1490,15 +970,8 @@ func Recover74[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G)
 func Recover75[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k, l = fn(a, b, c, d, e, f, g)
@@ -1510,15 +983,8 @@ func Recover75[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F,
 func Recover76[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k, l, m = fn(a, b, c, d, e, f, g)
@@ -1530,15 +996,8 @@ func Recover76[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E,
 func Recover77[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k, l, m, n = fn(a, b, c, d, e, f, g)
@@ -1550,15 +1009,8 @@ func Recover77[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D,
 func Recover78[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N, O, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g)
@@ -1570,15 +1022,8 @@ func Recover78[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C,
 func Recover79[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G) (H, I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G) (H, I, J, K, L, M, N, O, P, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G) (h H, i I, j J, k K, l L, m M, n N, o O, p P, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		h, i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g)
@@ -1590,15 +1035,8 @@ func Recover79[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B,
 func Recover80[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F, G, H)) func(a A, b B, c C, d D, e E, f F, g G, h H) error {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d, e, f, g, h)
@@ -1610,15 +1048,8 @@ func Recover80[A, B, C, D, E, F, G, H any](fn func(A, B, C, D, E, F, G, H)) func
 func Recover81[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G, H) I) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i = fn(a, b, c, d, e, f, g, h)
@@ -1630,15 +1061,8 @@ func Recover81[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G, H) I)
 func Recover82[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H) (I, J)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j = fn(a, b, c, d, e, f, g, h)
@@ -1650,15 +1074,8 @@ func Recover82[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H)
 func Recover83[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H) (I, J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k = fn(a, b, c, d, e, f, g, h)
@@ -1670,15 +1087,8 @@ func Recover83[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G,
 func Recover84[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l = fn(a, b, c, d, e, f, g, h)
@@ -1690,15 +1100,8 @@ func Recover84[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F,
 func Recover85[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l, m = fn(a, b, c, d, e, f, g, h)
@@ -1710,15 +1113,8 @@ func Recover85[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E,
 func Recover86[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l, m, n = fn(a, b, c, d, e, f, g, h)
@@ -1730,15 +1126,8 @@ func Recover86[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D,
 func Recover87[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h)
@@ -1750,15 +1139,8 @@ func Recover87[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C,
 func Recover88[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O, P, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h)
@@ -1770,15 +1152,8 @@ func Recover88[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B,
 func Recover89[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H) (I, J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H) (I, J, K, L, M, N, O, P, Q, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H) (i I, j J, k K, l L, m M, n N, o O, p P, q Q, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		i, j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h)
@@ -1790,15 +1165,8 @@ func Recover89[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A,
 func Recover90[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G, H, I)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) error {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		fn(a, b, c, d, e, f, g, h, i)
@@ -1810,15 +1178,8 @@ func Recover90[A, B, C, D, E, F, G, H, I any](fn func(A, B, C, D, E, F, G, H, I)
 func Recover91[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H, I) J) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j = fn(a, b, c, d, e, f, g, h, i)
@@ -1830,15 +1191,8 @@ func Recover91[A, B, C, D, E, F, G, H, I, J any](fn func(A, B, C, D, E, F, G, H,
 func Recover92[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G, H, I) (J, K)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k = fn(a, b, c, d, e, f, g, h, i)
@@ -1850,15 +1204,8 @@ func Recover92[A, B, C, D, E, F, G, H, I, J, K any](fn func(A, B, C, D, E, F, G,
 func Recover93[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l = fn(a, b, c, d, e, f, g, h, i)
@@ -1870,15 +1217,8 @@ func Recover93[A, B, C, D, E, F, G, H, I, J, K, L any](fn func(A, B, C, D, E, F,
 func Recover94[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m = fn(a, b, c, d, e, f, g, h, i)
@@ -1890,15 +1230,8 @@ func Recover94[A, B, C, D, E, F, G, H, I, J, K, L, M any](fn func(A, B, C, D, E,
 func Recover95[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m, n = fn(a, b, c, d, e, f, g, h, i)
@@ -1910,15 +1243,8 @@ func Recover95[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](fn func(A, B, C, D,
 func Recover96[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m, n, o = fn(a, b, c, d, e, f, g, h, i)
@@ -1930,15 +1256,8 @@ func Recover96[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](fn func(A, B, C,
 func Recover97[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m, n, o, p = fn(a, b, c, d, e, f, g, h, i)
@@ -1950,15 +1269,8 @@ func Recover97[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](fn func(A, B,
 func Recover98[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P, Q, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m, n, o, p, q = fn(a, b, c, d, e, f, g, h, i)
@@ -1970,15 +1282,8 @@ func Recover98[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](fn func(A,
 func Recover99[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](fn func(A, B, C, D, E, F, G, H, I) (J, K, L, M, N, O, P, Q, R)) func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (J, K, L, M, N, O, P, Q, R, error) {
 	return func(a A, b B, c C, d D, e E, f F, g G, h H, i I) (j J, k K, l L, m M, n N, o O, p P, q Q, r R, err error) {
 		defer func() {
-			z := recover()
-			switch z.(type) {
-			case error:
-				err = z.(error)
-				return
-			case nil:
-				return
-			default:
-				err = fmt.Errorf("%#v", z)
+			if z := recover(); z != nil {
+				err = Packer(z, 3)
 			}
 		}()
 		j, k, l, m, n, o, p, q, r = fn(a, b, c, d, e, f, g, h, i)

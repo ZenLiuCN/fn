@@ -10,7 +10,7 @@ func Panics01[A any](fn func() (A, error)) func() {
 		var err error
 		_, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -22,7 +22,7 @@ func Panics02[A, B any](fn func() (A, B, error)) func() {
 		var err error
 		_, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -34,7 +34,7 @@ func Panics03[A, B, C any](fn func() (A, B, C, error)) func() {
 		var err error
 		_, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -46,7 +46,7 @@ func Panics04[A, B, C, D any](fn func() (A, B, C, D, error)) func() {
 		var err error
 		_, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -58,7 +58,7 @@ func Panics05[A, B, C, D, E any](fn func() (A, B, C, D, E, error)) func() {
 		var err error
 		_, _, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -70,7 +70,7 @@ func Panics06[A, B, C, D, E, F any](fn func() (A, B, C, D, E, F, error)) func() 
 		var err error
 		_, _, _, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -82,7 +82,7 @@ func Panics07[A, B, C, D, E, F, G any](fn func() (A, B, C, D, E, F, G, error)) f
 		var err error
 		_, _, _, _, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -94,7 +94,7 @@ func Panics08[A, B, C, D, E, F, G, H any](fn func() (A, B, C, D, E, F, G, H, err
 		var err error
 		_, _, _, _, _, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -106,7 +106,7 @@ func Panics09[A, B, C, D, E, F, G, H, I any](fn func() (A, B, C, D, E, F, G, H, 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn()
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -118,7 +118,7 @@ func Panics10[A any](a A, fn func(A) error) func() {
 		var err error
 		err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -130,7 +130,7 @@ func Panics11[A, B any](a A, fn func(A) (B, error)) func() {
 		var err error
 		_, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -142,7 +142,7 @@ func Panics12[A, B, C any](a A, fn func(A) (B, C, error)) func() {
 		var err error
 		_, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -154,7 +154,7 @@ func Panics13[A, B, C, D any](a A, fn func(A) (B, C, D, error)) func() {
 		var err error
 		_, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -166,7 +166,7 @@ func Panics14[A, B, C, D, E any](a A, fn func(A) (B, C, D, E, error)) func() {
 		var err error
 		_, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -178,7 +178,7 @@ func Panics15[A, B, C, D, E, F any](a A, fn func(A) (B, C, D, E, F, error)) func
 		var err error
 		_, _, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -190,7 +190,7 @@ func Panics16[A, B, C, D, E, F, G any](a A, fn func(A) (B, C, D, E, F, G, error)
 		var err error
 		_, _, _, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -202,7 +202,7 @@ func Panics17[A, B, C, D, E, F, G, H any](a A, fn func(A) (B, C, D, E, F, G, H, 
 		var err error
 		_, _, _, _, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -214,7 +214,7 @@ func Panics18[A, B, C, D, E, F, G, H, I any](a A, fn func(A) (B, C, D, E, F, G, 
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -226,7 +226,7 @@ func Panics19[A, B, C, D, E, F, G, H, I, J any](a A, fn func(A) (B, C, D, E, F, 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -238,7 +238,7 @@ func Panics20[A, B any](a A, b B, fn func(A, B) error) func() {
 		var err error
 		err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -250,7 +250,7 @@ func Panics21[A, B, C any](a A, b B, fn func(A, B) (C, error)) func() {
 		var err error
 		_, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -262,7 +262,7 @@ func Panics22[A, B, C, D any](a A, b B, fn func(A, B) (C, D, error)) func() {
 		var err error
 		_, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -274,7 +274,7 @@ func Panics23[A, B, C, D, E any](a A, b B, fn func(A, B) (C, D, E, error)) func(
 		var err error
 		_, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -286,7 +286,7 @@ func Panics24[A, B, C, D, E, F any](a A, b B, fn func(A, B) (C, D, E, F, error))
 		var err error
 		_, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -298,7 +298,7 @@ func Panics25[A, B, C, D, E, F, G any](a A, b B, fn func(A, B) (C, D, E, F, G, e
 		var err error
 		_, _, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -310,7 +310,7 @@ func Panics26[A, B, C, D, E, F, G, H any](a A, b B, fn func(A, B) (C, D, E, F, G
 		var err error
 		_, _, _, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -322,7 +322,7 @@ func Panics27[A, B, C, D, E, F, G, H, I any](a A, b B, fn func(A, B) (C, D, E, F
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -334,7 +334,7 @@ func Panics28[A, B, C, D, E, F, G, H, I, J any](a A, b B, fn func(A, B) (C, D, E
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -346,7 +346,7 @@ func Panics29[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, fn func(A, B) (C, D
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -358,7 +358,7 @@ func Panics30[A, B, C any](a A, b B, c C, fn func(A, B, C) error) func() {
 		var err error
 		err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -370,7 +370,7 @@ func Panics31[A, B, C, D any](a A, b B, c C, fn func(A, B, C) (D, error)) func()
 		var err error
 		_, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -382,7 +382,7 @@ func Panics32[A, B, C, D, E any](a A, b B, c C, fn func(A, B, C) (D, E, error)) 
 		var err error
 		_, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -394,7 +394,7 @@ func Panics33[A, B, C, D, E, F any](a A, b B, c C, fn func(A, B, C) (D, E, F, er
 		var err error
 		_, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -406,7 +406,7 @@ func Panics34[A, B, C, D, E, F, G any](a A, b B, c C, fn func(A, B, C) (D, E, F,
 		var err error
 		_, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -418,7 +418,7 @@ func Panics35[A, B, C, D, E, F, G, H any](a A, b B, c C, fn func(A, B, C) (D, E,
 		var err error
 		_, _, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -430,7 +430,7 @@ func Panics36[A, B, C, D, E, F, G, H, I any](a A, b B, c C, fn func(A, B, C) (D,
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -442,7 +442,7 @@ func Panics37[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, fn func(A, B, C) 
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -454,7 +454,7 @@ func Panics38[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, fn func(A, B, 
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -466,7 +466,7 @@ func Panics39[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, fn func(A, 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -478,7 +478,7 @@ func Panics40[A, B, C, D any](a A, b B, c C, d D, fn func(A, B, C, D) error) fun
 		var err error
 		err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -490,7 +490,7 @@ func Panics41[A, B, C, D, E any](a A, b B, c C, d D, fn func(A, B, C, D) (E, err
 		var err error
 		_, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -502,7 +502,7 @@ func Panics42[A, B, C, D, E, F any](a A, b B, c C, d D, fn func(A, B, C, D) (E, 
 		var err error
 		_, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -514,7 +514,7 @@ func Panics43[A, B, C, D, E, F, G any](a A, b B, c C, d D, fn func(A, B, C, D) (
 		var err error
 		_, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -526,7 +526,7 @@ func Panics44[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, fn func(A, B, C, D
 		var err error
 		_, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -538,7 +538,7 @@ func Panics45[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, fn func(A, B, C
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -550,7 +550,7 @@ func Panics46[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, fn func(A, B
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -562,7 +562,7 @@ func Panics47[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, fn func(A
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -574,7 +574,7 @@ func Panics48[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, fn fun
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -586,7 +586,7 @@ func Panics49[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, fn 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -598,7 +598,7 @@ func Panics50[A, B, C, D, E any](a A, b B, c C, d D, e E, fn func(A, B, C, D, E)
 		var err error
 		err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -610,7 +610,7 @@ func Panics51[A, B, C, D, E, F any](a A, b B, c C, d D, e E, fn func(A, B, C, D,
 		var err error
 		_, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -622,7 +622,7 @@ func Panics52[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, fn func(A, B, C,
 		var err error
 		_, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -634,7 +634,7 @@ func Panics53[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, fn func(A, B,
 		var err error
 		_, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -646,7 +646,7 @@ func Panics54[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, fn func(A,
 		var err error
 		_, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -658,7 +658,7 @@ func Panics55[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, fn func
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -670,7 +670,7 @@ func Panics56[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, fn f
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -682,7 +682,7 @@ func Panics57[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -694,7 +694,7 @@ func Panics58[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -706,7 +706,7 @@ func Panics59[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d, e)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -718,7 +718,7 @@ func Panics60[A, B, C, D, E, F any](a A, b B, c C, d D, e E, f F, fn func(A, B, 
 		var err error
 		err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -730,7 +730,7 @@ func Panics61[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, fn func(A, 
 		var err error
 		_, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -742,7 +742,7 @@ func Panics62[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, fn func(
 		var err error
 		_, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -754,7 +754,7 @@ func Panics63[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, fn fu
 		var err error
 		_, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -766,7 +766,7 @@ func Panics64[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, fn
 		var err error
 		_, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -778,7 +778,7 @@ func Panics65[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F,
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -790,7 +790,7 @@ func Panics66[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -802,7 +802,7 @@ func Panics67[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -814,7 +814,7 @@ func Panics68[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, 
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -826,7 +826,7 @@ func Panics69[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d 
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -838,7 +838,7 @@ func Panics70[A, B, C, D, E, F, G any](a A, b B, c C, d D, e E, f F, g G, fn fun
 		var err error
 		err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -850,7 +850,7 @@ func Panics71[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, fn 
 		var err error
 		_, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -862,7 +862,7 @@ func Panics72[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, 
 		var err error
 		_, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -874,7 +874,7 @@ func Panics73[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g 
 		var err error
 		_, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -886,7 +886,7 @@ func Panics74[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F,
 		var err error
 		_, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -898,7 +898,7 @@ func Panics75[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -910,7 +910,7 @@ func Panics76[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -922,7 +922,7 @@ func Panics77[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, 
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -934,7 +934,7 @@ func Panics78[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d 
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -946,7 +946,7 @@ func Panics79[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C,
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -958,7 +958,7 @@ func Panics80[A, B, C, D, E, F, G, H any](a A, b B, c C, d D, e E, f F, g G, h H
 		var err error
 		err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -970,7 +970,7 @@ func Panics81[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, 
 		var err error
 		_, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -982,7 +982,7 @@ func Panics82[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g 
 		var err error
 		_, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -994,7 +994,7 @@ func Panics83[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F,
 		var err error
 		_, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1006,7 +1006,7 @@ func Panics84[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f
 		var err error
 		_, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1018,7 +1018,7 @@ func Panics85[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1030,7 +1030,7 @@ func Panics86[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, 
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1042,7 +1042,7 @@ func Panics87[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d 
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1054,7 +1054,7 @@ func Panics88[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C,
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1066,7 +1066,7 @@ func Panics89[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1078,7 +1078,7 @@ func Panics90[A, B, C, D, E, F, G, H, I any](a A, b B, c C, d D, e E, f F, g G, 
 		var err error
 		err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1090,7 +1090,7 @@ func Panics91[A, B, C, D, E, F, G, H, I, J any](a A, b B, c C, d D, e E, f F, g 
 		var err error
 		_, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1102,7 +1102,7 @@ func Panics92[A, B, C, D, E, F, G, H, I, J, K any](a A, b B, c C, d D, e E, f F,
 		var err error
 		_, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1114,7 +1114,7 @@ func Panics93[A, B, C, D, E, F, G, H, I, J, K, L any](a A, b B, c C, d D, e E, f
 		var err error
 		_, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1126,7 +1126,7 @@ func Panics94[A, B, C, D, E, F, G, H, I, J, K, L, M any](a A, b B, c C, d D, e E
 		var err error
 		_, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1138,7 +1138,7 @@ func Panics95[A, B, C, D, E, F, G, H, I, J, K, L, M, N any](a A, b B, c C, d D, 
 		var err error
 		_, _, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1150,7 +1150,7 @@ func Panics96[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O any](a A, b B, c C, d 
 		var err error
 		_, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1162,7 +1162,7 @@ func Panics97[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P any](a A, b B, c C,
 		var err error
 		_, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1174,7 +1174,7 @@ func Panics98[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q any](a A, b B, c
 		var err error
 		_, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
@@ -1186,7 +1186,7 @@ func Panics99[A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R any](a A, b B
 		var err error
 		_, _, _, _, _, _, _, _, _, err = fn(a, b, c, d, e, f, g, h, i)
 		if err != nil {
-			panic(err)
+			panic(Packer(err, 3))
 		}
 		return
 	}
