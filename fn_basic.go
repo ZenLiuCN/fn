@@ -18,17 +18,17 @@ func (p PackedError) Error() string {
 }
 
 //NewCallFileError impl ErrorPacker with caller file line
-func NewCallFileError(origin any, caller int) error {
+func NewCallFileError(origin any, caller uint) error {
 	return &PackedError{Origin: origin, Caller: CallerFileN(caller)}
 }
 
 //NewCallFuncError impl ErrorPacker with caller func and file line
-func NewCallFuncError(origin any, caller int) error {
+func NewCallFuncError(origin any, caller uint) error {
 	return &PackedError{Origin: origin, Caller: CallerN(caller)}
 }
 
 //ErrorPacker func to pack error with origin caller location
-type ErrorPacker func(any, int) error
+type ErrorPacker func(any, uint) error
 
 var (
 	Packer ErrorPacker = NewCallFileError
