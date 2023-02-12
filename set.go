@@ -1,6 +1,7 @@
 package fn
 
 //Set interface
+// FIXME: current golang (include 1.20) not treat interface as comparable
 type Set[K comparable] interface {
 	Clear()                      //Clear remove all values
 	Values() []K                 //Values as a slice
@@ -15,6 +16,7 @@ type Set[K comparable] interface {
 }
 
 //HashSet Set impl with map[K]struct{}
+// FIXME: current golang (include 1.20) not treat interface as comparable
 type HashSet[K comparable] map[K]struct{}
 
 func NewHashSet[K comparable]() HashSet[K] {

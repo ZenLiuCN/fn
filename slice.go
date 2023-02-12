@@ -3,6 +3,7 @@ package fn
 // ListEx just an Object like slice, with mapping support
 //
 //There is no fluent methods,should hold the return value as new instance.
+//FIXME: golang(2023-02-12) not treat interfaces as comparable
 type ListEx[K key, T, V any] List[T]
 
 //ToMap see SliceToMap
@@ -378,6 +379,7 @@ func SliceFoldChunk[A, B any](s []A, n int, init B, act func(B, []A) B) B {
 }
 
 //SliceDistinct remove duplication
+//FIXME: golang(2023-02-12) not treat interfaces as comparable so compare interface==nil is impossible
 func SliceDistinct[A key](s []A) (r []A) {
 	switch {
 	case s == nil:
@@ -394,7 +396,8 @@ func SliceDistinct[A key](s []A) (r []A) {
 	}
 }
 
-//SliceDistinctBy remove duplication with an equality function
+//SliceDistinctBy remove duplication with an equality function;
+//FIXME: golang(2023-02-12) not treat interfaces as comparable so compare interface==nil is impossible
 func SliceDistinctBy[A any](s []A, eq func(A, A) bool) (r []A) {
 	switch {
 	case s == nil:
