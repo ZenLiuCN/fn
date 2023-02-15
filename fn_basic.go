@@ -17,6 +17,11 @@ func (p PackedError) Error() string {
 	}
 }
 
+//NewCallShortFileError impl ErrorPacker with caller file line
+func NewCallShortFileError(origin any, caller uint) error {
+	return &PackedError{Origin: origin, Caller: CallerShortFileN(caller)}
+}
+
 //NewCallFileError impl ErrorPacker with caller file line
 func NewCallFileError(origin any, caller uint) error {
 	return &PackedError{Origin: origin, Caller: CallerFileN(caller)}
@@ -29,10 +34,6 @@ func NewCallFuncError(origin any, caller uint) error {
 
 //ErrorPacker func to pack error with origin caller location
 type ErrorPacker func(any, uint) error
-
-var (
-	Packer ErrorPacker = NewCallFileError
-)
 
 // Recover a runnable
 func Recover(fn func()) (err error) {

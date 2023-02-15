@@ -6,27 +6,35 @@ function utilities for go 1.18+
 
 ## abilities
 
-Panic: check if returns error then panic,otherwise return values.
+`Panic`: check if returns error then panic,otherwise return values.
 
-Panics##: same a Panics but with closure ability and returns a Runnable drop all results.
+`Panics##`: same a Panics but with closure ability and returns a Runnable drop all results.
 
-Recovers: wrap functions with recovery.
+`Recovers`: wrap functions with recovery.
 
-SliceXXX: slice operates.
+`SliceXXX`: slice operates.
 
-List: object style slice.
+`List`: object style slice.
 
-MapXXX: map operates.
+`ListEx`: object style slice with extra mapping method support.
 
-Map : object style map.
+`MapXXX`: map operates.
 
-Drop###: drop the first N result.
+`Map`: object style map.
 
-DropLast###: drop the last N result.
+`MapEx`: object style map with extra mapping method support.
 
-Clos###: closure with first N argument.
+`Drop###`: drop the first N result.
 
-ClosLast##: closure with last N argument.
+`DropLast###`: drop the last N result.
+
+`Clos###`: closure with first N argument.
+
+`ClosLast##`: closure with last N argument.
+
+`Error` & `Error`: create error with file info 
+(control by build tag `NormalErr` `FullErr`), 
+`Panic` & `Panics` & `Recover` also respect those tags unless manual change exposed `Packer` variable **new in 0.1.10**
 
 ## note
 

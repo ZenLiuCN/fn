@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"path/filepath"
 	"runtime"
 )
 
@@ -46,6 +47,24 @@ func CallerFile() string {
 	_, file, lineno, ok := runtime.Caller(1)
 	if ok {
 		return fmt.Sprintf("%s:%d", file, lineno)
+	}
+	return "unknown:unknown"
+}
+
+// CallerShortFileN return call stack of file:line, skip n+1
+func CallerShortFileN(n uint) string {
+	_, file, lineno, ok := runtime.Caller(int(n) + 1)
+	if ok {
+		return fmt.Sprintf("%s:%d", filepath.Base(file), lineno)
+	}
+	return "unknown:unknown"
+}
+
+// CallerShortFile return call stack of file:line  ,skip 1
+func CallerShortFile() string {
+	_, file, lineno, ok := runtime.Caller(1)
+	if ok {
+		return fmt.Sprintf("%s:%d", filepath.Base(file), lineno)
 	}
 	return "unknown:unknown"
 }
