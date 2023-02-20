@@ -196,6 +196,16 @@ func (s List[T]) DistinctBy(fn func(T, T) bool) List[T] {
 	return SliceDistinctBy(s, fn)
 }
 
+// PrependSitu see SlicePrepend
+func (s *List[T]) PrependSitu(val []T) {
+	*s = SlicePrepend(*s, val...)
+}
+
+// InsertBeforeSitu see SliceInsertBefore
+func (s *List[T]) InsertBeforeSitu(idx int, val []T) {
+	*s = SliceInsertBefore(*s, idx, val...)
+}
+
 //SliceReverse reverse the order (new slice)
 func SliceReverse[T any](s []T) (r []T) {
 	n := len(s)
@@ -414,4 +424,64 @@ func SliceDistinctBy[A any](s []A, eq func(A, A) bool) (r []A) {
 		}
 		return
 	}
+}
+
+// SliceInsertBefore
+//
+//	+ idx==zero => SlicePrepend,
+//	+ idx < 0 && |idx| < len(s) =>  SliceInsertBefore(s,len(s)+idx,vals...)
+//	+ |idx| == len(s) =>  [s...,vals...]
+//	+ idx < 0 && |idx| > len(s) =>  vals
+//	+ idx > 0 && |idx| > len(s) =>  s
+//	+ idx > 0 && |idx| < len(s) =>  [...,vals...,idx...]
+//
+//this is a simple implement without any performance improve yet.
+func SliceInsertBefore[A any](s []A, idx int, val ...A) (r []A) {
+do:
+	if idx == 0 {
+		return append(val, s...)
+	} else if idx == len(s) {
+		return append(s, val...)
+	} else if idx > 0 && idx < len(s) {
+		n := make([]A, len(s)+len(val))
+		copy(n, s[:idx])
+		copy(n[idx:], val)
+		copy(n[idx+len(val):], s[idx:])
+		return n
+	} else if idx < 0 && -idx < len(s) {
+		idx = len(s) + idx
+		goto do
+	} else if idx < 0 {
+		return val
+	} else {
+		return s
+	}
+}
+
+// SliceInsertBeforeSitu same as SliceInsertBefore but keep result in s
+func SliceInsertBeforeSitu[A any](s *[]A, idx int, val ...A) {
+do:
+	if idx == 0 {
+		*s = append(val, *s...)
+	} else if idx == len(*s) {
+		*s = append(*s, val...)
+	} else if idx > 0 && idx < len(*s) {
+		n := make([]A, len(*s)+len(val))
+		copy(n, (*s)[:idx])
+		copy(n[idx:], val)
+		copy(n[idx+len(val):], (*s)[idx:])
+		*s = n
+	} else if idx < 0 && -idx < len(*s) {
+		idx = len(*s) + idx
+		goto do
+	} else if idx < 0 {
+		*s = val
+	} else {
+
+	}
+}
+
+// SlicePrepend simply prepend
+func SlicePrepend[A any](s []A, val ...A) (r []A) {
+	return append(val, s...)
 }
