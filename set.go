@@ -33,17 +33,24 @@ func max(n0, n1 int) int {
 	return n1
 }
 
+// Exists a value in set
 func (m HashSet[K]) Exists(k K) bool {
 	return m[k] != Nothing
 }
+
+// Clear all values
 func (m HashSet[K]) Clear() {
 	for k := range m {
 		delete(m, k)
 	}
 }
+
+// Values as slice
 func (m HashSet[K]) Values() []K {
 	return MapKeys(m)
 }
+
+// Each action on each value
 func (m HashSet[K]) Each(fn func(K) bool) {
 	for k := range m {
 		if fn(k) {
@@ -51,6 +58,8 @@ func (m HashSet[K]) Each(fn func(K) bool) {
 		}
 	}
 }
+
+// EachIndex action on each index and value
 func (m HashSet[K]) EachIndex(fn func(int, K) bool) {
 	i := 0
 	for k := range m {
@@ -60,6 +69,8 @@ func (m HashSet[K]) EachIndex(fn func(int, K) bool) {
 		i++
 	}
 }
+
+// Add a value when it not exists
 func (m HashSet[K]) Add(k K) bool {
 	if m.Exists(k) {
 		return false
@@ -67,6 +78,8 @@ func (m HashSet[K]) Add(k K) bool {
 	m[k] = Nothing
 	return true
 }
+
+// Remove a value
 func (m HashSet[K]) Remove(k K) bool {
 	if m.Exists(k) {
 		delete(m, k)
@@ -74,14 +87,20 @@ func (m HashSet[K]) Remove(k K) bool {
 	}
 	return false
 }
+
+// Put a value, override old one if present
 func (m HashSet[K]) Put(k K) {
 	m[k] = Nothing
 }
+
+// Delete one value
 func (m HashSet[K]) Delete(k K) {
 	if m.Exists(k) {
 		delete(m, k)
 	}
 }
+
+// Len of set
 func (m HashSet[K]) Len() int {
 	return len(m)
 }

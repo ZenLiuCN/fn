@@ -1,5 +1,10 @@
 package fn
 
+import (
+	"fmt"
+	"strings"
+)
+
 // ListEx just an Object like slice, with mapping support
 //
 //There is no fluent methods,should hold the return value as new instance.
@@ -204,6 +209,16 @@ func (s *List[T]) PrependSitu(val []T) {
 // InsertBeforeSitu see SliceInsertBefore
 func (s *List[T]) InsertBeforeSitu(idx int, val []T) {
 	*s = SliceInsertBefore(*s, idx, val...)
+}
+
+// JoinRune join slice with rune delimiter
+func (s *List[T]) JoinRune(sep rune, toString func(T) string) string {
+	return SliceJoinRune(*s, sep, toString)
+}
+
+// JoinString join slice with string delimiter
+func (s *List[T]) JoinString(sep string, toString func(T) string) string {
+	return SliceJoinString(*s, sep, toString)
 }
 
 //SliceReverse reverse the order (new slice)
@@ -484,4 +499,52 @@ do:
 // SlicePrepend simply prepend
 func SlicePrepend[A any](s []A, val ...A) (r []A) {
 	return append(val, s...)
+}
+
+// SliceJoinRune join slice with rune delimiter
+func SliceJoinRune[A any](s []A, sep rune, toString func(A) string) string {
+	b := strings.Builder{}
+	for i, a := range s {
+		if i > 0 {
+			b.WriteRune(sep)
+		}
+		b.WriteString(toString(a))
+	}
+	return b.String()
+}
+
+// SliceJoinString join slice with string delimiter
+func SliceJoinString[A any](s []A, sep string, toString func(A) string) string {
+	b := strings.Builder{}
+	for i, a := range s {
+		if i > 0 {
+			b.WriteString(sep)
+		}
+		b.WriteString(toString(a))
+	}
+	return b.String()
+}
+
+// SliceJoinRuneStringer join slice of stringer with rune delimiter
+func SliceJoinRuneStringer[A fmt.Stringer](s []A, sep rune) string {
+	b := strings.Builder{}
+	for i, a := range s {
+		if i > 0 {
+			b.WriteRune(sep)
+		}
+		b.WriteString(a.String())
+	}
+	return b.String()
+}
+
+// SliceJoinStringStringer join slice of stringer with string delimiter
+func SliceJoinStringStringer[A fmt.Stringer](s []A, sep string) string {
+	b := strings.Builder{}
+	for i, a := range s {
+		if i > 0 {
+			b.WriteString(sep)
+		}
+		b.WriteString(a.String())
+	}
+	return b.String()
 }
