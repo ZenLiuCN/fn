@@ -18,3 +18,6 @@ func And[A any](fa func(A) bool, fb func(A) bool) func(A) bool {
 		return fa(a) && fb(a)
 	}
 }
+func Identity[T any](v T) T {
+	return v
+}
