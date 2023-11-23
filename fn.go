@@ -1,5 +1,7 @@
 package fn
 
+import "io"
+
 func Consume[V any](v V) {
 
 }
@@ -20,4 +22,16 @@ func And[A any](fa func(A) bool, fb func(A) bool) func(A) bool {
 }
 func Identity[T any](v T) T {
 	return v
+}
+func SafeClose(closer io.Closer) func() {
+	return func() {
+		if err := closer.Close(); err != nil {
+			panic(err)
+		}
+	}
+}
+func IgnoreClose(closer io.Closer) func() {
+	return func() {
+		_ = closer.Close()
+	}
 }
