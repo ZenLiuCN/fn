@@ -23,7 +23,7 @@ func WithSignal(fn func(ctx context.Context), signals ...os.Signal) context.Canc
 	return cc
 }
 
-// WithSignalAny use signal as context to run a function
+// WithSignalA use signal as context to run a function
 // @return context.CancelFunc to cancel execution
 // @return <-chan A to receive result
 // @return func() to close the result channel
