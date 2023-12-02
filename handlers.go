@@ -26,7 +26,7 @@ func (h spa) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if h[0] == "" {
 		h[0] = "."
 	}
-	path := filepath.Join(h[0], r.URL.Path)
+	path := filepath.ToSlash(filepath.Join(h[0], r.URL.Path))
 	fi, err := os.Stat(path)
 	if os.IsNotExist(err) || fi.IsDir() {
 		http.ServeFile(w, r, filepath.Join(h[0], h[1])) // when not found or is dir,redirect to index
@@ -58,7 +58,7 @@ type spaFs struct {
 }
 
 func (h *spaFs) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	path := filepath.Join(h.root, r.URL.Path)
+	path := filepath.ToSlash(filepath.Join(h.root, r.URL.Path))
 	fi, err := h.FS.Open(path)
 	if os.IsNotExist(err) || Panic1(fi.Stat()).IsDir() {
 		if h.index == nil {
