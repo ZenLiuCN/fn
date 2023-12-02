@@ -35,18 +35,20 @@ func (h spa) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 // FsSinglePageApp create a http.Handler to serve fs.FS SPA sources, eg: a zip filesystem
 // @param f: the fs.FS
+// @param root: the root folder in fs.FS, can be empty
 // @param index: the index file path in filesystem, panic when not exists
-func FsSinglePageApp(f fs.FS, index string) http.Handler {
-	return &spaFs{f, Panic1(f.Open(index))}
+func FsSinglePageApp(f fs.FS, root, index string) http.Handler {
+	return &spaFs{f, root, Panic1(f.Open(filepath.Join(root, index)))}
 }
 
 type spaFs struct {
 	fs.FS
+	root  string
 	index fs.File
 }
 
 func (h *spaFs) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	path := filepath.Join("/", r.URL.Path)
+	path := filepath.Join(h.root, r.URL.Path)
 	fi, err := h.FS.Open(path)
 	if os.IsNotExist(err) || Panic1(fi.Stat()).IsDir() {
 		if h.index == nil {
