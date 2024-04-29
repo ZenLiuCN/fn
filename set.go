@@ -1,6 +1,6 @@
 package fn
 
-//Set interface
+// Set interface
 // FIXME: current golang (include 1.20) not treat interface as comparable
 type Set[K comparable] interface {
 	Clear()                      //Clear remove all values
@@ -15,7 +15,7 @@ type Set[K comparable] interface {
 	Exists(K) bool               //Exists check exists
 }
 
-//HashSet Set impl with map[K]struct{}
+// HashSet Set impl with map[K]struct{}
 // FIXME: current golang (include 1.20) not treat interface as comparable
 type HashSet[K comparable] map[K]struct{}
 
@@ -34,8 +34,9 @@ func max(n0, n1 int) int {
 }
 
 // Exists a value in set
-func (m HashSet[K]) Exists(k K) bool {
-	return m[k] != Nothing
+func (m HashSet[K]) Exists(k K) (ok bool) {
+	_, ok = m[k]
+	return
 }
 
 // Clear all values
