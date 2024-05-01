@@ -73,7 +73,7 @@ func CallerShortFile() string {
 // CallerStackN dump  stack info of "function  file:line"
 func CallerStackN(n, s uint) string {
 	pc := make([]uintptr, s)
-	ok := runtime.Callers(1, pc)
+	ok := runtime.Callers(int(n)+1, pc)
 	if ok > 0 {
 		frames := runtime.CallersFrames(pc)
 		var frame runtime.Frame
@@ -91,7 +91,7 @@ func CallerStackN(n, s uint) string {
 // CallerShortStackN dump short stack "info of file:line"
 func CallerShortStackN(n, s uint) string {
 	pc := make([]uintptr, s)
-	ok := runtime.Callers(1, pc)
+	ok := runtime.Callers(int(n)+1, pc)
 	if ok > 0 {
 		frames := runtime.CallersFrames(pc)
 		var frame runtime.Frame
