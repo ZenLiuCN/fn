@@ -83,6 +83,7 @@ func CallerStackN(n, s uint) string {
 			frame, more = frames.Next()
 			b.WriteString(fmt.Sprintf("%s\t%s:%d\n", frame.Function, frame.File, frame.Line))
 		}
+		return b.String()
 	}
 	return "unknown:unknown"
 }
@@ -100,6 +101,7 @@ func CallerShortStackN(n, s uint) string {
 			frame, more = frames.Next()
 			b.WriteString(fmt.Sprintf("%s:%d\n", frame.File, frame.Line))
 		}
+		return b.String()
 	}
 	return "unknown:unknown"
 }
