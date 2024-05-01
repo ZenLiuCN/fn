@@ -129,7 +129,7 @@ func generate(path string, act func()) {
 	file := panic1(os.OpenFile(path, os.O_TRUNC|os.O_CREATE|os.O_RDONLY, os.ModePerm))
 	defer Panics(file.Close)
 	buf = bufio.NewWriter(file)
-	_ = panic1(buf.WriteString("//go:build !gen \n package fn \n//generated file should not edit\n\n"))
+	_ = panic1(buf.WriteString("//go:build !gen \n package fn \n//Generated file should not edit\n\n"))
 	act()
 	Panic(buf.Flush())
 }
