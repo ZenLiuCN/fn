@@ -558,3 +558,10 @@ func SliceJoinStringStringer[L ~[]A, A fmt.Stringer](s L, sep string) string {
 	}
 	return b.String()
 }
+
+func SliceOne[S ~[]T, T any](v T) S {
+	return S{v}
+}
+func SliceOneOf[T any](v T) []T {
+	return []T{v}
+}
