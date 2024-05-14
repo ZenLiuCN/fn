@@ -2,14 +2,23 @@
 package info
 
 func Empty[T any]() (v T) {
-	return v
+	return
+}
+func EmptyRefer[T any]() *T {
+	var x T
+	return &x
 }
 func Refer[T any](x T) (v *T) {
 	v = &x
 	return
 }
+
 func DeRefer[T any](x *T) (v T) {
 	return *x
+}
+func AssignRefer[T any](v T, x *T) *T {
+	*x = v
+	return x
 }
 func SliceOf[T any](x ...T) []T {
 	return x
