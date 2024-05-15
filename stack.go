@@ -33,7 +33,7 @@ func (s Stack[T]) Equals(x ...T) bool {
 		return false
 	}
 
-	return equals(s, x)
+	return SliceEquals(s, x)
 }
 func (s Stack[T]) EndWith(x ...T) bool {
 	if s.Empty() || len(x) > s.Len() {
@@ -41,14 +41,14 @@ func (s Stack[T]) EndWith(x ...T) bool {
 	}
 	nx := len(x)
 	ns := len(s)
-	return equals(s[ns-nx:ns], x)
+	return SliceEquals(s[ns-nx:ns], x)
 }
 func (s Stack[T]) StartWith(x ...T) bool {
 	if s.Empty() || len(x) > s.Len() {
 		return false
 	}
 	nx := len(x)
-	return equals(s[0:nx], x)
+	return SliceEquals(s[0:nx], x)
 }
 func (s Stack[T]) Continues(v T, skip int) (x int) {
 	if s.Empty() {
@@ -162,99 +162,19 @@ func (s *Stack[T]) PushSitu(v T) {
 func (s *Stack[T]) CleanSitu() {
 	*s = (*s)[0:0]
 }
-func equals[E comparable, S ~[]E](a, b S) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := range a {
-		if b[i] != a[i] {
-			return false
-		}
-	}
-	return true
-}
-func AnyMatch[T comparable, S ~[]T](s S, anyOne T, anyMore T, p ...T) int {
-	sn, pn := len(s), len(p)
-	if pn == 0 || (pn == 1 && p[0] == anyOne && sn > 0) || p[0] == anyMore { //!! ALL MATCH
-		return 0
-	} else if pn > sn { //!! never match
-		return -1
-	}
-	x, i, j, m, si := -1, 0, 0, 0, -1
-	for i < sn {
-		switch {
-		case j < pn && (p[j] == anyOne || s[i] == p[j]):
-			if x < 0 {
-				x = i
-			}
-			i++
-			j++
-		case j < pn && p[j] == anyMore:
-			si = j
-			m = i
-			j++
-		case si != -1:
-			j = si + 1
-			m++
-			i = m
-		default:
-			return -1
-		}
-	}
-	for _, t := range p[j:] {
-		if t != anyMore {
-			return x
-		}
-	}
-	if j == pn {
-		return x
-	}
-	return -1
-}
-func Match[T comparable, S ~[]T](s S, p ...T) int {
-	sn, pn := len(s), len(p)
-	if pn == 0 { //!! ALL MATCH
-		return 0
-	} else if pn > sn { //!! never match
-		return -1
-	} else if pn == sn && equals(s, p) {
-		return 0
-	}
-	var n []int
-	{
 
-		n = make([]int, pn)
-		n[0] = -1
-		i, j := 2, 0
-		for i < pn {
-			switch {
-			case p[i-1] == p[j]:
-				n[i] = j + 1
-				j++
-				i++
-			case j > 0:
-				j = n[j]
-			default:
-				i++
-			}
-		}
+// MatchesKMP match pattern v with KMP algorithm
+func (s Stack[T]) MatchesKMP(v ...T) (x int) {
+	if s.Empty() {
+		return
 	}
+	return MatchKMP(s, v...)
+}
 
-	i, j := 0, 0
-	for i < sn {
-		switch {
-		case p[i] == s[j+i]:
-			if i == pn-1 {
-				return j
-			}
-			i++
-		case n[i] > -1:
-			j += i
-			i = n[i]
-		default:
-			j++
-			i = 0
-		}
+// MatchesZ match pattern v with Z Algorithm,p is the separator that will not exist in v and Stack
+func (s Stack[T]) MatchesZ(p T, v ...T) (x int) {
+	if s.Empty() {
+		return
 	}
-	return -1
+	return MatchZ(s, p, v...)
 }

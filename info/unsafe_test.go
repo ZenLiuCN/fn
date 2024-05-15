@@ -3,6 +3,7 @@ package info
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
+	"unsafe"
 )
 
 type Some struct {
@@ -68,4 +69,16 @@ func BenchmarkWriter(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		writer(&v, i)
 	}
+}
+
+func TestOffsetOf(t *testing.T) {
+	type A struct {
+		Bool bool
+		int
+	}
+	var a A
+
+	println(unsafe.Offsetof(a.Bool))
+	println(unsafe.Offsetof(a.int))
+	println(SizeOf[A]())
 }

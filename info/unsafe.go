@@ -1,19 +1,47 @@
 package info
 
-import "unsafe"
-
-var (
-	PointerSize = int(SizeOf[unsafe.Pointer]())
-	IntSize     = int(SizeOf[int]())
+import (
+	"math/bits"
+	"unsafe"
 )
 
-func SizeOf[T any]() uint {
-	var t T
-	return uint(unsafe.Sizeof(t))
+var (
+	PointerSize = IntSize
+	IntSize     = BitSize / 8
+	BitSize     = bits.UintSize
+)
+
+type StringUnsafeHeader struct {
+	Data *[0x7fff0000]byte
+	Len  int
+}
+type SliceUnsafeHeader struct {
+	Data *[0x7fff0000]byte
+	Len  int
+	Cap  int
+}
+
+// StringData unsafe.StringData in older than go v1.20
+func StringData(v string) []byte {
+	n := len(v)
+	if n == 0 {
+		return nil
+	}
+	p := (*StringUnsafeHeader)(unsafe.Pointer(&v))
+	return p.Data[:n:n]
+}
+func ToString(v []byte) string {
+	n := len(v)
+	if n == 0 {
+		return ""
+	}
+	return *(*string)(unsafe.Pointer(&v))
 }
 
 /*
-Reader create read function at offset of struct with unsafe. **It's not safe!**
+Reader create read function at offset of struct with unsafe.
+
+# This should only use to assign to a global variable, It's not safe!
 
 examples:
 
@@ -34,10 +62,9 @@ examples:
 
 	reader := Reader[Some, int](0)
 */
-func Reader[T, F any](offset int) func(*T) F {
+func Reader[T, F any](offset int) (fn func(*T) F) {
 	return func(t *T) F {
-		p := unsafe.Pointer(t)
-		return *(*F)(unsafe.Pointer(uintptr(p) + uintptr(offset)))
+		return *(*F)(unsafe.Pointer(uintptr(unsafe.Pointer(t)) + uintptr(offset)))
 	}
 }
 func Writer[T, K any](offset int) func(*T, K) {
@@ -59,4 +86,9 @@ func MakeAccessor[T, F any](field Field) (a Accessor) {
 	a[0] = Reader[T, F](field.Offset)
 	a[1] = Writer[T, F](field.Offset)
 	return a
+}
+
+func SizeOf[T any]() uint {
+	var v T
+	return uint(unsafe.Sizeof(v))
 }
