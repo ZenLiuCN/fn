@@ -13,7 +13,7 @@ type ValueCreator[T any] func() T
 
 // ValuePurifier purify a Value's content
 type ValuePurifier[T any] func(T) T
-type SimplePool[T any] struct {
+type Pool[T any] struct {
 	p     sync.Pool
 	reset ValuePurifier[T]
 	limit LimitDetector[T]
@@ -28,20 +28,20 @@ reset: required function to reset the data of T
 
 limit: optional function that detect T is off limit, which will not put back to pool
 */
-func NewPool[T any](ctor ValueCreator[T], reset ValuePurifier[T], limit LimitDetector[T]) *SimplePool[T] {
-	return &SimplePool[T]{p: sync.Pool{New: func() any { return ctor() }}, reset: reset, limit: limit}
+func NewPool[T any](ctor ValueCreator[T], reset ValuePurifier[T], limit LimitDetector[T]) *Pool[T] {
+	return &Pool[T]{p: sync.Pool{New: func() any { return ctor() }}, reset: reset, limit: limit}
 }
 
-func (p *SimplePool[T]) Get() T {
+func (p *Pool[T]) Get() T {
 	return p.p.Get().(T)
 }
-func (p *SimplePool[T]) GetPooled() *Pooled[T] {
+func (p *Pool[T]) GetPooled() *Pooled[T] {
 	return &Pooled[T]{
 		v:    p.p.Get().(T),
 		pool: p,
 	}
 }
-func (p *SimplePool[T]) Put(t T) {
+func (p *Pool[T]) Put(t T) {
 	if p.limit != nil && p.limit(t) {
 		return
 	}
@@ -51,7 +51,7 @@ func (p *SimplePool[T]) Put(t T) {
 type Pooled[T any] struct {
 	v     T
 	freed bool
-	pool  *SimplePool[T]
+	pool  *Pool[T]
 }
 
 func (t *Pooled[T]) IsFreed() bool {
@@ -69,7 +69,7 @@ func (t *Pooled[T]) Free() {
 	var x T
 	t.v = x
 }
-func NewByteBufferPool() *SimplePool[*bytes.Buffer] {
+func NewByteBufferPool() *Pool[*bytes.Buffer] {
 	return NewPool(func() *bytes.Buffer {
 		return new(bytes.Buffer)
 	}, func(buffer *bytes.Buffer) *bytes.Buffer {
@@ -77,7 +77,7 @@ func NewByteBufferPool() *SimplePool[*bytes.Buffer] {
 		return buffer
 	}, nil)
 }
-func NewByteBufferPoolLimited(limit uint) *SimplePool[*bytes.Buffer] {
+func NewByteBufferPoolLimited(limit uint) *Pool[*bytes.Buffer] {
 	i := int(limit)
 	return NewPool(func() *bytes.Buffer {
 		return new(bytes.Buffer)
@@ -88,7 +88,7 @@ func NewByteBufferPoolLimited(limit uint) *SimplePool[*bytes.Buffer] {
 		return buf.Cap() >= i
 	})
 }
-func NewByteBufferPoolInitialized(size uint) *SimplePool[*bytes.Buffer] {
+func NewByteBufferPoolInitialized(size uint) *Pool[*bytes.Buffer] {
 	return NewPool(func() *bytes.Buffer {
 		return bytes.NewBuffer(make([]byte, 0, size))
 	}, func(buffer *bytes.Buffer) *bytes.Buffer {
@@ -96,7 +96,7 @@ func NewByteBufferPoolInitialized(size uint) *SimplePool[*bytes.Buffer] {
 		return buffer
 	}, nil)
 }
-func NewByteBufferPoolInitializedLimited(size uint, limit uint) *SimplePool[*bytes.Buffer] {
+func NewByteBufferPoolInitializedLimited(size uint, limit uint) *Pool[*bytes.Buffer] {
 	i := int(limit)
 	return NewPool(func() *bytes.Buffer {
 		return bytes.NewBuffer(make([]byte, 0, size))
@@ -106,4 +106,16 @@ func NewByteBufferPoolInitializedLimited(size uint, limit uint) *SimplePool[*byt
 	}, func(buf *bytes.Buffer) bool {
 		return buf.Cap() >= i
 	})
+}
+
+type TinyPool[T any] sync.Pool
+
+func NewTinyPool[T any](newFunc func() T) *TinyPool[T] {
+	return &TinyPool[T]{New: func() any { return newFunc() }}
+}
+func (t *TinyPool[T]) Put(v T) {
+	((*sync.Pool)(t)).Put(v)
+}
+func (t *TinyPool[T]) Get() (v T) {
+	return ((*sync.Pool)(t)).Get().(T)
 }
