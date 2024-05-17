@@ -6,71 +6,73 @@ import (
 	"unsafe"
 )
 
-// SyncMap  full copy generic [sync.Map]
-type SyncMap[K comparable, V comparable] struct {
-	mu sync.Mutex
+type (
+	// SyncMap  full copy generic [sync.Map]
+	SyncMap[K comparable, V any] struct {
+		mu sync.Mutex
 
-	// read contains the portion of the map's contents that are safe for
-	// concurrent access (with or without mu held).
-	//
-	// The read field itself is always safe to load, but must only be stored with
-	// mu held.
-	//
-	// Entries stored in read may be updated concurrently without mu, but updating
-	// a previously-expunged entry requires that the entry be copied to the dirty
-	// map and unexpunged with mu held.
-	read atomic.Pointer[readOnly[K, V]]
+		// read contains the portion of the map's contents that are safe for
+		// concurrent access (with or without mu held).
+		//
+		// The read field itself is always safe to load, but must only be stored with
+		// mu held.
+		//
+		// Entries stored in read may be updated concurrently without mu, but updating
+		// a previously-expunged entry requires that the entry be copied to the dirty
+		// map and unexpunged with mu held.
+		read atomic.Pointer[readOnly[K, V]]
 
-	// dirty contains the portion of the map's contents that require mu to be
-	// held. To ensure that the dirty map can be promoted to the read map quickly,
-	// it also includes all of the non-expunged entries in the read map.
-	//
-	// Expunged entries are not stored in the dirty map. An expunged entry in the
-	// clean map must be unexpunged and added to the dirty map before a new value
-	// can be stored to it.
-	//
-	// If the dirty map is nil, the next write to the map will initialize it by
-	// making a shallow copy of the clean map, omitting stale entries.
-	dirty map[K]*entry[V]
+		// dirty contains the portion of the map's contents that require mu to be
+		// held. To ensure that the dirty map can be promoted to the read map quickly,
+		// it also includes all of the non-expunged entries in the read map.
+		//
+		// Expunged entries are not stored in the dirty map. An expunged entry in the
+		// clean map must be unexpunged and added to the dirty map before a new value
+		// can be stored to it.
+		//
+		// If the dirty map is nil, the next write to the map will initialize it by
+		// making a shallow copy of the clean map, omitting stale entries.
+		dirty map[K]*entry[V]
 
-	// misses counts the number of loads since the read map was last updated that
-	// needed to lock mu to determine whether the key was present.
-	//
-	// Once enough misses have occurred to cover the cost of copying the dirty
-	// map, the dirty map will be promoted to the read map (in the unamended
-	// state) and the next store to the map will make a new dirty copy.
-	misses int
-}
-type readOnly[K comparable, V comparable] struct {
-	m       map[K]*entry[V]
-	amended bool // true if the dirty map contains some key not in m.
-}
-type entry[V comparable] struct {
-	// p points to the interface{} value stored for the entry.
-	//
-	// If p == nil, the entry has been deleted, and either m.dirty == nil or
-	// m.dirty[key] is e.
-	//
-	// If p == expunged, the entry has been deleted, m.dirty != nil, and the entry
-	// is missing from m.dirty.
-	//
-	// Otherwise, the entry is valid and recorded in m.read.m[key] and, if m.dirty
-	// != nil, in m.dirty[key].
-	//
-	// An entry can be deleted by atomic replacement with nil: when m.dirty is
-	// next created, it will atomically replace nil with expunged and leave
-	// m.dirty[key] unset.
-	//
-	// An entry's associated value can be updated by atomic replacement, provided
-	// p != expunged. If p == expunged, an entry's associated value can be updated
-	// only after first setting m.dirty[key] = e so that lookups using the dirty
-	// map find the entry.
-	p unsafe.Pointer
-}
+		// misses counts the number of loads since the read map was last updated that
+		// needed to lock mu to determine whether the key was present.
+		//
+		// Once enough misses have occurred to cover the cost of copying the dirty
+		// map, the dirty map will be promoted to the read map (in the unamended
+		// state) and the next store to the map will make a new dirty copy.
+		misses int
+	}
+	readOnly[K comparable, V any] struct {
+		m       map[K]*entry[V]
+		amended bool // true if the dirty map contains some key not in m.
+	}
+	entry[V any] struct {
+		// p points to the interface{} value stored for the entry.
+		//
+		// If p == nil, the entry has been deleted, and either m.dirty == nil or
+		// m.dirty[key] is e.
+		//
+		// If p == expunged, the entry has been deleted, m.dirty != nil, and the entry
+		// is missing from m.dirty.
+		//
+		// Otherwise, the entry is valid and recorded in m.read.m[key] and, if m.dirty
+		// != nil, in m.dirty[key].
+		//
+		// An entry can be deleted by atomic replacement with nil: when m.dirty is
+		// next created, it will atomically replace nil with expunged and leave
+		// m.dirty[key] unset.
+		//
+		// An entry's associated value can be updated by atomic replacement, provided
+		// p != expunged. If p == expunged, an entry's associated value can be updated
+		// only after first setting m.dirty[key] = e so that lookups using the dirty
+		// map find the entry.
+		p unsafe.Pointer
+	}
+)
 
 var expunged = unsafe.Pointer(new(any))
 
-func newEntry[V comparable](i V) *entry[V] {
+func newEntry[V any](i V) *entry[V] {
 	e := &entry[V]{}
 	atomic.StorePointer(&e.p, unsafe.Pointer(&i))
 	return e
@@ -133,7 +135,7 @@ func (m *SyncMap[K, V]) Store(key K, value V) {
 // the entry unchanged.
 func (e *entry[V]) tryCompareAndSwap(old, new V) bool {
 	p := atomic.LoadPointer(&e.p)
-	if p == nil || p == expunged || *(*V)(p) != old {
+	if p == nil || p == expunged || any(*(*V)(p)) != any(old) {
 		return false
 	}
 
@@ -146,7 +148,7 @@ func (e *entry[V]) tryCompareAndSwap(old, new V) bool {
 			return true
 		}
 		p = atomic.LoadPointer(&e.p)
-		if p == nil || p == expunged || *(*V)(p) != old {
+		if p == nil || p == expunged || any(*(*V)(p)) != any(old) {
 			return false
 		}
 	}
@@ -332,7 +334,7 @@ func (m *SyncMap[K, V]) Swap(key K, value V) (previous V, loaded bool) {
 			m.dirtyLocked()
 			m.read.Store(&readOnly[K, V]{m: read.m, amended: true})
 		}
-		m.dirty[key] = newEntry(value)
+		m.dirty[key] = newEntry[V](value)
 	}
 	m.mu.Unlock()
 	return previous, loaded
@@ -395,7 +397,7 @@ func (m *SyncMap[K, V]) CompareAndDelete(key K, old V) (deleted bool) {
 	}
 	for ok {
 		p := atomic.LoadPointer(&e.p)
-		if p == nil || p == expunged || *(*V)(p) != old {
+		if p == nil || p == expunged || any(*(*V)(p)) != any(old) {
 			return false
 		}
 		if atomic.CompareAndSwapPointer(&e.p, p, nil) {

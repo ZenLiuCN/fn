@@ -67,3 +67,37 @@ func BenchmarkOriginSyncMapDelete(b *testing.B) {
 		v.Delete(i)
 	}
 }
+func TestSyncMapValidate(t *testing.T) {
+	m := SyncMap[int, int]{}
+	w := new(sync.WaitGroup)
+	w.Add(1)
+	go func() {
+		defer w.Done()
+		for i := 0; i < 500; i++ {
+			m.Store(i, i)
+			t.Logf("store %d", i)
+		}
+	}()
+	w.Add(1)
+	go func() {
+		defer w.Done()
+		for i := 500; i < 1000; i++ {
+			m.Store(i, i)
+			t.Logf("store %d", i)
+		}
+	}()
+	w.Wait()
+	w.Add(1)
+	go func() {
+		defer w.Done()
+		var i int
+		for i = 0; i < 1000; i++ {
+			if v, ok := m.Load(i); ok && v != i {
+				t.Errorf("%d not match at %d", v, i)
+				break
+			}
+		}
+		t.Logf("last read %d", i)
+	}()
+	w.Wait()
+}
