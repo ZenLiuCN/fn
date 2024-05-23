@@ -133,6 +133,9 @@ var (
 		"time/Time": func(v *ho.HoconValue, w Writer) {
 			fn.Panic1(w.Write(fn.Panic1(json.Marshal(fn.Panic1(time.Parse(time.RFC3339, v.GetString()))))))
 		},
+		"time/Duration": func(v *ho.HoconValue, w Writer) {
+			w.Int(v.GetTimeDuration(false).Milliseconds())
+		},
 	}
 	jsonMarshaler = reflect.TypeOf((*json.Marshaler)(nil)).Elem()
 )
@@ -160,9 +163,6 @@ func writeJson(w Writer, v *ho.HoconValue, t reflect.Type) (err error) {
 		reflect.Uint16,
 		reflect.Uint32,
 		reflect.Uint64:
-		if t.Kind() == reflect.Int64 {
-
-		}
 		w.Int(v.GetInt64())
 	case
 		reflect.Float32,
