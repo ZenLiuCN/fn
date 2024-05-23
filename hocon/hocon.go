@@ -49,19 +49,19 @@ func Unmarshal(c *configuration.Config, p any) (err error) {
 	return
 }
 
-type writer struct {
+type Writer struct {
 	*bytes.Buffer
 }
 
-func (w writer) Null() {
+func (w Writer) Null() {
 	fn.Panic1(w.WriteString("null"))
 }
 
-func (w writer) Quote(text string) {
+func (w Writer) Quote(text string) {
 	fn.Panic1(w.Write(fn.Panic1(json.Marshal(text))))
 }
 
-func (w writer) Bool(boolean bool) {
+func (w Writer) Bool(boolean bool) {
 	if boolean {
 		fn.Panic1(w.WriteString("true"))
 	} else {
@@ -69,31 +69,31 @@ func (w writer) Bool(boolean bool) {
 	}
 }
 
-func (w writer) Int(v int64) {
+func (w Writer) Int(v int64) {
 	fn.Panic1(fmt.Fprintf(w.Buffer, "%d", v))
 }
 
-func (w writer) Float(v float64) {
+func (w Writer) Float(v float64) {
 	fn.Panic1(fmt.Fprintf(w.Buffer, "%f", v))
 }
 
-func (w writer) ArrayBegin() {
+func (w Writer) ArrayBegin() {
 	fn.Panic(w.WriteByte('['))
 }
-func (w writer) ArrayEnd() {
+func (w Writer) ArrayEnd() {
 	fn.Panic(w.WriteByte(']'))
 }
-func (w writer) ObjectBegin() {
+func (w Writer) ObjectBegin() {
 	fn.Panic(w.WriteByte('{'))
 }
-func (w writer) ObjectEnd() {
+func (w Writer) ObjectEnd() {
 	fn.Panic(w.WriteByte('}'))
 }
-func (w writer) Comma() {
+func (w Writer) Comma() {
 	fn.Panic(w.WriteByte(','))
 }
 
-func (w writer) Colon() {
+func (w Writer) Colon() {
 	fn.Panic(w.WriteByte(':'))
 }
 func convertJson(c *configuration.Config, t reflect.Type) (buf *bytes.Buffer, err error) {
@@ -119,7 +119,7 @@ func convertJson(c *configuration.Config, t reflect.Type) (buf *bytes.Buffer, er
 	}
 	t = t.Elem()
 	buf = fn.GetBuffer()
-	w := writer{buf}
+	w := Writer{buf}
 	if c.IsEmpty() {
 		w.Null()
 		return
@@ -129,15 +129,20 @@ func convertJson(c *configuration.Config, t reflect.Type) (buf *bytes.Buffer, er
 }
 
 var (
-	cases = map[string]func(v *ho.HoconValue, w writer){
-		"time/Time": func(v *ho.HoconValue, w writer) {
+	SpecialCase = map[string]func(v *ho.HoconValue, w Writer){
+		"time/Time": func(v *ho.HoconValue, w Writer) {
 			fn.Panic1(w.Write(fn.Panic1(json.Marshal(fn.Panic1(time.Parse(time.RFC3339, v.GetString()))))))
 		},
 	}
 	jsonMarshaler = reflect.TypeOf((*json.Marshaler)(nil)).Elem()
 )
 
-func writeJson(w writer, v *ho.HoconValue, t reflect.Type) (err error) {
+func writeJson(w Writer, v *ho.HoconValue, t reflect.Type) (err error) {
+	id := t.PkgPath() + "/" + t.Name()
+	if fun, ok := SpecialCase[id]; ok {
+		fun(v, w)
+		return
+	}
 	switch t.Kind() {
 	case reflect.Pointer:
 		if v.IsEmpty() {
@@ -155,6 +160,9 @@ func writeJson(w writer, v *ho.HoconValue, t reflect.Type) (err error) {
 		reflect.Uint16,
 		reflect.Uint32,
 		reflect.Uint64:
+		if t.Kind() == reflect.Int64 {
+
+		}
 		w.Int(v.GetInt64())
 	case
 		reflect.Float32,
@@ -171,15 +179,6 @@ func writeJson(w writer, v *ho.HoconValue, t reflect.Type) (err error) {
 		if v.IsObject() {
 			return writeObject(w, v.GetObject(), t)
 		}
-		if t.Implements(jsonMarshaler) {
-			w.Quote(v.String())
-			return
-		}
-		id := t.PkgPath() + "/" + t.Name()
-		if fun, ok := cases[id]; ok {
-			fun(v, w)
-			return
-		}
 		panic(fmt.Errorf("unassignable type: %s %s ", id, t.Kind()))
 	case reflect.Chan, reflect.Func, reflect.UnsafePointer, reflect.Uintptr, reflect.Interface:
 		panic(fmt.Errorf("unassignable type: %s ", t.Kind()))
@@ -189,7 +188,7 @@ func writeJson(w writer, v *ho.HoconValue, t reflect.Type) (err error) {
 	return nil
 }
 
-func writeArray(w writer, v []*ho.HoconValue, t reflect.Type) (err error) {
+func writeArray(w Writer, v []*ho.HoconValue, t reflect.Type) (err error) {
 	w.ArrayBegin()
 	for i, value := range v {
 		if i > 0 {
@@ -203,7 +202,7 @@ func writeArray(w writer, v []*ho.HoconValue, t reflect.Type) (err error) {
 	w.ArrayEnd()
 	return
 }
-func writeObject(w writer, v *ho.HoconObject, t reflect.Type) (err error) {
+func writeObject(w Writer, v *ho.HoconObject, t reflect.Type) (err error) {
 	w.ObjectBegin()
 	n := 0
 
