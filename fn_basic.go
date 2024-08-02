@@ -1,38 +1,49 @@
 package fn
 
 // manual write functions
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-type PackedError struct {
-	Origin any
-	Caller string
+// NewCallShortFileError use [errors.Join] with caller func and file line (v0.1.34)
+func NewCallShortFileError(origin any, caller uint) error {
+	switch x := origin.(type) {
+	case nil:
+		return errors.New(CallerShortFileN(caller))
+	case error:
+		return errors.Join(x, errors.New(CallerShortFileN(caller)))
+	default:
+		return errors.Join(fmt.Errorf("%#+v", x), errors.New(CallerShortFileN(caller)))
+	}
+
 }
 
-func (p PackedError) Error() string {
-	switch err := p.Origin.(type) {
+// NewCallFileError use [errors.Join] with caller func and file line (v0.1.34)
+func NewCallFileError(origin any, caller uint) error {
+	switch x := origin.(type) {
+	case nil:
+		return errors.New(CallerFileN(caller))
 	case error:
-		return fmt.Sprintf("%s\t%s", p.Caller, err)
+		return errors.Join(x, errors.New(CallerFileN(caller)))
 	default:
-		return fmt.Sprintf("%s\t%#v", p.Caller, err)
+		return errors.Join(fmt.Errorf("%#+v", x), errors.New(CallerFileN(caller)))
 	}
 }
 
-//NewCallShortFileError impl ErrorPacker with caller file line
-func NewCallShortFileError(origin any, caller uint) error {
-	return &PackedError{Origin: origin, Caller: CallerShortFileN(caller)}
-}
-
-//NewCallFileError impl ErrorPacker with caller file line
-func NewCallFileError(origin any, caller uint) error {
-	return &PackedError{Origin: origin, Caller: CallerFileN(caller)}
-}
-
-//NewCallFuncError impl ErrorPacker with caller func and file line
+// NewCallFuncError use [errors.Join] with caller func and file line (v0.1.34)
 func NewCallFuncError(origin any, caller uint) error {
-	return &PackedError{Origin: origin, Caller: CallerN(caller)}
+	switch x := origin.(type) {
+	case nil:
+		return errors.New(CallerN(caller))
+	case error:
+		return errors.Join(x, errors.New(CallerN(caller)))
+	default:
+		return errors.Join(fmt.Errorf("%#+v", x), errors.New(CallerN(caller)))
+	}
 }
 
-//ErrorPacker func to pack error with origin caller location
+// ErrorPacker func to pack error with origin caller location
 type ErrorPacker func(any, uint) error
 
 // Recover a runnable
@@ -46,14 +57,14 @@ func Recover(fn func()) (err error) {
 	return
 }
 
-//Panic error
+// Panic error
 func Panic(err error) {
 	if err != nil {
 		panic(Packer(err, 2))
 	}
 }
 
-//Panics return a Runnable
+// Panics return a Runnable
 func Panics(fn func() error) func() {
 	return func() {
 		if err := fn(); err != nil {
